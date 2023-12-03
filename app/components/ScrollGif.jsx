@@ -13,6 +13,7 @@ const GifScroll = () => {
                 <img src={Gif}/>
                 <img src={Gif}/>
                 <img src={Gif}/>
+                <img src={Gif}/>
              </div>
             </motion.div>
 
