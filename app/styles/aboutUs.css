@@ -1,0 +1,45 @@
+.container-about{
+    background: #121214 !important;
+    height: 60vh;
+    display: flex;
+    position:relative;
+    margin-top: -2rem;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+    border-bottom: 5px solid #b2121e;
+}
+
+.title-about{
+    color: #FFF;
+    font-family: "Kanit-Bold"; 
+    font-size: 28px;
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: 3px;
+    
+
+
+}
+
+.buy-kick-content{
+    width: 60%;
+    margin: 0 auto;
+}
+
+.title-about span{
+    color: #b2121e;
+    margin-left: 2px;
+    margin-right: 2px;
+    
+}
+
+.text-about{
+    font-family: "Kanit-Light";
+    font-size: 14px;
+    color: #FFF;
+    text-align: center;
+    
+}

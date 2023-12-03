@@ -2,6 +2,8 @@ import {defer} from '@shopify/remix-oxygen';
 import {Await, useLoaderData, Link} from '@remix-run/react';
 import {Suspense} from 'react';
 import {Image, Money} from '@shopify/hydrogen';
+import HeaderSection from '~/src/Pages/HeaderSection';
+import ScrollGif from '~/components/ScrollGif';
 
 /**
  * @type {MetaFunction}
@@ -26,10 +28,16 @@ export default function Homepage() {
   /** @type {LoaderReturnData} */
   const data = useLoaderData();
   return (
+   <>
+   
     <div className="home">
-      <FeaturedCollection collection={data.featuredCollection} />
+    
       <RecommendedProducts products={data.recommendedProducts} />
+   
+      <FeaturedCollection collection={data.featuredCollection} />
+      
     </div>
+   </>
   );
 }
 
@@ -42,17 +50,20 @@ function FeaturedCollection({collection}) {
   if (!collection) return null;
   const image = collection?.image;
   return (
-    <Link
-      className="featured-collection"
-      to={`/collections/${collection.handle}`}
-    >
-      {image && (
-        <div className="featured-collection-image">
-          <Image data={image} sizes="100vw" />
-        </div>
-      )}
-      <h1>{collection.title}</h1>
-    </Link>
+    <div className='banner-content'>
+      <h2 className='title'>LANÇAMENTOS</h2>
+        <Link
+        className="featured-collection"
+        to={`/collections/${collection.handle}`}
+      >
+        {image && (
+          <div className="featured-collection-image">
+            <Image data={image} sizes="100vw" />
+          </div>
+        )}
+        <h1>{collection.title}</h1>
+      </Link>
+    </div>
   );
 }
 
@@ -64,7 +75,7 @@ function FeaturedCollection({collection}) {
 function RecommendedProducts({products}) {
   return (
     <div className="recommended-products">
-      <h2>Recommended Products</h2>
+      <h2>Our recommended Products</h2>
       <Suspense fallback={<div>Loading...</div>}>
         <Await resolve={products}>
           {({products}) => (
@@ -78,11 +89,11 @@ function RecommendedProducts({products}) {
                   <Image
                     data={product.images.nodes[0]}
                     aspectRatio="1/1"
-                    sizes="(min-width: 45em) 20vw, 50vw"
+                    className='img-prod'
                   />
-                  <h4>{product.title}</h4>
-                  <small>
-                    <Money data={product.priceRange.minVariantPrice} />
+                  <h4 className='title-product'>{product.title}</h4>
+                  <small className='price-product'>
+                    <Money  data={product.priceRange.minVariantPrice} />
                   </small>
                 </Link>
               ))}

@@ -1,0 +1,102 @@
+.hero-section{
+    width:100%;
+    height:100vh;
+    background-image:linear-gradient(rgba(12,12,14,1), rgba(20,20,24,0.9));
+    position:relative;
+    display:flex;
+    align-items:center;
+    flex-direction:row;
+    justify-content:center;
+    margin-bottom: 0;
+}
+
+
+.back-video{
+   width: 100%;
+ 
+   position: absolute;
+    right:0;
+    bottom:0;
+    z-index:-1;
+    object-fit:contain
+
+   
+}
+
+.bannerLogo{
+    width: 553px;
+    height: 553px;
+    object-fit: cover;
+    margin-top: -8rem;
+}
+
+.container-actions{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -8rem;
+   
+}
+.container-actions .input-search input{
+    background:none  !important;
+    border: 1px solid #FFF;
+    margin-top: 5px;
+    width: 250px;
+    padding: 10px;
+    border-radius: 7px;
+
+}
+.content{
+    text-align:center
+}
+.content .content-buttons{
+    flex-direction:row;
+    display:flex;
+    justify-content:space-between;
+    width:100%
+
+}
+.content h1{
+    font-size:160px;
+    color:#FFF;
+    font-weight:600;
+    -webkit-text-stroke: 2px #FFF;
+    color:transparent;
+    
+}
+
+
+.content .btn-content{
+    color:#FFF;
+    font-size:18px;
+    border: 2px solid #fff;
+    width:70%;
+    border-radius:15px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between
+   
+
+}
+
+
+.btn-shop-content{
+    background:none;
+    border: 1px solid #FFF;
+    margin-left: 10px;
+    margin-top: -3px;
+    padding: 3px;
+   
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 7px;
+
+   
+}
+
+.btn-shop-content img{
+    width: 45px;
+    height: 31px;
+    object-fit: contain;
+}

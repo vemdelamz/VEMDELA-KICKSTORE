@@ -1,0 +1,65 @@
+
+.service{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.cards-service-content{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    @media (min-width: 45em) {
+        display: flex;
+        
+        grid-gap: 1rem;
+        margin: -11rem auto;
+        flex-direction: row;
+        margin-bottom: 30px;
+      }
+
+}
+
+.card-service{
+    background-color: #121214;
+    border-top: 5px solid #FFF;
+    width: 254px;
+    height: 241px;
+    margin: 15px;
+}
+
+.card-service:hover{
+    border-top: 5px solid #b2121e;
+    transition: 3s;
+ 
+}
+
+.card-service img{
+    width: 97px;
+    height: 105px;
+    object-fit: cover;
+    margin: 0 auto;
+    display: flex;
+}
+
+.text-content{
+    margin: 0 auto;
+   
+}
+
+.titlle-service{
+    font-family: 'Kanit-Bold';
+    font-size: 22px;
+    color: #FFF;
+    text-align: center;
+}
+
+.desc-service{
+    text-align: center;
+    font-size: 16px;
+    color: #FFF;
+    font-family: 'Kanit-Light';
+    width: 90%;
+    margin: 0 auto;
+}

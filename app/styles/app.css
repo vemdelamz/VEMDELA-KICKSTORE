@@ -12,6 +12,25 @@ img {
   border-radius: 4px;
 }
 
+.recommended-products{}
+
+@font-face {
+  font-family: "Kanit-Bold";
+  src: url('../src/assets/Kanit/Kanit-Bold.ttf');
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "Kanit-Black";
+  src: url('../src/assets/Kanit/Kanit-Black.ttf');
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "Kanit-Light";
+  src: url('../src/assets/Kanit/Kanit-Light.ttf');
+  font-weight: normal;
+}
 /*
 * --------------------------------------------------
 * components/Aside
@@ -129,13 +148,21 @@ aside li {
 */
 .header {
   align-items: center;
-  background: #fff;
+  background: #202024;
   display: flex;
   height: var(--header-height);
   padding: 0 1rem;
   position: sticky;
   top: 0;
   z-index: 1;
+  
+}
+
+.header .logo{
+  width: 120px;
+  height: 50px;
+  object-fit: cover;
+
 }
 
 .header-menu-mobile-toggle {
@@ -150,18 +177,31 @@ aside li {
   grid-gap: 1rem;
 }
 
+
 .header-menu-desktop {
   display: none;
   grid-gap: 1rem;
   @media (min-width: 45em) {
     display: flex;
     grid-gap: 1rem;
-    margin-left: 3rem;
+    margin: 0 auto;
+
+
   }
 }
 
+
+
 .header-menu-item {
   cursor: pointer;
+  margin-left: 30px !important;
+  color: #FFF !important;
+  text-decoration: none;
+  font-size: 14px;
+  text-transform: capitalize !important;
+	font-weight: 600 !important;
+	transition: all 0.3s ease !important;
+	font-family: "Kanit-Light" !important;
 }
 
 .header-ctas {
@@ -169,6 +209,20 @@ aside li {
   display: flex;
   grid-gap: 1rem;
   margin-left: auto;
+}
+
+.icon-user{
+  width: 24px;
+  height: 24px;
+  object-fit: cover;
+}
+
+.cart-icon{
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  color: #FFF !important; 
+
 }
 
 /*
@@ -302,6 +356,19 @@ aside li {
 * routes/__index
 * --------------------------------------------------
 */
+
+.banner-content{
+  height: 367px;
+  width: 90%;
+  margin: 30px auto;
+}
+
+.title{
+  font-family: 'Kanit-Bold';
+  font-size: 22px;
+  text-align: center;
+  margin-bottom: 30px;
+}
 .featured-collection {
   display: block;
   margin-bottom: 2rem;
@@ -316,9 +383,15 @@ aside li {
 }
 
 .featured-collection img {
-  height: auto;
-  max-height: 100%;
-  object-fit: cover;
+  width: 100%;
+  height: 367px;
+  object-fit: contain;
+}
+
+.recommended-products{
+  margin: 60px;
+  padding: 60px;
+  border: 1px solid #121214;
 }
 
 .recommended-products-grid {
@@ -330,8 +403,20 @@ aside li {
   }
 }
 
-.recommended-product img {
-  height: auto;
+.recommended-product .img-prod {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+}
+
+.recommended-product .title-product{
+  font-family: 'Kanit-Bold';
+  font-size: 18px;
+}
+
+.recommended-product .price-product{
+  font-family: 'Kanit-Black';
+  font-size: 16px;
 }
 
 /*
@@ -470,4 +555,9 @@ aside li {
 
 .account-logout {
   display: inline-block;
+}
+
+
+.container-about{
+  background-color: #121214;
 }

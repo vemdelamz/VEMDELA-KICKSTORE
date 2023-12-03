@@ -1,7 +1,9 @@
 import {Await, NavLink} from '@remix-run/react';
 import {Suspense} from 'react';
 import {useRootLoaderData} from '~/root';
-
+import Logo from '../src/assets/logo/LOGO/PNG/resposive.png'
+import VemdelaUser from '../src/assets/icons/user.png'
+import CartIcon from '../src/assets/icons/cart.png'
 /**
  * @param {HeaderProps}
  */
@@ -10,12 +12,13 @@ export function Header({header, isLoggedIn, cart}) {
   return (
     <header className="header">
       <NavLink prefetch="intent" to="/" style={activeLinkStyle} end>
-        <strong>{shop.name}</strong>
+        <img className='logo' src={Logo} alt='Logo'/>
       </NavLink>
       <HeaderMenu
         menu={menu}
         viewport="desktop"
         primaryDomainUrl={header.shop.primaryDomain.url}
+
       />
       <HeaderCtas isLoggedIn={isLoggedIn} cart={cart} />
     </header>
@@ -89,9 +92,8 @@ function HeaderCtas({isLoggedIn, cart}) {
     <nav className="header-ctas" role="navigation">
       <HeaderMenuMobileToggle />
       <NavLink prefetch="intent" to="/account" style={activeLinkStyle}>
-        {isLoggedIn ? 'Account' : 'Sign in'}
+        {isLoggedIn ? <img src={VemdelaUser} alt={VemdelaUser } className='icon-user'  /> : <img className='icon-user' src={VemdelaUser } alt={VemdelaUser}/>}
       </NavLink>
-      <SearchToggle />
       <CartToggle cart={cart} />
     </nav>
   );
@@ -113,7 +115,7 @@ function SearchToggle() {
  * @param {{count: number}}
  */
 function CartBadge({count}) {
-  return <a href="#cart-aside">Cart {count}</a>;
+  return <a href="#cart-aside"><img  className="cart-icon" src={CartIcon}/> {count}</a>;
 }
 
 /**
