@@ -1,22 +1,14 @@
 import React from 'react';
-
-
-// import { Container } from './styles';
+import GifLine from '../src/assets/images/line.png'
 
 const GifScroll = () => {
   return (
     <section>
         <div className='line-scrool'>
             <div className='parallax'>
-                <motion.div className="scroller" style={{ x }}>
-             <div className='gifs'>
-                <img src={Gif}/>
-                <img src={Gif}/>
-                <img src={Gif}/>
-                <img src={Gif}/>
-             </div>
-            </motion.div>
-
+              <img src={GifLine} alt={GifLine} />
+              <img src={GifLine} alt={GifLine} />
+               <img src={GifLine} alt={GifLine} />
             </div>
         </div>
     </section>

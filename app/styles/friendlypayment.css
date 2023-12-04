@@ -1,0 +1,73 @@
+.payment-container-section{
+    background:#121214;
+    border-top: 4px solid #EF233C;
+    border-bottom:4px solid #EF233C;
+    height: 460px;
+}
+
+.details-payment-content{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between
+}
+
+.text-content{
+    
+   
+}
+
+.extra-title{
+    text-transform: uppercase;
+    font-family: "Kanit-Bold";
+    font-style: normal;
+    font-size:42px;
+    line-height: 132.48%;
+    color: #FFF;
+    padding-top: 60px ;
+    padding-left: 60px;
+
+    letter-spacing: 0.08em;
+
+}
+
+.extra-title span{
+    color: #d9040b;
+}
+.extra-selo{
+    margin-top: 20px;
+    align-items: center;
+    justify-content: flex-end;
+    display:flex;
+
+}
+.extra-selo img{
+    width: 420px;
+    position: absolute;
+    margin-top: -10rem;
+
+   
+}
+
+.text-desc-service{
+    color: #FFF;
+    font-size: 14px;
+    font-family: 'Kanit-Light';
+    width: 50%;
+    padding-left: 60px;
+}
+
+
+.soon-content{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: -40px;
+
+}
+
+.soon-title{
+    font-size: 16px;
+    font-family: 'Kanit-Bold';
+    color: #d9040b;
+}

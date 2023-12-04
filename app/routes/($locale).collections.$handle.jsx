@@ -72,7 +72,9 @@ export default function Collection() {
  */
 function ProductsGrid({products}) {
   return (
-    <div className="products-grid">
+    <div>
+        ola
+      <div className="products-grid">
       {products.map((product, index) => {
         return (
           <ProductItem
@@ -82,6 +84,8 @@ function ProductsGrid({products}) {
           />
         );
       })}
+    </div>
+  
     </div>
   );
 }

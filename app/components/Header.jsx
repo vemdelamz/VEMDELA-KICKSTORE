@@ -115,7 +115,7 @@ function SearchToggle() {
  * @param {{count: number}}
  */
 function CartBadge({count}) {
-  return <a href="#cart-aside"><img  className="cart-icon" src={CartIcon}/> {count}</a>;
+  return <a href="#cart-aside"><img className='cart-icon' src={CartIcon}/> {count}</a>;
 }
 
 /**

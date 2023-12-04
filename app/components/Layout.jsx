@@ -8,9 +8,7 @@ import {
   PredictiveSearchForm,
   PredictiveSearchResults,
 } from '~/components/Search';
-import HeaderSection from '~/src/Pages/HeaderSection';
-import AboutUs from '~/src/Pages/AboutUs';
-import ServiceContent from '~/src/Pages/Service';
+
 
 /**
  * @param {LayoutProps}
@@ -22,9 +20,6 @@ export function Layout({cart, children = null, footer, header, isLoggedIn}) {
       <SearchAside />
       <MobileMenuAside menu={header.menu} shop={header.shop} />
       <Header header={header} cart={cart} isLoggedIn={isLoggedIn} />
-      <HeaderSection/>
-      <AboutUs/>
-      <ServiceContent/>
       <main>{children}</main>
       <Suspense>
         <Await resolve={footer}>

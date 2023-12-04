@@ -18,6 +18,8 @@ import appStyles from './styles/app.css';
 import headerStyle from './styles/headersection.css'
 import aboutUsStyle from './styles/aboutUs.css'
 import serviceStyle from './styles/service.css'
+import friendlyStyle from './styles/friendlypayment.css'
+import swipperStyle from './styles/swipperStyle.css'
 
 
 import {Layout} from '~/components/Layout';
@@ -47,6 +49,8 @@ export function links() {
     {rel: 'stylesheet', href: headerStyle},
     {rel: 'stylesheet', href: aboutUsStyle},
     {rel: 'stylesheet', href: serviceStyle},
+    {rel: 'stylesheet', href: friendlyStyle},
+    
     {
       rel: 'preconnect',
       href: 'https://cdn.shopify.com',

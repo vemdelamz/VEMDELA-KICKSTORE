@@ -4,6 +4,12 @@ import {Suspense} from 'react';
 import {Image, Money} from '@shopify/hydrogen';
 import HeaderSection from '~/src/Pages/HeaderSection';
 import ScrollGif from '~/components/ScrollGif';
+import UILayout from '~/components/UI';
+import GifScroll from '~/components/ScrollGif';
+import FriendlyPayment from '~/src/Pages/FriendlyPayment ';
+import { SwipperPartner } from '~/components/Swipper';
+import BlogPosts from '~/components/Blog';
+import Newsletter from '~/components/Newslatter';
 
 /**
  * @type {MetaFunction}
@@ -29,14 +35,19 @@ export default function Homepage() {
   const data = useLoaderData();
   return (
    <>
+   <UILayout/>
    
     <div className="home">
     
       <RecommendedProducts products={data.recommendedProducts} />
-   
+      <GifScroll/>
       <FeaturedCollection collection={data.featuredCollection} />
-      
+      <FriendlyPayment/>
+      <SwipperPartner/>
+      <BlogPosts/>
+      <Newsletter/>
     </div>
+    
    </>
   );
 }
@@ -50,8 +61,10 @@ function FeaturedCollection({collection}) {
   if (!collection) return null;
   const image = collection?.image;
   return (
+    <>
+    <section>
+    <h2 className='title'>LANÇAMENTOS</h2>
     <div className='banner-content'>
-      <h2 className='title'>LANÇAMENTOS</h2>
         <Link
         className="featured-collection"
         to={`/collections/${collection.handle}`}
@@ -61,9 +74,10 @@ function FeaturedCollection({collection}) {
             <Image data={image} sizes="100vw" />
           </div>
         )}
-        <h1>{collection.title}</h1>
       </Link>
     </div>
+    </section>
+    </>
   );
 }
 

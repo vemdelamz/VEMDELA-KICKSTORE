@@ -10,6 +10,7 @@ import PubPromo from '../assets/mp.mp4'
 import LogoBanner from '../assets/logo/LOGO/PNG/Banner-logo.png'
 
 import ShopIcon from '../assets/icons/cart.png'
+import { Link } from '@remix-run/react';
 
 
 
@@ -51,9 +52,16 @@ const HeaderSection = () => {
                              <input type="search" placeholder="Procure seu sneaker aqui!"/>
                          </a>
                          <div className="shop-btn">
-                             <button  className="btn-shop-content">
+                             <Link
+                                to="/collections"
+                                onClick={() => {
+                                if (layout === 'aside') {
+                                    window.location.href = '/collections';
+                                }
+                                }}
+                                className="btn-shop-content">
                                  <img src={ShopIcon} alt="Loja"/> 
-                             </button>
+                             </Link>
                          </div>
                      </div>
                          

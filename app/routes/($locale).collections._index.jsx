@@ -44,9 +44,10 @@ export default function Collections() {
 /**
  * @param {{collections: CollectionFragment[]}}
  */
-function CollectionsGrid({collections}) {
+function CollectionsGrid({collections, children = null}) {
   return (
-    <div className="collections-grid">
+   <section>
+     <div className="filter">
       {collections.map((collection, index) => (
         <CollectionItem
           key={collection.id}
@@ -55,6 +56,10 @@ function CollectionsGrid({collections}) {
         />
       ))}
     </div>
+    <div>
+      
+    </div>
+   </section>
   );
 }
 
@@ -72,14 +77,6 @@ function CollectionItem({collection, index}) {
       to={`/collections/${collection.handle}`}
       prefetch="intent"
     >
-      {collection?.image && (
-        <Image
-          alt={collection.image.altText || collection.title}
-          aspectRatio="1/1"
-          data={collection.image}
-          loading={index < 3 ? 'eager' : undefined}
-        />
-      )}
       <h5>{collection.title}</h5>
     </Link>
   );
