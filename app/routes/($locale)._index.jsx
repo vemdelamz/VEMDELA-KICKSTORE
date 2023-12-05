@@ -42,7 +42,9 @@ export default function Homepage() {
       <RecommendedProducts products={data.recommendedProducts} />
       <GifScroll/>
       <FeaturedCollection collection={data.featuredCollection} />
+      <div className='sec-payment'>
       <FriendlyPayment/>
+      </div>
       <SwipperPartner/>
       <BlogPosts/>
       <Newsletter/>
@@ -71,7 +73,7 @@ function FeaturedCollection({collection}) {
       >
         {image && (
           <div className="featured-collection-image">
-            <Image data={image} sizes="100vw" />
+            <Image data={image} />
           </div>
         )}
       </Link>

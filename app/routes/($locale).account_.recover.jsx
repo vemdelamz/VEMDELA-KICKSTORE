@@ -1,6 +1,6 @@
 import {json, redirect} from '@shopify/remix-oxygen';
 import {Form, Link, useActionData} from '@remix-run/react';
-
+import '../styles/auth.css'
 /**
  * @param {LoaderFunctionArgs}
  */
@@ -53,25 +53,25 @@ export default function Recover() {
         {action?.resetRequested ? (
           <>
             <h1>Request Sent.</h1>
-            <p>
+            <p className='desc'>
               If that email address is in our system, you will receive an email
               with instructions about how to reset your password in a few
               minutes.
             </p>
             <br />
-            <Link to="/account/login">Return to Login</Link>
+            <Link className='login-text' to="/account/login">Return to Login</Link>
           </>
         ) : (
           <>
-            <h1>Forgot Password.</h1>
-            <p>
+            <h1 className='title'>Forgot Password.</h1>
+            <p className='desc'>
               Enter the email address associated with your account to receive a
               link to reset your password.
             </p>
             <br />
+            <div className='form'>
             <Form method="POST">
               <fieldset>
-                <label htmlFor="email">Email</label>
                 <input
                   aria-label="Email address"
                   autoComplete="email"
@@ -93,13 +93,13 @@ export default function Recover() {
               ) : (
                 <br />
               )}
-              <button type="submit">Request Reset Link</button>
-            </Form>
-            <div>
-              <br />
+              <button className='login-btn' type="submit">Request Reset Link</button>
+             <br></br>
               <p>
-                <Link to="/account/login">Login →</Link>
+                <Link className='login-text' to="/account/login">Login →</Link>
               </p>
+            </Form>
+          
             </div>
           </>
         )}

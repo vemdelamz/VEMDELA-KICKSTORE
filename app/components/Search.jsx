@@ -37,8 +37,10 @@ export function SearchForm({searchTerm}) {
   }, []);
 
   return (
-    <Form method="get">
-      <input
+    <div>
+      <Form method="get">
+     <div  className='search'>
+     <input
         defaultValue={searchTerm}
         name="q"
         placeholder="Search…"
@@ -47,7 +49,9 @@ export function SearchForm({searchTerm}) {
       />
       &nbsp;
       <button type="submit">Search</button>
+     </div>
     </Form>
+    </div>
   );
 }
 

@@ -1,6 +1,9 @@
 import {json, redirect} from '@shopify/remix-oxygen';
 import {Form, Link, useActionData} from '@remix-run/react';
+import Logo from '../src/assets/logo/LOGO/PNG/Banner-logo.png'
 
+import '../styles/auth.css'
+/**
 /**
  * @param {LoaderFunctionArgs}
  */
@@ -102,10 +105,11 @@ export default function Register() {
   const error = data?.error || null;
   return (
     <div className="login">
-      <h1>Register.</h1>
+      <div className='img-header'>
+        <img src={Logo} alt='VEM DE LA'/>
+      </div>
       <Form method="POST">
         <fieldset>
-          <label htmlFor="email">Email address</label>
           <input
             id="email"
             name="email"
@@ -117,7 +121,6 @@ export default function Register() {
             // eslint-disable-next-line jsx-a11y/no-autofocus
             autoFocus
           />
-          <label htmlFor="password">Password</label>
           <input
             id="password"
             name="password"
@@ -128,7 +131,6 @@ export default function Register() {
             minLength={8}
             required
           />
-          <label htmlFor="passwordConfirm">Re-enter password</label>
           <input
             id="passwordConfirm"
             name="passwordConfirm"
@@ -149,11 +151,11 @@ export default function Register() {
         ) : (
           <br />
         )}
-        <button type="submit">Register</button>
+        <button className='login-btn' type="submit">Register</button>
       </Form>
       <br />
       <p>
-        <Link to="/account/login">Login →</Link>
+        <Link to="/account/login" className='login-text'>Login →</Link>
       </p>
     </div>
   );

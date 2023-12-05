@@ -1,0 +1,82 @@
+.title-cart{
+    font-family: 'Kanit-Bold';
+    font-size: 16px;
+}
+
+.btn-checkout{
+    background-color: #121214;
+    color: #FFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 43px;
+    border-radius: 7px;
+    font-family: 'Kanit-Bold';
+
+}
+
+.cart-subtota{
+    font-family: 'Kanit-Light';
+    font-family: 14px;
+
+}
+
+.remove-btn{
+    background: none !important;
+    border: 1px solid #121214;
+    border-radius: 3px;
+    font-size: 12px;
+    font-family: 'Kanit-Light';
+
+}
+
+.qyt{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.decrease-btn{
+    background: none !important;
+    border: 1px solid #121214;
+    border-radius: 3px;
+
+}
+
+.increase-btn{
+    background: none !important;
+    border: 1px solid #121214;
+    border-radius: 3px;
+
+}
+
+
+.shipping-btn{
+    font-family: 'Kanit-Light';
+    font-family: 14px;
+
+
+}
+
+.discount-content{
+    display: flex;
+    flex-direction: column;
+}
+
+.remove-discount-btn{
+
+}
+
+
+
+.apply-btn{
+    height: 43px;
+    background: none !important;
+    border: 1px solid #121214;
+    margin-bottom: 30px;
+    border-radius: 7px;
+    font-family: 'Kanit-Bold';
+    font-family: 16px;
+    
+}

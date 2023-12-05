@@ -11,6 +11,8 @@ import {
 } from '@shopify/hydrogen';
 import {getVariantUrl} from '~/utils';
 
+import '../styles/product.css'
+
 /**
  * @type {MetaFunction<typeof loader>}
  */
@@ -126,14 +128,17 @@ function ProductImage({image}) {
     return <div className="product-image" />;
   }
   return (
-    <div className="product-image">
+    <div className='product-main-img'>
+      <div className="product-image">
       <Image
         alt={image.altText || 'Product Image'}
         aspectRatio="1/1"
         data={image}
         key={image.id}
-        sizes="(min-width: 45em) 50vw, 100vw"
+        className='img'
+      
       />
+    </div>
     </div>
   );
 }
@@ -148,8 +153,12 @@ function ProductImage({image}) {
 function ProductMain({selectedVariant, product, variants}) {
   const {title, descriptionHtml} = product;
   return (
-    <div className="product-main">
-      <h1>{title}</h1>
+    <section className='product-detail'>
+      <div className="product-main">
+      <h1 className='title-product'>{title}</h1>
+      <div className='desc' dangerouslySetInnerHTML={{__html: descriptionHtml}} />
+      <br />
+    </div>
       <ProductPrice selectedVariant={selectedVariant} />
       <br />
       <Suspense
@@ -176,13 +185,9 @@ function ProductMain({selectedVariant, product, variants}) {
       </Suspense>
       <br />
       <br />
-      <p>
-        <strong>Description</strong>
-      </p>
       <br />
-      <div dangerouslySetInnerHTML={{__html: descriptionHtml}} />
-      <br />
-    </div>
+      
+    </section>
   );
 }
 
@@ -196,12 +201,13 @@ function ProductPrice({selectedVariant}) {
     <div className="product-price">
       {selectedVariant?.compareAtPrice ? (
         <>
-          <p>Sale</p>
           <br />
           <div className="product-price-on-sale">
-            {selectedVariant ? <Money data={selectedVariant.price} /> : null}
+            {selectedVariant ? <p className='price-product'> < Money data={selectedVariant.price} /></p> : null}
             <s>
+              <p className='price-product'>
               <Money data={selectedVariant.compareAtPrice} />
+              </p>
             </s>
           </div>
         </>
@@ -222,6 +228,7 @@ function ProductPrice({selectedVariant}) {
 function ProductForm({product, selectedVariant, variants}) {
   return (
     <div className="product-form">
+      <div className='variante-content'>
       <VariantSelector
         handle={product.handle}
         options={product.options}
@@ -229,6 +236,7 @@ function ProductForm({product, selectedVariant, variants}) {
       >
         {({option}) => <ProductOptions key={option.name} option={option} />}
       </VariantSelector>
+      </div>
       <br />
       <AddToCartButton
         disabled={!selectedVariant || !selectedVariant.availableForSale}
@@ -258,7 +266,7 @@ function ProductForm({product, selectedVariant, variants}) {
 function ProductOptions({option}) {
   return (
     <div className="product-options" key={option.name}>
-      <h5>{option.name}</h5>
+      <h5 className='product-name'>{option.name}</h5>
       <div className="product-options-grid">
         {option.values.map(({value, isAvailable, isActive, to}) => {
           return (
@@ -307,6 +315,7 @@ function AddToCartButton({analytics, children, disabled, lines, onClick}) {
             type="submit"
             onClick={onClick}
             disabled={disabled ?? fetcher.state !== 'idle'}
+            className='btn-add'
           >
             {children}
           </button>

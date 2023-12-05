@@ -1,6 +1,7 @@
 import {json, redirect} from '@shopify/remix-oxygen';
 import {Form, Link, useActionData} from '@remix-run/react';
-
+import '../styles/auth.css'
+import Logo from '../src/assets/logo/LOGO/PNG/Banner-logo.png'
 /**
  * @type {MetaFunction}
  */
@@ -74,10 +75,12 @@ export default function Login() {
 
   return (
     <div className="login">
-      <h1>Sign in.</h1>
+      <div className='img-header'>
+        <img src={Logo} alt='VEM DE LA'/>
+      </div>
+      <div>
       <Form method="POST">
         <fieldset>
-          <label htmlFor="email">Email address</label>
           <input
             id="email"
             name="email"
@@ -89,7 +92,6 @@ export default function Login() {
             // eslint-disable-next-line jsx-a11y/no-autofocus
             autoFocus
           />
-          <label htmlFor="password">Password</label>
           <input
             id="password"
             name="password"
@@ -110,16 +112,18 @@ export default function Login() {
         ) : (
           <br />
         )}
-        <button type="submit">Sign in</button>
+        <button className='login-btn' type="submit">Entrar</button>
       </Form>
       <br />
       <div>
-        <p>
-          <Link to="/account/recover">Forgot password →</Link>
+        <p className='create-title'>
+          <Link className='sign-btn' to="/account/register">Ainda não tem uma conta? <span>CRIAR</span></Link>
         </p>
         <p>
-          <Link to="/account/register">Register →</Link>
+          <Link className='recove-btn' to="/account/recover">Forgot password →</Link>
         </p>
+      
+      </div>
       </div>
     </div>
   );

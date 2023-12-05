@@ -1,0 +1,119 @@
+.login{
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    
+}
+
+.img-header img{
+    width: 358px;
+    height: 358px;
+    object-fit: cover;
+}
+
+.login fieldset {
+    border: none !important;
+
+}
+
+.login input{
+    width: 324px;
+    height: 43px;
+    background: none !important;
+    border: 1px solid #121214;
+}
+
+.login-btn{
+    background-color: #D9040B;
+    width: 324px;
+    height: 43px;
+    border: none !important;
+    border-radius: 7px;
+    font-family: 'Kanit-Bold';
+    font-size: 16px;
+    color: #FFF;
+    margin-left: 15px;
+
+   
+
+
+}
+
+.login-text{
+    font-family: 'Kanit-Light';
+    color: #686868 !important;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+
+
+}
+.recove-btn{
+    font-family: 'Kanit-Light';
+    color: #686868 !important;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+}
+
+.sign-btn{
+
+}
+
+.create-title a{
+    font-family: 'Kanit-Light';
+    color: #686868 !important;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+}
+
+.create-title span{
+    color: #D9040B;
+    font-size: 14px;
+    margin-left: 5px;
+
+}
+
+.btn-register{
+
+}
+
+.login-btn{
+
+}
+
+.account-recover{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+fieldset{
+
+    border: none !important;
+  
+
+}
+
+.form{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+    margin: 0 auto;
+
+}
+
+.account-recover input{
+    width: 324px;
+    height: 43px;
+}
+

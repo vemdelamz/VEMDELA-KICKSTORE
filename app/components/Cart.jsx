@@ -1,7 +1,7 @@
 import {CartForm, Image, Money} from '@shopify/hydrogen';
 import {Link} from '@remix-run/react';
 import {useVariantUrl} from '~/utils';
-
+import '../styles/cart.css'
 /**
  * @param {CartMainProps}
  */
@@ -94,8 +94,8 @@ function CartLineItem({layout, line}) {
             }
           }}
         >
-          <p>
-            <strong>{product.title}</strong>
+          <p className='title-cart'>
+           {product.title}
           </p>
         </Link>
         <CartLinePrice line={line} as="span" />
@@ -123,7 +123,7 @@ function CartCheckoutActions({checkoutUrl}) {
   return (
     <div>
       <a href={checkoutUrl} target="_self">
-        <p>Continue to Checkout &rarr;</p>
+        <p className='btn-checkout'>Finalizar a compra &rarr;</p>
       </a>
       <br />
     </div>
@@ -143,12 +143,14 @@ export function CartSummary({cost, layout, children = null}) {
 
   return (
     <div aria-labelledby="cart-summary" className={className}>
-      <h4>Totals</h4>
+      <h4 className='title-cart'>Total</h4>
       <dl className="cart-subtotal">
         <dt>Subtotal</dt>
         <dd>
           {cost?.subtotalAmount?.amount ? (
-            <Money data={cost?.subtotalAmount} />
+            <p className='price-product'>
+              <Money data={cost?.subtotalAmount} />
+            </p>
           ) : (
             '-'
           )}
@@ -169,7 +171,7 @@ function CartLineRemoveButton({lineIds}) {
       action={CartForm.ACTIONS.LinesRemove}
       inputs={{lineIds}}
     >
-      <button type="submit">Remove</button>
+      <button className='remove-btn' type="submit">Remove</button>
     </CartForm>
   );
 }
@@ -185,13 +187,14 @@ function CartLineQuantity({line}) {
 
   return (
     <div className="cart-line-quantiy">
-      <small>Quantity: {quantity} &nbsp;&nbsp;</small>
+      <small className='qyt'>Quantity: {quantity} &nbsp;&nbsp;</small>
       <CartLineUpdateButton lines={[{id: lineId, quantity: prevQuantity}]}>
         <button
           aria-label="Decrease quantity"
           disabled={quantity <= 1}
           name="decrease-quantity"
           value={prevQuantity}
+          className='decrease-btn'
         >
           <span>&#8722; </span>
         </button>
@@ -202,6 +205,7 @@ function CartLineQuantity({line}) {
           aria-label="Increase quantity"
           name="increase-quantity"
           value={nextQuantity}
+          className='increase-btn'
         >
           <span>&#43;</span>
         </button>
@@ -233,7 +237,9 @@ function CartLinePrice({line, priceType = 'regular', ...passthroughProps}) {
 
   return (
     <div>
+      <p className='price-product'>
       <Money withoutTrailingZeros {...passthroughProps} data={moneyV2} />
+      </p>
     </div>
   );
 }
@@ -248,7 +254,7 @@ export function CartEmpty({hidden = false, layout = 'aside'}) {
   return (
     <div hidden={hidden}>
       <br />
-      <p>
+      <p className='desc'>
         Looks like you haven&rsquo;t added anything yet, let&rsquo;s get you
         started!
       </p>
@@ -260,6 +266,7 @@ export function CartEmpty({hidden = false, layout = 'aside'}) {
             window.location.href = '/collections';
           }
         }}
+        className='shipping-btn'
       >
         Continue shopping →
       </Link>
@@ -288,7 +295,7 @@ function CartDiscounts({discountCodes}) {
             <div className="cart-discount">
               <code>{codes?.join(', ')}</code>
               &nbsp;
-              <button>Remove</button>
+              <button className='remove-discount-btn'>Remove</button>
             </div>
           </UpdateDiscountForm>
         </div>
@@ -296,10 +303,10 @@ function CartDiscounts({discountCodes}) {
 
       {/* Show an input to apply a discount */}
       <UpdateDiscountForm discountCodes={codes}>
-        <div>
+        <div className='discount-content'>
           <input type="text" name="discountCode" placeholder="Discount code" />
           &nbsp;
-          <button type="submit">Apply</button>
+          <button className='apply-btn' type="submit">Apply</button>
         </div>
       </UpdateDiscountForm>
     </div>

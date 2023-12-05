@@ -1,0 +1,80 @@
+.product-detail{
+  margin-top: 60px;
+  
+
+    
+}
+.product-main-img{
+   margin-top: 60px;
+}
+
+.product-image{
+    width: 578px;
+    height: 578px;
+    object-fit: contain;
+    margin-left: 60px;
+
+}
+
+.img{
+    width: 578px;
+    height: 578px;
+    object-fit: cover;
+}
+
+.btn-add{
+    background-color: #202024;
+    color: #FFF;
+    font-family: 'Kanit-Bold';
+    font-size: 16px;
+    width: 331px;
+    height: 43px;
+    border-radius: 7px;
+    align-self: start;
+    position: sticky;
+    top: 6rem;
+    border: none !important;
+}
+
+.variante-content{
+    width: 342px;
+}
+
+
+.title-product{
+    font-family: 'Kanit-Bold';
+    font-size: 22px;
+}
+
+.desc-detail{
+    font-family: 'Kanit-Light';
+    font-size: 14px;
+
+
+}
+
+.desc{
+  font-family: 'Kanit-Light';
+  font-size: 14px;
+
+}
+
+.product-card{
+    width: 250px;
+    height: 374px;
+    text-decoration: none !important;
+    
+  }
+  
+  .price-product{
+    color: #121214;
+    font-family: 'Kanit-Bold';
+    display: flex;
+    text-align: end;  
+  }
+  .product-card .img-prod{
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+  }
+  

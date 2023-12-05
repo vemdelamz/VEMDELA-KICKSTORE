@@ -8,6 +8,8 @@ import {
 } from '@shopify/hydrogen';
 import {useVariantUrl} from '~/utils';
 
+import Allkicks from '../src/assets/images/all-kicks.png'
+
 /**
  * @type {MetaFunction<typeof loader>}
  */
@@ -47,7 +49,37 @@ export default function Collection() {
 
   return (
     <div className="collection">
-      <h1>{collection.title}</h1>
+       <div className='banner-content'>
+          <div className='white-part'>
+            
+          </div>
+            <section className='header-prducts'>
+              <div>
+                <div>
+             
+                    <div className='bannerImg-content'>
+                      <img src={Allkicks} alt=""/>  
+                    </div>
+                    <div className='input-group'>
+                      <div>
+                      <i class="ri-search-line"></i>
+                      </div>
+                     <a href="#search-aside">
+                     <input 
+                        type='seach'
+                        className='input-search'
+                        placeholder='Procure seu sneaker aqui'
+                      /> 
+                    
+                     </a>
+                    </div>
+                
+                </div>
+              </div>
+            </section>
+         
+          
+        </div>
       <p className="collection-description">{collection.description}</p>
       <Pagination connection={collection.products}>
         {({nodes, isLoading, PreviousLink, NextLink}) => (
@@ -72,19 +104,25 @@ export default function Collection() {
  */
 function ProductsGrid({products}) {
   return (
-    <div>
-        ola
-      <div className="products-grid">
-      {products.map((product, index) => {
-        return (
-          <ProductItem
-            key={product.id}
-            product={product}
-            loading={index < 8 ? 'eager' : undefined}
-          />
-        );
-      })}
-    </div>
+    <div className='product-all-content'>
+      <div className='left'>
+          Filtro
+
+      </div>
+
+      <div className='right'>
+        <div className="products-grid">
+        {products.map((product, index) => {
+          return (
+            <ProductItem
+              key={product.id}
+              product={product}
+              loading={index < 8 ? 'eager' : undefined}
+            />
+          );
+        })}
+      </div>
+      </div>
   
     </div>
   );
@@ -112,16 +150,35 @@ function ProductItem({product, loading}) {
           aspectRatio="1/1"
           data={product.featuredImage}
           loading={loading}
-          sizes="(min-width: 45em) 400px, 100vw"
+
         />
       )}
-      <h4>{product.title}</h4>
-      <small>
+      <h4 className='title-product'>{product.title}</h4>
+      <p className='desc-detail'>{product.description}</p>
+      <p className='price-product'>
         <Money data={product.priceRange.minVariantPrice} />
-      </small>
+      </p>
     </Link>
   );
 }
+function CollectionItem({collection, index}) {
+  return (
+    <Link
+      className="collection-item"
+      key={collection.id}
+      to={`/collections/${collection.handle}`}
+      prefetch="intent"
+    >
+      <h5>{collection.title}</h5>
+    </Link>
+  );
+}
+
+/**
+ * @param {{collections: CollectionFragment[]}}
+ */
+
+
 
 const PRODUCT_ITEM_FRAGMENT = `#graphql
   fragment MoneyProductItem on MoneyV2 {
@@ -132,6 +189,7 @@ const PRODUCT_ITEM_FRAGMENT = `#graphql
     id
     handle
     title
+    description
     featuredImage {
       id
       altText
@@ -153,6 +211,48 @@ const PRODUCT_ITEM_FRAGMENT = `#graphql
           name
           value
         }
+      }
+    }
+  }
+`;
+
+
+
+const COLLECTIONS_QUERY = `#graphql
+  fragment Collection on Collection {
+    id
+    title
+    handle
+    image {
+      id
+      url
+      altText
+      width
+      height
+    }
+  }
+  query StoreCollections(
+    $country: CountryCode
+    $endCursor: String
+    $first: Int
+    $language: LanguageCode
+    $last: Int
+    $startCursor: String
+  ) @inContext(country: $country, language: $language) {
+    collections(
+      first: $first,
+      last: $last,
+      before: $startCursor,
+      after: $endCursor
+    ) {
+      nodes {
+        ...Collection
+      }
+      pageInfo {
+        hasNextPage
+        hasPreviousPage
+        startCursor
+        endCursor
       }
     }
   }
@@ -199,3 +299,4 @@ const COLLECTION_QUERY = `#graphql
 /** @template T @typedef {import('@remix-run/react').MetaFunction<T>} MetaFunction */
 /** @typedef {import('storefrontapi.generated').ProductItemFragment} ProductItemFragment */
 /** @typedef {import('@shopify/remix-oxygen').SerializeFrom<typeof loader>} LoaderReturnData */
+/** @typedef {import('storefrontapi.generated').CollectionFragment} CollectionFragment */

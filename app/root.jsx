@@ -19,7 +19,9 @@ import headerStyle from './styles/headersection.css'
 import aboutUsStyle from './styles/aboutUs.css'
 import serviceStyle from './styles/service.css'
 import friendlyStyle from './styles/friendlypayment.css'
-import swipperStyle from './styles/swipperStyle.css'
+import authStyle from './styles/auth.css'
+import productStyle from './styles/product.css'
+import cartStyle from './styles/cart.css'
 
 
 import {Layout} from '~/components/Layout';
@@ -50,6 +52,9 @@ export function links() {
     {rel: 'stylesheet', href: aboutUsStyle},
     {rel: 'stylesheet', href: serviceStyle},
     {rel: 'stylesheet', href: friendlyStyle},
+    {rel: 'stylesheet', href: productStyle},
+    {rel: 'stylesheet', href: cartStyle},
+    {rel: 'stylesheet', href: authStyle},
     
     {
       rel: 'preconnect',
