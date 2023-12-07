@@ -14,7 +14,7 @@ const AboutUs = () => {
        <div className='container-about'>
         <div className="about-vemdela">
 
-        <motion.h3 className="title-about text-center">Seu novo <span>Sneaker</span> esta aqui!</motion.h3>
+        <motion.h3 className="title-about">Seu novo <span>Sneaker</span> esta aqui!</motion.h3>
         <div className="buy-kick-content">
             <p className="text-about text-center">
                 Somos um Marketplace de venda de calçados, exclusivamente para Moçambique, e temos como objetivo

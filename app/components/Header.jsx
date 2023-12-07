@@ -4,6 +4,8 @@ import {useRootLoaderData} from '~/root';
 import Logo from '../src/assets/logo/LOGO/PNG/resposive.png'
 import VemdelaUser from '../src/assets/icons/user.png'
 import CartIcon from '../src/assets/icons/cart.png'
+import { FiAlignRight } from "react-icons/fi";
+import Banner from '../src/assets/images/vans-banner.png'
 /**
  * @param {HeaderProps}
  */
@@ -53,7 +55,7 @@ export function HeaderMenu({menu, primaryDomainUrl, viewport}) {
           style={activeLinkStyle}
           to="/"
         >
-          Home
+          <img src={Banner} className='img-mobile-banner' alt='Promo'/>
         </NavLink>
       )}
       {(menu || FALLBACK_HEADER_MENU).items.map((item) => {
@@ -102,7 +104,7 @@ function HeaderCtas({isLoggedIn, cart}) {
 function HeaderMenuMobileToggle() {
   return (
     <a className="header-menu-mobile-toggle" href="#mobile-menu-aside">
-      <h3>☰</h3>
+        <FiAlignRight/>
     </a>
   );
 }
@@ -115,7 +117,7 @@ function SearchToggle() {
  * @param {{count: number}}
  */
 function CartBadge({count}) {
-  return <a href="#cart-aside"><img className='cart-icon' src={CartIcon}/> {count}</a>;
+  return <a  href="#cart-aside"><img className='cart-icon' src={CartIcon}/> <span className='cart-counter'>{count}</span></a>;
 }
 
 /**

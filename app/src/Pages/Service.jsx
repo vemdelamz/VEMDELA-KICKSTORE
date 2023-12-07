@@ -3,6 +3,7 @@ import DeliveryIcon from '../assets/icons/delivery.png'
 import QualityIcon from '../assets/icons/quality.png'
 import PaymentIcon from '../assets/icons/payment.png'
 import EcologyIcon from '../assets/icons/eco.png'
+import '../../styles/service.css'
 
 const ServiceContent = () => {
   return (

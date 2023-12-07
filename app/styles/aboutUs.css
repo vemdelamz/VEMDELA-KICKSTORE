@@ -13,26 +13,34 @@
 .title-about{
     color: #FFF;
     font-family: "Kanit-Bold"; 
-    font-size: 28px;
-    margin-bottom: 40px;
+    font-family: 14px;
+    margin-top: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
-    letter-spacing: 3px;
+
+
+@media (min-width: 45em) {
+    font-size:26px;
+    font-size:26px;
+  }
+}
     
 
 
-}
+
 
 .buy-kick-content{
     width: 60%;
     margin: 0 auto;
 }
 
+
 .title-about span{
     color: #b2121e;
     margin-left: 2px;
     margin-right: 2px;
+    
     
 }
 

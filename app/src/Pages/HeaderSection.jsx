@@ -47,7 +47,7 @@ const HeaderSection = () => {
                  
                     
                      <div className="container-actions">
-                         <a href="#search-aside" className="input-search">
+                         <a href="#search-aside" className="input">
                              <i class="ri-search-line"></i>
                              <input type="search" placeholder="Procure seu sneaker aqui!"/>
                          </a>

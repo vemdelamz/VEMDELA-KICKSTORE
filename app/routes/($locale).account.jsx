@@ -86,11 +86,13 @@ export default function Acccount() {
   }
 
   return (
-    <AccountLayout customer={customer}>
+    <div className='profile'>
+      <AccountLayout customer={customer}>
       <br />
       <br />
       <Outlet context={{customer}} />
     </AccountLayout>
+    </div>
   );
 }
 

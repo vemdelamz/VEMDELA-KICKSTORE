@@ -37,7 +37,7 @@
     margin-top: -8rem;
    
 }
-.container-actions .input-search input{
+.container-actions .input input{
     background:none  !important;
     border: 1px solid #FFF;
     margin-top: 5px;
@@ -60,7 +60,7 @@
     font-size:160px;
     color:#FFF;
     font-weight:600;
-    -webkit-text-stroke: 2px #FFF;
+  
     color:transparent;
     
 }

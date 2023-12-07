@@ -2,14 +2,24 @@
     background:#121214;
     border-top: 4px solid #EF233C;
     border-bottom:4px solid #EF233C;
-    height: 460px;
+    height: 100%;
+    display: flex;
+    margin-top: 60px;
+    
+
+
 }
 
 .details-payment-content{
     display: flex;
     align-items: center;
-    flex-direction: row;
-    justify-content: space-between
+    flex-direction: column;
+    @media (min-width: 45em) {
+        flex-direction: row;
+        justify-content: space-between;
+        
+
+      }
 }
 
 .text-content{
@@ -24,10 +34,12 @@
     font-size:42px;
     line-height: 132.48%;
     color: #FFF;
-    padding-top: 60px ;
+   
     padding-left: 60px;
 
     letter-spacing: 0.08em;
+    margin-top: 60px;
+  
 
 }
 
@@ -40,11 +52,34 @@
     justify-content: flex-end;
     display:flex;
 
+
 }
 .extra-selo img{
-    width: 420px;
-    position: absolute;
-    margin-top: -10rem;
+  
+
+    display: flex;
+    margin-top: -55rem;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 156px;
+    height: 156px;
+    object-fit: cover;
+   
+    
+    @media (min-width: 45em) {
+        flex-direction: row;
+        margin-top: -15rem;
+        position: relative;
+        display: flex;
+        top: -10%;
+        width: 420px;
+        height: 420px;
+        object-fit: cover;
+      
+        
+
+      }
 
    
 }
@@ -53,8 +88,8 @@
     color: #FFF;
     font-size: 14px;
     font-family: 'Kanit-Light';
-    width: 50%;
-    padding-left: 60px;
+    margin-left: 60px;
+    margin-bottom: 60px;
 }
 
 
@@ -63,11 +98,13 @@
     flex-direction: row;
     justify-content: space-between;
     margin-top: -40px;
+  
 
 }
 
 .soon-title{
-    font-size: 16px;
+    font-size: 14px;
     font-family: 'Kanit-Bold';
     color: #d9040b;
+   
 }

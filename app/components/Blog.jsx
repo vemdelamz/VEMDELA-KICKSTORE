@@ -11,7 +11,7 @@ const BlogPosts = () => {
     <section>
         <h2 className='title'>SIGA @VEMDELA <br></br>NO INSTAGRAM</h2>
      
-        <div className='caroucel-content'>
+        <div className='post-content'>
             <div className='slide-post'>
                 <div className='post-card'>
                     <a href="https://www.instagram.com/vemdelamz/">
