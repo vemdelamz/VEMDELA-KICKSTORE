@@ -55,7 +55,9 @@ export function HeaderMenu({menu, primaryDomainUrl, viewport}) {
           style={activeLinkStyle}
           to="/"
         >
+        
           <img src={Banner} className='img-mobile-banner' alt='Promo'/>
+   
         </NavLink>
       )}
       {(menu || FALLBACK_HEADER_MENU).items.map((item) => {
@@ -67,7 +69,7 @@ export function HeaderMenu({menu, primaryDomainUrl, viewport}) {
           item.url.includes(publicStoreDomain) ||
           item.url.includes(primaryDomainUrl)
             ? new URL(item.url).pathname
-            : item.url;
+            : item.url.title;
         return (
           <NavLink
             className="header-menu-item"

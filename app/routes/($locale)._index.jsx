@@ -7,15 +7,16 @@ import ScrollGif from '~/components/ScrollGif';
 import UILayout from '~/components/UI';
 import GifScroll from '~/components/ScrollGif';
 import FriendlyPayment from '~/src/Pages/FriendlyPayment ';
-import { SwipperPartner } from '~/components/Swipper';
+
 import BlogPosts from '~/components/Blog';
 import Newsletter from '~/components/Newslatter';
 
+import Banner from '../src/assets/images/dunk.png'
 /**
  * @type {MetaFunction}
  */
 export const meta = () => {
-  return [{title: 'Hydrogen | Home'}];
+  return [{title: 'VEM DE LÁ® | Home'}];
 };
 
 /**
@@ -38,14 +39,14 @@ export default function Homepage() {
    <UILayout/>
    
     <div className="home">
-    
+
       <RecommendedProducts products={data.recommendedProducts} />
       <GifScroll/>
       <FeaturedCollection collection={data.featuredCollection} />
       <div className='sec-payment'>
       <FriendlyPayment/>
       </div>
-      <SwipperPartner/>
+      
       <BlogPosts/>
       <Newsletter/>
     </div>
@@ -66,16 +67,14 @@ function FeaturedCollection({collection}) {
     <>
     <section>
     <h2 className='title'>LANÇAMENTOS</h2>
-    <div className='banner-content'>
+   
+      <div className='banner-content-promo'>
         <Link
-        className="featured-collection"
-        to={`/collections/${collection.handle}`}
-      >
-        {image && (
-          <div className="featured-collection-image">
-            <Image data={image} />
-          </div>
-        )}
+          className="img-content"
+          to={`/collections/${collection.handle}`}
+        >
+          <img src={Banner}/>
+  
       </Link>
     </div>
     </section>
@@ -91,10 +90,12 @@ function FeaturedCollection({collection}) {
 function RecommendedProducts({products}) {
   return (
     <div className="recommended-products">
-      <h2 className='title'>Our recommended Products</h2>
+      <h2 className='title-sneaker'>Sneakers</h2>
       <Suspense fallback={<div>Loading...</div>}>
         <Await resolve={products}>
+          
           {({products}) => (
+        
             <div className="recommended-products-grid">
               {products.nodes.map((product) => (
                 <Link
@@ -114,6 +115,7 @@ function RecommendedProducts({products}) {
                 </Link>
               ))}
             </div>
+         
           )}
         </Await>
       </Suspense>

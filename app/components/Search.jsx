@@ -48,7 +48,7 @@ export function SearchForm({searchTerm}) {
         type="search"
       />
       &nbsp;
-      <button type="submit">Search</button>
+      <button className='btn-search' type="submit">Search</button>
      </div>
     </Form>
     </div>

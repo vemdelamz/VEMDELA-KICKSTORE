@@ -158,8 +158,8 @@ aside li {
   align-items: center;
   background: #202024;
   display: flex;
-  height: var(--header-height);
-  padding: 0 1rem;
+  height:80px;
+  padding: 0 3rem;
   position: sticky;
   top: 0;
   z-index: 1;
@@ -174,7 +174,7 @@ aside li {
 }
 
 .header-menu-mobile-toggle {
-  color: #121214 !important;
+  color: #FFF !important;
   font-size: 20px;
   @media (min-width: 48em) {
     display: none;
@@ -237,8 +237,9 @@ aside li {
 }
 
 .icon-user{
-  display: none;
-
+  width: 16px;
+  height: 16px;
+  object-fit: cover;
   @media (min-width: 48em) {
     display: block;
     width: 24px;
@@ -249,12 +250,11 @@ aside li {
 }
 
 .cart-icon{
-  display: none;
-  width: 24px;
-  height: 24px;
+  width: 16px;
+  height: 16px;
   object-fit: contain;
   color: #FFF !important; 
-  display: none;
+
 
   @media (min-width: 48em) {
     display: block;
@@ -299,6 +299,7 @@ aside li {
 .footer {
   background: #121214;
   margin-top: 30px;
+  padding: 60px;
 
 }
 
@@ -399,7 +400,7 @@ aside li {
 .footer-menu a {
   color: var(--color-light);
 }
-
+.search{}
 /*
 * --------------------------------------------------
 * components/Cart
@@ -460,7 +461,7 @@ aside li {
 * --------------------------------------------------
 */
 .predictive-search {
-  height: calc(100vh - var(--header-height) - 40px);
+  height: calc(100vh - var(--header-height));
   overflow-y: auto;
 }
 
@@ -476,6 +477,7 @@ aside li {
 
 .predictive-search-result h5 {
   text-transform: uppercase;
+  font-family: 'Kanit-Bold';
 }
 
 .predictive-search-result-item {
@@ -485,6 +487,13 @@ aside li {
 .predictive-search-result-item a {
   align-items: center;
   display: flex;
+  font-family: 'Kanit-Bold';
+  font-family: 14px;
+}
+
+.btn-search{
+ background-color: #121214;
+  border: 1px solid #121214;
 }
 
 .predictive-search-result-item a img {
@@ -499,6 +508,7 @@ aside li {
 .search-results-item {
   margin-bottom: 0.5rem;
 }
+
 .recommended-products{}
 
 /*
@@ -557,15 +567,18 @@ aside li {
   grid-gap: 1.5rem;
   grid-template-columns: repeat(2, 1fr);
   @media (min-width: 45em) {
-    grid-template-columns: repeat(3, 1fr);
-    display: grid;
-    grid-gap: 60px;
-
+    grid-row: 2;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 
   }
 }
 
-.product-card{}
+.recommended-product{
+  width: 250px;
+  height: 350px;
+}
 
 .recommended-product .img-prod {
   width: 192px;
@@ -588,6 +601,11 @@ aside li {
   font-family: 'Kanit-Black';
   font-size: 16px;
 }
+.title-sneaker{
+  font-family: 'Kanit-Bold';
+  font-family: 22px;
+  margin: 60px;
+}
 
 /*
 * --------------------------------------------------
@@ -596,13 +614,16 @@ aside li {
 */
 .collections-grid {
   display: grid;
+  width: 80%;
   grid-gap: 1.5rem;
   grid-template-columns: repeat(auto-fit, minmax(var(--grid-item-width), 1fr));
   margin-bottom: 2rem;
 }
 
 .collection-item img {
-  height: auto;
+  height: 250px;
+  width: 250px;
+  object-fit: cover;
 }
 
 /*
@@ -624,30 +645,75 @@ aside li {
   grid-template-columns: repeat(2, 1fr);
   @media (min-width: 45em) {
     grid-template-columns: repeat(4, 1fr);
-
   }
 }
 
-.product-all-content{
+.product-list .wrapper {
   display: grid;
-  grid-gap: 1rem;
-  grid-template-columns: repeat(2, 1fr);
-  @media (min-width: 45em) {
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+}
+.product-all-content{
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
+    flex-direction: column;
+  
+  @media (min-width:45em) {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-around;
+   justify-content: center;
+
 
   }
 }
 
+.left-content{
+  width: 25%;
+}
+.product-container{
+  display: flex;
+  flex-direction: column;
+  @media (min-width:45em) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin: 0 auto;
+
+  }
+  
+}
+
+.right-content{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: 80%;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  margin: 0 auto;
+
+  
+  @media (min-width:35em){
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+  }
+  
+
+
+
+
+}
 
 .product-item {
   width: 250px;
-  height: 374px;
+  height: 100%;
+  
+ 
 
-
+  
 
 }
+
 
 .product-item img {
  width: 250px;
@@ -990,6 +1056,10 @@ aside li {
   object-fit: cover;
 }
 
+.banner-content-allproducts{
+  background-color: #121214;
+
+}
 .banner-content{
   margin-top: -6rem;
 
@@ -1008,6 +1078,7 @@ aside li {
   height: 30%;
   border-bottom: 4px solid #D9040B;
 
+
 }
 .bannerImg-content{
   display: flex;
@@ -1016,21 +1087,42 @@ aside li {
 
 
 }
-.slide-post{}
+
 .bannerImg-content img{
-  width: 1125px;
-  height: 348.18px;
+  width: 80%;
+  height: 336px;
   display: flex;
   margin: 30px auto;
   object-fit: cover;
+
+  @media (min-width: 45em) {
+    width: 80%;
+    height: 348.18px;
+   
+
+   }
+}
+.bannerImg-content{
+  display: flex;
+  flex-direction: column;
 }
 
+
+.bannerImg-content a{
+  margin-left: 50px;
+  color: #FFF;
+ 
+  @media (min-width: 45em) {
+    margin-left: 5.5rem;
+  
+  }
+}
 .input-search{
   background:none;
   width: 250px;
   border: 1px solid #FFF;
   @media (min-width: 45em) {
-   margin-left: 8.5rem;
+  
   }
 }
 
@@ -1059,3 +1151,90 @@ aside li {
   align-items: center;
   justify-content: center;
 }
+
+
+.container-products{
+  display: flex;
+  justify-content: space-between;
+  margin: 60px;
+}
+
+
+.left-side{
+
+}
+
+.right-side{
+  display: flex;
+  background-color: red;
+
+}
+
+
+.div-card-content{
+  display: grid;
+  justify-content: space-aroundce;
+  flex-direction: row;
+}
+
+
+.content-collection-grids{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.banner-content-promo{
+  width: 100%;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+
+}
+
+.img-content img{
+  width: 100%;
+  height: 367px;
+  object-fit: cover;
+
+}
+
+
+.collection-filter-container {
+  cursor: pointer;
+  margin: 30px;
+  
+}
+
+
+.collection-filter-container ul{
+  font-size: 16px;
+  margin-top: 15px;
+  font-family: 'Kanit-Light';
+
+}
+.collection-filter-container > ul{
+  display: none;
+  cursor: pointer;
+  padding: 0 10px ;
+}
+
+.collection-filter-container.show > ul{
+  display: block;
+}
+
+.toggle-item-filter{
+  background-color: #202024;
+  width:270px ;
+  height:42px ;
+  color: #FFF;
+  align-items: center;
+  display: flex;
+  padding:10px;
+  font-family: 'Kanit-Bold';
+  font-size: 16px;
+  justify-content: space-between;
+
+}
+
+.product-item{}

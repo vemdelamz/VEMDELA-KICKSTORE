@@ -27,7 +27,7 @@ const HeaderSection = () => {
     const scale = useTransform(scrollYProgress, [0, 1], [1, 2])
   return (
     <section className="hero-section">
- <video autoPlay loop muted plays-inline className="back-video">
+        <video autoPlay loop muted plays-inline className="back-video">
                      <source src={PubPromo} type="video/mp4" />
                    
                  </video>
@@ -54,11 +54,6 @@ const HeaderSection = () => {
                          <div className="shop-btn">
                              <Link
                                 to="/collections"
-                                onClick={() => {
-                                if (layout === 'aside') {
-                                    window.location.href = '/collections';
-                                }
-                                }}
                                 className="btn-shop-content">
                                  <img src={ShopIcon} alt="Loja"/> 
                              </Link>

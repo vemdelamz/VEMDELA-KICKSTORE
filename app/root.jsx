@@ -22,6 +22,11 @@ import friendlyStyle from './styles/friendlypayment.css'
 import authStyle from './styles/auth.css'
 import productStyle from './styles/product.css'
 import cartStyle from './styles/cart.css'
+import storeStyle from './styles/storestyle.css'
+import 'swiper/css';
+
+
+
 
 
 import {Layout} from '~/components/Layout';
@@ -55,6 +60,7 @@ export function links() {
     {rel: 'stylesheet', href: productStyle},
     {rel: 'stylesheet', href: cartStyle},
     {rel: 'stylesheet', href: authStyle},
+    {rel: 'stylesheet', href: storeStyle},
     
     {
       rel: 'preconnect',

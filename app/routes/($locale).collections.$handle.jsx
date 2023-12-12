@@ -9,6 +9,8 @@ import {
 import {useVariantUrl} from '~/utils';
 
 import Allkicks from '../src/assets/images/all-kicks.png'
+import { FiSearch } from "react-icons/fi";
+import {FiChevronRight}  from "react-icons/fi";
 
 /**
  * @type {MetaFunction<typeof loader>}
@@ -49,7 +51,7 @@ export default function Collection() {
 
   return (
     <div className="collection">
-       <div className='banner-content'>
+       <div className='banner-content-allproducts'>
           <div className='white-part'>
             
           </div>
@@ -58,21 +60,12 @@ export default function Collection() {
                 <div>
              
                     <div className='bannerImg-content'>
-                      <img src={Allkicks} alt=""/>  
+                      <img src={Allkicks} alt=""/> 
+                      <a href="#search-aside">
+                        <FiSearch/>  
+                      </a> 
                     </div>
-                    <div className='input-group'>
-                      <div>
-                      <i class="ri-search-line"></i>
-                      </div>
-                     <a href="#search-aside">
-                     <input 
-                        type='seach'
-                        className='input-search'
-                        placeholder='Procure seu sneaker aqui'
-                      /> 
-                    
-                     </a>
-                    </div>
+                 
                 
                 </div>
               </div>
@@ -80,7 +73,6 @@ export default function Collection() {
          
           
         </div>
-      <p className="collection-description">{collection.description}</p>
       <Pagination connection={collection.products}>
         {({nodes, isLoading, PreviousLink, NextLink}) => (
           <>
@@ -103,10 +95,49 @@ export default function Collection() {
  * @param {{products: ProductItemFragment[]}}
  */
 function ProductsGrid({products}) {
+    const onClickShort = event =>{
+    console.log(event.target.closest('.collection-filter-container').querySelector('ul'))
+
+    event.target.closest('.collection-filter-container').classList.toggle('show')
+    
+}
   return (
     <div className='product-all-content'>
-      <div className='left'>
-          Filtro
+      <div className='left-content'>
+          <div className='filter-content'>
+            <div className='collection-filter-container' onClick={onClickShort}>
+              <h3 className='toggle-item-filter'>
+                MARCAS
+                <FiChevronRight />
+              </h3>
+              <ul>
+                <li><Link to="/collections/nike">Nike</Link></li>
+                <li><Link to="/collections/jordan">Jordan</Link></li>
+                <li><Link to="/collections/adidas">Adidas</Link></li>
+                <li><Link to="/collections/puma">Puma</Link></li>
+                <li><Link to="/collections/converse">Converse</Link></li>
+                <li><Link to="/collections/vans">Vans</Link></li>
+                <li><Link to="/collections/newbalance">New Balance</Link></li>
+                <li><Link to="/collections/lacoste">Lacoste</Link></li>
+                <li><Link to="/collections/veja">Veja</Link></li>
+                <li><Link to="/collections/timberland">Timberland</Link></li>
+                <li><Link to="/collections/reebok">Reebok</Link></li>
+
+
+              </ul>
+            </div>
+            <div className='collection-filter-container' onClick={onClickShort}>
+              <h3 className='toggle-item-filter'>
+                GENERO
+                <FiChevronRight />
+              </h3>
+              <ul>
+                <li to="/collections/man">Man</li>
+                <li to="/collections/woman">Woman</li>
+              </ul>
+            </div>
+            
+          </div>
 
       </div>
 

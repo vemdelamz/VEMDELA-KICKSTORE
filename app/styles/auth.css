@@ -1,9 +1,15 @@
+
 .login{
   
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    background-color: #121214;
+    margin-top: -35px;
+    margin-bottom: -50px;
+    padding: 30px;
+    
     
 }
 
@@ -22,7 +28,9 @@
     width: 324px;
     height: 43px;
     background: none !important;
-    border: 1px solid #121214;
+    border: 1px solid #FFF;
+    color: #FFF;
+    font-family: 'Kanit-Light';
 }
 
 .login-btn{
