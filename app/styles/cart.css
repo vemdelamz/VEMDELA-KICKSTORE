@@ -1,82 +1,51 @@
-.title-cart{
+.cart-details{
+    display: flex;
+    margin: 0 auto;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 80%;
+    padding: 60px;
+}
+
+.cart-line-item{
+    display: flex;
+    
+    width: 703px;
+    height: 295px;
+    border: 1px solid #121214;
+    object-fit: cover;
+    display: flex;
+    align-items: center;
+
+    
+}
+
+.cart-line-item .img-cart{
+    width: 250px;
+    height: 250px;
+    margin: 15px;
+    
+}
+
+.title-item-cart{
     font-family: 'Kanit-Bold';
     font-size: 16px;
+    color: #121214;
 }
 
-.btn-checkout{
+.btn-checkout-cart{
     background-color: #121214;
     color: #FFF;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 331px;
     height: 43px;
-    border-radius: 7px;
-    font-family: 'Kanit-Bold';
-
-}
-
-.cart-subtota{
-    font-family: 'Kanit-Light';
-    font-family: 14px;
-
-}
-
-.remove-btn{
-    background: none !important;
-    border: 1px solid #121214;
-    border-radius: 3px;
-    font-size: 12px;
-    font-family: 'Kanit-Light';
-
-}
-
-.qyt{
     display: flex;
-    align-items: center;
     justify-content: center;
-
-}
-
-.decrease-btn{
-    background: none !important;
-    border: 1px solid #121214;
-    border-radius: 3px;
-
-}
-
-.increase-btn{
-    background: none !important;
-    border: 1px solid #121214;
-    border-radius: 3px;
-
-}
-
-
-.shipping-btn{
-    font-family: 'Kanit-Light';
-    font-family: 14px;
-
-
-}
-
-.discount-content{
-    display: flex;
-    flex-direction: column;
-}
-
-.remove-discount-btn{
-
-}
-
-
-
-.apply-btn{
-    height: 43px;
-    background: none !important;
-    border: 1px solid #121214;
-    margin-bottom: 30px;
+    align-items: center;
     border-radius: 7px;
-    font-family: 'Kanit-Bold';
-    font-family: 16px;
-    
+
+
+}
+
+.cart-sumary-content{
+    margin-left:  15px;
 }

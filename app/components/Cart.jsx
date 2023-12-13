@@ -30,10 +30,13 @@ function CartDetails({layout, cart}) {
     <div className="cart-details">
       <CartLines lines={cart?.lines} layout={layout} />
       {cartHasItems && (
-        <CartSummary cost={cart.cost} layout={layout}>
+        <div className='cart-sumary-content'>
+          <h2>Resumo</h2>
+          <CartSummary cost={cart.cost} layout={layout}>
           <CartDiscounts discountCodes={cart.discountCodes} />
           <CartCheckoutActions checkoutUrl={cart.checkoutUrl} />
         </CartSummary>
+        </div>
       )}
     </div>
   );
@@ -71,7 +74,7 @@ function CartLineItem({layout, line}) {
   const lineItemUrl = useVariantUrl(product.handle, selectedOptions);
 
   return (
-    <li key={id} className="cart-line">
+    <li key={id} className="cart-line-item">
       {image && (
         <Image
           alt={title}
@@ -80,6 +83,7 @@ function CartLineItem({layout, line}) {
           height={100}
           loading="lazy"
           width={100}
+          className='img-cart'
         />
       )}
 
@@ -93,11 +97,16 @@ function CartLineItem({layout, line}) {
               window.location.href = lineItemUrl;
             }
           }}
+          className='cart-item-detail'
         >
-          <p className='title-cart'>
+          <p className='title-item-cart'>
            {product.title}
           </p>
+         
         </Link>
+        <p className='title-item-cart'>
+           {product.description}
+          </p>
         <CartLinePrice line={line} as="span" />
         <ul>
           {selectedOptions.map((option) => (
@@ -123,7 +132,7 @@ function CartCheckoutActions({checkoutUrl}) {
   return (
     <div>
       <a href={checkoutUrl} target="_self">
-        <p className='btn-checkout'>Finalizar a compra &rarr;</p>
+        <p className='btn-checkout-cart'>Finalizar a compra &rarr;</p>
       </a>
       <br />
     </div>

@@ -1,4 +1,4 @@
-import {Await, NavLink} from '@remix-run/react';
+import {Await, Link, NavLink} from '@remix-run/react';
 import {Suspense} from 'react';
 import {useRootLoaderData} from '~/root';
 import Logo from '../src/assets/logo/LOGO/PNG/resposive.png'
@@ -119,7 +119,7 @@ function SearchToggle() {
  * @param {{count: number}}
  */
 function CartBadge({count}) {
-  return <a  href="#cart-aside"><img className='cart-icon' src={CartIcon}/> <span className='cart-counter'>{count}</span></a>;
+  return <a  href="/cart"><img className='cart-icon' src={CartIcon}/> <span className='cart-counter'>{count}</span></a>;
 }
 
 /**
