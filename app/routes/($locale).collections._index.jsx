@@ -1,7 +1,9 @@
 import {useLoaderData, Link} from '@remix-run/react';
 import {json} from '@shopify/remix-oxygen';
 import {Pagination, getPaginationVariables, Image} from '@shopify/hydrogen';
-
+import Vans from '../src/assets/images/vans-banner.png'
+import '../styles/collection.css'
+import {FiChevronRight}  from "react-icons/fi";
 /**
  * @param {LoaderFunctionArgs}
  */
@@ -45,25 +47,110 @@ export default function Collections() {
  * @param {{collections: CollectionFragment[]}}
  */
 function CollectionsGrid({collections}) {
+  const onClickShort = event =>{
+    console.log(event.target.closest('.collection-filter-container').querySelector('ul'))
+
+    event.target.closest('.collection-filter-container').classList.toggle('show')
+    
+}
   return (
-   <section>
-     <div className='content-collection-grid'>
-     <div>
-        Filtro
-      
-      </div>
-     <div className="collections-grid">
-      {collections.map((collection, index) => (
-        <CollectionItem
-          key={collection.id}
-          collection={collection}
-          index={index}
-        />
-      ))}
+  <section className='product-collection-content'>
+    <div className='filtro-collectioln'>
+    <div className='filter-content'>
+            <div className='collection-filter-container' onClick={onClickShort}>
+              <h3 className='toggle-item-filter'>
+                MARCAS
+                <FiChevronRight />
+              </h3>
+              <ul>
+                <li><Link to="/collections/nike">Nike</Link></li>
+                <li><Link to="/collections/jordan">Jordan</Link></li>
+                <li><Link to="/collections/adidas">Adidas</Link></li>
+                <li><Link to="/collections/puma">Puma</Link></li>
+                <li><Link to="/collections/converse">Converse</Link></li>
+                <li><Link to="/collections/vans">Vans</Link></li>
+                <li><Link to="/collections/newbalance">New Balance</Link></li>
+                <li><Link to="/collections/lacoste">Lacoste</Link></li>
+                <li><Link to="/collections/veja">Veja</Link></li>
+                <li><Link to="/collections/timberland">Timberland</Link></li>
+                <li><Link to="/collections/reebok">Reebok</Link></li>
+
+
+              </ul>
+            </div>
+            <div className='collection-filter-container' onClick={onClickShort}>
+              <h3 className='toggle-item-filter'>
+                GENERO
+                <FiChevronRight />
+              </h3>
+              <ul>
+                <li to="/collections/man">Man</li>
+                <li to="/collections/woman">Woman</li>
+              </ul>
+            </div>
+            
+          </div>
+
     </div>
-     </div>
-   
+     <section className='card-container'>
+      <div className='card-item-prod'>
+        <img  className="img-prod" src={Vans}/>
+        <div className='card-detail'>
+          <h3 className='card-title'>Shoe</h3>
+          <p className='description-content'>
+            Lorem ipsum dolor sit amet, consectetur 
+            adipisicing elit. Alias sapiente, doloribus 
+            eos cumque ab a? Harum est nam praesentium? 
+          </p>
+        </div>
+        <div className='price'>
+          <del>13 900 MZN</del>12500 MZN 
+        </div>
+      </div>
+      <div className='card-item-prod'>
+        <img  className="img-prod" src={Vans}/>
+        <div className='card-detail'>
+          <h3 className='card-title'>Shoe</h3>
+          <p className='description-content'>
+            Lorem ipsum dolor sit amet, consectetur 
+            adipisicing elit. Alias sapiente, doloribus 
+            eos cumque ab a? Harum est nam praesentium? 
+          </p>
+        </div>
+        <div className='price'>
+          <del>13 900 MZN</del>12500 MZN
+        </div>
+      </div>
+      <div className='card-item-prod'>
+        <img  className="img-prod" src={Vans}/>
+        <div className='card-detail'>
+          <h3 className='card-title'>Shoe</h3>
+          <p className='description-content'>
+            Lorem ipsum dolor sit amet, consectetur 
+            adipisicing elit. Alias sapiente, doloribus 
+            eos cumque ab a? Harum est nam praesentium? 
+          </p>
+        </div>
+        <div className='price'>
+          <del>13 900 MZN</del>12500 MZN 
+        </div>
+      </div>
+      <div className='card-item-prod'>
+        <img  className="img-prod" src={Vans}/>
+        <div className='card-detail'>
+          <h3 className='card-title'>Shoe</h3>
+          <p className='description-content'>
+            Lorem ipsum dolor sit amet, consectetur 
+            adipisicing elit. Alias sapiente, doloribus 
+            eos cumque ab a? Harum est nam praesentium? 
+          </p>
+        </div>
+        <div className='price'>
+          <del>13 900 MZN</del>12500 MZN 
+        </div>
+      </div>
    </section>
+  </section>
   );
 }
 

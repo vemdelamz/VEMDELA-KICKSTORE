@@ -34,7 +34,7 @@
 
 .card-service:hover{
     border-top: 5px solid #b2121e;
-    transition: 3s;
+    transition: .8s;
  
 }
 

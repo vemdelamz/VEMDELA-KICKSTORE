@@ -4,8 +4,9 @@ import {useRootLoaderData} from '~/root';
 import Logo from '../src/assets/logo/LOGO/PNG/resposive.png'
 import VemdelaUser from '../src/assets/icons/user.png'
 import CartIcon from '../src/assets/icons/cart.png'
-import { FiAlignRight } from "react-icons/fi";
+import { FiAlignRight, FiPlus } from "react-icons/fi";
 import Banner from '../src/assets/images/vans-banner.png'
+import '../styles/header.css'
 /**
  * @param {HeaderProps}
  */
@@ -80,6 +81,7 @@ export function HeaderMenu({menu, primaryDomainUrl, viewport}) {
             style={activeLinkStyle}
             to={url}
           >
+
             {item.title}
           </NavLink>
         );
@@ -119,7 +121,7 @@ function SearchToggle() {
  * @param {{count: number}}
  */
 function CartBadge({count}) {
-  return <a  href="/cart"><img className='cart-icon' src={CartIcon}/> <span className='cart-counter'>{count}</span></a>;
+  return <Link  to="/cart"><img className='cart-icon' src={CartIcon}/> <span className='cart-counter'>{count}</span></Link>;
 }
 
 /**

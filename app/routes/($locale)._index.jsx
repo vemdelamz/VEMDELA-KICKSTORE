@@ -12,6 +12,9 @@ import BlogPosts from '~/components/Blog';
 import Newsletter from '~/components/Newslatter';
 
 import Banner from '../src/assets/images/dunk.png'
+
+import ScrollProducts from '../components/ScrollProducts';
+import Section from '../components/Section';
 /**
  * @type {MetaFunction}
  */
@@ -36,19 +39,36 @@ export default function Homepage() {
   const data = useLoaderData();
   return (
    <>
+   <Section>
    <UILayout/>
+   </Section>
    
     <div className="home">
 
-      <RecommendedProducts products={data.recommendedProducts} />
-      <GifScroll/>
-      <FeaturedCollection collection={data.featuredCollection} />
-      <div className='sec-payment'>
-      <FriendlyPayment/>
-      </div>
       
-      <BlogPosts/>
-      <Newsletter/>
+      
+    <Section>
+      <RecommendedProducts products={data.recommendedProducts} />
+    </Section>
+      
+      <GifScroll/>
+     <Section>
+      <div className='banner-promo'>
+          <img src={Banner}/>
+        </div>
+     </Section>
+   
+      <Section>
+        <FriendlyPayment/>
+      </Section>
+      
+      
+     <Section>
+     <BlogPosts/>
+     </Section>
+      <Section>
+        
+      </Section>
     </div>
     
    </>
@@ -64,23 +84,20 @@ function FeaturedCollection({collection}) {
   if (!collection) return null;
   const image = collection?.image;
   return (
-    <>
-    <section>
-    <h2 className='title'>LANÇAMENTOS</h2>
-   
-      <div className='banner-content-promo'>
-        <Link
-          className="img-content"
-          to={`/collections/${collection.handle}`}
-        >
-          <img src={Banner}/>
-  
-      </Link>
-    </div>
-    </section>
-    </>
+    <Link
+      className="featured-collection"
+      to={`/collections/${collection.handle}`}
+    >
+      {image && (
+        <div className="featured-collection-image">
+          <Image data={image} sizes="100vw" />
+        </div>
+      )}
+      <h1>{collection.title}</h1>
+    </Link>
   );
 }
+
 
 /**
  * @param {{
@@ -89,14 +106,16 @@ function FeaturedCollection({collection}) {
  */
 function RecommendedProducts({products}) {
   return (
-    <div className="recommended-products">
-      <h2 className='title-sneaker'>Sneakers</h2>
+   <section className='border-section'>
+     <div className="recommended-products">
+     <h2 className='text-product'>Sneakers</h2>
       <Suspense fallback={<div>Loading...</div>}>
         <Await resolve={products}>
           
           {({products}) => (
         
-            <div className="recommended-products-grid">
+    
+              <div className="recommended-products-grid">
               {products.nodes.map((product) => (
                 <Link
                   key={product.id}
@@ -114,6 +133,7 @@ function RecommendedProducts({products}) {
                   </small>
                 </Link>
               ))}
+        
             </div>
          
           )}
@@ -121,6 +141,7 @@ function RecommendedProducts({products}) {
       </Suspense>
       <br />
     </div>
+   </section>
   );
 }
 

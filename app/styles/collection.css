@@ -1,0 +1,35 @@
+.product-collection-content{
+    display: flex;
+    flex-direction: row;
+
+}
+
+
+.card-container{
+    display: flex;
+    flex-wrap: wrap;
+    z-index: -2;
+}
+
+
+.card-item-prod{
+   margin-bottom: 60px;
+   margin-left: 20px;
+    padding:0 20px ;
+    cursor: pointer;
+
+}
+
+.img-prod{
+    width: 250px;
+    height: 250px;
+    margin-bottom: 1rem;
+}
+
+.card-title{
+
+}
+
+.description-content{
+    width: 250px;
+}

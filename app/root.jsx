@@ -23,6 +23,9 @@ import authStyle from './styles/auth.css'
 import productStyle from './styles/product.css'
 import cartStyle from './styles/cart.css'
 import storeStyle from './styles/storestyle.css'
+import collectionStyle from './styles/collection.css'
+import navHeaderStyle from './styles/header.css'
+import swipperStyle from './styles/swipperStyle.css'
 import 'swiper/css';
 
 
@@ -61,6 +64,9 @@ export function links() {
     {rel: 'stylesheet', href: cartStyle},
     {rel: 'stylesheet', href: authStyle},
     {rel: 'stylesheet', href: storeStyle},
+    {rel: 'stylesheet', href: collectionStyle},
+    {rel: 'stylesheet', href: navHeaderStyle},
+    {rel: 'stylesheet', href: swipperStyle},
     
     {
       rel: 'preconnect',

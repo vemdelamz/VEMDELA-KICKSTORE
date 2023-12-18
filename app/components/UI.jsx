@@ -2,7 +2,7 @@ import React from 'react';
 import HeaderSection from '~/src/Pages/HeaderSection';
 import AboutUs from '~/src/Pages/AboutUs';
 import ServiceContent from '~/src/Pages/Service';
-import GifScroll from './ScrollGif';
+import Section from './Section';
 
 // import { Container } from './styles';
 
@@ -10,8 +10,13 @@ const UILayout = () => {
   return (
    <>
    <HeaderSection/>
-   <AboutUs/>
-   <ServiceContent/>
+   
+   <Section>
+    <AboutUs/>
+   </Section>
+   <Section>
+     <ServiceContent/>
+   </Section>
    </>
   )
 }
