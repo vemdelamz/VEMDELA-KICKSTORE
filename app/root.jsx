@@ -26,6 +26,7 @@ import storeStyle from './styles/storestyle.css'
 import collectionStyle from './styles/collection.css'
 import navHeaderStyle from './styles/header.css'
 import swipperStyle from './styles/swipperStyle.css'
+import policyStyle from './styles/policy.css'
 import 'swiper/css';
 
 
@@ -67,6 +68,7 @@ export function links() {
     {rel: 'stylesheet', href: collectionStyle},
     {rel: 'stylesheet', href: navHeaderStyle},
     {rel: 'stylesheet', href: swipperStyle},
+    {rel: 'stylesheet', href: policyStyle},
     
     {
       rel: 'preconnect',

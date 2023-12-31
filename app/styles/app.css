@@ -262,7 +262,9 @@ aside li {
 .footer-menu a {
   color: var(--color-light);
 }
-.search{}
+.search{
+  border: 1px solid #121214;
+}
 /*
 * --------------------------------------------------
 * components/Cart
@@ -481,7 +483,7 @@ aside li {
   
 }
 
-
+.products-grid{}
 .recommended-product .img-prod {
   width: 192px;
   height:192px;
@@ -547,12 +549,15 @@ aside li {
   }
 }
 
+
 .products-grid {
   display: grid;
   grid-gap: 1rem;
   grid-template-columns: repeat(2, 1fr);
   @media (min-width: 45em) {
     grid-template-columns: repeat(4, 1fr);
+    
+
   }
 }
 
@@ -575,9 +580,7 @@ aside li {
   }
 }
 
-.left-content{
-  width: 25%;
-}
+
 .product-container{
   display: flex;
   flex-direction: column;
@@ -615,19 +618,13 @@ aside li {
 .product-item {
   width: 250px;
   height: 100%;
-  
- 
-
-  
-
 }
 
 
 .product-item img {
- width: 250px;
-
- height: 250px;
- object-fit: cover;
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
 }
 
 /*
@@ -637,9 +634,11 @@ aside li {
 */
 .product {
   display: grid;
+ 
   @media (min-width: 45em) {
     grid-template-columns: 1fr 1fr;
     grid-gap: 4rem;
+ 
   }
 }
 
@@ -650,6 +649,7 @@ aside li {
 .product-images {
   display: grid;
   grid-gap: 1rem;
+
 }
 
 .product-image img {
@@ -657,11 +657,7 @@ aside li {
   width: 100%;
 }
 
-.product-main {
-  align-self: start;
-  position: sticky;
-  top: 6rem;
-}
+
 
 .product-price-on-sale {
   display: flex;
@@ -1133,7 +1129,7 @@ aside li {
 
 .toggle-item-filter{
   background-color: #202024;
-  width:270px ;
+  width:267px ;
   height:42px ;
   color: #FFF;
   align-items: center;
@@ -1142,11 +1138,11 @@ aside li {
   font-family: 'Kanit-Bold';
   font-size: 16px;
   justify-content: space-between;
-
-}
-
-.product-item{
-  border: 1px solid #121214
 }
 
 
+
+
+
+
+.product-image{}

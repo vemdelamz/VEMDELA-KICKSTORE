@@ -40,16 +40,16 @@ export function Footer({menu, shop}) {
           <div className='links'>
             <ul>
               <li>
-                <a>FALE CONOSCO |</a>
+                <a href='/policies/contact'>FALE CONOSCO |</a>
               </li>
               <li>
-                <a>POLITICA DE PRIVACIDADE |</a>
+                <a href='/policies/privacy-policy'>POLITICA DE PRIVACIDADE |</a>
               </li>
               <li>
-                <a>DÚVIDAS FREQUENTES |</a>
+              <a href='/policies/shipping-policy'>DÚVIDAS FREQUENTES |</a>
               </li>
               <li>
-                <a>POLITICAS DE USO |</a>
+              <a href='/policies/terms-of-service'>POLITICAS DE USO |</a>
               </li>
             </ul>
             

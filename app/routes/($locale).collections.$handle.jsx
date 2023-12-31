@@ -11,6 +11,8 @@ import {useVariantUrl} from '~/utils';
 import Allkicks from '../src/assets/images/all-kicks.png'
 import { FiSearch } from "react-icons/fi";
 import {FiChevronRight}  from "react-icons/fi";
+import '../styles/collection.css'
+import { motion } from 'framer-motion';
 
 /**
  * @type {MetaFunction<typeof loader>}
@@ -26,7 +28,7 @@ export async function loader({request, params, context}) {
   const {handle} = params;
   const {storefront} = context;
   const paginationVariables = getPaginationVariables(request, {
-    pageBy: 8,
+    pageBy: 9,
   });
 
   if (!handle) {
@@ -132,8 +134,10 @@ function ProductsGrid({products}) {
                 <FiChevronRight />
               </h3>
               <ul>
-                <li to="/collections/man">Man</li>
-                <li to="/collections/woman">Woman</li>
+                <li><Link to="/collections/man">Man</Link></li>
+                <li><Link to="/collections/women">Woman</Link></li>
+                <li><Link to="/collections/kid">Kid</Link></li>
+                <li><Link to="/collections/unisex">Unisex</Link></li>
               </ul>
             </div>
             
@@ -142,7 +146,7 @@ function ProductsGrid({products}) {
       </div>
 
       <div className='right'>
-        <div className="products-grid">
+        <div className='card-container'>
         {products.map((product, index) => {
           return (
             <ProductItem
@@ -169,27 +173,38 @@ function ProductItem({product, loading}) {
   const variant = product.variants.nodes[0];
   const variantUrl = useVariantUrl(product.handle, variant.selectedOptions);
   return (
+  
     <Link
-      className="product-item"
+      className='card-item-prod'
       key={product.id}
       prefetch="intent"
       to={variantUrl}
     >
       {product.featuredImage && (
+        <motion.div
+          whileHover={{ scale: 1.03 }}
+          onHoverStart={e => {}}
+          onHoverEnd={e => {}}
+        >
+
+      
         <Image
           alt={product.featuredImage.altText || product.title}
           aspectRatio="1/1"
           data={product.featuredImage}
           loading={loading}
+          className="img-prod" 
 
         />
+      </motion.div>
       )}
       <h4 className='title-product'>{product.title}</h4>
-      <p className='desc-detail'>{product.description}</p>
+      <p className='description-content'>{product.description}</p>
       <p className='price-product'>
         <Money data={product.priceRange.minVariantPrice} />
       </p>
     </Link>
+
   );
 }
 function CollectionItem({collection, index}) {

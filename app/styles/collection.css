@@ -2,28 +2,39 @@
     display: flex;
     flex-direction: row;
 
-}
+   
 
+
+}
 
 .card-container{
     display: flex;
-    flex-wrap: wrap;
-    z-index: -2;
+    flex-direction: column;
+    @media (min-width: 45em) {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        width: 90%;
+        
+    }
+    
+    
+
 }
 
 
 .card-item-prod{
-   margin-bottom: 60px;
-   margin-left: 20px;
-    padding:0 20px ;
+    margin-bottom: 60px;
+    margin-left: 20px;
     cursor: pointer;
+ 
 
 }
 
 .img-prod{
-    width: 250px;
-    height: 250px;
+    width: 350px;
+    height: auto;
     margin-bottom: 1rem;
+    object-fit: cover;
 }
 
 .card-title{
@@ -31,5 +42,9 @@
 }
 
 .description-content{
-    width: 250px;
+    font-family: 'Kanit-Light';
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
 }

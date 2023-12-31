@@ -12,6 +12,7 @@ import {
 import {getVariantUrl} from '~/utils';
 
 import '../styles/product.css'
+import { motion } from 'framer-motion';
 
 /**
  * @type {MetaFunction<typeof loader>}
@@ -26,6 +27,7 @@ export const meta = ({data}) => {
 export async function loader({params, request, context}) {
   const {handle} = params;
   const {storefront} = context;
+   
 
   const selectedOptions = getSelectedProductOptions(request).filter(
     (option) =>
@@ -109,14 +111,28 @@ export default function Product() {
   const {product, variants} = useLoaderData();
   const {selectedVariant} = product;
   return (
-    <div className="product">
+    <section>
+      <div className='product-handle-content'>
+      <div className="product">
       <ProductImage image={selectedVariant?.image} />
       <ProductMain
         selectedVariant={selectedVariant}
         product={product}
         variants={variants}
       />
+    
     </div>
+      </div>
+    <section>
+        <div className='related-products-on-sale'>
+          <h2 className='title-on-sale'>VEJA TAMBÉM</h2>
+          <div>
+            
+
+          </div>
+        </div>
+      </section>
+    </section>
   );
 }
 
@@ -130,15 +146,47 @@ function ProductImage({image}) {
   return (
     <div className='product-main-img'>
       <div className="product-image">
-      <Image
-        alt={image.altText || 'Product Image'}
-        aspectRatio="1/1"
-        data={image}
-        key={image.id}
-        className='img'
-      
-      />
-    </div>
+        <Image
+          alt={image.altText || 'Product Image'}
+          aspectRatio="1/1"
+          data={image}
+          key={image.id}
+          className='img'
+        
+        />
+      </div>
+      <div  className="secundary-images-content">
+    
+        <Image
+          alt={image.altText || 'Product Image'}
+          aspectRatio="1/1"
+          data={image}
+          key={image.id}
+          className='img-secundary'
+        
+        />
+
+
+        <Image
+          alt={image.altText || 'Product Image'}
+          aspectRatio="1/1"
+          data={image}
+          key={image.id}
+          className='img-secundary'
+        
+        />
+
+      </div>
+      <div className="product-image">
+        <Image
+          alt={image.altText || 'Product Image'}
+          aspectRatio="1/1"
+          data={image}
+          key={image.id}
+          className='img'
+        
+        />
+      </div>
     </div>
   );
 }
@@ -179,11 +227,11 @@ function ProductMain({selectedVariant, product, variants}) {
               product={product}
               selectedVariant={selectedVariant}
               variants={data.product?.variants.nodes || []}
+              
             />
           )}
         </Await>
       </Suspense>
-      <br />
       <br />
       <br />
       
@@ -256,6 +304,7 @@ function ProductForm({product, selectedVariant, variants}) {
       >
         {selectedVariant?.availableForSale ? 'Add to cart' : 'Sold out'}
       </AddToCartButton>
+      <motion.button whileTap={{ scale: 0.9 }} className='pa-btn'>PAGAMENTO AMIGÁVEL</motion.button>
     </div>
   );
 }
@@ -311,14 +360,15 @@ function AddToCartButton({analytics, children, disabled, lines, onClick}) {
             type="hidden"
             value={JSON.stringify(analytics)}
           />
-          <button
+          <motion.button
             type="submit"
             onClick={onClick}
             disabled={disabled ?? fetcher.state !== 'idle'}
             className='btn-add'
+            whileTap={{ scale: 0.9 }} 
           >
             {children}
-          </button>
+          </motion.button>
         </>
       )}
     </CartForm>

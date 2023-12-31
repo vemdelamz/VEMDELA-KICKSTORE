@@ -8,7 +8,9 @@ export async function loader({request}) {
 }
 
 export default function CatchAllPage() {
-  return null;
+  return (
+    <div>Ola</div>
+  )
 }
 
 /** @typedef {import('@shopify/remix-oxygen').LoaderFunctionArgs} LoaderFunctionArgs */

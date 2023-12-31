@@ -12,9 +12,10 @@ import BlogPosts from '~/components/Blog';
 import Newsletter from '~/components/Newslatter';
 
 import Banner from '../src/assets/images/dunk.png'
-
+import { motion } from "framer-motion"
 import ScrollProducts from '../components/ScrollProducts';
 import Section from '../components/Section';
+
 /**
  * @type {MetaFunction}
  */
@@ -117,21 +118,29 @@ function RecommendedProducts({products}) {
     
               <div className="recommended-products-grid">
               {products.nodes.map((product) => (
+          
                 <Link
                   key={product.id}
                   className="recommended-product"
                   to={`/products/${product.handle}`}
                 >
-                  <Image
+                  <motion.div
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.1 }}
+                  >
+                    <Image
                     data={product.images.nodes[0]}
                     aspectRatio="1/1"
                     className='img-prod'
                   />
+                  </motion.div>
+                  
                   <h4 className='title-product'>{product.title}</h4>
                   <small className='price-product'>
                     <Money  data={product.priceRange.minVariantPrice} />
                   </small>
                 </Link>
+          
               ))}
         
             </div>

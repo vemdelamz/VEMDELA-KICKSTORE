@@ -1,10 +1,11 @@
 .payment-container-section{
     background:#121214;
     border-top: 4px solid #EF233C;
-    border-bottom:4px solid #EF233C;
-    height: 100%;
+    border-bottom:4px solid #EF233C; 
     display: flex;
     margin-top: 60px;
+   
+
     
 
 
@@ -17,12 +18,15 @@
     @media (min-width: 45em) {
         flex-direction: row;
         justify-content: space-between;
+        width: 100%;
+
         
 
       }
 }
 
-.text-content{
+.text-desc-service{
+    width: 547px;
     
    
 }
@@ -35,7 +39,7 @@
     line-height: 132.48%;
     color: #FFF;
    
-    padding-left: 60px;
+
 
     letter-spacing: 0.08em;
     margin-top: 60px;
@@ -88,7 +92,6 @@
     color: #FFF;
     font-size: 14px;
     font-family: 'Kanit-Light';
-    margin-left: 60px;
     margin-bottom: 60px;
 }
 
@@ -96,7 +99,7 @@
 .soon-content{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     margin-top: -40px;
   
 

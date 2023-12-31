@@ -1,3 +1,21 @@
+.product-handle-content{ 
+  display: flex;
+  margin: 0 auto;
+  flex-direction: column;
+   @media (min-width: 45em) {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+   }
+
+}
+
+.product-main {
+  align-self: start;
+  top: 6rem;
+
+}
+
 .product-detail{
   margin-top: 60px;
   
@@ -5,57 +23,91 @@
     
 }
 .product-main-img{
-   margin-top: 60px;
+   margin:0 auto;
 }
 
 .product-image{
-    width: 578px;
-    height: 578px;
-    object-fit: contain;
-    margin-left: 60px;
+      margin: 20px;
+      width: 370px;
+     @media (min-width: 45em) {
+      width: 578px;
+      height: 578px;
+      object-fit: contain;
+    }
+   
 
 }
 
+.secundary-images-content{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.img-secundary{
+  display: flex;
+  justify-content: space-between;
+  margin: 17px;
+
+}
 .img{
     width: 578px;
     height: 578px;
     object-fit: cover;
-}
 
+ 
+}
+.img-secundary{
+  width: 170px !important;
+  height: 170px !important;
+
+  @media (min-width: 45em) {
+    width: 274px !important;
+  height: 274px !important;
+     object-fit: contain;
+
+   }
+    
+}
 .btn-add{
     background-color: #202024;
     color: #FFF;
     font-family: 'Kanit-Bold';
     font-size: 16px;
-    width: 331px;
+    width: 370px;
     height: 43px;
     border-radius: 7px;
     align-self: start;
     position: sticky;
     top: 6rem;
     border: none !important;
+    margin: 0 auto !important;
 }
 
 .variante-content{
-    width: 342px;
+    width: 324px;
+   
 }
 
 
 .title-product{
     font-family: 'Kanit-Bold';
     font-size: 22px;
+    margin-left:30px;
 }
 
 .desc-detail{
     font-family: 'Kanit-Light';
     font-size: 14px;
-
-
 }
 
 .desc{
   font-family: 'Kanit-Light';
   font-size: 14px;
+  margin-left:30px;
+  width: 350px;
+  @media (min-width: 45em) {
+    width: 489px;
+  }
 
 }
 
@@ -71,6 +123,7 @@
     font-family: 'Kanit-Bold';
     display: flex;
     text-align: end;  
+    margin-left:30px;
   }
   .product-card .img-prod{
     width: 250px;
@@ -78,3 +131,39 @@
     object-fit: cover;
   }
   
+  .related-products-on-sale{
+    border: 1px solid #121214;
+    width: 80%;
+   
+    margin: 60px auto;
+  }
+  
+
+  .title-on-sale{
+    color: #121214;
+    font-family: 'Kanit-Bold';
+    font-size: 22px;
+    margin: 60px;
+  }
+
+  .pa-btn{
+    background:none !important;
+    width: 370px;
+    height: 25px;
+    border: 1px solid #121214;
+    border-radius: 7px;
+    height: 43px;
+    margin-top: 15px;
+    font-family: 'Kanit-Bold';
+    cursor: pointer;
+
+
+  }
+
+  .product-form{
+      margin-left: 30px;
+
+    @media (min-width: 45em) {
+      
+    }
+  }

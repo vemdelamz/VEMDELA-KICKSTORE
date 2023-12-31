@@ -1,6 +1,6 @@
 import {json} from '@shopify/remix-oxygen';
 import {Link, useLoaderData} from '@remix-run/react';
-
+import '../styles/policy.css'
 /**
  * @type {MetaFunction<typeof loader>}
  */
@@ -45,16 +45,14 @@ export default function Policy() {
   const {policy} = useLoaderData();
 
   return (
-    <div className="policy">
-      <br />
-      <br />
-      <div>
-        <Link to="/policies">← Back to Policies</Link>
-      </div>
-      <br />
+    <section className="policy">
+      <div className='header-policy'>
       <h1>{policy.title}</h1>
+      </div>
+
+      
       <div dangerouslySetInnerHTML={{__html: policy.body}} />
-    </div>
+    </section>
   );
 }
 
