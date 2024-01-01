@@ -427,16 +427,29 @@ aside li {
 }
 
 .banner-promo{
+
+    
+
+
   
-  display: flex;
-  position: relative;
-  margin-bottom: 60px;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    position: relative;
+    margin-bottom: 60px;
+    justify-content: center;
+    align-items: center;
+    
+  
 }
 
 .banner-promo img{
-  margin-top: 30px;
+      margin: 30px;
+      width: 380px;
+ 
+      @media (min-width: 45em) {
+        width:80%;
+    
+    }
+
 }
 .recommended-products{
   padding: 30px;
@@ -1145,4 +1158,49 @@ aside li {
 
 
 
-.product-image{}
+.container-recomend{
+
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.recomend-content{
+  display: flex;
+  flex-direction: row;
+align-items: center;
+justify-content: center;
+  width: 80%;
+
+
+
+}
+
+.lado-A div{
+
+  width: 350px;
+  height: 300px;
+  margin: 30px;
+}
+
+.lado-B{
+
+  width: 350px;
+  height: 600px;
+
+}
+
+.container-recomend .img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.recomend-content  .img2{
+     width: 100%;
+  height: 100%;
+    object-fit: cover;
+
+}
+
+.banner-promo{}

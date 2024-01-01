@@ -15,6 +15,7 @@ import Banner from '../src/assets/images/dunk.png'
 import { motion } from "framer-motion"
 import ScrollProducts from '../components/ScrollProducts';
 import Section from '../components/Section';
+import RecommendedContent from '../src/Pages/Recomend'
 
 /**
  * @type {MetaFunction}
@@ -49,7 +50,7 @@ export default function Homepage() {
       
       
     <Section>
-      <RecommendedProducts products={data.recommendedProducts} />
+      <RecommendedContent/>
     </Section>
       
       <GifScroll/>
