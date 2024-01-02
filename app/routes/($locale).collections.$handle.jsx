@@ -14,6 +14,8 @@ import {FiChevronRight}  from "react-icons/fi";
 import '../styles/collection.css'
 import { motion } from 'framer-motion';
 
+import Audio from '../src/Pages/Audio'
+
 /**
  * @type {MetaFunction<typeof loader>}
  */
@@ -155,6 +157,7 @@ function ProductsGrid({products}) {
         })}
       </div>
       </div>
+      <Audio/>
   
     </div>
   );

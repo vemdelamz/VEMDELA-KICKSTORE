@@ -10,13 +10,12 @@ function RecommendedContent() {
         <div className='recomend-content'>
             <div className='lado-A'>
                 <div>
-                    <a href='/collections/tshirts'>
+                    <a href='/collections/sneakers'>
                     <img className='img' src={Tshirt1}/>
                     </a>
-                    
                 </div>
                 <div>
-                <a href='/collections/tshirts'>
+                <a href='/collections/sport'>
                         <img className='img'  src={Tshirt2}/>
                     </a>
                    

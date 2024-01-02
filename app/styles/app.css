@@ -76,7 +76,7 @@ aside header .close {
   text-decoration: none;
   transition: all 200ms;
   width: 20px;
-  color: #FFF;
+  color: #D9040B;
 }
 
 aside header .close:hover {
@@ -1202,3 +1202,27 @@ justify-content: center;
 
 .banner-promo{}
 
+
+.player{
+  display: none;
+}
+
+.player i{
+  color:#d9040b
+
+}
+
+
+.box .image-player img{
+  height:100%;
+  width:100%
+
+}
+
+.player span{
+  display:none !important;
+}
+
+.player .play{
+
+}

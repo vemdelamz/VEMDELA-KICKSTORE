@@ -100,3 +100,13 @@
     height: 31px;
     object-fit: contain;
 }
+
+
+.input{
+    border: 1px solid #FFF;
+    padding: 8px;
+    border-radius: 7px;
+    cursor: pointer !important;
+    color: #FFF;
+    font-family: 'Kanit-Light';
+}

@@ -12,6 +12,9 @@ import LogoBanner from '../assets/logo/LOGO/PNG/Banner-logo.png'
 import ShopIcon from '../assets/icons/cart.png'
 import { Link } from '@remix-run/react';
 
+import Audio from '../Pages/Audio'
+
+
 
 
 
@@ -49,21 +52,22 @@ const HeaderSection = () => {
                      <div className="container-actions">
                          <a href="#search-aside" className="input">
                              <i class="ri-search-line"></i>
-                             <input type="search" placeholder="Procure seu sneaker aqui!"/>
+                             <span>Pesquise o seu Sneaker aqui!</span>
                          </a>
                          <div className="shop-btn">
                              <Link
-                                to="/collections"
+                                to="/collections/snaekers"
                                 className="btn-shop-content">
                                  <img src={ShopIcon} alt="Loja"/> 
                              </Link>
+                   
                          </div>
                      </div>
                          
                          
        
                 
-                  
+         
                  </div>
     </section>
     

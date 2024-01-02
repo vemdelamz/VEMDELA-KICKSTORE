@@ -17,6 +17,7 @@ import ScrollProducts from '../components/ScrollProducts';
 import Section from '../components/Section';
 import RecommendedContent from '../src/Pages/Recomend'
 
+import Audio from '../src/Pages/Audio'
 /**
  * @type {MetaFunction}
  */
@@ -44,7 +45,7 @@ export default function Homepage() {
    <Section>
    <UILayout/>
    </Section>
-   
+   <Audio/>
     <div className="home">
 
       
