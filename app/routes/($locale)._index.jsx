@@ -54,11 +54,7 @@ export default function Homepage() {
     </Section>
       
       <GifScroll/>
-     <Section>
-      <div className='banner-promo'>
-          <img src={Banner}/>
-        </div>
-     </Section>
+     
    
       <Section>
         <FriendlyPayment/>

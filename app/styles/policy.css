@@ -1,6 +1,20 @@
 .policy{
     padding: 60px;
+
     
+}
+h1{
+    font-family: 'Kanit-Bold';
+    text-transform: uppercase;
+}
+
+h3{
+    font-family: 'Kanit-Bold';
+    text-transform: uppercase;
+}
+
+p{
+    font-family: 'Kanit-Light';
 }
 
 .header-policy{

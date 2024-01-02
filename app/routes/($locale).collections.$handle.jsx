@@ -198,9 +198,9 @@ function ProductItem({product, loading}) {
         />
       </motion.div>
       )}
-      <h4 className='title-product'>{product.title}</h4>
+      <h4 className='title-prod'>{product.title}</h4>
       <p className='description-content'>{product.description}</p>
-      <p className='price-product'>
+      <p className='price'>
         <Money data={product.priceRange.minVariantPrice} />
       </p>
     </Link>

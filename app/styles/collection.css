@@ -1,6 +1,7 @@
 .product-collection-content{
     display: flex;
     flex-direction: row;
+    margin: 0 auto;
 
    
 
@@ -21,6 +22,11 @@
 
 }
 
+.title-prod, .price{
+    font-family: 'Kanit-Bold';
+    font-size: 20px;
+    margin-top: 15px;
+}
 
 .card-item-prod{
     margin-bottom: 60px;

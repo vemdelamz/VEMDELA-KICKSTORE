@@ -166,7 +166,7 @@ function ProductImage({image}) {
         
         />
 
-
+  
         <Image
           alt={image.altText || 'Product Image'}
           aspectRatio="1/1"
@@ -175,7 +175,6 @@ function ProductImage({image}) {
           className='img-secundary'
         
         />
-
       </div>
       <div className="product-image">
         <Image
@@ -203,7 +202,7 @@ function ProductMain({selectedVariant, product, variants}) {
   return (
     <section className='product-detail'>
       <div className="product-main">
-      <h1 className='title-product'>{title}</h1>
+      <h1 className='title-prod'>{title}</h1>
       <div className='desc' dangerouslySetInnerHTML={{__html: descriptionHtml}} />
       <br />
     </div>
@@ -252,11 +251,10 @@ function ProductPrice({selectedVariant}) {
           <br />
           <div className="product-price-on-sale">
             {selectedVariant ? <p className='price-product'> < Money data={selectedVariant.price} /></p> : null}
-            <s>
-              <p className='price-product'>
+
+              <p className='price-'>
               <Money data={selectedVariant.compareAtPrice} />
               </p>
-            </s>
           </div>
         </>
       ) : (

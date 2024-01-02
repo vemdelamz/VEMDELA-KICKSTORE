@@ -18,6 +18,7 @@ export function Footer({menu, shop}) {
         <div className='footer-content'>
           <div className='midia-content'>
             <h3 className='title-footer'>Siga-nos</h3>
+            <br></br>
             <div>
               <a>
               <img src={Instagram} alt="Instagram"/>
@@ -39,9 +40,7 @@ export function Footer({menu, shop}) {
           </div>
           <div className='links'>
             <ul>
-              <li>
-                <a href='/policies/contact'>FALE CONOSCO |</a>
-              </li>
+             
               <li>
                 <a href='/policies/privacy-policy'>POLITICA DE PRIVACIDADE |</a>
               </li>

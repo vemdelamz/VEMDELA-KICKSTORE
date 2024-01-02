@@ -9,7 +9,6 @@ const FriendlyPayment = () => {
     <section>
       <section className='payment-container-section'>
       <div className='details-payment-content'>
-      
                         <div className="text-content">
                         <h1 className="extra-title"><span>Pagamento</span><br></br> amigavel</h1>
                             <p className="text-desc-service">  

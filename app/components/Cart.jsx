@@ -31,7 +31,7 @@ function CartDetails({layout, cart}) {
       <CartLines lines={cart?.lines} layout={layout} />
       {cartHasItems && (
         <div className='cart-sumary-content'>
-          <h2>Resumo</h2>
+          <h2 className='title-cart'>Resumo</h2>
           <CartSummary cost={cart.cost} layout={layout}>
           <CartDiscounts discountCodes={cart.discountCodes} />
           <CartCheckoutActions checkoutUrl={cart.checkoutUrl} />
@@ -99,7 +99,7 @@ function CartLineItem({layout, line}) {
           }}
           className='cart-item-detail'
         >
-          <p className='title-item-cart'>
+          <p className='title-cart'>
            {product.title}
           </p>
          
@@ -151,13 +151,27 @@ export function CartSummary({cost, layout, children = null}) {
     layout === 'page' ? 'cart-summary-page' : 'cart-summary-aside';
 
   return (
-    <div aria-labelledby="cart-summary" className={className}>
-      <h4 className='title-cart'>Total</h4>
-      <dl className="cart-subtotal">
-        <dt>Subtotal</dt>
+    <div aria-labelledby="cart-summary-content" className={className}>
+     
+      <dl className="cart-total">
+        
+      <h4 className='titutlo'>Sub total:</h4>
         <dd>
           {cost?.subtotalAmount?.amount ? (
-            <p className='price-product'>
+            <p className='price-cart'>
+              <Money data={cost?.subtotalAmount} />
+            </p>
+          ) : (
+            '-'
+          )}
+        </dd>
+      </dl>
+      <dl className="cart-total">
+        
+      <h4 className='titutlo'>Total</h4>
+        <dd>
+          {cost?.subtotalAmount?.amount ? (
+            <p className='price-cart'>
               <Money data={cost?.subtotalAmount} />
             </p>
           ) : (
@@ -246,7 +260,7 @@ function CartLinePrice({line, priceType = 'regular', ...passthroughProps}) {
 
   return (
     <div>
-      <p className='price-product'>
+      <p className='price'>
       <Money withoutTrailingZeros {...passthroughProps} data={moneyV2} />
       </p>
     </div>
@@ -313,7 +327,7 @@ function CartDiscounts({discountCodes}) {
       {/* Show an input to apply a discount */}
       <UpdateDiscountForm discountCodes={codes}>
         <div className='discount-content'>
-          <input type="text" name="discountCode" placeholder="Discount code" />
+          <input type="text" name="discountCode" placeholder="Codigo Promocional" />
           &nbsp;
           <button className='apply-btn' type="submit">Apply</button>
         </div>
