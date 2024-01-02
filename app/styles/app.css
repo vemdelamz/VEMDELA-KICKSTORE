@@ -45,7 +45,7 @@ a{
 * --------------------------------------------------
 */
 aside {
-  background: #121214;
+  background: #FFF;
   box-shadow: 0 0 50px rgba(0, 0, 0, 0.3);
   height: 100vh;
   max-width: var(--aside-width);

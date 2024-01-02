@@ -5,6 +5,9 @@
     display: flex;
     margin-top: 60px;
     justify-content: center;
+    @media (min-width: 45em) {
+       padding: 0px;
+      }
  
 }
 
@@ -36,6 +39,7 @@
     line-height: 132.48%;
     color: #FFF;
     letter-spacing: 0.08em;
+    padding: 60px;
 
     @media (min-width: 45em) {
         text-transform: uppercase;
@@ -70,7 +74,7 @@
   
 
     display: flex;
-    margin-top: -55rem;
+    margin-top: -75rem;
     justify-content: center;
     align-items: center;
     position: relative;
@@ -95,13 +99,16 @@
 
    
 }
+.text-content{
+
+}
 
 .text-desc-service{
     color: #FFF;
     font-size: 14px;
     font-family: 'Kanit-Light';
     margin-bottom: 60px;
-    padding: 30px;
+    padding: 60px;
     @media (min-width: 45em) {
         font-size: 14px;
         font-family: 'Kanit-Light';
