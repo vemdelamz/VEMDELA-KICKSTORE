@@ -9,10 +9,14 @@
     background: #202024;
     display: flex;
     height:80px;
-    padding: 0 3rem;
+    padding: 15px;
     position: sticky;
     top: 0;
     z-index: 1;
+    @media (min-width: 48em) {
+      display: none;
+      padding: 0 3rem;
+    }
     
   }
   
@@ -36,6 +40,7 @@
     flex-direction: column;
     grid-gap: 1rem;
     color: #FFF;
+    justify-content: space-between;
     
   }
   
