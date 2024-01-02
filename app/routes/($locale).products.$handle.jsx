@@ -123,15 +123,7 @@ export default function Product() {
     
     </div>
       </div>
-    <section>
-        <div className='related-products-on-sale'>
-          <h2 className='title-on-sale'>VEJA TAMBÉM</h2>
-          <div>
-            
-
-          </div>
-        </div>
-      </section>
+    
     </section>
   );
 }
@@ -249,12 +241,8 @@ function ProductPrice({selectedVariant}) {
       {selectedVariant?.compareAtPrice ? (
         <>
           <br />
-          <div className="product-price-on-sale">
-            {selectedVariant ? <p className='price-product'> < Money data={selectedVariant.price} /></p> : null}
-
-              <p className='price-'>
-              <Money data={selectedVariant.compareAtPrice} />
-              </p>
+          <div className="price">
+            {selectedVariant ? <p className='price-'> < Money data={selectedVariant.price} /></p> : null}
           </div>
         </>
       ) : (
@@ -302,7 +290,10 @@ function ProductForm({product, selectedVariant, variants}) {
       >
         {selectedVariant?.availableForSale ? 'Add to cart' : 'Sold out'}
       </AddToCartButton>
-      <motion.button whileTap={{ scale: 0.9 }} className='pa-btn'>PAGAMENTO AMIGÁVEL</motion.button>
+      <a href="whatsapp://+258855990275&text=Hello%2C%20World!">
+          <motion.button whileTap={{ scale: 0.9 }} className='pa-btn'>PAGAMENTO AMIGÁVEL</motion.button>  
+      </a>
+      
     </div>
   );
 }

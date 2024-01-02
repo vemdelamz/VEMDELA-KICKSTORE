@@ -10,7 +10,12 @@
 
 }
 
-.product-main {
+.product-options{
+  margin: 60px;
+  @media (min-width: 45em) {
+     margin: 0;
+  }
+  
 
 
 
@@ -39,6 +44,8 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: space-around;
+  margin: 20px;
 }
 .img-secundary{
   display: flex;
@@ -70,14 +77,18 @@
     color: #FFF;
     font-family: 'Kanit-Bold';
     font-size: 16px;
-    width: 100%;
+    width: 90%;
     height: 43px;
     border-radius: 7px;
     align-self: start;
     position: sticky;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     border: none !important;
     margin: 0 auto !important;
+    
 }
 
 .variante-content{
@@ -115,12 +126,14 @@
     
   }
   
-  .price-product{
+  .price-{
     color: #121214;
     font-family: 'Kanit-Bold';
-    display: flex;
-    text-align: end;  
-    margin-left:30px;
+    margin-left: 60px;
+    @media (min-width: 45em) {
+      margin: 0;
+   }
+    
   }
   .product-card .img-prod{
     width: 250px;
@@ -133,6 +146,9 @@
     width: 80%;
    
     margin: 60px auto;
+    @media (min-width: 45em) {
+      margin: 0;
+   }
   }
   
 
@@ -141,16 +157,31 @@
     font-family: 'Kanit-Bold';
     font-size: 22px;
     margin: 60px;
+    @media (min-width: 45em) {
+      margin: 0;
+   }
   }
 
   .pa-btn{
     background:none !important;
-    width: 100%;
+   width: 90%;
     height: 43px;
     border: 1px solid #121214;
     border-radius: 7px;
     font-family: 'Kanit-Bold';
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px auto;
+    
+    @media (min-width: 45em) {
+      margin-top: 10px;
+      margin-left: 20px;
+      width: 74%;
+   }
+
+   
 
 
   }
@@ -160,10 +191,13 @@
   .product-main{
     width: 80%;
     margin: 0 auto;
-    padding: 20px;
+
+    @media (min-width: 45em) {
+      margin: 0;
+   }
   }
 
 
   .price-prodcut{
-    color: red;
+    color: #121214;
   }

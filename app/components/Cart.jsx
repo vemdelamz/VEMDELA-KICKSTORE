@@ -278,12 +278,12 @@ export function CartEmpty({hidden = false, layout = 'aside'}) {
     <div hidden={hidden}>
       <br />
       <p className='desc'>
-        Looks like you haven&rsquo;t added anything yet, let&rsquo;s get you
-        started!
+      Parece que ainda não adicionou nada, vamos começar
+      começar!
       </p>
       <br />
       <Link
-        to="/collections"
+        to="/collections/sneakers"
         onClick={() => {
           if (layout === 'aside') {
             window.location.href = '/collections';

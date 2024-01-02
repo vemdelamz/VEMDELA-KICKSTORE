@@ -5,17 +5,15 @@
     display: flex;
     margin-top: 60px;
     justify-content: center;
-   
-
-    
-
-
+ 
 }
 
 .details-payment-content{
     display: flex;
     align-items: center;
     flex-direction: column;
+  
+
     @media (min-width: 45em) {
         flex-direction: row;
         justify-content: space-around;
@@ -43,7 +41,7 @@
         text-transform: uppercase;
         font-family: "Kanit-Bold";
         font-style: normal;
-        font-size:42px;
+        font-size:38px;
         line-height: 132.48%;
         color: #FFF;
         letter-spacing: 0.08em;
@@ -57,6 +55,8 @@
 
 .extra-title span{
     color: #d9040b;
+    
+   
 }
 .extra-selo{
     margin-top: 20px;
@@ -119,6 +119,7 @@
     justify-content: space-around;
     margin-top: -80px;
     padding: 30px;
+    overflow-y: hidden;
 
   
 
