@@ -15,10 +15,22 @@
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         width: 90%;
+      
         
     }
     
     
+
+}
+
+.toggle-item-filter{
+    width: 100%;
+    @media (min-width: 45em) {
+        width: 350px;
+        margin-top: 10px;
+      
+        
+    }
 
 }
 
@@ -30,8 +42,13 @@
 
 .card-item-prod{
     margin-bottom: 60px;
-    margin-left: 20px;
+  
     cursor: pointer;
+    @media (min-width: 45em) {
+        margin: 10px;
+      
+        
+    }
  
 
 }
@@ -53,4 +70,16 @@
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
+}
+
+.load{
+    color: red;
+    display: flex;
+    margin: 30px;
+    float: right;
+    @media (min-width: 45em) {
+        margin: 60px;
+      
+        
+    }
 }

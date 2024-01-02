@@ -78,12 +78,9 @@ export default function Collection() {
       <Pagination connection={collection.products}>
         {({nodes, isLoading, PreviousLink, NextLink}) => (
           <>
-            <PreviousLink>
-              {isLoading ? 'Loading...' : <span>↑ Load previous</span>}
-            </PreviousLink>
             <ProductsGrid products={nodes} />
           
-            <NextLink>
+            <NextLink className='load'>
               {isLoading ? 'Loading...' : <span>Load more ↓</span>}
             </NextLink>
           </>

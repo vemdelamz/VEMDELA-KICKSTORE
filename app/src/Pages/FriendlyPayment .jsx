@@ -36,9 +36,7 @@ const FriendlyPayment = () => {
     <span className="soon-title">CONHECA!</span>
     <span className="soon-title">CONHECA!</span>
     <span className="soon-title">CONHECA!</span>
-    <span className="soon-title">CONHECA!</span>
-    <span className="soon-title">CONHECA!</span>
-    <span className="soon-title">CONHECA!</span>
+
 </div> 
     </section>
   )

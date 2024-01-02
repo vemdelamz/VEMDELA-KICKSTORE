@@ -19,7 +19,7 @@ const AboutUs = () => {
             <p className="text-about text-center">
             A VEM DE LÁ ® é uma loja de sneakers de Moçambique dedicada a uma cuidadosa seleção de sneakers mais cobiçados do momento. Dos clássicos até as últimas tendências, apostamos em modelos que são uma expressão única da sua personalidade. Com uma experiência de compra descomplicada, artigos com garantia de autenticidade e um sistema de pagamento amigável e cômodo, somos sim a sua melhor parceria nesta jornada de estilo e originalidade. 
 
-Bem vindo a VEM DE LÁ KICK STORE -  a sua nova fonte de sneakers irresistíveis. 
+            Bem vindo a VEM DE LÁ KICK STORE -  a sua nova fonte de sneakers irresistíveis. 
             </p>
         </div>
 
