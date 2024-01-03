@@ -194,7 +194,7 @@ function ProductMain({selectedVariant, product, variants}) {
   return (
     <section className='product-detail'>
       <div className="product-main">
-      <h1 className='title-prod'>{title}</h1>
+      <h2 className='product-title'>{title}</h2>
       <div className='desc' dangerouslySetInnerHTML={{__html: descriptionHtml}} />
       <br />
     </div>
@@ -241,8 +241,8 @@ function ProductPrice({selectedVariant}) {
       {selectedVariant?.compareAtPrice ? (
         <>
           <br />
-          <div className="price">
-            {selectedVariant ? <p className='price-'> < Money data={selectedVariant.price} /></p> : null}
+          <div className="price-">
+            {selectedVariant ? <p className='price'> < Money data={selectedVariant.price} /></p> : null}
           </div>
         </>
       ) : (
@@ -290,9 +290,7 @@ function ProductForm({product, selectedVariant, variants}) {
       >
         {selectedVariant?.availableForSale ? 'Add to cart' : 'Sold out'}
       </AddToCartButton>
-      <a href="whatsapp://+258855990275&text=Hello%2C%20World!">
-          <motion.button whileTap={{ scale: 0.9 }} className='pa-btn'>PAGAMENTO AMIGÁVEL</motion.button>  
-      </a>
+    
       
     </div>
   );

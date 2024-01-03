@@ -11,7 +11,8 @@
 }
 
 .product-options{
-  margin: 60px;
+  margin: 0 auto;
+  width: 280px;
   @media (min-width: 45em) {
      margin: 0;
   }
@@ -60,6 +61,8 @@
 
  
 }
+
+
 .img-secundary{
   width: 170px !important;
   height: 170px !important;
@@ -78,6 +81,7 @@
     font-family: 'Kanit-Bold';
     font-size: 16px;
     width: 90%;
+
     height: 43px;
     border-radius: 7px;
     align-self: start;
@@ -88,6 +92,10 @@
 
     border: none !important;
     margin: 0 auto !important;
+    @media (min-width: 45em) {
+      width: 100%;
+  
+   }
     
 }
 
@@ -112,6 +120,7 @@
   font-family: 'Kanit-Light';
   font-size: 14px;
 
+  margin-left: -15px;
   width: 350px;
   @media (min-width: 45em) {
     width: 489px;
@@ -123,6 +132,15 @@
     width: 250px;
     height: 374px;
     text-decoration: none !important;
+    
+  }
+  .price{
+    color: #121214;
+    font-family: 'Kanit-Bold';
+    margin-left: 60px;
+    @media (min-width: 45em) {
+      margin: 0;
+   }
     
   }
   
