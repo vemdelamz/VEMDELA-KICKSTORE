@@ -25,8 +25,8 @@
 }
 
 .bannerLogo{
-    width: 553px;
-    height: 553px;
+    width: 353px;
+    height: 353px;
     object-fit: cover;
     margin-top: -8rem;
 }
@@ -35,7 +35,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: -8rem;   
+    margin-top: -4rem;   
+
+}
+
+.container-actions span{
+    color: #FFF;
+    margin: 5px;
+    padding: 5px;
+
 }
 .container-actions .input input{
     background:none  !important;

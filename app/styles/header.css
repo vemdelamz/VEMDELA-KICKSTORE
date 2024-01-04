@@ -30,7 +30,8 @@
   .header-menu-mobile-toggle {
     color: #FFF !important;
     margin: 15px;
-  
+    width: 30px;
+    object-fit: contain;
     @media (min-width: 48em) {
       display: none;
     }
@@ -101,7 +102,7 @@
 
   }
   .icon-user-mobile{
-    width: 26px;
+    width: 28px;
     height: 26px;
     margin-left: 10px;
     object-fit: cover;
@@ -180,3 +181,4 @@
 .search-result h2{
   color: red;
 }
+
