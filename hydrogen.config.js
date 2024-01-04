@@ -2,21 +2,13 @@ import {defineConfig, CookieSessionStorage} from '@shopify/hydrogen/config';
 
 export default defineConfig({
   shopify: {
-    defaultCountryCode: 'US',
-    defaultLanguageCode: 'EN',
-    storeDomain:
-      // @ts-ignore
-      process?.env?.PUBLIC_STORE_DOMAIN || 'personalise-engrave-services.myshopify.com',
-    storefrontToken:
-      // @ts-ignore
-      process?.env?.PUBLIC_STOREFRONT_API_TOKEN ||
-      '30cfd96af1e62b025026439eb6fab200',
-    privateStorefrontToken:
-      // @ts-ignore
-      process?.env?.PRIVATE_STOREFRONT_API_TOKEN,
+    defaultCountryCode: '',
+    defaultLanguageCode: '',
+    storeDomain: Oxygen.env.PUBLIC_STORE_DOMAIN,
+    storefrontToken: Oxygen.env.PUBLIC_STOREFRONT_API_TOKEN,
+    privateStorefrontToken: Oxygen.env.PRIVATE_STOREFRONT_API_TOKEN,
     storefrontApiVersion: '2022-07',
-    // @ts-ignore
-    storefrontId: process?.env?.PUBLIC_STOREFRONT_ID,
+    storefrontId: Oxygen.env.PUBLIC_STOREFRONT_ID,
   },
   session: CookieSessionStorage('__session', {
     path: '/',
