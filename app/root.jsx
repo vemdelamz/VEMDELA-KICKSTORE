@@ -28,7 +28,8 @@ import navHeaderStyle from './styles/header.css'
 import swipperStyle from './styles/swipperStyle.css'
 import policyStyle from './styles/policy.css'
 import 'swiper/css';
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -155,6 +156,7 @@ export default function App() {
         <ScrollRestoration nonce={nonce} />
         <Scripts nonce={nonce} />
         <LiveReload nonce={nonce} />
+        <ToastContainer />
       </body>
     </html>
   );

@@ -106,13 +106,13 @@ export function SearchResults({results}) {
 function SearchResultsProductsGrid({products}) {
   return (
     <div className="search-result">
-      <h2>Produtos</h2>
+      <h2 className='title-search'>Produtos</h2>
       <Pagination connection={products}>
         {({nodes, isLoading, NextLink, PreviousLink}) => {
           const itemsMarkup = nodes.map((product) => (
             <div className="search-results-item" key={product.id}>
               <Link prefetch="intent" to={`/products/${product.handle}`}>
-                <span>{product.title}</span>
+                <span className='product-titl'>{product.title}</span>
               </Link>
             </div>
           ));

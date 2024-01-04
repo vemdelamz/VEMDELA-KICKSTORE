@@ -26,8 +26,9 @@ export function Header({header, isLoggedIn, cart}) {
         primaryDomainUrl={header.shop.primaryDomain.url}
 
       />
+    
+    
       <HeaderCtas isLoggedIn={isLoggedIn} cart={cart} />
-      <SearchToggle />
     </header>
   );
 }
@@ -39,7 +40,7 @@ export function Header({header, isLoggedIn, cart}) {
  *   viewport: Viewport;
  * }}
  */
-export function HeaderMenu({menu, primaryDomainUrl, viewport}) {
+export function HeaderMenu({menu, primaryDomainUrl, viewport, isLoggedIn, cart}) {
   const {publicStoreDomain} = useRootLoaderData();
   const className = `header-menu-${viewport}`;
 
@@ -62,6 +63,10 @@ export function HeaderMenu({menu, primaryDomainUrl, viewport}) {
         >
         
           <img src={Banner} className='img-mobile-banner' alt='Promo'/>
+          <NavLink prefetch="intent" to="/account" style={activeLinkStyle}>
+             {isLoggedIn ? <img src={VemdelaUser} alt={VemdelaUser } className='icon-user-mobile'  /> : <img className='icon-user-mobile' src={VemdelaUser } alt={VemdelaUser}/>}
+          </NavLink>
+            <CartToggle cart={cart} />
    
         </NavLink>
       )}
@@ -100,11 +105,17 @@ export function HeaderMenu({menu, primaryDomainUrl, viewport}) {
 function HeaderCtas({isLoggedIn, cart}) {
   return (
     <nav className="header-ctas" role="navigation">
-      <HeaderMenuMobileToggle />
+
       <NavLink prefetch="intent" to="/account" style={activeLinkStyle}>
-        {isLoggedIn ? <img src={VemdelaUser} alt={VemdelaUser } className='icon-user'  /> : <img className='icon-user' src={VemdelaUser } alt={VemdelaUser}/>}
-      </NavLink>
-      <CartToggle cart={cart} />
+             {isLoggedIn ? <img src={VemdelaUser} alt={VemdelaUser } className='icon-user-desk'  /> : <img className='icon-user-desk' src={VemdelaUser } alt={VemdelaUser}/>}
+          </NavLink>
+     <div className='cart-desk'>
+       <CartToggle cart={cart} className="cart-item-mobile" />
+     </div>
+     <a href="#search-aside" className='icont-seach'>
+    <FiSearch />
+  </a>
+     <HeaderMenuMobileToggle />
     </nav>
   );
 }
@@ -127,7 +138,11 @@ function SearchToggle() {
  * @param {{count: number}}
  */
 function CartBadge({count}) {
-  return <Link  to="/cart"><img className='cart-icon' src={CartIcon}/> <span className='cart-counter'>{count}</span></Link>;
+  return (
+    <>
+    <Link  to="/cart"><img className='cart-icon' src={CartIcon}/> <span className='cart-counter'>{count}</span></Link>
+    </>
+  )
 }
 
 /**

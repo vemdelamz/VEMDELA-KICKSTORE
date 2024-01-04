@@ -34,10 +34,20 @@
 
 }
 
-.title-prod, .price{
+.title-prod{
     font-family: 'Kanit-Bold';
     font-size: 20px;
     margin-top: 15px;
+    margin-left: -3px;
+
+}
+
+.price{
+    font-family: 'Kanit-Bold';
+    font-size: 20px;
+    margin-top: 15px;
+    margin-left: -3px;
+
 }
 
 .card-item-prod{
@@ -70,6 +80,7 @@
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
+    margin-left: -3px;
 }
 
 .load{
@@ -83,3 +94,5 @@
         
     }
 }
+
+.title-prod{}

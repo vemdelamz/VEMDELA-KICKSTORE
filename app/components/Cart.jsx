@@ -275,7 +275,7 @@ function CartLinePrice({line, priceType = 'regular', ...passthroughProps}) {
  */
 export function CartEmpty({hidden = false, layout = 'aside'}) {
   return (
-    <div hidden={hidden}>
+    <div hidden={hidden} className='cart-sem'>
       <br />
       <p className='desc'>
       Parece que ainda não adicionou nada, vamos começar

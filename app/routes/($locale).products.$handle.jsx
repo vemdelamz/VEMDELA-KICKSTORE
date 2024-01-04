@@ -147,37 +147,7 @@ function ProductImage({image}) {
         
         />
       </div>
-      <div  className="secundary-images-content">
-    
-        <Image
-          alt={image.altText || 'Product Image'}
-          aspectRatio="1/1"
-          data={image}
-          key={image.id}
-          className='img-secundary'
-        
-        />
-
-  
-        <Image
-          alt={image.altText || 'Product Image'}
-          aspectRatio="1/1"
-          data={image}
-          key={image.id}
-          className='img-secundary'
-        
-        />
-      </div>
-      <div className="product-image">
-        <Image
-          alt={image.altText || 'Product Image'}
-          aspectRatio="1/1"
-          data={image}
-          key={image.id}
-          className='img'
-        
-        />
-      </div>
+     
     </div>
   );
 }
@@ -208,6 +178,7 @@ function ProductMain({selectedVariant, product, variants}) {
             variants={[]}
           />
         }
+        
       >
         <Await
           errorElement="There was a problem loading product variants"
@@ -222,6 +193,9 @@ function ProductMain({selectedVariant, product, variants}) {
             />
           )}
         </Await>
+
+        
+        
       </Suspense>
       <br />
       <br />
@@ -277,7 +251,7 @@ function ProductForm({product, selectedVariant, variants}) {
       <AddToCartButton
         disabled={!selectedVariant || !selectedVariant.availableForSale}
         onClick={() => {
-          window.location.href = window.location.href + '#cart-aside';
+          alert("Adicionado no Carinho com sucesso. Bom gosto!")
         }}
         lines={
           selectedVariant
@@ -297,6 +271,7 @@ function ProductForm({product, selectedVariant, variants}) {
     </div>
   );
 }
+
 
 /**
  * @param {{option: VariantOption}}
