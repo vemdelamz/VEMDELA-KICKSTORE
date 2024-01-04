@@ -47,8 +47,6 @@ export function SearchForm({searchTerm}) {
         ref={inputRef}
         type="search"
       />
-      &nbsp;
-      <button className='btn-search' type="submit">Search</button>
      </div>
     </Form>
     </div>
@@ -108,7 +106,7 @@ export function SearchResults({results}) {
 function SearchResultsProductsGrid({products}) {
   return (
     <div className="search-result">
-      <h2>Products</h2>
+      <h2>Produtos</h2>
       <Pagination connection={products}>
         {({nodes, isLoading, NextLink, PreviousLink}) => {
           const itemsMarkup = nodes.map((product) => (
@@ -149,7 +147,7 @@ function SearchResultsProductsGrid({products}) {
 function SearchResultPageGrid({pages}) {
   return (
     <div className="search-result">
-      <h2>Pages</h2>
+      <h2>Páginas</h2>
       <div>
         {pages?.nodes?.map((page) => (
           <div className="search-results-item" key={page.id}>
@@ -170,7 +168,7 @@ function SearchResultPageGrid({pages}) {
 function SearchResultArticleGrid({articles}) {
   return (
     <div className="search-result">
-      <h2>Articles</h2>
+      <h2>Artigos</h2>
       <div>
         {articles?.nodes?.map((article) => (
           <div className="search-results-item" key={article.id}>
@@ -309,7 +307,7 @@ function PredictiveSearchResult({goToSearchResult, items, searchTerm, type}) {
   return (
     <div className="predictive-search-result" key={type}>
       <Link prefetch="intent" to={categoryUrl} onClick={goToSearchResult}>
-        <h5>{isSuggestions ? 'Suggestions' : type}</h5>
+        <h5>{isSuggestions ? 'Sugestões' : type}</h5>
       </Link>
       <ul>
         {items.map((item) => (

@@ -73,7 +73,7 @@
     margin-left: 30px !important;
     color: #D9040B !important;
     text-decoration: none;
-    font-size: 14px;
+    font-size: 16px;
     text-transform: capitalize !important;
       font-weight: 600 !important;
       transition: all 0.3s ease !important;
@@ -91,8 +91,8 @@
   }
   
   .icon-user{
-    width: 16px;
-    height: 16px;
+    width: 22px;
+    height: 22px;
     object-fit: cover;
     @media (min-width: 48em) {
       display: block;
@@ -104,8 +104,8 @@
   }
   
   .cart-icon{
-    width: 16px;
-    height: 16px;
+    width: 22px;
+    height: 22px;
     object-fit: contain;
     color: #FFF !important; 
   

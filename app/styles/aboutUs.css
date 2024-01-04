@@ -1,6 +1,7 @@
 .container-about{
     background: #121214 !important;
     height: 60vh;
+    width: 100%;
     display: flex;
     position:relative;
     margin-top: -2rem;
@@ -8,6 +9,7 @@
     justify-content: center;
     margin-bottom: 2rem;
     border-bottom: 5px solid #b2121e;
+    overflow-x: hidden;
 }
 
 .title-about{
@@ -18,6 +20,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    letter-spacing: 2px;
 
 
 @media (min-width: 45em) {
@@ -32,14 +35,15 @@
 
 .buy-kick-content{
     width: 60%;
-    margin: 0 auto;
+    margin: 15px auto;
 }
 
 
 .title-about span{
     color: #b2121e;
-    margin-left: 2px;
-    margin-right: 2px;
+    letter-spacing: 2px;
+  
+
     
     
 }
@@ -48,6 +52,7 @@
     font-family: "Kanit-Light";
     font-size: 14px;
     color: #FFF;
+    letter-spacing: 1px;
     text-align: center;
     
 }

@@ -20,7 +20,7 @@ import Audio from '../src/Pages/Audio'
  * @type {MetaFunction<typeof loader>}
  */
 export const meta = ({data}) => {
-  return [{title: `Hydrogen | ${data?.collection.title ?? ''} Collection`}];
+  return [{title: `VEM DE LÁ®  | ${data?.collection.title ?? ''} Collection`}];
 };
 
 /**

@@ -6,6 +6,8 @@ import VemdelaUser from '../src/assets/icons/user.png'
 import CartIcon from '../src/assets/icons/cart.png'
 import { FiAlignRight, FiPlus } from "react-icons/fi";
 import Banner from '../src/assets/images/vans-banner.png'
+import { FiSearch } from "react-icons/fi";
+import MenuMobile from '../src/assets/icons/menu.png'
 import '../styles/header.css'
 /**
  * @param {HeaderProps}
@@ -17,6 +19,7 @@ export function Header({header, isLoggedIn, cart}) {
       <NavLink prefetch="intent" to="/" style={activeLinkStyle} end>
         <img className='logo' src={Logo} alt='Logo'/>
       </NavLink>
+  
       <HeaderMenu
         menu={menu}
         viewport="desktop"
@@ -24,6 +27,7 @@ export function Header({header, isLoggedIn, cart}) {
 
       />
       <HeaderCtas isLoggedIn={isLoggedIn} cart={cart} />
+      <SearchToggle />
     </header>
   );
 }
@@ -108,13 +112,15 @@ function HeaderCtas({isLoggedIn, cart}) {
 function HeaderMenuMobileToggle() {
   return (
     <a className="header-menu-mobile-toggle" href="#mobile-menu-aside">
-        <FiAlignRight/>
+       <img src={MenuMobile}/>
     </a>
   );
 }
 
 function SearchToggle() {
-  return <a href="#search-aside">Search</a>;
+  return <a href="#search-aside" className='icont-seach'>
+    <FiSearch />
+  </a>;
 }
 
 /**

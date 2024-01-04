@@ -108,7 +108,7 @@ function redirectToFirstVariant({product, request}) {
 
 export default function Product() {
   /** @type {LoaderReturnData} */
-  const {product, variants} = useLoaderData();
+  const {product, variants, midia} = useLoaderData();
   const {selectedVariant} = product;
   return (
     <section>
@@ -194,8 +194,8 @@ function ProductMain({selectedVariant, product, variants}) {
   return (
     <section className='product-detail'>
       <div className="product-main">
-      <h2 className='product-title'>{title}</h2>
-      <div className='desc' dangerouslySetInnerHTML={{__html: descriptionHtml}} />
+      <h1 className='title-product'>{title}</h1>
+      <div className='description' dangerouslySetInnerHTML={{__html: descriptionHtml}} />
       <br />
     </div>
       <ProductPrice selectedVariant={selectedVariant} />
@@ -237,16 +237,18 @@ function ProductMain({selectedVariant, product, variants}) {
  */
 function ProductPrice({selectedVariant}) {
   return (
-    <div className="product-price">
+    <div className="product">
       {selectedVariant?.compareAtPrice ? (
         <>
           <br />
-          <div className="price-">
+          <div className="price">
             {selectedVariant ? <p className='price'> < Money data={selectedVariant.price} /></p> : null}
           </div>
         </>
       ) : (
-        selectedVariant?.price && <Money data={selectedVariant?.price} />
+        selectedVariant?.price && <p>
+          
+        </p>
       )}
     </div>
   );

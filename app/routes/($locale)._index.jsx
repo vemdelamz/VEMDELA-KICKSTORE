@@ -18,6 +18,7 @@ import Section from '../components/Section';
 import RecommendedContent from '../src/Pages/Recomend'
 
 import Audio from '../src/Pages/Audio'
+import { SwipperPartner } from '~/components/Swipper';
 /**
  * @type {MetaFunction}
  */
@@ -60,9 +61,12 @@ export default function Homepage() {
       <Section>
         <FriendlyPayment/>
       </Section>
-      
+      <Section>
+        <SwipperPartner/>
+      </Section>
       
      <Section>
+
      <BlogPosts/>
      </Section>
       <Section>

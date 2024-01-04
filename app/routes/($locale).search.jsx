@@ -8,7 +8,7 @@ import {SearchForm, SearchResults, NoSearchResults} from '~/components/Search';
  * @type {MetaFunction}
  */
 export const meta = () => {
-  return [{title: `Hydrogen | Search`}];
+  return [{title: `VEM DE LÁ®| Search`}];
 };
 
 /**
@@ -56,7 +56,7 @@ export default function SearchPage() {
 
   return (
     <div className="search">
-      <h1>Search</h1>
+   
       <SearchForm searchTerm={searchTerm} />
       {!searchTerm || !searchResults.totalResults ? (
         <NoSearchResults />

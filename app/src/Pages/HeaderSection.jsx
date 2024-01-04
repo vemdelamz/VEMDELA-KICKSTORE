@@ -50,13 +50,9 @@ const HeaderSection = () => {
                  
                     
                      <div className="container-actions">
-                         <a href="#search-aside" className="input">
-                             <i class="ri-search-line"></i>
-                             <span>Pesquise o seu Sneaker aqui!</span>
-                         </a>
                          <div className="shop-btn">
                              <Link
-                                to="/collections/snaekers"
+                                to="/collections/sneakers"
                                 className="btn-shop-content">
                                  <img src={ShopIcon} alt="Loja"/> 
                              </Link>

@@ -12,8 +12,12 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-}
 
+
+}
+body{
+  overflow-x: hidden;
+}
 img {
   border-radius: 4px;
 }
@@ -86,6 +90,7 @@ aside header .close:hover {
 aside header h2 {
   margin-bottom: 0.6rem;
   margin-top: 0;
+  color: #121214;
 }
 
 aside main {
@@ -94,14 +99,17 @@ aside main {
 
 aside p {
   margin: 0 0 0.25rem;
+  font-family: 'Kanit-Light';
 }
 
 aside p:last-child {
   margin: 0;
+  font-family: 'Kanit-Light';
 }
 
 aside li {
   margin-bottom: 0.125rem;
+  font-family: 'Kanit-Light';
 }
 
 .overlay {
@@ -273,6 +281,10 @@ aside li {
 * components/Cart
 * --------------------------------------------------
 */
+
+.home{
+  width: 100%;
+}
 .cart-main {
   height: 100%;
   max-height: calc(100vh - var(--cart-aside-summary-height));
@@ -661,7 +673,7 @@ aside li {
   grid-gap: 1rem;
 
 }
-
+.home{}
 .product-image img {
   height: auto;
   width: 100%;
@@ -1155,19 +1167,24 @@ aside li {
 
 
 
-.container-recomend{
-
+.container-recomend{  
   align-items: center;
   justify-content: center;
   display: flex;
+  overflow-y: hidden;
+
 }
 
 .recomend-content{
   display: flex;
-  flex-direction: row;
-align-items: center;
-justify-content: center;
-  width: 80%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  @media (min-width: 45em) {
+    width: 80%;
+    flex-direction: row;
+  }
 
 
 
@@ -1195,7 +1212,7 @@ justify-content: center;
 
 .recomend-content  .img2{
      width: 100%;
-  height: 100%;
+    height: 100%;
     object-fit: cover;
 
 }
@@ -1215,7 +1232,8 @@ justify-content: center;
 
 .box .image-player img{
   height:100%;
-  width:100%
+  width:100%;
+  
 
 }
 
@@ -1224,5 +1242,21 @@ justify-content: center;
 }
 
 .player .play{
+
+}
+
+.icont-seach{
+  color: #FFF;
+  font-size: 22px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-menu-mobile-toggle img{
+  width:22px;
+  height: 22px;
+  object-fit: contain;
 
 }
