@@ -63,10 +63,7 @@ export function HeaderMenu({menu, primaryDomainUrl, viewport, isLoggedIn, cart})
         >
         
           <img src={Banner} className='img-mobile-banner' alt='Promo'/>
-          <NavLink prefetch="intent" to="/account" style={activeLinkStyle}>
-             {isLoggedIn ? <img src={VemdelaUser} alt={VemdelaUser } className='icon-user'  /> : <img className='icon-user' src={VemdelaUser } alt={VemdelaUser}/>}
-          </NavLink>
-            <CartToggle cart={cart} />
+          
    
         </NavLink>
       )}
