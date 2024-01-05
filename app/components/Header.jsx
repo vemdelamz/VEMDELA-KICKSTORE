@@ -9,7 +9,6 @@ import Banner from '../src/assets/images/vans-banner.png'
 import { FiSearch } from "react-icons/fi";
 import MenuMobile from '../src/assets/icons/menu.png'
 import '../styles/header.css'
-import { motion } from 'framer-motion';
 /**
  * @param {HeaderProps}
  */
@@ -27,9 +26,9 @@ export function Header({header, isLoggedIn, cart}) {
         primaryDomainUrl={header.shop.primaryDomain.url}
 
       />
-    
-    
+ 
       <HeaderCtas isLoggedIn={isLoggedIn} cart={cart} />
+      
     </header>
   );
 }
@@ -65,7 +64,7 @@ export function HeaderMenu({menu, primaryDomainUrl, viewport, isLoggedIn, cart})
         
           <img src={Banner} className='img-mobile-banner' alt='Promo'/>
           <NavLink prefetch="intent" to="/account" style={activeLinkStyle}>
-             {isLoggedIn ? <img src={VemdelaUser} alt={VemdelaUser } className='icon-user-mobile'  /> : <img className='icon-user-mobile' src={VemdelaUser } alt={VemdelaUser}/>}
+             {isLoggedIn ? <img src={VemdelaUser} alt={VemdelaUser } className='icon-user'  /> : <img className='icon-user' src={VemdelaUser } alt={VemdelaUser}/>}
           </NavLink>
             <CartToggle cart={cart} />
    
@@ -106,30 +105,22 @@ export function HeaderMenu({menu, primaryDomainUrl, viewport, isLoggedIn, cart})
 function HeaderCtas({isLoggedIn, cart}) {
   return (
     <nav className="header-ctas" role="navigation">
-
+    
       <NavLink prefetch="intent" to="/account" style={activeLinkStyle}>
-             {isLoggedIn ? <img src={VemdelaUser} alt={VemdelaUser } className='icon-user-desk'  /> : <img className='icon-user-desk' src={VemdelaUser } alt={VemdelaUser}/>}
+             {isLoggedIn ? <img src={VemdelaUser} alt={VemdelaUser } className='icon-user'  /> : <img className='icon-user' src={VemdelaUser } alt={VemdelaUser}/>}
           </NavLink>
-     <div className='cart-desk'>
-       <CartToggle cart={cart} className="cart-item-mobile" />
-     </div>
-     <motion.a   whileTap={{ scale: 0.9 }}   href="#search-aside" className='icont-seach'>
-        <FiSearch />
-      </motion.a>
-     <HeaderMenuMobileToggle />
+      <CartToggle cart={cart} />
+      <HeaderMenuMobileToggle />
+      
     </nav>
   );
 }
 
 function HeaderMenuMobileToggle() {
   return (
-    <motion.a 
-        className="header-menu-mobile-toggle" 
-        href="#mobile-menu-aside"
-            whileTap={{ scale: 0.9 }} 
-      >
+    <a className="header-menu-mobile-toggle" href="#mobile-menu-aside">
        <img src={MenuMobile}/>
-    </motion.a>
+    </a>
   );
 }
 
@@ -143,11 +134,7 @@ function SearchToggle() {
  * @param {{count: number}}
  */
 function CartBadge({count}) {
-  return (
-    <>
-    <Link  to="/cart"><img className='cart-icon' src={CartIcon}/> <span className='cart-counter'>{count}</span></Link>
-    </>
-  )
+  return <Link  to="/cart"><img className='cart-icon' src={CartIcon}/> <span className='cart-counter'>{count}</span></Link>;
 }
 
 /**
