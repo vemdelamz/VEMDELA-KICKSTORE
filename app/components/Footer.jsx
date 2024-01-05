@@ -32,7 +32,7 @@ export function Footer({menu, shop}) {
             </div>
             <p>
               <span>atendimento@vemdela.com</span><br></br>
-              Rua fulano de tal, 145 | Maputo - MB
+              Avenida Ahmed Sekou Toure 1740 | Maputo
             </p>
           </div>
           <div className='logo-content'>

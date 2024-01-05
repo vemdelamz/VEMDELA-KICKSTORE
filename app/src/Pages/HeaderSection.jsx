@@ -50,15 +50,15 @@ const HeaderSection = () => {
                  
                     
                      <div className="container-actions">
-                         <div className="shop-btn">
+                         <motion.div className="shop-btn" whileTap={{ scale: 0.9 }} >
                              <Link
                                 to="/collections/sneakers"
                                 className="btn-shop-content">
-                                    <span>Seu novo Sneaker esta aqui!</span>
+                                    <span>Seu sneaker ta aqui</span>
                                  <img src={ShopIcon} alt="Loja"/> 
                              </Link>
                    
-                         </div>
+                         </motion.div>
                      </div>
                          
                          

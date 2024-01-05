@@ -9,6 +9,7 @@ import Banner from '../src/assets/images/vans-banner.png'
 import { FiSearch } from "react-icons/fi";
 import MenuMobile from '../src/assets/icons/menu.png'
 import '../styles/header.css'
+import { motion } from 'framer-motion';
 /**
  * @param {HeaderProps}
  */
@@ -112,9 +113,9 @@ function HeaderCtas({isLoggedIn, cart}) {
      <div className='cart-desk'>
        <CartToggle cart={cart} className="cart-item-mobile" />
      </div>
-     <a href="#search-aside" className='icont-seach'>
-    <FiSearch />
-  </a>
+     <motion.a   whileTap={{ scale: 0.9 }}   href="#search-aside" className='icont-seach'>
+        <FiSearch />
+      </motion.a>
      <HeaderMenuMobileToggle />
     </nav>
   );
@@ -122,9 +123,13 @@ function HeaderCtas({isLoggedIn, cart}) {
 
 function HeaderMenuMobileToggle() {
   return (
-    <a className="header-menu-mobile-toggle" href="#mobile-menu-aside">
+    <motion.a 
+        className="header-menu-mobile-toggle" 
+        href="#mobile-menu-aside"
+            whileTap={{ scale: 0.9 }} 
+      >
        <img src={MenuMobile}/>
-    </a>
+    </motion.a>
   );
 }
 

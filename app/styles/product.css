@@ -24,9 +24,10 @@
 
 
     
-
-.product-main-img{
- 
+.product-price{
+  margin-left: 30px;
+  font-family: 'Kanit-Bold';
+  font-family: 22px;
 }
 
 .product-image{
