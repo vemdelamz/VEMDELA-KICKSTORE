@@ -49,8 +49,7 @@ export default function Homepage() {
    <Audio/>
     <div className="home">
 
-      
-      
+   
     <Section>
       <RecommendedContent/>
     </Section>

@@ -44,6 +44,11 @@ export function Footer({menu, shop}) {
               <li>
                 <a href='/policies/privacy-policy'>POLITICA DE PRIVACIDADE |</a>
               </li>
+                <li>
+                <a href="https://api.whatsapp.com/send?phone=855990275" target="_blank" rel="noopener noreferrer">
+                    FALE CONNOSCO |
+                </a>
+                </li>
               <li>
               <a href='/policies/shipping-policy'>DÚVIDAS FREQUENTES |</a>
               </li>

@@ -71,6 +71,7 @@ export function links() {
     {rel: 'stylesheet', href: swipperStyle},
     {rel: 'stylesheet', href: policyStyle},
     
+    
     {
       rel: 'preconnect',
       href: 'https://cdn.shopify.com',

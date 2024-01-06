@@ -12,6 +12,7 @@ import {
 import {getVariantUrl} from '~/utils';
 
 import '../styles/product.css'
+import SweetAlert from 'sweetalert-react';
 import { motion } from 'framer-motion';
 
 /**
@@ -252,7 +253,7 @@ function ProductForm({product, selectedVariant, variants}) {
       <AddToCartButton
         disabled={!selectedVariant || !selectedVariant.availableForSale}
         onClick={() => {
-          alert("Adicionado no Carinho com sucesso. Bom gosto!")
+            alert('Artigo adiconado com sucesso! Bom gosto')
         }}
         lines={
           selectedVariant
@@ -265,7 +266,8 @@ function ProductForm({product, selectedVariant, variants}) {
             : []
         }
       >
-        {selectedVariant?.availableForSale ? 'Add to cart' : 'Sold out'}
+        
+        {selectedVariant?.availableForSale ? 'Adiconar ao Carinho' : 'Esgotado'}
       </AddToCartButton>
     
       
@@ -316,6 +318,7 @@ function ProductOptions({option}) {
  * }}
  */
 function AddToCartButton({analytics, children, disabled, lines, onClick}) {
+  
   return (
     <CartForm route="/cart" inputs={{lines}} action={CartForm.ACTIONS.LinesAdd}>
       {(fetcher) => (
@@ -334,6 +337,7 @@ function AddToCartButton({analytics, children, disabled, lines, onClick}) {
           >
             {children}
           </motion.button>
+        
         </>
       )}
     </CartForm>

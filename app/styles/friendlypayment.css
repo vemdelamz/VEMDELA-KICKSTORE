@@ -50,7 +50,7 @@
 
 .extra-selo img{
     width: 200px;
-    margin-top:-rem;
+    margin-top:-6.6rem;
 
     @media (min-width: 45em) {
         width: 250px;

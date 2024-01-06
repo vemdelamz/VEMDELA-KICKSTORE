@@ -116,8 +116,6 @@ function ProductsGrid({products}) {
                 <li><Link to="/collections/jordan">Jordan</Link></li>
                 <li><Link to="/collections/adidas">Adidas</Link></li>
                 <li><Link to="/collections/puma">Puma</Link></li>
-                <li><Link to="/collections/converse">Converse</Link></li>
-                <li><Link to="/collections/vans">Vans</Link></li>
                 <li><Link to="/collections/newbalance">New Balance</Link></li>
                 <li><Link to="/collections/lacoste">Lacoste</Link></li>
                 <li><Link to="/collections/timberland">Timberland</Link></li>

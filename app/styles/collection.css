@@ -8,6 +8,8 @@
 
 }
 
+
+
 .card-container{
     display: flex;
     flex-direction: column;
@@ -95,4 +97,18 @@
     }
 }
 
-.title-prod{}
+.filter-content ul li{
+    width: 100%;
+    font-size: 16px;
+    height: 30px;
+}
+.filter-content ul li a:hover{
+    color: #D9040B;
+    transition: 1.2s;
+    padding-left: 1px;
+  }
+  
+ 
+  /* selected link */
+
+

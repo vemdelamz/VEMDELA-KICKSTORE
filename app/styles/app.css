@@ -219,7 +219,7 @@ aside li {
     
   }
 }
-
+.links{}
 .line{
  width: 100%;
  height: 43px;
@@ -243,6 +243,7 @@ aside li {
 
 .links{
   margin: 60px;
+  text-align: right;
 
 }
 .links ul li a{
@@ -781,6 +782,8 @@ aside li {
 }
 
 
+.card-partner{}
+
 .container-about{
   background-color: #121214;
 }
@@ -848,8 +851,8 @@ aside li {
   
 }
 .card-partner img{
-  width: 260px;
-  height: 260px;
+  width: 160px;
+  height: 160px;
   object-fit: contain;
   animation: 14s slide infinite linear;
   margin: 30px;
