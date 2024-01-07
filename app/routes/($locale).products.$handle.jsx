@@ -338,7 +338,7 @@ function AddToCartButton({analytics, children, disabled, lines, onClick}) {
           >
             {children}
           </motion.button>
-          <p><span className='sec'><PiLockSimpleLight /> </span>Compra 100% segura</p>
+          <span className='sec'><PiLockSimpleLight /> Compra 100% segura</span>
         </>
       )}
     </CartForm>
