@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../../app/routes/($locale).$.jsx"],
+  "sourcesContent": ["/**\n * @param {LoaderFunctionArgs}\n */\nexport async function loader({request}) {\n  throw new Response(`${new URL(request.url).pathname} not found`, {\n    status: 404,\n  });\n}\n\nexport default function CatchAllPage() {\n  return (\n    <div>Ola</div>\n  )\n}\n\n/** @typedef {import('@shopify/remix-oxygen').LoaderFunctionArgs} LoaderFunctionArgs */\n/** @typedef {import('@shopify/remix-oxygen').SerializeFrom<typeof loader>} LoaderReturnData */\n"],
+  "mappings": "0GAWI,IAAAA,EAAA,OAFW,SAARC,GAAgC,CACrC,SACE,OAAC,OAAI,eAAG,CAEZ",
+  "names": ["import_jsx_runtime", "CatchAllPage"]
+}

@@ -1,0 +1,2 @@
+import{r as n}from"/build/_shared/chunk-LKWFDM4N.js";import{b as o}from"/build/_shared/chunk-IOELMSQY.js";import{d as a}from"/build/_shared/chunk-2LOM2E4Y.js";var e=a(o()),d=({data:t})=>[{title:`VEM DE L\xC1\xAE  | ${t?.page.title??""}`}];function r(){let{page:t}=n();return(0,e.jsxs)("div",{className:"page",children:[(0,e.jsx)("header",{children:(0,e.jsx)("h1",{children:t.title})}),(0,e.jsx)("main",{dangerouslySetInnerHTML:{__html:t.body}})]})}export{r as default,d as meta};
+

@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../../app/styles/friendlypayment.css"],
+  "sourcesContent": [".payment-container-section{\n    background-color: #121214;\n    border-bottom: 5px solid #D9040B;\n    border-top: 5px solid #D9040B;\n    margin-top: 35px;\n    width: 100%;\n}\n\n.details-payment-content{\n    display: flex;\n    flex-direction: column-reverse;\n    @media (min-width: 45em) {\n        display: flex;\n        margin: 60px;\n        justify-content: space-between;\n        flex-direction: row;\n      }\n\n}\n.text-content{\n  margin-left: 30px;\n  padding: 30px;\n}\n\n.extra-title{\n    color: #FFF;\n}\n\n.extra-title span{\n    color: #D9040B;\n}\n\n.text-desc-service{\n    color: #FFF;\n    width: 80%;\n}\n\n.extra-selo{\n    display: flex;\n    position: relative;\n    align-items: center;\n    justify-content: center;\n    @media (min-width: 45em) {\n        width: 250px;\n        margin-top:-1rem;   \n    }\n    \n\n}\n\n.extra-selo img{\n    width: 200px;\n    margin-top:-6.6rem;\n\n    @media (min-width: 45em) {\n        width: 250px;\n        margin-top:-12.5rem;   \n    }\n}\n\n.soon-content{\n    color: #D9040B;\n    margin-top: -30px;\n    display: flex;\n    justify-content: space-around;   \n    font-family: 'Kanit-Bold'; \n}"],
+  "mappings": "AAAA,2BACI,yBACA,gCACA,6BACA,gBACA,WAGJ,yBACI,aACA,8BACA,yBAHJ,yBAIQ,aAZR,YAcQ,8BACA,oBAIR,cACE,iBApBF,aAwBA,aACI,WAGJ,kBACI,cAGJ,mBACI,WACA,UAGJ,YACI,aACA,kBACA,mBACA,uBACA,yBALJ,YAMQ,YACA,kBAMR,gBACI,YACA,mBAEA,yBAJJ,gBAKQ,YACA,qBAIR,cACI,cACA,iBACA,aACA,6BACA",
+  "names": []
+}

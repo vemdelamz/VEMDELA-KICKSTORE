@@ -1,0 +1,2 @@
+import{a as n,b as c,c as u}from"/build/_shared/chunk-WU2FDJIM.js";import"/build/_shared/chunk-XTVQEJHQ.js";import{r as s}from"/build/_shared/chunk-LKWFDM4N.js";import{b as o}from"/build/_shared/chunk-IOELMSQY.js";import{d as a}from"/build/_shared/chunk-2LOM2E4Y.js";var e=a(o()),i=()=>[{title:"VEM DE L\xC1\xAE| Search"}];function l(){let{searchTerm:r,searchResults:t}=s();return(0,e.jsxs)("div",{className:"search",children:[(0,e.jsx)(n,{searchTerm:r}),!r||!t.totalResults?(0,e.jsx)(u,{}):(0,e.jsx)(c,{results:t.results})]})}export{l as default,i as meta};
+

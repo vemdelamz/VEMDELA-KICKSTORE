@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["policy.css"],
+  "sourcesContent": [".policy{\n    padding: 60px;\n\n    \n}\nh1{\n    font-family: 'Kanit-Bold';\n    text-transform: uppercase;\n}\n\nh3{\n    font-family: 'Kanit-Bold';\n    text-transform: uppercase;\n}\n\np{\n    font-family: 'Kanit-Light';\n}\n\n.header-policy{\n    \n\n}"],
+  "mappings": "AAAA,qBAKA,MACI,uBACA,yBAQJ,EACI",
+  "names": []
+}

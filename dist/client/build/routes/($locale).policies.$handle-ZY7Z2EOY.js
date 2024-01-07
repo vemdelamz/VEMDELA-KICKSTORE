@@ -1,0 +1,2 @@
+import{r as l}from"/build/_shared/chunk-LKWFDM4N.js";import{b as n}from"/build/_shared/chunk-IOELMSQY.js";import{d as i}from"/build/_shared/chunk-2LOM2E4Y.js";var e=i(n()),a=({data:o})=>[{title:`VEM DE L\xC1\xAE | ${o?.policy.title??""}`}];function t(){let{policy:o}=l();return(0,e.jsxs)("section",{className:"policy",children:[(0,e.jsx)("div",{className:"header-policy",children:(0,e.jsx)("h1",{children:o.title})}),(0,e.jsx)("div",{dangerouslySetInnerHTML:{__html:o.body}})]})}export{t as default,a as meta};
+
