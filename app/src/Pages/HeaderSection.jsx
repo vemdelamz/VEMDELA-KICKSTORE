@@ -51,7 +51,7 @@ const HeaderSection = () => {
                              <Link
                                 to="/collections/sneakers"
                                 className="btn-shop-content">
-                                    <span>Seu sneaker ta aqui</span>
+                                    <span>Seu sneaker ta aqui!</span>
                                  <img src={ShopIcon} alt="Loja"/> 
                              </Link>
                    
