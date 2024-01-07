@@ -31,6 +31,6 @@ jobs:
 
     - name: Deploy
       run: |
-        # Adicione os comandos necessários para o deploy aqui
+        npm run build
         # Exemplo: oxygenxml -deploy output.xml
 
