@@ -1,0 +1,36 @@
+name: Oxygen XML Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Java
+      uses: actions/setup-java@v2
+      with:
+        distribution: 'adopt'
+        java-version: '11'
+
+    - name: Build with Oxygen XML
+      run: |
+        # Adicione os comandos necessários para construir seu projeto Oxygen XML aqui
+        # Exemplo: oxygenxml -input source.xml -output output.xml
+
+    - name: Run Tests
+      run: |
+        # Adicione os comandos necessários para executar seus testes aqui
+        # Exemplo: oxygenxml -test test_suite.xml
+
+    - name: Deploy
+      run: |
+        # Adicione os comandos necessários para o deploy aqui
+        # Exemplo: oxygenxml -deploy output.xml
+
