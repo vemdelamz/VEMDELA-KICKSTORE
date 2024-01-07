@@ -207,4 +207,14 @@
   }
 
 
+  .sec{
+    color: #CCC;
+    font-family: 'Kanit-Light';
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+    letter-spacing: 1px;
+
+  }
+
 

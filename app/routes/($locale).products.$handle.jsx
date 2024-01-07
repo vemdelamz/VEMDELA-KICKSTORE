@@ -14,6 +14,7 @@ import {getVariantUrl} from '~/utils';
 import '../styles/product.css'
 import SweetAlert from 'sweetalert-react';
 import { motion } from 'framer-motion';
+import { PiLockSimpleLight } from "react-icons/pi";
 
 /**
  * @type {MetaFunction<typeof loader>}
@@ -337,7 +338,7 @@ function AddToCartButton({analytics, children, disabled, lines, onClick}) {
           >
             {children}
           </motion.button>
-        
+          <p><span className='sec'><PiLockSimpleLight /> </span>Compra 100% segura</p>
         </>
       )}
     </CartForm>

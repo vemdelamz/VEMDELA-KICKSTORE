@@ -30,10 +30,7 @@ const HeaderSection = () => {
     const scale = useTransform(scrollYProgress, [0, 1], [1, 2])
   return (
     <section className="hero-section">
-        <video autoPlay loop muted plays-inline className="back-video">
-                     <source src={PubPromo} type="video/mp4" />
-                   
-                 </video>
+        
                  <div className="content">
                     
                     <motion.div
