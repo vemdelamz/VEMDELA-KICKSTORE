@@ -9,6 +9,7 @@ import { FiPlay, FiSkipForward, FiPause,  } from "react-icons/fi";
 const Player = () => {
   const [backToTop, setBackToTop] = useState(false)
     const [goToBottom, setGoToBottom] = useState(false)
+    const audio = 'https://m.soundcloud.com/deejaygato_official/vibezvibez004gvtotheone'
 
     useEffect(()=>{
         window.addEventListener("scroll",()=>{
@@ -46,7 +47,7 @@ const Player = () => {
               
             }}
             autoPlay
-            src={Audio}
+            src={audio}
             onPlay={e => console.log("onPlay")}
             customIcons={{
               play:<FiPlay className='play' />,
