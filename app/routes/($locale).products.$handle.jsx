@@ -12,7 +12,7 @@ import {
 import {getVariantUrl} from '~/utils';
 
 import '../styles/product.css'
-import SweetAlert from 'sweetalert-react';
+import Swal from 'sweetalert2'
 import { motion } from 'framer-motion';
 import { PiLockSimpleLight } from "react-icons/pi";
 
@@ -254,7 +254,13 @@ function ProductForm({product, selectedVariant, variants}) {
       <AddToCartButton
         disabled={!selectedVariant || !selectedVariant.availableForSale}
         onClick={() => {
-            alert('Artigo adiconado com sucesso! Bom gosto')
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Adicionado ao carrinho",
+            showConfirmButton: false,
+            timer: 1500
+          });
         }}
         lines={
           selectedVariant

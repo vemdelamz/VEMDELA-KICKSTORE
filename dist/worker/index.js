@@ -14313,1749 +14313,1790 @@ var reactPropsRegex, index, is_prop_valid_esm_default, init_is_prop_valid_esm = 
   }
 });
 
-// node_modules/prop-types/node_modules/react-is/cjs/react-is.development.js
-var require_react_is_development = __commonJS({
-  "node_modules/prop-types/node_modules/react-is/cjs/react-is.development.js"(exports) {
-    "use strict";
-    (function() {
+// node_modules/sweetalert2/dist/sweetalert2.all.js
+var require_sweetalert2_all = __commonJS({
+  "node_modules/sweetalert2/dist/sweetalert2.all.js"(exports, module) {
+    (function(global, factory) {
+      typeof exports == "object" && typeof module < "u" ? module.exports = factory() : typeof define == "function" && define.amd ? define(factory) : (global = typeof globalThis < "u" ? globalThis : global || self, global.Sweetalert2 = factory());
+    })(exports, function() {
       "use strict";
-      var hasSymbol = typeof Symbol == "function" && Symbol.for, REACT_ELEMENT_TYPE = hasSymbol ? Symbol.for("react.element") : 60103, REACT_PORTAL_TYPE = hasSymbol ? Symbol.for("react.portal") : 60106, REACT_FRAGMENT_TYPE = hasSymbol ? Symbol.for("react.fragment") : 60107, REACT_STRICT_MODE_TYPE = hasSymbol ? Symbol.for("react.strict_mode") : 60108, REACT_PROFILER_TYPE = hasSymbol ? Symbol.for("react.profiler") : 60114, REACT_PROVIDER_TYPE = hasSymbol ? Symbol.for("react.provider") : 60109, REACT_CONTEXT_TYPE = hasSymbol ? Symbol.for("react.context") : 60110, REACT_ASYNC_MODE_TYPE = hasSymbol ? Symbol.for("react.async_mode") : 60111, REACT_CONCURRENT_MODE_TYPE = hasSymbol ? Symbol.for("react.concurrent_mode") : 60111, REACT_FORWARD_REF_TYPE = hasSymbol ? Symbol.for("react.forward_ref") : 60112, REACT_SUSPENSE_TYPE = hasSymbol ? Symbol.for("react.suspense") : 60113, REACT_SUSPENSE_LIST_TYPE = hasSymbol ? Symbol.for("react.suspense_list") : 60120, REACT_MEMO_TYPE = hasSymbol ? Symbol.for("react.memo") : 60115, REACT_LAZY_TYPE = hasSymbol ? Symbol.for("react.lazy") : 60116, REACT_BLOCK_TYPE = hasSymbol ? Symbol.for("react.block") : 60121, REACT_FUNDAMENTAL_TYPE = hasSymbol ? Symbol.for("react.fundamental") : 60117, REACT_RESPONDER_TYPE = hasSymbol ? Symbol.for("react.responder") : 60118, REACT_SCOPE_TYPE = hasSymbol ? Symbol.for("react.scope") : 60119;
-      function isValidElementType(type) {
-        return typeof type == "string" || typeof type == "function" || // Note: its typeof might be other than 'symbol' or 'number' if it's a polyfill.
-        type === REACT_FRAGMENT_TYPE || type === REACT_CONCURRENT_MODE_TYPE || type === REACT_PROFILER_TYPE || type === REACT_STRICT_MODE_TYPE || type === REACT_SUSPENSE_TYPE || type === REACT_SUSPENSE_LIST_TYPE || typeof type == "object" && type !== null && (type.$$typeof === REACT_LAZY_TYPE || type.$$typeof === REACT_MEMO_TYPE || type.$$typeof === REACT_PROVIDER_TYPE || type.$$typeof === REACT_CONTEXT_TYPE || type.$$typeof === REACT_FORWARD_REF_TYPE || type.$$typeof === REACT_FUNDAMENTAL_TYPE || type.$$typeof === REACT_RESPONDER_TYPE || type.$$typeof === REACT_SCOPE_TYPE || type.$$typeof === REACT_BLOCK_TYPE);
-      }
-      function typeOf(object) {
-        if (typeof object == "object" && object !== null) {
-          var $$typeof = object.$$typeof;
-          switch ($$typeof) {
-            case REACT_ELEMENT_TYPE:
-              var type = object.type;
-              switch (type) {
-                case REACT_ASYNC_MODE_TYPE:
-                case REACT_CONCURRENT_MODE_TYPE:
-                case REACT_FRAGMENT_TYPE:
-                case REACT_PROFILER_TYPE:
-                case REACT_STRICT_MODE_TYPE:
-                case REACT_SUSPENSE_TYPE:
-                  return type;
-                default:
-                  var $$typeofType = type && type.$$typeof;
-                  switch ($$typeofType) {
-                    case REACT_CONTEXT_TYPE:
-                    case REACT_FORWARD_REF_TYPE:
-                    case REACT_LAZY_TYPE:
-                    case REACT_MEMO_TYPE:
-                    case REACT_PROVIDER_TYPE:
-                      return $$typeofType;
-                    default:
-                      return $$typeof;
-                  }
-              }
-            case REACT_PORTAL_TYPE:
-              return $$typeof;
-          }
-        }
-      }
-      var AsyncMode = REACT_ASYNC_MODE_TYPE, ConcurrentMode = REACT_CONCURRENT_MODE_TYPE, ContextConsumer = REACT_CONTEXT_TYPE, ContextProvider = REACT_PROVIDER_TYPE, Element2 = REACT_ELEMENT_TYPE, ForwardRef = REACT_FORWARD_REF_TYPE, Fragment18 = REACT_FRAGMENT_TYPE, Lazy = REACT_LAZY_TYPE, Memo = REACT_MEMO_TYPE, Portal = REACT_PORTAL_TYPE, Profiler = REACT_PROFILER_TYPE, StrictMode = REACT_STRICT_MODE_TYPE, Suspense8 = REACT_SUSPENSE_TYPE, hasWarnedAboutDeprecatedIsAsyncMode = !1;
-      function isAsyncMode(object) {
-        return hasWarnedAboutDeprecatedIsAsyncMode || (hasWarnedAboutDeprecatedIsAsyncMode = !0, console.warn("The ReactIs.isAsyncMode() alias has been deprecated, and will be removed in React 17+. Update your code to use ReactIs.isConcurrentMode() instead. It has the exact same API.")), isConcurrentMode(object) || typeOf(object) === REACT_ASYNC_MODE_TYPE;
-      }
-      function isConcurrentMode(object) {
-        return typeOf(object) === REACT_CONCURRENT_MODE_TYPE;
-      }
-      function isContextConsumer(object) {
-        return typeOf(object) === REACT_CONTEXT_TYPE;
-      }
-      function isContextProvider(object) {
-        return typeOf(object) === REACT_PROVIDER_TYPE;
-      }
-      function isElement(object) {
-        return typeof object == "object" && object !== null && object.$$typeof === REACT_ELEMENT_TYPE;
-      }
-      function isForwardRef(object) {
-        return typeOf(object) === REACT_FORWARD_REF_TYPE;
-      }
-      function isFragment(object) {
-        return typeOf(object) === REACT_FRAGMENT_TYPE;
-      }
-      function isLazy(object) {
-        return typeOf(object) === REACT_LAZY_TYPE;
-      }
-      function isMemo(object) {
-        return typeOf(object) === REACT_MEMO_TYPE;
-      }
-      function isPortal(object) {
-        return typeOf(object) === REACT_PORTAL_TYPE;
-      }
-      function isProfiler(object) {
-        return typeOf(object) === REACT_PROFILER_TYPE;
-      }
-      function isStrictMode(object) {
-        return typeOf(object) === REACT_STRICT_MODE_TYPE;
-      }
-      function isSuspense(object) {
-        return typeOf(object) === REACT_SUSPENSE_TYPE;
-      }
-      exports.AsyncMode = AsyncMode, exports.ConcurrentMode = ConcurrentMode, exports.ContextConsumer = ContextConsumer, exports.ContextProvider = ContextProvider, exports.Element = Element2, exports.ForwardRef = ForwardRef, exports.Fragment = Fragment18, exports.Lazy = Lazy, exports.Memo = Memo, exports.Portal = Portal, exports.Profiler = Profiler, exports.StrictMode = StrictMode, exports.Suspense = Suspense8, exports.isAsyncMode = isAsyncMode, exports.isConcurrentMode = isConcurrentMode, exports.isContextConsumer = isContextConsumer, exports.isContextProvider = isContextProvider, exports.isElement = isElement, exports.isForwardRef = isForwardRef, exports.isFragment = isFragment, exports.isLazy = isLazy, exports.isMemo = isMemo, exports.isPortal = isPortal, exports.isProfiler = isProfiler, exports.isStrictMode = isStrictMode, exports.isSuspense = isSuspense, exports.isValidElementType = isValidElementType, exports.typeOf = typeOf;
-    })();
-  }
-});
-
-// node_modules/prop-types/node_modules/react-is/index.js
-var require_react_is = __commonJS({
-  "node_modules/prop-types/node_modules/react-is/index.js"(exports, module) {
-    "use strict";
-    module.exports = require_react_is_development();
-  }
-});
-
-// node_modules/object-assign/index.js
-var require_object_assign = __commonJS({
-  "node_modules/object-assign/index.js"(exports, module) {
-    "use strict";
-    var getOwnPropertySymbols = Object.getOwnPropertySymbols, hasOwnProperty = Object.prototype.hasOwnProperty, propIsEnumerable = Object.prototype.propertyIsEnumerable;
-    function toObject(val) {
-      if (val == null)
-        throw new TypeError("Object.assign cannot be called with null or undefined");
-      return Object(val);
-    }
-    function shouldUseNative() {
-      try {
-        if (!Object.assign)
-          return !1;
-        var test1 = new String("abc");
-        if (test1[5] = "de", Object.getOwnPropertyNames(test1)[0] === "5")
-          return !1;
-        for (var test2 = {}, i2 = 0; i2 < 10; i2++)
-          test2["_" + String.fromCharCode(i2)] = i2;
-        var order2 = Object.getOwnPropertyNames(test2).map(function(n2) {
-          return test2[n2];
-        });
-        if (order2.join("") !== "0123456789")
-          return !1;
-        var test3 = {};
-        return "abcdefghijklmnopqrst".split("").forEach(function(letter) {
-          test3[letter] = letter;
-        }), Object.keys(Object.assign({}, test3)).join("") === "abcdefghijklmnopqrst";
-      } catch {
-        return !1;
-      }
-    }
-    module.exports = shouldUseNative() ? Object.assign : function(target, source) {
-      for (var from, to = toObject(target), symbols, s2 = 1; s2 < arguments.length; s2++) {
-        from = Object(arguments[s2]);
-        for (var key in from)
-          hasOwnProperty.call(from, key) && (to[key] = from[key]);
-        if (getOwnPropertySymbols) {
-          symbols = getOwnPropertySymbols(from);
-          for (var i2 = 0; i2 < symbols.length; i2++)
-            propIsEnumerable.call(from, symbols[i2]) && (to[symbols[i2]] = from[symbols[i2]]);
-        }
-      }
-      return to;
-    };
-  }
-});
-
-// node_modules/prop-types/lib/ReactPropTypesSecret.js
-var require_ReactPropTypesSecret = __commonJS({
-  "node_modules/prop-types/lib/ReactPropTypesSecret.js"(exports, module) {
-    "use strict";
-    var ReactPropTypesSecret = "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED";
-    module.exports = ReactPropTypesSecret;
-  }
-});
-
-// node_modules/prop-types/lib/has.js
-var require_has = __commonJS({
-  "node_modules/prop-types/lib/has.js"(exports, module) {
-    module.exports = Function.call.bind(Object.prototype.hasOwnProperty);
-  }
-});
-
-// node_modules/prop-types/checkPropTypes.js
-var require_checkPropTypes = __commonJS({
-  "node_modules/prop-types/checkPropTypes.js"(exports, module) {
-    "use strict";
-    var printWarning = function() {
-    };
-    ReactPropTypesSecret = require_ReactPropTypesSecret(), loggedTypeFailures = {}, has = require_has(), printWarning = function(text) {
-      var message = "Warning: " + text;
-      typeof console < "u" && console.error(message);
-      try {
-        throw new Error(message);
-      } catch {
-      }
-    };
-    var ReactPropTypesSecret, loggedTypeFailures, has;
-    function checkPropTypes(typeSpecs, values, location2, componentName, getStack) {
-      for (var typeSpecName in typeSpecs)
-        if (has(typeSpecs, typeSpecName)) {
-          var error;
+      function _iterableToArrayLimit2(r3, l3) {
+        var t2 = r3 == null ? null : typeof Symbol < "u" && r3[Symbol.iterator] || r3["@@iterator"];
+        if (t2 != null) {
+          var e2, n2, i2, u4, a2 = [], f2 = !0, o2 = !1;
           try {
-            if (typeof typeSpecs[typeSpecName] != "function") {
-              var err = Error(
-                (componentName || "React class") + ": " + location2 + " type `" + typeSpecName + "` is invalid; it must be a function, usually from the `prop-types` package, but received `" + typeof typeSpecs[typeSpecName] + "`.This often happens because of typos such as `PropTypes.function` instead of `PropTypes.func`."
-              );
-              throw err.name = "Invariant Violation", err;
-            }
-            error = typeSpecs[typeSpecName](values, typeSpecName, componentName, location2, null, ReactPropTypesSecret);
-          } catch (ex) {
-            error = ex;
-          }
-          if (error && !(error instanceof Error) && printWarning(
-            (componentName || "React class") + ": type specification of " + location2 + " `" + typeSpecName + "` is invalid; the type checker function must return `null` or an `Error` but returned a " + typeof error + ". You may have forgotten to pass an argument to the type checker creator (arrayOf, instanceOf, objectOf, oneOf, oneOfType, and shape all require an argument)."
-          ), error instanceof Error && !(error.message in loggedTypeFailures)) {
-            loggedTypeFailures[error.message] = !0;
-            var stack = getStack ? getStack() : "";
-            printWarning(
-              "Failed " + location2 + " type: " + error.message + (stack ?? "")
-            );
-          }
-        }
-    }
-    checkPropTypes.resetWarningCache = function() {
-      loggedTypeFailures = {};
-    };
-    module.exports = checkPropTypes;
-  }
-});
-
-// node_modules/prop-types/factoryWithTypeCheckers.js
-var require_factoryWithTypeCheckers = __commonJS({
-  "node_modules/prop-types/factoryWithTypeCheckers.js"(exports, module) {
-    "use strict";
-    var ReactIs = require_react_is(), assign = require_object_assign(), ReactPropTypesSecret = require_ReactPropTypesSecret(), has = require_has(), checkPropTypes = require_checkPropTypes(), printWarning = function() {
-    };
-    printWarning = function(text) {
-      var message = "Warning: " + text;
-      typeof console < "u" && console.error(message);
-      try {
-        throw new Error(message);
-      } catch {
-      }
-    };
-    function emptyFunctionThatReturnsNull() {
-      return null;
-    }
-    module.exports = function(isValidElement3, throwOnDirectAccess) {
-      var ITERATOR_SYMBOL = typeof Symbol == "function" && Symbol.iterator, FAUX_ITERATOR_SYMBOL = "@@iterator";
-      function getIteratorFn(maybeIterable) {
-        var iteratorFn = maybeIterable && (ITERATOR_SYMBOL && maybeIterable[ITERATOR_SYMBOL] || maybeIterable[FAUX_ITERATOR_SYMBOL]);
-        if (typeof iteratorFn == "function")
-          return iteratorFn;
-      }
-      var ANONYMOUS = "<<anonymous>>", ReactPropTypes = {
-        array: createPrimitiveTypeChecker("array"),
-        bigint: createPrimitiveTypeChecker("bigint"),
-        bool: createPrimitiveTypeChecker("boolean"),
-        func: createPrimitiveTypeChecker("function"),
-        number: createPrimitiveTypeChecker("number"),
-        object: createPrimitiveTypeChecker("object"),
-        string: createPrimitiveTypeChecker("string"),
-        symbol: createPrimitiveTypeChecker("symbol"),
-        any: createAnyTypeChecker(),
-        arrayOf: createArrayOfTypeChecker,
-        element: createElementTypeChecker(),
-        elementType: createElementTypeTypeChecker(),
-        instanceOf: createInstanceTypeChecker,
-        node: createNodeChecker(),
-        objectOf: createObjectOfTypeChecker,
-        oneOf: createEnumTypeChecker,
-        oneOfType: createUnionTypeChecker,
-        shape: createShapeTypeChecker,
-        exact: createStrictShapeTypeChecker
-      };
-      function is(x2, y2) {
-        return x2 === y2 ? x2 !== 0 || 1 / x2 === 1 / y2 : x2 !== x2 && y2 !== y2;
-      }
-      function PropTypeError(message, data) {
-        this.message = message, this.data = data && typeof data == "object" ? data : {}, this.stack = "";
-      }
-      PropTypeError.prototype = Error.prototype;
-      function createChainableTypeChecker(validate) {
-        var manualPropTypeCallCache = {}, manualPropTypeWarningCount = 0;
-        function checkType(isRequired, props, propName, componentName, location2, propFullName, secret) {
-          if (componentName = componentName || ANONYMOUS, propFullName = propFullName || propName, secret !== ReactPropTypesSecret) {
-            if (throwOnDirectAccess) {
-              var err = new Error(
-                "Calling PropTypes validators directly is not supported by the `prop-types` package. Use `PropTypes.checkPropTypes()` to call them. Read more at http://fb.me/use-check-prop-types"
-              );
-              throw err.name = "Invariant Violation", err;
-            } else if (typeof console < "u") {
-              var cacheKey = componentName + ":" + propName;
-              !manualPropTypeCallCache[cacheKey] && // Avoid spamming the console because they are often not actionable except for lib authors
-              manualPropTypeWarningCount < 3 && (printWarning(
-                "You are manually calling a React.PropTypes validation function for the `" + propFullName + "` prop on `" + componentName + "`. This is deprecated and will throw in the standalone `prop-types` package. You may be seeing this warning due to a third-party PropTypes library. See https://fb.me/react-warning-dont-call-proptypes for details."
-              ), manualPropTypeCallCache[cacheKey] = !0, manualPropTypeWarningCount++);
-            }
-          }
-          return props[propName] == null ? isRequired ? props[propName] === null ? new PropTypeError("The " + location2 + " `" + propFullName + "` is marked as required " + ("in `" + componentName + "`, but its value is `null`.")) : new PropTypeError("The " + location2 + " `" + propFullName + "` is marked as required in " + ("`" + componentName + "`, but its value is `undefined`.")) : null : validate(props, propName, componentName, location2, propFullName);
-        }
-        var chainedCheckType = checkType.bind(null, !1);
-        return chainedCheckType.isRequired = checkType.bind(null, !0), chainedCheckType;
-      }
-      function createPrimitiveTypeChecker(expectedType) {
-        function validate(props, propName, componentName, location2, propFullName, secret) {
-          var propValue = props[propName], propType = getPropType(propValue);
-          if (propType !== expectedType) {
-            var preciseType = getPreciseType(propValue);
-            return new PropTypeError(
-              "Invalid " + location2 + " `" + propFullName + "` of type " + ("`" + preciseType + "` supplied to `" + componentName + "`, expected ") + ("`" + expectedType + "`."),
-              { expectedType }
-            );
-          }
-          return null;
-        }
-        return createChainableTypeChecker(validate);
-      }
-      function createAnyTypeChecker() {
-        return createChainableTypeChecker(emptyFunctionThatReturnsNull);
-      }
-      function createArrayOfTypeChecker(typeChecker) {
-        function validate(props, propName, componentName, location2, propFullName) {
-          if (typeof typeChecker != "function")
-            return new PropTypeError("Property `" + propFullName + "` of component `" + componentName + "` has invalid PropType notation inside arrayOf.");
-          var propValue = props[propName];
-          if (!Array.isArray(propValue)) {
-            var propType = getPropType(propValue);
-            return new PropTypeError("Invalid " + location2 + " `" + propFullName + "` of type " + ("`" + propType + "` supplied to `" + componentName + "`, expected an array."));
-          }
-          for (var i2 = 0; i2 < propValue.length; i2++) {
-            var error = typeChecker(propValue, i2, componentName, location2, propFullName + "[" + i2 + "]", ReactPropTypesSecret);
-            if (error instanceof Error)
-              return error;
-          }
-          return null;
-        }
-        return createChainableTypeChecker(validate);
-      }
-      function createElementTypeChecker() {
-        function validate(props, propName, componentName, location2, propFullName) {
-          var propValue = props[propName];
-          if (!isValidElement3(propValue)) {
-            var propType = getPropType(propValue);
-            return new PropTypeError("Invalid " + location2 + " `" + propFullName + "` of type " + ("`" + propType + "` supplied to `" + componentName + "`, expected a single ReactElement."));
-          }
-          return null;
-        }
-        return createChainableTypeChecker(validate);
-      }
-      function createElementTypeTypeChecker() {
-        function validate(props, propName, componentName, location2, propFullName) {
-          var propValue = props[propName];
-          if (!ReactIs.isValidElementType(propValue)) {
-            var propType = getPropType(propValue);
-            return new PropTypeError("Invalid " + location2 + " `" + propFullName + "` of type " + ("`" + propType + "` supplied to `" + componentName + "`, expected a single ReactElement type."));
-          }
-          return null;
-        }
-        return createChainableTypeChecker(validate);
-      }
-      function createInstanceTypeChecker(expectedClass) {
-        function validate(props, propName, componentName, location2, propFullName) {
-          if (!(props[propName] instanceof expectedClass)) {
-            var expectedClassName = expectedClass.name || ANONYMOUS, actualClassName = getClassName(props[propName]);
-            return new PropTypeError("Invalid " + location2 + " `" + propFullName + "` of type " + ("`" + actualClassName + "` supplied to `" + componentName + "`, expected ") + ("instance of `" + expectedClassName + "`."));
-          }
-          return null;
-        }
-        return createChainableTypeChecker(validate);
-      }
-      function createEnumTypeChecker(expectedValues) {
-        if (!Array.isArray(expectedValues))
-          return arguments.length > 1 ? printWarning(
-            "Invalid arguments supplied to oneOf, expected an array, got " + arguments.length + " arguments. A common mistake is to write oneOf(x, y, z) instead of oneOf([x, y, z])."
-          ) : printWarning("Invalid argument supplied to oneOf, expected an array."), emptyFunctionThatReturnsNull;
-        function validate(props, propName, componentName, location2, propFullName) {
-          for (var propValue = props[propName], i2 = 0; i2 < expectedValues.length; i2++)
-            if (is(propValue, expectedValues[i2]))
-              return null;
-          var valuesString = JSON.stringify(expectedValues, function(key, value) {
-            var type = getPreciseType(value);
-            return type === "symbol" ? String(value) : value;
-          });
-          return new PropTypeError("Invalid " + location2 + " `" + propFullName + "` of value `" + String(propValue) + "` " + ("supplied to `" + componentName + "`, expected one of " + valuesString + "."));
-        }
-        return createChainableTypeChecker(validate);
-      }
-      function createObjectOfTypeChecker(typeChecker) {
-        function validate(props, propName, componentName, location2, propFullName) {
-          if (typeof typeChecker != "function")
-            return new PropTypeError("Property `" + propFullName + "` of component `" + componentName + "` has invalid PropType notation inside objectOf.");
-          var propValue = props[propName], propType = getPropType(propValue);
-          if (propType !== "object")
-            return new PropTypeError("Invalid " + location2 + " `" + propFullName + "` of type " + ("`" + propType + "` supplied to `" + componentName + "`, expected an object."));
-          for (var key in propValue)
-            if (has(propValue, key)) {
-              var error = typeChecker(propValue, key, componentName, location2, propFullName + "." + key, ReactPropTypesSecret);
-              if (error instanceof Error)
-                return error;
-            }
-          return null;
-        }
-        return createChainableTypeChecker(validate);
-      }
-      function createUnionTypeChecker(arrayOfTypeCheckers) {
-        if (!Array.isArray(arrayOfTypeCheckers))
-          return printWarning("Invalid argument supplied to oneOfType, expected an instance of array."), emptyFunctionThatReturnsNull;
-        for (var i2 = 0; i2 < arrayOfTypeCheckers.length; i2++) {
-          var checker = arrayOfTypeCheckers[i2];
-          if (typeof checker != "function")
-            return printWarning(
-              "Invalid argument supplied to oneOfType. Expected an array of check functions, but received " + getPostfixForTypeWarning(checker) + " at index " + i2 + "."
-            ), emptyFunctionThatReturnsNull;
-        }
-        function validate(props, propName, componentName, location2, propFullName) {
-          for (var expectedTypes = [], i3 = 0; i3 < arrayOfTypeCheckers.length; i3++) {
-            var checker2 = arrayOfTypeCheckers[i3], checkerResult = checker2(props, propName, componentName, location2, propFullName, ReactPropTypesSecret);
-            if (checkerResult == null)
-              return null;
-            checkerResult.data && has(checkerResult.data, "expectedType") && expectedTypes.push(checkerResult.data.expectedType);
-          }
-          var expectedTypesMessage = expectedTypes.length > 0 ? ", expected one of type [" + expectedTypes.join(", ") + "]" : "";
-          return new PropTypeError("Invalid " + location2 + " `" + propFullName + "` supplied to " + ("`" + componentName + "`" + expectedTypesMessage + "."));
-        }
-        return createChainableTypeChecker(validate);
-      }
-      function createNodeChecker() {
-        function validate(props, propName, componentName, location2, propFullName) {
-          return isNode(props[propName]) ? null : new PropTypeError("Invalid " + location2 + " `" + propFullName + "` supplied to " + ("`" + componentName + "`, expected a ReactNode."));
-        }
-        return createChainableTypeChecker(validate);
-      }
-      function invalidValidatorError(componentName, location2, propFullName, key, type) {
-        return new PropTypeError(
-          (componentName || "React class") + ": " + location2 + " type `" + propFullName + "." + key + "` is invalid; it must be a function, usually from the `prop-types` package, but received `" + type + "`."
-        );
-      }
-      function createShapeTypeChecker(shapeTypes) {
-        function validate(props, propName, componentName, location2, propFullName) {
-          var propValue = props[propName], propType = getPropType(propValue);
-          if (propType !== "object")
-            return new PropTypeError("Invalid " + location2 + " `" + propFullName + "` of type `" + propType + "` " + ("supplied to `" + componentName + "`, expected `object`."));
-          for (var key in shapeTypes) {
-            var checker = shapeTypes[key];
-            if (typeof checker != "function")
-              return invalidValidatorError(componentName, location2, propFullName, key, getPreciseType(checker));
-            var error = checker(propValue, key, componentName, location2, propFullName + "." + key, ReactPropTypesSecret);
-            if (error)
-              return error;
-          }
-          return null;
-        }
-        return createChainableTypeChecker(validate);
-      }
-      function createStrictShapeTypeChecker(shapeTypes) {
-        function validate(props, propName, componentName, location2, propFullName) {
-          var propValue = props[propName], propType = getPropType(propValue);
-          if (propType !== "object")
-            return new PropTypeError("Invalid " + location2 + " `" + propFullName + "` of type `" + propType + "` " + ("supplied to `" + componentName + "`, expected `object`."));
-          var allKeys = assign({}, props[propName], shapeTypes);
-          for (var key in allKeys) {
-            var checker = shapeTypes[key];
-            if (has(shapeTypes, key) && typeof checker != "function")
-              return invalidValidatorError(componentName, location2, propFullName, key, getPreciseType(checker));
-            if (!checker)
-              return new PropTypeError(
-                "Invalid " + location2 + " `" + propFullName + "` key `" + key + "` supplied to `" + componentName + "`.\nBad object: " + JSON.stringify(props[propName], null, "  ") + `
-Valid keys: ` + JSON.stringify(Object.keys(shapeTypes), null, "  ")
-              );
-            var error = checker(propValue, key, componentName, location2, propFullName + "." + key, ReactPropTypesSecret);
-            if (error)
-              return error;
-          }
-          return null;
-        }
-        return createChainableTypeChecker(validate);
-      }
-      function isNode(propValue) {
-        switch (typeof propValue) {
-          case "number":
-          case "string":
-          case "undefined":
-            return !0;
-          case "boolean":
-            return !propValue;
-          case "object":
-            if (Array.isArray(propValue))
-              return propValue.every(isNode);
-            if (propValue === null || isValidElement3(propValue))
-              return !0;
-            var iteratorFn = getIteratorFn(propValue);
-            if (iteratorFn) {
-              var iterator = iteratorFn.call(propValue), step;
-              if (iteratorFn !== propValue.entries) {
-                for (; !(step = iterator.next()).done; )
-                  if (!isNode(step.value))
-                    return !1;
-              } else
-                for (; !(step = iterator.next()).done; ) {
-                  var entry2 = step.value;
-                  if (entry2 && !isNode(entry2[1]))
-                    return !1;
-                }
+            if (i2 = (t2 = t2.call(r3)).next, l3 === 0) {
+              if (Object(t2) !== t2)
+                return;
+              f2 = !1;
             } else
-              return !1;
-            return !0;
-          default:
-            return !1;
-        }
-      }
-      function isSymbol(propType, propValue) {
-        return propType === "symbol" ? !0 : propValue ? propValue["@@toStringTag"] === "Symbol" || typeof Symbol == "function" && propValue instanceof Symbol : !1;
-      }
-      function getPropType(propValue) {
-        var propType = typeof propValue;
-        return Array.isArray(propValue) ? "array" : propValue instanceof RegExp ? "object" : isSymbol(propType, propValue) ? "symbol" : propType;
-      }
-      function getPreciseType(propValue) {
-        if (typeof propValue > "u" || propValue === null)
-          return "" + propValue;
-        var propType = getPropType(propValue);
-        if (propType === "object") {
-          if (propValue instanceof Date)
-            return "date";
-          if (propValue instanceof RegExp)
-            return "regexp";
-        }
-        return propType;
-      }
-      function getPostfixForTypeWarning(value) {
-        var type = getPreciseType(value);
-        switch (type) {
-          case "array":
-          case "object":
-            return "an " + type;
-          case "boolean":
-          case "date":
-          case "regexp":
-            return "a " + type;
-          default:
-            return type;
-        }
-      }
-      function getClassName(propValue) {
-        return !propValue.constructor || !propValue.constructor.name ? ANONYMOUS : propValue.constructor.name;
-      }
-      return ReactPropTypes.checkPropTypes = checkPropTypes, ReactPropTypes.resetWarningCache = checkPropTypes.resetWarningCache, ReactPropTypes.PropTypes = ReactPropTypes, ReactPropTypes;
-    };
-  }
-});
-
-// node_modules/prop-types/index.js
-var require_prop_types = __commonJS({
-  "node_modules/prop-types/index.js"(exports, module) {
-    ReactIs = require_react_is(), throwOnDirectAccess = !0, module.exports = require_factoryWithTypeCheckers()(ReactIs.isElement, throwOnDirectAccess);
-    var ReactIs, throwOnDirectAccess;
-  }
-});
-
-// node_modules/sweetalert/lib/modules/handle-dom.js
-var require_handle_dom = __commonJS({
-  "node_modules/sweetalert/lib/modules/handle-dom.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", {
-      value: !0
-    });
-    var hasClass = function(elem, className) {
-      return new RegExp(" " + className + " ").test(" " + elem.className + " ");
-    }, addClass = function(elem, className) {
-      hasClass(elem, className) || (elem.className += " " + className);
-    }, removeClass = function(elem, className) {
-      var newClass = " " + elem.className.replace(/[\t\r\n]/g, " ") + " ";
-      if (hasClass(elem, className)) {
-        for (; newClass.indexOf(" " + className + " ") >= 0; )
-          newClass = newClass.replace(" " + className + " ", " ");
-        elem.className = newClass.replace(/^\s+|\s+$/g, "");
-      }
-    }, escapeHtml3 = function(str) {
-      var div = document.createElement("div");
-      return div.appendChild(document.createTextNode(str)), div.innerHTML;
-    }, _show = function(elem) {
-      elem.style.opacity = "", elem.style.display = "block";
-    }, show = function(elems) {
-      if (elems && !elems.length)
-        return _show(elems);
-      for (var i2 = 0; i2 < elems.length; ++i2)
-        _show(elems[i2]);
-    }, _hide = function(elem) {
-      elem.style.opacity = "", elem.style.display = "none";
-    }, hide = function(elems) {
-      if (elems && !elems.length)
-        return _hide(elems);
-      for (var i2 = 0; i2 < elems.length; ++i2)
-        _hide(elems[i2]);
-    }, isDescendant = function(parent, child) {
-      for (var node = child.parentNode; node !== null; ) {
-        if (node === parent)
-          return !0;
-        node = node.parentNode;
-      }
-      return !1;
-    }, getTopMargin = function(elem) {
-      elem.style.left = "-9999px", elem.style.display = "block";
-      var height = elem.clientHeight, padding;
-      return typeof getComputedStyle < "u" ? padding = parseInt(getComputedStyle(elem).getPropertyValue("padding-top"), 10) : padding = parseInt(elem.currentStyle.padding), elem.style.left = "", elem.style.display = "none", "-" + parseInt((height + padding) / 2) + "px";
-    }, fadeIn = function(elem, interval) {
-      if (+elem.style.opacity < 1) {
-        interval = interval || 16, elem.style.opacity = 0, elem.style.display = "block";
-        var last = +/* @__PURE__ */ new Date(), tick = function(_tick) {
-          function tick2() {
-            return _tick.apply(this, arguments);
+              for (; !(f2 = (e2 = i2.call(t2)).done) && (a2.push(e2.value), a2.length !== l3); f2 = !0)
+                ;
+          } catch (r4) {
+            o2 = !0, n2 = r4;
+          } finally {
+            try {
+              if (!f2 && t2.return != null && (u4 = t2.return(), Object(u4) !== u4))
+                return;
+            } finally {
+              if (o2)
+                throw n2;
+            }
           }
-          return tick2.toString = function() {
-            return _tick.toString();
-          }, tick2;
-        }(function() {
-          elem.style.opacity = +elem.style.opacity + (/* @__PURE__ */ new Date() - last) / 100, last = +/* @__PURE__ */ new Date(), +elem.style.opacity < 1 && setTimeout(tick, interval);
-        });
-        tick();
-      }
-      elem.style.display = "block";
-    }, fadeOut = function(elem, interval) {
-      interval = interval || 16, elem.style.opacity = 1;
-      var last = +/* @__PURE__ */ new Date(), tick = function(_tick2) {
-        function tick2() {
-          return _tick2.apply(this, arguments);
+          return a2;
         }
-        return tick2.toString = function() {
-          return _tick2.toString();
-        }, tick2;
-      }(function() {
-        elem.style.opacity = +elem.style.opacity - (/* @__PURE__ */ new Date() - last) / 100, last = +/* @__PURE__ */ new Date(), +elem.style.opacity > 0 ? setTimeout(tick, interval) : elem.style.display = "none";
-      });
-      tick();
-    }, fireClick = function(node) {
-      if (typeof MouseEvent == "function") {
-        var mevt = new MouseEvent("click", {
-          view: window,
-          bubbles: !1,
-          cancelable: !0
+      }
+      function _toPrimitive3(t2, r3) {
+        if (typeof t2 != "object" || !t2)
+          return t2;
+        var e2 = t2[Symbol.toPrimitive];
+        if (e2 !== void 0) {
+          var i2 = e2.call(t2, r3 || "default");
+          if (typeof i2 != "object")
+            return i2;
+          throw new TypeError("@@toPrimitive must return a primitive value.");
+        }
+        return (r3 === "string" ? String : Number)(t2);
+      }
+      function _toPropertyKey3(t2) {
+        var i2 = _toPrimitive3(t2, "string");
+        return typeof i2 == "symbol" ? i2 : String(i2);
+      }
+      function _typeof2(o2) {
+        return _typeof2 = typeof Symbol == "function" && typeof Symbol.iterator == "symbol" ? function(o3) {
+          return typeof o3;
+        } : function(o3) {
+          return o3 && typeof Symbol == "function" && o3.constructor === Symbol && o3 !== Symbol.prototype ? "symbol" : typeof o3;
+        }, _typeof2(o2);
+      }
+      function _classCallCheck3(instance, Constructor) {
+        if (!(instance instanceof Constructor))
+          throw new TypeError("Cannot call a class as a function");
+      }
+      function _defineProperties3(target, props) {
+        for (var i2 = 0; i2 < props.length; i2++) {
+          var descriptor = props[i2];
+          descriptor.enumerable = descriptor.enumerable || !1, descriptor.configurable = !0, "value" in descriptor && (descriptor.writable = !0), Object.defineProperty(target, _toPropertyKey3(descriptor.key), descriptor);
+        }
+      }
+      function _createClass3(Constructor, protoProps, staticProps) {
+        return protoProps && _defineProperties3(Constructor.prototype, protoProps), staticProps && _defineProperties3(Constructor, staticProps), Object.defineProperty(Constructor, "prototype", {
+          writable: !1
+        }), Constructor;
+      }
+      function _inherits2(subClass, superClass) {
+        if (typeof superClass != "function" && superClass !== null)
+          throw new TypeError("Super expression must either be null or a function");
+        subClass.prototype = Object.create(superClass && superClass.prototype, {
+          constructor: {
+            value: subClass,
+            writable: !0,
+            configurable: !0
+          }
+        }), Object.defineProperty(subClass, "prototype", {
+          writable: !1
+        }), superClass && _setPrototypeOf2(subClass, superClass);
+      }
+      function _getPrototypeOf2(o2) {
+        return _getPrototypeOf2 = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function(o3) {
+          return o3.__proto__ || Object.getPrototypeOf(o3);
+        }, _getPrototypeOf2(o2);
+      }
+      function _setPrototypeOf2(o2, p2) {
+        return _setPrototypeOf2 = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function(o3, p3) {
+          return o3.__proto__ = p3, o3;
+        }, _setPrototypeOf2(o2, p2);
+      }
+      function _isNativeReflectConstruct6() {
+        if (typeof Reflect > "u" || !Reflect.construct || Reflect.construct.sham)
+          return !1;
+        if (typeof Proxy == "function")
+          return !0;
+        try {
+          return Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function() {
+          })), !0;
+        } catch {
+          return !1;
+        }
+      }
+      function _construct(Parent, args, Class) {
+        return _isNativeReflectConstruct6() ? _construct = Reflect.construct.bind() : _construct = function(Parent2, args2, Class2) {
+          var a2 = [null];
+          a2.push.apply(a2, args2);
+          var Constructor = Function.bind.apply(Parent2, a2), instance = new Constructor();
+          return Class2 && _setPrototypeOf2(instance, Class2.prototype), instance;
+        }, _construct.apply(null, arguments);
+      }
+      function _assertThisInitialized2(self2) {
+        if (self2 === void 0)
+          throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+        return self2;
+      }
+      function _possibleConstructorReturn2(self2, call) {
+        if (call && (typeof call == "object" || typeof call == "function"))
+          return call;
+        if (call !== void 0)
+          throw new TypeError("Derived constructors may only return object or undefined");
+        return _assertThisInitialized2(self2);
+      }
+      function _createSuper6(Derived) {
+        var hasNativeReflectConstruct = _isNativeReflectConstruct6();
+        return function() {
+          var Super = _getPrototypeOf2(Derived), result;
+          if (hasNativeReflectConstruct) {
+            var NewTarget = _getPrototypeOf2(this).constructor;
+            result = Reflect.construct(Super, arguments, NewTarget);
+          } else
+            result = Super.apply(this, arguments);
+          return _possibleConstructorReturn2(this, result);
+        };
+      }
+      function _superPropBase(object, property) {
+        for (; !Object.prototype.hasOwnProperty.call(object, property) && (object = _getPrototypeOf2(object), object !== null); )
+          ;
+        return object;
+      }
+      function _get() {
+        return typeof Reflect < "u" && Reflect.get ? _get = Reflect.get.bind() : _get = function(target, property, receiver) {
+          var base = _superPropBase(target, property);
+          if (base) {
+            var desc = Object.getOwnPropertyDescriptor(base, property);
+            return desc.get ? desc.get.call(arguments.length < 3 ? target : receiver) : desc.value;
+          }
+        }, _get.apply(this, arguments);
+      }
+      function _slicedToArray2(arr, i2) {
+        return _arrayWithHoles2(arr) || _iterableToArrayLimit2(arr, i2) || _unsupportedIterableToArray2(arr, i2) || _nonIterableRest2();
+      }
+      function _toConsumableArray(arr) {
+        return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray2(arr) || _nonIterableSpread();
+      }
+      function _arrayWithoutHoles(arr) {
+        if (Array.isArray(arr))
+          return _arrayLikeToArray2(arr);
+      }
+      function _arrayWithHoles2(arr) {
+        if (Array.isArray(arr))
+          return arr;
+      }
+      function _iterableToArray(iter) {
+        if (typeof Symbol < "u" && iter[Symbol.iterator] != null || iter["@@iterator"] != null)
+          return Array.from(iter);
+      }
+      function _unsupportedIterableToArray2(o2, minLen) {
+        if (o2) {
+          if (typeof o2 == "string")
+            return _arrayLikeToArray2(o2, minLen);
+          var n2 = Object.prototype.toString.call(o2).slice(8, -1);
+          if (n2 === "Object" && o2.constructor && (n2 = o2.constructor.name), n2 === "Map" || n2 === "Set")
+            return Array.from(o2);
+          if (n2 === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n2))
+            return _arrayLikeToArray2(o2, minLen);
+        }
+      }
+      function _arrayLikeToArray2(arr, len) {
+        (len == null || len > arr.length) && (len = arr.length);
+        for (var i2 = 0, arr2 = new Array(len); i2 < len; i2++)
+          arr2[i2] = arr[i2];
+        return arr2;
+      }
+      function _nonIterableSpread() {
+        throw new TypeError(`Invalid attempt to spread non-iterable instance.
+In order to be iterable, non-array objects must have a [Symbol.iterator]() method.`);
+      }
+      function _nonIterableRest2() {
+        throw new TypeError(`Invalid attempt to destructure non-iterable instance.
+In order to be iterable, non-array objects must have a [Symbol.iterator]() method.`);
+      }
+      function _classPrivateFieldGet2(receiver, privateMap) {
+        var descriptor = _classExtractFieldDescriptor2(receiver, privateMap, "get");
+        return _classApplyDescriptorGet2(receiver, descriptor);
+      }
+      function _classPrivateFieldSet2(receiver, privateMap, value) {
+        var descriptor = _classExtractFieldDescriptor2(receiver, privateMap, "set");
+        return _classApplyDescriptorSet2(receiver, descriptor, value), value;
+      }
+      function _classExtractFieldDescriptor2(receiver, privateMap, action11) {
+        if (!privateMap.has(receiver))
+          throw new TypeError("attempted to " + action11 + " private field on non-instance");
+        return privateMap.get(receiver);
+      }
+      function _classApplyDescriptorGet2(receiver, descriptor) {
+        return descriptor.get ? descriptor.get.call(receiver) : descriptor.value;
+      }
+      function _classApplyDescriptorSet2(receiver, descriptor, value) {
+        if (descriptor.set)
+          descriptor.set.call(receiver, value);
+        else {
+          if (!descriptor.writable)
+            throw new TypeError("attempted to set read only private field");
+          descriptor.value = value;
+        }
+      }
+      function _checkPrivateRedeclaration2(obj, privateCollection) {
+        if (privateCollection.has(obj))
+          throw new TypeError("Cannot initialize the same private elements twice on an object");
+      }
+      function _classPrivateFieldInitSpec2(obj, privateMap, value) {
+        _checkPrivateRedeclaration2(obj, privateMap), privateMap.set(obj, value);
+      }
+      var RESTORE_FOCUS_TIMEOUT = 100, globalState = {}, focusPreviousActiveElement = function() {
+        globalState.previousActiveElement instanceof HTMLElement ? (globalState.previousActiveElement.focus(), globalState.previousActiveElement = null) : document.body && document.body.focus();
+      }, restoreActiveElement = function(returnFocus) {
+        return new Promise(function(resolve) {
+          if (!returnFocus)
+            return resolve();
+          var x2 = window.scrollX, y2 = window.scrollY;
+          globalState.restoreFocusTimeout = setTimeout(function() {
+            focusPreviousActiveElement(), resolve();
+          }, RESTORE_FOCUS_TIMEOUT), window.scrollTo(x2, y2);
         });
-        node.dispatchEvent(mevt);
-      } else if (document.createEvent) {
-        var evt = document.createEvent("MouseEvents");
-        evt.initEvent("click", !1, !1), node.dispatchEvent(evt);
-      } else
-        document.createEventObject ? node.fireEvent("onclick") : typeof node.onclick == "function" && node.onclick();
-    }, stopEventPropagation = function(e2) {
-      typeof e2.stopPropagation == "function" ? (e2.stopPropagation(), e2.preventDefault()) : window.event && window.event.hasOwnProperty("cancelBubble") && (window.event.cancelBubble = !0);
-    };
-    exports.hasClass = hasClass;
-    exports.addClass = addClass;
-    exports.removeClass = removeClass;
-    exports.escapeHtml = escapeHtml3;
-    exports._show = _show;
-    exports.show = show;
-    exports._hide = _hide;
-    exports.hide = hide;
-    exports.isDescendant = isDescendant;
-    exports.getTopMargin = getTopMargin;
-    exports.fadeIn = fadeIn;
-    exports.fadeOut = fadeOut;
-    exports.fireClick = fireClick;
-    exports.stopEventPropagation = stopEventPropagation;
-  }
-});
-
-// node_modules/sweetalert/lib/modules/utils.js
-var require_utils = __commonJS({
-  "node_modules/sweetalert/lib/modules/utils.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", {
-      value: !0
-    });
-    var extend = function(a2, b2) {
-      for (var key in b2)
-        b2.hasOwnProperty(key) && (a2[key] = b2[key]);
-      return a2;
-    }, hexToRgb = function(hex3) {
-      var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex3);
-      return result ? parseInt(result[1], 16) + ", " + parseInt(result[2], 16) + ", " + parseInt(result[3], 16) : null;
-    }, isIE8 = function() {
-      return window.attachEvent && !window.addEventListener;
-    }, logStr2 = function(string) {
-      window.console && window.console.log("SweetAlert: " + string);
-    }, colorLuminance = function(hex3, lum) {
-      hex3 = String(hex3).replace(/[^0-9a-f]/gi, ""), hex3.length < 6 && (hex3 = hex3[0] + hex3[0] + hex3[1] + hex3[1] + hex3[2] + hex3[2]), lum = lum || 0;
-      var rgb = "#", c, i2;
-      for (i2 = 0; i2 < 3; i2++)
-        c = parseInt(hex3.substr(i2 * 2, 2), 16), c = Math.round(Math.min(Math.max(0, c + c * lum), 255)).toString(16), rgb += ("00" + c).substr(c.length);
-      return rgb;
-    };
-    exports.extend = extend;
-    exports.hexToRgb = hexToRgb;
-    exports.isIE8 = isIE8;
-    exports.logStr = logStr2;
-    exports.colorLuminance = colorLuminance;
-  }
-});
-
-// node_modules/sweetalert/lib/modules/default-params.js
-var require_default_params = __commonJS({
-  "node_modules/sweetalert/lib/modules/default-params.js"(exports, module) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", {
-      value: !0
-    });
-    var defaultParams = {
-      title: "",
-      text: "",
-      type: null,
-      allowOutsideClick: !1,
-      showConfirmButton: !0,
-      showCancelButton: !1,
-      closeOnConfirm: !0,
-      closeOnCancel: !0,
-      confirmButtonText: "OK",
-      confirmButtonColor: "#8CD4F5",
-      cancelButtonText: "Cancel",
-      imageUrl: null,
-      imageSize: null,
-      timer: null,
-      customClass: "",
-      html: !1,
-      animation: !0,
-      allowEscapeKey: !0,
-      inputType: "text",
-      inputPlaceholder: "",
-      inputValue: "",
-      showLoaderOnConfirm: !1
-    };
-    exports.default = defaultParams;
-    module.exports = exports.default;
-  }
-});
-
-// node_modules/sweetalert/lib/modules/injected-html.js
-var require_injected_html = __commonJS({
-  "node_modules/sweetalert/lib/modules/injected-html.js"(exports, module) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", {
-      value: !0
-    });
-    var injectedHTML = (
-      // Dark overlay
-      `<div class="sweet-overlay" tabIndex="-1"></div><div class="sweet-alert"><div class="sa-icon sa-error">
-      <span class="sa-x-mark">
-        <span class="sa-line sa-left"></span>
-        <span class="sa-line sa-right"></span>
-      </span>
-    </div><div class="sa-icon sa-warning">
-      <span class="sa-body"></span>
-      <span class="sa-dot"></span>
-    </div><div class="sa-icon sa-info"></div><div class="sa-icon sa-success">
-      <span class="sa-line sa-tip"></span>
-      <span class="sa-line sa-long"></span>
-
-      <div class="sa-placeholder"></div>
-      <div class="sa-fix"></div>
-    </div><div class="sa-icon sa-custom"></div><h2>Title</h2>
-    <p>Text</p>
-    <fieldset>
-      <input type="text" tabIndex="3" />
-      <div class="sa-input-error"></div>
-    </fieldset><div class="sa-error-container">
-      <div class="icon">!</div>
-      <p>Not valid!</p>
-    </div><div class="sa-button-container">
-      <button class="cancel" tabIndex="2">Cancel</button>
-      <div class="sa-confirm-button-container">
-        <button class="confirm" tabIndex="1">OK</button><div class="la-ball-fall">
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
-      </div>
-    </div></div>`
-    );
-    exports.default = injectedHTML;
-    module.exports = exports.default;
-  }
-});
-
-// node_modules/sweetalert/lib/modules/handle-swal-dom.js
-var require_handle_swal_dom = __commonJS({
-  "node_modules/sweetalert/lib/modules/handle-swal-dom.js"(exports) {
-    "use strict";
-    var _interopRequireWildcard = function(obj) {
-      return obj && obj.__esModule ? obj : { default: obj };
-    };
-    Object.defineProperty(exports, "__esModule", {
-      value: !0
-    });
-    var _hexToRgb = require_utils(), _removeClass$getTopMargin$fadeIn$show$addClass = require_handle_dom(), _defaultParams = require_default_params(), _defaultParams2 = _interopRequireWildcard(_defaultParams), _injectedHTML = require_injected_html(), _injectedHTML2 = _interopRequireWildcard(_injectedHTML), modalClass = ".sweet-alert", overlayClass = ".sweet-overlay", sweetAlertInitialize = function() {
-      var sweetWrap = document.createElement("div");
-      for (sweetWrap.innerHTML = _injectedHTML2.default; sweetWrap.firstChild; )
-        document.body.appendChild(sweetWrap.firstChild);
-    }, getModal = function(_getModal) {
-      function getModal2() {
-        return _getModal.apply(this, arguments);
+      }, swalPrefix = "swal2-", classNames = ["container", "shown", "height-auto", "iosfix", "popup", "modal", "no-backdrop", "no-transition", "toast", "toast-shown", "show", "hide", "close", "title", "html-container", "actions", "confirm", "deny", "cancel", "default-outline", "footer", "icon", "icon-content", "image", "input", "file", "range", "select", "radio", "checkbox", "label", "textarea", "inputerror", "input-label", "validation-message", "progress-steps", "active-progress-step", "progress-step", "progress-step-line", "loader", "loading", "styled", "top", "top-start", "top-end", "top-left", "top-right", "center", "center-start", "center-end", "center-left", "center-right", "bottom", "bottom-start", "bottom-end", "bottom-left", "bottom-right", "grow-row", "grow-column", "grow-fullscreen", "rtl", "timer-progress-bar", "timer-progress-bar-container", "scrollbar-measure", "icon-success", "icon-warning", "icon-info", "icon-question", "icon-error"], swalClasses = classNames.reduce(
+        function(acc, className) {
+          return acc[className] = swalPrefix + className, acc;
+        },
+        /** @type {SwalClasses} */
+        {}
+      ), icons = ["success", "warning", "info", "question", "error"], iconTypes = icons.reduce(
+        function(acc, icon) {
+          return acc[icon] = swalPrefix + icon, acc;
+        },
+        /** @type {SwalIcons} */
+        {}
+      ), consolePrefix = "SweetAlert2:", capitalizeFirstLetter = function(str) {
+        return str.charAt(0).toUpperCase() + str.slice(1);
+      }, warn = function(message) {
+        console.warn("".concat(consolePrefix, " ").concat(_typeof2(message) === "object" ? message.join(" ") : message));
+      }, error = function(message) {
+        console.error("".concat(consolePrefix, " ").concat(message));
+      }, previousWarnOnceMessages = [], warnOnce5 = function(message) {
+        previousWarnOnceMessages.includes(message) || (previousWarnOnceMessages.push(message), warn(message));
+      }, warnAboutDeprecation = function(deprecatedParam, useInstead) {
+        warnOnce5('"'.concat(deprecatedParam, '" is deprecated and will be removed in the next major release. Please use "').concat(useInstead, '" instead.'));
+      }, callIfFunction = function(arg) {
+        return typeof arg == "function" ? arg() : arg;
+      }, hasToPromiseFn = function(arg) {
+        return arg && typeof arg.toPromise == "function";
+      }, asPromise = function(arg) {
+        return hasToPromiseFn(arg) ? arg.toPromise() : Promise.resolve(arg);
+      }, isPromise = function(arg) {
+        return arg && Promise.resolve(arg) === arg;
+      }, getContainer = function() {
+        return document.body.querySelector(".".concat(swalClasses.container));
+      }, elementBySelector = function(selectorString) {
+        var container = getContainer();
+        return container ? container.querySelector(selectorString) : null;
+      }, elementByClass = function(className) {
+        return elementBySelector(".".concat(className));
+      }, getPopup = function() {
+        return elementByClass(swalClasses.popup);
+      }, getIcon = function() {
+        return elementByClass(swalClasses.icon);
+      }, getIconContent = function() {
+        return elementByClass(swalClasses["icon-content"]);
+      }, getTitle = function() {
+        return elementByClass(swalClasses.title);
+      }, getHtmlContainer = function() {
+        return elementByClass(swalClasses["html-container"]);
+      }, getImage = function() {
+        return elementByClass(swalClasses.image);
+      }, getProgressSteps = function() {
+        return elementByClass(swalClasses["progress-steps"]);
+      }, getValidationMessage = function() {
+        return elementByClass(swalClasses["validation-message"]);
+      }, getConfirmButton = function() {
+        return (
+          /** @type {HTMLButtonElement} */
+          elementBySelector(".".concat(swalClasses.actions, " .").concat(swalClasses.confirm))
+        );
+      }, getCancelButton = function() {
+        return (
+          /** @type {HTMLButtonElement} */
+          elementBySelector(".".concat(swalClasses.actions, " .").concat(swalClasses.cancel))
+        );
+      }, getDenyButton = function() {
+        return (
+          /** @type {HTMLButtonElement} */
+          elementBySelector(".".concat(swalClasses.actions, " .").concat(swalClasses.deny))
+        );
+      }, getInputLabel = function() {
+        return elementByClass(swalClasses["input-label"]);
+      }, getLoader = function() {
+        return elementBySelector(".".concat(swalClasses.loader));
+      }, getActions = function() {
+        return elementByClass(swalClasses.actions);
+      }, getFooter = function() {
+        return elementByClass(swalClasses.footer);
+      }, getTimerProgressBar = function() {
+        return elementByClass(swalClasses["timer-progress-bar"]);
+      }, getCloseButton = function() {
+        return elementByClass(swalClasses.close);
+      }, focusable = `
+  a[href],
+  area[href],
+  input:not([disabled]),
+  select:not([disabled]),
+  textarea:not([disabled]),
+  button:not([disabled]),
+  iframe,
+  object,
+  embed,
+  [tabindex="0"],
+  [contenteditable],
+  audio[controls],
+  video[controls],
+  summary
+`, getFocusableElements = function() {
+        var popup = getPopup();
+        if (!popup)
+          return [];
+        var focusableElementsWithTabindex = popup.querySelectorAll('[tabindex]:not([tabindex="-1"]):not([tabindex="0"])'), focusableElementsWithTabindexSorted = Array.from(focusableElementsWithTabindex).sort(function(a2, b2) {
+          var tabindexA = parseInt(a2.getAttribute("tabindex") || "0"), tabindexB = parseInt(b2.getAttribute("tabindex") || "0");
+          return tabindexA > tabindexB ? 1 : tabindexA < tabindexB ? -1 : 0;
+        }), otherFocusableElements = popup.querySelectorAll(focusable), otherFocusableElementsFiltered = Array.from(otherFocusableElements).filter(function(el) {
+          return el.getAttribute("tabindex") !== "-1";
+        });
+        return _toConsumableArray(new Set(focusableElementsWithTabindexSorted.concat(otherFocusableElementsFiltered))).filter(function(el) {
+          return isVisible$1(el);
+        });
+      }, isModal = function() {
+        return hasClass(document.body, swalClasses.shown) && !hasClass(document.body, swalClasses["toast-shown"]) && !hasClass(document.body, swalClasses["no-backdrop"]);
+      }, isToast = function() {
+        var popup = getPopup();
+        return popup ? hasClass(popup, swalClasses.toast) : !1;
+      }, isLoading = function() {
+        var popup = getPopup();
+        return popup ? popup.hasAttribute("data-loading") : !1;
+      }, setInnerHtml = function(elem, html) {
+        if (elem.textContent = "", html) {
+          var parser = new DOMParser(), parsed = parser.parseFromString(html, "text/html"), head = parsed.querySelector("head");
+          head && Array.from(head.childNodes).forEach(function(child) {
+            elem.appendChild(child);
+          });
+          var body = parsed.querySelector("body");
+          body && Array.from(body.childNodes).forEach(function(child) {
+            child instanceof HTMLVideoElement || child instanceof HTMLAudioElement ? elem.appendChild(child.cloneNode(!0)) : elem.appendChild(child);
+          });
+        }
+      }, hasClass = function(elem, className) {
+        if (!className)
+          return !1;
+        for (var classList = className.split(/\s+/), i2 = 0; i2 < classList.length; i2++)
+          if (!elem.classList.contains(classList[i2]))
+            return !1;
+        return !0;
+      }, removeCustomClasses = function(elem, params) {
+        Array.from(elem.classList).forEach(function(className) {
+          !Object.values(swalClasses).includes(className) && !Object.values(iconTypes).includes(className) && !Object.values(params.showClass || {}).includes(className) && elem.classList.remove(className);
+        });
+      }, applyCustomClass = function(elem, params, className) {
+        if (removeCustomClasses(elem, params), params.customClass && params.customClass[className]) {
+          if (typeof params.customClass[className] != "string" && !params.customClass[className].forEach) {
+            warn("Invalid type of customClass.".concat(className, '! Expected string or iterable object, got "').concat(_typeof2(params.customClass[className]), '"'));
+            return;
+          }
+          addClass(elem, params.customClass[className]);
+        }
+      }, getInput$1 = function(popup, inputClass) {
+        if (!inputClass)
+          return null;
+        switch (inputClass) {
+          case "select":
+          case "textarea":
+          case "file":
+            return popup.querySelector(".".concat(swalClasses.popup, " > .").concat(swalClasses[inputClass]));
+          case "checkbox":
+            return popup.querySelector(".".concat(swalClasses.popup, " > .").concat(swalClasses.checkbox, " input"));
+          case "radio":
+            return popup.querySelector(".".concat(swalClasses.popup, " > .").concat(swalClasses.radio, " input:checked")) || popup.querySelector(".".concat(swalClasses.popup, " > .").concat(swalClasses.radio, " input:first-child"));
+          case "range":
+            return popup.querySelector(".".concat(swalClasses.popup, " > .").concat(swalClasses.range, " input"));
+          default:
+            return popup.querySelector(".".concat(swalClasses.popup, " > .").concat(swalClasses.input));
+        }
+      }, focusInput = function(input) {
+        if (input.focus(), input.type !== "file") {
+          var val = input.value;
+          input.value = "", input.value = val;
+        }
+      }, toggleClass = function(target, classList, condition) {
+        !target || !classList || (typeof classList == "string" && (classList = classList.split(/\s+/).filter(Boolean)), classList.forEach(function(className) {
+          Array.isArray(target) ? target.forEach(function(elem) {
+            condition ? elem.classList.add(className) : elem.classList.remove(className);
+          }) : condition ? target.classList.add(className) : target.classList.remove(className);
+        }));
+      }, addClass = function(target, classList) {
+        toggleClass(target, classList, !0);
+      }, removeClass = function(target, classList) {
+        toggleClass(target, classList, !1);
+      }, getDirectChildByClass = function(elem, className) {
+        for (var children = Array.from(elem.children), i2 = 0; i2 < children.length; i2++) {
+          var child = children[i2];
+          if (child instanceof HTMLElement && hasClass(child, className))
+            return child;
+        }
+      }, applyNumericalStyle = function(elem, property, value) {
+        value === "".concat(parseInt(value)) && (value = parseInt(value)), value || parseInt(value) === 0 ? elem.style.setProperty(property, typeof value == "number" ? "".concat(value, "px") : value) : elem.style.removeProperty(property);
+      }, show = function(elem) {
+        var display = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : "flex";
+        elem && (elem.style.display = display);
+      }, hide = function(elem) {
+        elem && (elem.style.display = "none");
+      }, showWhenInnerHtmlPresent = function(elem) {
+        var display = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : "block";
+        elem && new MutationObserver(function() {
+          toggle(elem, elem.innerHTML, display);
+        }).observe(elem, {
+          childList: !0,
+          subtree: !0
+        });
+      }, setStyle = function(parent, selector, property, value) {
+        var el = parent.querySelector(selector);
+        el && el.style.setProperty(property, value);
+      }, toggle = function(elem, condition) {
+        var display = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : "flex";
+        condition ? show(elem, display) : hide(elem);
+      }, isVisible$1 = function(elem) {
+        return !!(elem && (elem.offsetWidth || elem.offsetHeight || elem.getClientRects().length));
+      }, allButtonsAreHidden = function() {
+        return !isVisible$1(getConfirmButton()) && !isVisible$1(getDenyButton()) && !isVisible$1(getCancelButton());
+      }, isScrollable = function(elem) {
+        return elem.scrollHeight > elem.clientHeight;
+      }, hasCssAnimation = function(elem) {
+        var style = window.getComputedStyle(elem), animDuration = parseFloat(style.getPropertyValue("animation-duration") || "0"), transDuration = parseFloat(style.getPropertyValue("transition-duration") || "0");
+        return animDuration > 0 || transDuration > 0;
+      }, animateTimerProgressBar = function(timer) {
+        var reset = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : !1, timerProgressBar = getTimerProgressBar();
+        timerProgressBar && isVisible$1(timerProgressBar) && (reset && (timerProgressBar.style.transition = "none", timerProgressBar.style.width = "100%"), setTimeout(function() {
+          timerProgressBar.style.transition = "width ".concat(timer / 1e3, "s linear"), timerProgressBar.style.width = "0%";
+        }, 10));
+      }, stopTimerProgressBar = function() {
+        var timerProgressBar = getTimerProgressBar();
+        if (timerProgressBar) {
+          var timerProgressBarWidth = parseInt(window.getComputedStyle(timerProgressBar).width);
+          timerProgressBar.style.removeProperty("transition"), timerProgressBar.style.width = "100%";
+          var timerProgressBarFullWidth = parseInt(window.getComputedStyle(timerProgressBar).width), timerProgressBarPercent = timerProgressBarWidth / timerProgressBarFullWidth * 100;
+          timerProgressBar.style.width = "".concat(timerProgressBarPercent, "%");
+        }
+      }, isNodeEnv = function() {
+        return typeof window > "u" || typeof document > "u";
+      }, sweetHTML = `
+ <div aria-labelledby="`.concat(swalClasses.title, '" aria-describedby="').concat(swalClasses["html-container"], '" class="').concat(swalClasses.popup, `" tabindex="-1">
+   <button type="button" class="`).concat(swalClasses.close, `"></button>
+   <ul class="`).concat(swalClasses["progress-steps"], `"></ul>
+   <div class="`).concat(swalClasses.icon, `"></div>
+   <img class="`).concat(swalClasses.image, `" />
+   <h2 class="`).concat(swalClasses.title, '" id="').concat(swalClasses.title, `"></h2>
+   <div class="`).concat(swalClasses["html-container"], '" id="').concat(swalClasses["html-container"], `"></div>
+   <input class="`).concat(swalClasses.input, '" id="').concat(swalClasses.input, `" />
+   <input type="file" class="`).concat(swalClasses.file, `" />
+   <div class="`).concat(swalClasses.range, `">
+     <input type="range" />
+     <output></output>
+   </div>
+   <select class="`).concat(swalClasses.select, '" id="').concat(swalClasses.select, `"></select>
+   <div class="`).concat(swalClasses.radio, `"></div>
+   <label class="`).concat(swalClasses.checkbox, `">
+     <input type="checkbox" id="`).concat(swalClasses.checkbox, `" />
+     <span class="`).concat(swalClasses.label, `"></span>
+   </label>
+   <textarea class="`).concat(swalClasses.textarea, '" id="').concat(swalClasses.textarea, `"></textarea>
+   <div class="`).concat(swalClasses["validation-message"], '" id="').concat(swalClasses["validation-message"], `"></div>
+   <div class="`).concat(swalClasses.actions, `">
+     <div class="`).concat(swalClasses.loader, `"></div>
+     <button type="button" class="`).concat(swalClasses.confirm, `"></button>
+     <button type="button" class="`).concat(swalClasses.deny, `"></button>
+     <button type="button" class="`).concat(swalClasses.cancel, `"></button>
+   </div>
+   <div class="`).concat(swalClasses.footer, `"></div>
+   <div class="`).concat(swalClasses["timer-progress-bar-container"], `">
+     <div class="`).concat(swalClasses["timer-progress-bar"], `"></div>
+   </div>
+ </div>
+`).replace(/(^|\n)\s*/g, ""), resetOldContainer = function() {
+        var oldContainer = getContainer();
+        return oldContainer ? (oldContainer.remove(), removeClass([document.documentElement, document.body], [swalClasses["no-backdrop"], swalClasses["toast-shown"], swalClasses["has-column"]]), !0) : !1;
+      }, resetValidationMessage$1 = function() {
+        globalState.currentInstance.resetValidationMessage();
+      }, addInputChangeListeners = function() {
+        var popup = getPopup(), input = getDirectChildByClass(popup, swalClasses.input), file = getDirectChildByClass(popup, swalClasses.file), range = popup.querySelector(".".concat(swalClasses.range, " input")), rangeOutput = popup.querySelector(".".concat(swalClasses.range, " output")), select = getDirectChildByClass(popup, swalClasses.select), checkbox = popup.querySelector(".".concat(swalClasses.checkbox, " input")), textarea = getDirectChildByClass(popup, swalClasses.textarea);
+        input.oninput = resetValidationMessage$1, file.onchange = resetValidationMessage$1, select.onchange = resetValidationMessage$1, checkbox.onchange = resetValidationMessage$1, textarea.oninput = resetValidationMessage$1, range.oninput = function() {
+          resetValidationMessage$1(), rangeOutput.value = range.value;
+        }, range.onchange = function() {
+          resetValidationMessage$1(), rangeOutput.value = range.value;
+        };
+      }, getTarget = function(target) {
+        return typeof target == "string" ? document.querySelector(target) : target;
+      }, setupAccessibility = function(params) {
+        var popup = getPopup();
+        popup.setAttribute("role", params.toast ? "alert" : "dialog"), popup.setAttribute("aria-live", params.toast ? "polite" : "assertive"), params.toast || popup.setAttribute("aria-modal", "true");
+      }, setupRTL = function(targetElement) {
+        window.getComputedStyle(targetElement).direction === "rtl" && addClass(getContainer(), swalClasses.rtl);
+      }, init = function(params) {
+        var oldContainerExisted = resetOldContainer();
+        if (isNodeEnv()) {
+          error("SweetAlert2 requires document to initialize");
+          return;
+        }
+        var container = document.createElement("div");
+        container.className = swalClasses.container, oldContainerExisted && addClass(container, swalClasses["no-transition"]), setInnerHtml(container, sweetHTML);
+        var targetElement = getTarget(params.target);
+        targetElement.appendChild(container), setupAccessibility(params), setupRTL(targetElement), addInputChangeListeners();
+      }, parseHtmlToContainer = function(param, target) {
+        param instanceof HTMLElement ? target.appendChild(param) : _typeof2(param) === "object" ? handleObject(param, target) : param && setInnerHtml(target, param);
+      }, handleObject = function(param, target) {
+        param.jquery ? handleJqueryElem(target, param) : setInnerHtml(target, param.toString());
+      }, handleJqueryElem = function(target, elem) {
+        if (target.textContent = "", 0 in elem)
+          for (var i2 = 0; i2 in elem; i2++)
+            target.appendChild(elem[i2].cloneNode(!0));
+        else
+          target.appendChild(elem.cloneNode(!0));
+      }, animationEndEvent = function() {
+        if (isNodeEnv())
+          return !1;
+        var testEl = document.createElement("div");
+        return typeof testEl.style.webkitAnimation < "u" ? "webkitAnimationEnd" : typeof testEl.style.animation < "u" ? "animationend" : !1;
+      }(), renderActions = function(instance, params) {
+        var actions = getActions(), loader31 = getLoader();
+        !actions || !loader31 || (!params.showConfirmButton && !params.showDenyButton && !params.showCancelButton ? hide(actions) : show(actions), applyCustomClass(actions, params, "actions"), renderButtons(actions, loader31, params), setInnerHtml(loader31, params.loaderHtml || ""), applyCustomClass(loader31, params, "loader"));
+      };
+      function renderButtons(actions, loader31, params) {
+        var confirmButton = getConfirmButton(), denyButton = getDenyButton(), cancelButton = getCancelButton();
+        !confirmButton || !denyButton || !cancelButton || (renderButton(confirmButton, "confirm", params), renderButton(denyButton, "deny", params), renderButton(cancelButton, "cancel", params), handleButtonsStyling(confirmButton, denyButton, cancelButton, params), params.reverseButtons && (params.toast ? (actions.insertBefore(cancelButton, confirmButton), actions.insertBefore(denyButton, confirmButton)) : (actions.insertBefore(cancelButton, loader31), actions.insertBefore(denyButton, loader31), actions.insertBefore(confirmButton, loader31))));
       }
-      return getModal2.toString = function() {
-        return _getModal.toString();
-      }, getModal2;
-    }(function() {
-      var $modal = document.querySelector(modalClass);
-      return $modal || (sweetAlertInitialize(), $modal = getModal()), $modal;
-    }), getInput = function() {
-      var $modal = getModal();
-      if ($modal)
-        return $modal.querySelector("input");
-    }, getOverlay = function() {
-      return document.querySelector(overlayClass);
-    }, setFocusStyle = function($button, bgColor) {
-      var rgbColor = _hexToRgb.hexToRgb(bgColor);
-      $button.style.boxShadow = "0 0 2px rgba(" + rgbColor + ", 0.8), inset 0 0 0 1px rgba(0, 0, 0, 0.05)";
-    }, openModal = function(callback) {
-      var $modal = getModal();
-      _removeClass$getTopMargin$fadeIn$show$addClass.fadeIn(getOverlay(), 10), _removeClass$getTopMargin$fadeIn$show$addClass.show($modal), _removeClass$getTopMargin$fadeIn$show$addClass.addClass($modal, "showSweetAlert"), _removeClass$getTopMargin$fadeIn$show$addClass.removeClass($modal, "hideSweetAlert"), window.previousActiveElement = document.activeElement;
-      var $okButton = $modal.querySelector("button.confirm");
-      $okButton.focus(), setTimeout(function() {
-        _removeClass$getTopMargin$fadeIn$show$addClass.addClass($modal, "visible");
-      }, 500);
-      var timer = $modal.getAttribute("data-timer");
-      if (timer !== "null" && timer !== "") {
-        var timerCallback = callback;
-        $modal.timeout = setTimeout(function() {
-          var doneFunctionExists = (timerCallback || null) && $modal.getAttribute("data-has-done-function") === "true";
-          doneFunctionExists ? timerCallback(null) : sweetAlert.close();
-        }, timer);
+      function handleButtonsStyling(confirmButton, denyButton, cancelButton, params) {
+        if (!params.buttonsStyling) {
+          removeClass([confirmButton, denyButton, cancelButton], swalClasses.styled);
+          return;
+        }
+        addClass([confirmButton, denyButton, cancelButton], swalClasses.styled), params.confirmButtonColor && (confirmButton.style.backgroundColor = params.confirmButtonColor, addClass(confirmButton, swalClasses["default-outline"])), params.denyButtonColor && (denyButton.style.backgroundColor = params.denyButtonColor, addClass(denyButton, swalClasses["default-outline"])), params.cancelButtonColor && (cancelButton.style.backgroundColor = params.cancelButtonColor, addClass(cancelButton, swalClasses["default-outline"]));
       }
-    }, resetInput = function() {
-      var $modal = getModal(), $input = getInput();
-      _removeClass$getTopMargin$fadeIn$show$addClass.removeClass($modal, "show-input"), $input.value = _defaultParams2.default.inputValue, $input.setAttribute("type", _defaultParams2.default.inputType), $input.setAttribute("placeholder", _defaultParams2.default.inputPlaceholder), resetInputError();
-    }, resetInputError = function(event) {
-      if (event && event.keyCode === 13)
-        return !1;
-      var $modal = getModal(), $errorIcon = $modal.querySelector(".sa-input-error");
-      _removeClass$getTopMargin$fadeIn$show$addClass.removeClass($errorIcon, "show");
-      var $errorContainer = $modal.querySelector(".sa-error-container");
-      _removeClass$getTopMargin$fadeIn$show$addClass.removeClass($errorContainer, "show");
-    }, fixVerticalPosition = function() {
-      var $modal = getModal();
-      $modal.style.marginTop = _removeClass$getTopMargin$fadeIn$show$addClass.getTopMargin(getModal());
-    };
-    exports.sweetAlertInitialize = sweetAlertInitialize;
-    exports.getModal = getModal;
-    exports.getOverlay = getOverlay;
-    exports.getInput = getInput;
-    exports.setFocusStyle = setFocusStyle;
-    exports.openModal = openModal;
-    exports.resetInput = resetInput;
-    exports.resetInputError = resetInputError;
-    exports.fixVerticalPosition = fixVerticalPosition;
-  }
-});
-
-// node_modules/sweetalert/lib/modules/handle-click.js
-var require_handle_click = __commonJS({
-  "node_modules/sweetalert/lib/modules/handle-click.js"(exports, module) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", {
-      value: !0
-    });
-    var _colorLuminance = require_utils(), _getModal = require_handle_swal_dom(), _hasClass$isDescendant = require_handle_dom(), handleButton = function(event, params, modal) {
-      var e2 = event || window.event, target = e2.target || e2.srcElement, targetedConfirm = target.className.indexOf("confirm") !== -1, targetedOverlay = target.className.indexOf("sweet-overlay") !== -1, modalIsVisible = _hasClass$isDescendant.hasClass(modal, "visible"), doneFunctionExists = params.doneFunction && modal.getAttribute("data-has-done-function") === "true", normalColor, hoverColor, activeColor;
-      targetedConfirm && params.confirmButtonColor && (normalColor = params.confirmButtonColor, hoverColor = _colorLuminance.colorLuminance(normalColor, -0.04), activeColor = _colorLuminance.colorLuminance(normalColor, -0.14));
-      function shouldSetConfirmButtonColor(color2) {
-        targetedConfirm && params.confirmButtonColor && (target.style.backgroundColor = color2);
+      function renderButton(button, buttonType, params) {
+        var buttonName = (
+          /** @type {'Confirm' | 'Deny' | 'Cancel'} */
+          capitalizeFirstLetter(buttonType)
+        );
+        toggle(button, params["show".concat(buttonName, "Button")], "inline-block"), setInnerHtml(button, params["".concat(buttonType, "ButtonText")] || ""), button.setAttribute("aria-label", params["".concat(buttonType, "ButtonAriaLabel")] || ""), button.className = swalClasses[buttonType], applyCustomClass(button, params, "".concat(buttonType, "Button"));
       }
-      switch (e2.type) {
-        case "mouseover":
-          shouldSetConfirmButtonColor(hoverColor);
-          break;
-        case "mouseout":
-          shouldSetConfirmButtonColor(normalColor);
-          break;
-        case "mousedown":
-          shouldSetConfirmButtonColor(activeColor);
-          break;
-        case "mouseup":
-          shouldSetConfirmButtonColor(hoverColor);
-          break;
-        case "focus":
-          var $confirmButton = modal.querySelector("button.confirm"), $cancelButton = modal.querySelector("button.cancel");
-          targetedConfirm ? $cancelButton.style.boxShadow = "none" : $confirmButton.style.boxShadow = "none";
-          break;
-        case "click":
-          var clickedOnModal = modal === target, clickedOnModalChild = _hasClass$isDescendant.isDescendant(modal, target);
-          if (!clickedOnModal && !clickedOnModalChild && modalIsVisible && !params.allowOutsideClick)
-            break;
-          targetedConfirm && doneFunctionExists && modalIsVisible ? handleConfirm(modal, params) : doneFunctionExists && modalIsVisible || targetedOverlay ? handleCancel(modal, params) : _hasClass$isDescendant.isDescendant(modal, target) && target.tagName === "BUTTON" && sweetAlert.close();
-          break;
+      var renderCloseButton = function(instance, params) {
+        var closeButton = getCloseButton();
+        closeButton && (setInnerHtml(closeButton, params.closeButtonHtml || ""), applyCustomClass(closeButton, params, "closeButton"), toggle(closeButton, params.showCloseButton), closeButton.setAttribute("aria-label", params.closeButtonAriaLabel || ""));
+      }, renderContainer = function(instance, params) {
+        var container = getContainer();
+        container && (handleBackdropParam(container, params.backdrop), handlePositionParam(container, params.position), handleGrowParam(container, params.grow), applyCustomClass(container, params, "container"));
+      };
+      function handleBackdropParam(container, backdrop) {
+        typeof backdrop == "string" ? container.style.background = backdrop : backdrop || addClass([document.documentElement, document.body], swalClasses["no-backdrop"]);
       }
-    }, handleConfirm = function(modal, params) {
-      var callbackValue = !0;
-      _hasClass$isDescendant.hasClass(modal, "show-input") && (callbackValue = modal.querySelector("input").value, callbackValue || (callbackValue = "")), params.doneFunction(callbackValue), params.closeOnConfirm && sweetAlert.close(), params.showLoaderOnConfirm && sweetAlert.disableButtons();
-    }, handleCancel = function(modal, params) {
-      var functionAsStr = String(params.doneFunction).replace(/\s/g, ""), functionHandlesCancel = functionAsStr.substring(0, 9) === "function(" && functionAsStr.substring(9, 10) !== ")";
-      functionHandlesCancel && params.doneFunction(!1), params.closeOnCancel && sweetAlert.close();
-    };
-    exports.default = {
-      handleButton,
-      handleConfirm,
-      handleCancel
-    };
-    module.exports = exports.default;
-  }
-});
-
-// node_modules/sweetalert/lib/modules/handle-key.js
-var require_handle_key = __commonJS({
-  "node_modules/sweetalert/lib/modules/handle-key.js"(exports, module) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", {
-      value: !0
-    });
-    var _stopEventPropagation$fireClick = require_handle_dom(), _setFocusStyle = require_handle_swal_dom(), handleKeyDown = function(event, params, modal) {
-      var e2 = event || window.event, keyCode = e2.keyCode || e2.which, $okButton = modal.querySelector("button.confirm"), $cancelButton = modal.querySelector("button.cancel"), $modalButtons = modal.querySelectorAll("button[tabindex]");
-      if ([9, 13, 32, 27].indexOf(keyCode) !== -1) {
-        for (var $targetElement = e2.target || e2.srcElement, btnIndex = -1, i2 = 0; i2 < $modalButtons.length; i2++)
-          if ($targetElement === $modalButtons[i2]) {
+      function handlePositionParam(container, position) {
+        position && (position in swalClasses ? addClass(container, swalClasses[position]) : (warn('The "position" parameter is not valid, defaulting to "center"'), addClass(container, swalClasses.center)));
+      }
+      function handleGrowParam(container, grow) {
+        grow && addClass(container, swalClasses["grow-".concat(grow)]);
+      }
+      var privateProps = {
+        innerParams: /* @__PURE__ */ new WeakMap(),
+        domCache: /* @__PURE__ */ new WeakMap()
+      }, inputClasses = ["input", "file", "range", "select", "radio", "checkbox", "textarea"], renderInput = function(instance, params) {
+        var popup = getPopup();
+        if (popup) {
+          var innerParams = privateProps.innerParams.get(instance), rerender = !innerParams || params.input !== innerParams.input;
+          inputClasses.forEach(function(inputClass) {
+            var inputContainer = getDirectChildByClass(popup, swalClasses[inputClass]);
+            inputContainer && (setAttributes(inputClass, params.inputAttributes), inputContainer.className = swalClasses[inputClass], rerender && hide(inputContainer));
+          }), params.input && (rerender && showInput(params), setCustomClass(params));
+        }
+      }, showInput = function(params) {
+        if (params.input) {
+          if (!renderInputType[params.input]) {
+            error("Unexpected type of input! Expected ".concat(Object.keys(renderInputType).join(" | "), ', got "').concat(params.input, '"'));
+            return;
+          }
+          var inputContainer = getInputContainer(params.input), input = renderInputType[params.input](inputContainer, params);
+          show(inputContainer), params.inputAutoFocus && setTimeout(function() {
+            focusInput(input);
+          });
+        }
+      }, removeAttributes = function(input) {
+        for (var i2 = 0; i2 < input.attributes.length; i2++) {
+          var attrName = input.attributes[i2].name;
+          ["id", "type", "value", "style"].includes(attrName) || input.removeAttribute(attrName);
+        }
+      }, setAttributes = function(inputClass, inputAttributes) {
+        var input = getInput$1(getPopup(), inputClass);
+        if (input) {
+          removeAttributes(input);
+          for (var attr in inputAttributes)
+            input.setAttribute(attr, inputAttributes[attr]);
+        }
+      }, setCustomClass = function(params) {
+        var inputContainer = getInputContainer(params.input);
+        _typeof2(params.customClass) === "object" && addClass(inputContainer, params.customClass.input);
+      }, setInputPlaceholder = function(input, params) {
+        (!input.placeholder || params.inputPlaceholder) && (input.placeholder = params.inputPlaceholder);
+      }, setInputLabel = function(input, prependTo, params) {
+        if (params.inputLabel) {
+          var label = document.createElement("label"), labelClass = swalClasses["input-label"];
+          label.setAttribute("for", input.id), label.className = labelClass, _typeof2(params.customClass) === "object" && addClass(label, params.customClass.inputLabel), label.innerText = params.inputLabel, prependTo.insertAdjacentElement("beforebegin", label);
+        }
+      }, getInputContainer = function(inputType) {
+        return getDirectChildByClass(getPopup(), swalClasses[inputType] || swalClasses.input);
+      }, checkAndSetInputValue = function(input, inputValue) {
+        ["string", "number"].includes(_typeof2(inputValue)) ? input.value = "".concat(inputValue) : isPromise(inputValue) || warn('Unexpected type of inputValue! Expected "string", "number" or "Promise", got "'.concat(_typeof2(inputValue), '"'));
+      }, renderInputType = {};
+      renderInputType.text = renderInputType.email = renderInputType.password = renderInputType.number = renderInputType.tel = renderInputType.url = renderInputType.search = renderInputType.date = renderInputType["datetime-local"] = renderInputType.time = renderInputType.week = renderInputType.month = function(input, params) {
+        return checkAndSetInputValue(input, params.inputValue), setInputLabel(input, input, params), setInputPlaceholder(input, params), input.type = params.input, input;
+      }, renderInputType.file = function(input, params) {
+        return setInputLabel(input, input, params), setInputPlaceholder(input, params), input;
+      }, renderInputType.range = function(range, params) {
+        var rangeInput = range.querySelector("input"), rangeOutput = range.querySelector("output");
+        return checkAndSetInputValue(rangeInput, params.inputValue), rangeInput.type = params.input, checkAndSetInputValue(rangeOutput, params.inputValue), setInputLabel(rangeInput, range, params), range;
+      }, renderInputType.select = function(select, params) {
+        if (select.textContent = "", params.inputPlaceholder) {
+          var placeholder = document.createElement("option");
+          setInnerHtml(placeholder, params.inputPlaceholder), placeholder.value = "", placeholder.disabled = !0, placeholder.selected = !0, select.appendChild(placeholder);
+        }
+        return setInputLabel(select, select, params), select;
+      }, renderInputType.radio = function(radio) {
+        return radio.textContent = "", radio;
+      }, renderInputType.checkbox = function(checkboxContainer, params) {
+        var checkbox = getInput$1(getPopup(), "checkbox");
+        checkbox.value = "1", checkbox.checked = Boolean(params.inputValue);
+        var label = checkboxContainer.querySelector("span");
+        return setInnerHtml(label, params.inputPlaceholder), checkbox;
+      }, renderInputType.textarea = function(textarea, params) {
+        checkAndSetInputValue(textarea, params.inputValue), setInputPlaceholder(textarea, params), setInputLabel(textarea, textarea, params);
+        var getMargin = function(el) {
+          return parseInt(window.getComputedStyle(el).marginLeft) + parseInt(window.getComputedStyle(el).marginRight);
+        };
+        return setTimeout(function() {
+          if ("MutationObserver" in window) {
+            var initialPopupWidth = parseInt(window.getComputedStyle(getPopup()).width), textareaResizeHandler = function() {
+              if (document.body.contains(textarea)) {
+                var textareaWidth = textarea.offsetWidth + getMargin(textarea);
+                textareaWidth > initialPopupWidth ? getPopup().style.width = "".concat(textareaWidth, "px") : applyNumericalStyle(getPopup(), "width", params.width);
+              }
+            };
+            new MutationObserver(textareaResizeHandler).observe(textarea, {
+              attributes: !0,
+              attributeFilter: ["style"]
+            });
+          }
+        }), textarea;
+      };
+      var renderContent = function(instance, params) {
+        var htmlContainer = getHtmlContainer();
+        htmlContainer && (showWhenInnerHtmlPresent(htmlContainer), applyCustomClass(htmlContainer, params, "htmlContainer"), params.html ? (parseHtmlToContainer(params.html, htmlContainer), show(htmlContainer, "block")) : params.text ? (htmlContainer.textContent = params.text, show(htmlContainer, "block")) : hide(htmlContainer), renderInput(instance, params));
+      }, renderFooter = function(instance, params) {
+        var footer = getFooter();
+        footer && (showWhenInnerHtmlPresent(footer), toggle(footer, params.footer, "block"), params.footer && parseHtmlToContainer(params.footer, footer), applyCustomClass(footer, params, "footer"));
+      }, renderIcon = function(instance, params) {
+        var innerParams = privateProps.innerParams.get(instance), icon = getIcon();
+        if (icon) {
+          if (innerParams && params.icon === innerParams.icon) {
+            setContent(icon, params), applyStyles(icon, params);
+            return;
+          }
+          if (!params.icon && !params.iconHtml) {
+            hide(icon);
+            return;
+          }
+          if (params.icon && Object.keys(iconTypes).indexOf(params.icon) === -1) {
+            error('Unknown icon! Expected "success", "error", "warning", "info" or "question", got "'.concat(params.icon, '"')), hide(icon);
+            return;
+          }
+          show(icon), setContent(icon, params), applyStyles(icon, params), addClass(icon, params.showClass && params.showClass.icon);
+        }
+      }, applyStyles = function(icon, params) {
+        for (var _i = 0, _Object$entries = Object.entries(iconTypes); _i < _Object$entries.length; _i++) {
+          var _Object$entries$_i = _slicedToArray2(_Object$entries[_i], 2), iconType = _Object$entries$_i[0], iconClassName = _Object$entries$_i[1];
+          params.icon !== iconType && removeClass(icon, iconClassName);
+        }
+        addClass(icon, params.icon && iconTypes[params.icon]), setColor(icon, params), adjustSuccessIconBackgroundColor(), applyCustomClass(icon, params, "icon");
+      }, adjustSuccessIconBackgroundColor = function() {
+        var popup = getPopup();
+        if (popup)
+          for (var popupBackgroundColor = window.getComputedStyle(popup).getPropertyValue("background-color"), successIconParts = popup.querySelectorAll("[class^=swal2-success-circular-line], .swal2-success-fix"), i2 = 0; i2 < successIconParts.length; i2++)
+            successIconParts[i2].style.backgroundColor = popupBackgroundColor;
+      }, successIconHtml = `
+  <div class="swal2-success-circular-line-left"></div>
+  <span class="swal2-success-line-tip"></span> <span class="swal2-success-line-long"></span>
+  <div class="swal2-success-ring"></div> <div class="swal2-success-fix"></div>
+  <div class="swal2-success-circular-line-right"></div>
+`, errorIconHtml = `
+  <span class="swal2-x-mark">
+    <span class="swal2-x-mark-line-left"></span>
+    <span class="swal2-x-mark-line-right"></span>
+  </span>
+`, setContent = function(icon, params) {
+        if (!(!params.icon && !params.iconHtml)) {
+          var oldContent = icon.innerHTML, newContent = "";
+          if (params.iconHtml)
+            newContent = iconContent(params.iconHtml);
+          else if (params.icon === "success")
+            newContent = successIconHtml, oldContent = oldContent.replace(/ style=".*?"/g, "");
+          else if (params.icon === "error")
+            newContent = errorIconHtml;
+          else if (params.icon) {
+            var defaultIconHtml = {
+              question: "?",
+              warning: "!",
+              info: "i"
+            };
+            newContent = iconContent(defaultIconHtml[params.icon]);
+          }
+          oldContent.trim() !== newContent.trim() && setInnerHtml(icon, newContent);
+        }
+      }, setColor = function(icon, params) {
+        if (params.iconColor) {
+          icon.style.color = params.iconColor, icon.style.borderColor = params.iconColor;
+          for (var _i2 = 0, _arr = [".swal2-success-line-tip", ".swal2-success-line-long", ".swal2-x-mark-line-left", ".swal2-x-mark-line-right"]; _i2 < _arr.length; _i2++) {
+            var sel = _arr[_i2];
+            setStyle(icon, sel, "backgroundColor", params.iconColor);
+          }
+          setStyle(icon, ".swal2-success-ring", "borderColor", params.iconColor);
+        }
+      }, iconContent = function(content) {
+        return '<div class="'.concat(swalClasses["icon-content"], '">').concat(content, "</div>");
+      }, renderImage = function(instance, params) {
+        var image = getImage();
+        if (image) {
+          if (!params.imageUrl) {
+            hide(image);
+            return;
+          }
+          show(image, ""), image.setAttribute("src", params.imageUrl), image.setAttribute("alt", params.imageAlt || ""), applyNumericalStyle(image, "width", params.imageWidth), applyNumericalStyle(image, "height", params.imageHeight), image.className = swalClasses.image, applyCustomClass(image, params, "image");
+        }
+      }, renderPopup = function(instance, params) {
+        var container = getContainer(), popup = getPopup();
+        if (!(!container || !popup)) {
+          if (params.toast) {
+            applyNumericalStyle(container, "width", params.width), popup.style.width = "100%";
+            var loader31 = getLoader();
+            loader31 && popup.insertBefore(loader31, getIcon());
+          } else
+            applyNumericalStyle(popup, "width", params.width);
+          applyNumericalStyle(popup, "padding", params.padding), params.color && (popup.style.color = params.color), params.background && (popup.style.background = params.background), hide(getValidationMessage()), addClasses$1(popup, params);
+        }
+      }, addClasses$1 = function(popup, params) {
+        var showClass = params.showClass || {};
+        popup.className = "".concat(swalClasses.popup, " ").concat(isVisible$1(popup) ? showClass.popup : ""), params.toast ? (addClass([document.documentElement, document.body], swalClasses["toast-shown"]), addClass(popup, swalClasses.toast)) : addClass(popup, swalClasses.modal), applyCustomClass(popup, params, "popup"), typeof params.customClass == "string" && addClass(popup, params.customClass), params.icon && addClass(popup, swalClasses["icon-".concat(params.icon)]);
+      }, renderProgressSteps = function(instance, params) {
+        var progressStepsContainer = getProgressSteps();
+        if (progressStepsContainer) {
+          var progressSteps = params.progressSteps, currentProgressStep = params.currentProgressStep;
+          if (!progressSteps || progressSteps.length === 0 || currentProgressStep === void 0) {
+            hide(progressStepsContainer);
+            return;
+          }
+          show(progressStepsContainer), progressStepsContainer.textContent = "", currentProgressStep >= progressSteps.length && warn("Invalid currentProgressStep parameter, it should be less than progressSteps.length (currentProgressStep like JS arrays starts from 0)"), progressSteps.forEach(function(step, index2) {
+            var stepEl = createStepElement(step);
+            if (progressStepsContainer.appendChild(stepEl), index2 === currentProgressStep && addClass(stepEl, swalClasses["active-progress-step"]), index2 !== progressSteps.length - 1) {
+              var lineEl = createLineElement(params);
+              progressStepsContainer.appendChild(lineEl);
+            }
+          });
+        }
+      }, createStepElement = function(step) {
+        var stepEl = document.createElement("li");
+        return addClass(stepEl, swalClasses["progress-step"]), setInnerHtml(stepEl, step), stepEl;
+      }, createLineElement = function(params) {
+        var lineEl = document.createElement("li");
+        return addClass(lineEl, swalClasses["progress-step-line"]), params.progressStepsDistance && applyNumericalStyle(lineEl, "width", params.progressStepsDistance), lineEl;
+      }, renderTitle = function(instance, params) {
+        var title = getTitle();
+        title && (showWhenInnerHtmlPresent(title), toggle(title, params.title || params.titleText, "block"), params.title && parseHtmlToContainer(params.title, title), params.titleText && (title.innerText = params.titleText), applyCustomClass(title, params, "title"));
+      }, render2 = function(instance, params) {
+        renderPopup(instance, params), renderContainer(instance, params), renderProgressSteps(instance, params), renderIcon(instance, params), renderImage(instance, params), renderTitle(instance, params), renderCloseButton(instance, params), renderContent(instance, params), renderActions(instance, params), renderFooter(instance, params);
+        var popup = getPopup();
+        typeof params.didRender == "function" && popup && params.didRender(popup);
+      }, isVisible = function() {
+        return isVisible$1(getPopup());
+      }, clickConfirm = function() {
+        var _dom$getConfirmButton;
+        return (_dom$getConfirmButton = getConfirmButton()) === null || _dom$getConfirmButton === void 0 ? void 0 : _dom$getConfirmButton.click();
+      }, clickDeny = function() {
+        var _dom$getDenyButton;
+        return (_dom$getDenyButton = getDenyButton()) === null || _dom$getDenyButton === void 0 ? void 0 : _dom$getDenyButton.click();
+      }, clickCancel = function() {
+        var _dom$getCancelButton;
+        return (_dom$getCancelButton = getCancelButton()) === null || _dom$getCancelButton === void 0 ? void 0 : _dom$getCancelButton.click();
+      }, DismissReason = Object.freeze({
+        cancel: "cancel",
+        backdrop: "backdrop",
+        close: "close",
+        esc: "esc",
+        timer: "timer"
+      }), removeKeydownHandler = function(globalState2) {
+        globalState2.keydownTarget && globalState2.keydownHandlerAdded && (globalState2.keydownTarget.removeEventListener("keydown", globalState2.keydownHandler, {
+          capture: globalState2.keydownListenerCapture
+        }), globalState2.keydownHandlerAdded = !1);
+      }, addKeydownHandler = function(globalState2, innerParams, dismissWith) {
+        removeKeydownHandler(globalState2), innerParams.toast || (globalState2.keydownHandler = function(e2) {
+          return keydownHandler(innerParams, e2, dismissWith);
+        }, globalState2.keydownTarget = innerParams.keydownListenerCapture ? window : getPopup(), globalState2.keydownListenerCapture = innerParams.keydownListenerCapture, globalState2.keydownTarget.addEventListener("keydown", globalState2.keydownHandler, {
+          capture: globalState2.keydownListenerCapture
+        }), globalState2.keydownHandlerAdded = !0);
+      }, setFocus = function(index2, increment) {
+        var _dom$getPopup, focusableElements = getFocusableElements();
+        if (focusableElements.length) {
+          index2 = index2 + increment, index2 === focusableElements.length ? index2 = 0 : index2 === -1 && (index2 = focusableElements.length - 1), focusableElements[index2].focus();
+          return;
+        }
+        (_dom$getPopup = getPopup()) === null || _dom$getPopup === void 0 || _dom$getPopup.focus();
+      }, arrowKeysNextButton = ["ArrowRight", "ArrowDown"], arrowKeysPreviousButton = ["ArrowLeft", "ArrowUp"], keydownHandler = function(innerParams, event, dismissWith) {
+        innerParams && (event.isComposing || event.keyCode === 229 || (innerParams.stopKeydownPropagation && event.stopPropagation(), event.key === "Enter" ? handleEnter(event, innerParams) : event.key === "Tab" ? handleTab(event) : [].concat(arrowKeysNextButton, arrowKeysPreviousButton).includes(event.key) ? handleArrows(event.key) : event.key === "Escape" && handleEsc(event, innerParams, dismissWith)));
+      }, handleEnter = function(event, innerParams) {
+        if (callIfFunction(innerParams.allowEnterKey)) {
+          var input = getInput$1(getPopup(), innerParams.input);
+          if (event.target && input && event.target instanceof HTMLElement && event.target.outerHTML === input.outerHTML) {
+            if (["textarea", "file"].includes(innerParams.input))
+              return;
+            clickConfirm(), event.preventDefault();
+          }
+        }
+      }, handleTab = function(event) {
+        for (var targetElement = event.target, focusableElements = getFocusableElements(), btnIndex = -1, i2 = 0; i2 < focusableElements.length; i2++)
+          if (targetElement === focusableElements[i2]) {
             btnIndex = i2;
             break;
           }
-        keyCode === 9 ? (btnIndex === -1 ? $targetElement = $okButton : btnIndex === $modalButtons.length - 1 ? $targetElement = $modalButtons[0] : $targetElement = $modalButtons[btnIndex + 1], _stopEventPropagation$fireClick.stopEventPropagation(e2), $targetElement.focus(), params.confirmButtonColor && _setFocusStyle.setFocusStyle($targetElement, params.confirmButtonColor)) : keyCode === 13 ? ($targetElement.tagName === "INPUT" && ($targetElement = $okButton, $okButton.focus()), btnIndex === -1 ? $targetElement = $okButton : $targetElement = void 0) : keyCode === 27 && params.allowEscapeKey === !0 ? ($targetElement = $cancelButton, _stopEventPropagation$fireClick.fireClick($targetElement, e2)) : $targetElement = void 0;
-      }
-    };
-    exports.default = handleKeyDown;
-    module.exports = exports.default;
-  }
-});
-
-// node_modules/sweetalert/lib/modules/set-params.js
-var require_set_params = __commonJS({
-  "node_modules/sweetalert/lib/modules/set-params.js"(exports, module) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", {
-      value: !0
-    });
-    var _isIE8 = require_utils(), _getModal$getInput$setFocusStyle = require_handle_swal_dom(), _hasClass$addClass$removeClass$escapeHtml$_show$show$_hide$hide = require_handle_dom(), alertTypes = ["error", "warning", "info", "success", "input", "prompt"], setParameters = function(params) {
-      var modal = _getModal$getInput$setFocusStyle.getModal(), $title = modal.querySelector("h2"), $text = modal.querySelector("p"), $cancelBtn = modal.querySelector("button.cancel"), $confirmBtn = modal.querySelector("button.confirm");
-      if ($title.innerHTML = params.html ? params.title : _hasClass$addClass$removeClass$escapeHtml$_show$show$_hide$hide.escapeHtml(params.title).split(`
-`).join("<br>"), $text.innerHTML = params.html ? params.text : _hasClass$addClass$removeClass$escapeHtml$_show$show$_hide$hide.escapeHtml(params.text || "").split(`
-`).join("<br>"), params.text && _hasClass$addClass$removeClass$escapeHtml$_show$show$_hide$hide.show($text), params.customClass)
-        _hasClass$addClass$removeClass$escapeHtml$_show$show$_hide$hide.addClass(modal, params.customClass), modal.setAttribute("data-custom-class", params.customClass);
-      else {
-        var customClass = modal.getAttribute("data-custom-class");
-        _hasClass$addClass$removeClass$escapeHtml$_show$show$_hide$hide.removeClass(modal, customClass), modal.setAttribute("data-custom-class", "");
-      }
-      if (_hasClass$addClass$removeClass$escapeHtml$_show$show$_hide$hide.hide(modal.querySelectorAll(".sa-icon")), params.type && !_isIE8.isIE8()) {
-        var _ret = function() {
-          for (var validType = !1, i2 = 0; i2 < alertTypes.length; i2++)
-            if (params.type === alertTypes[i2]) {
-              validType = !0;
-              break;
+        event.shiftKey ? setFocus(btnIndex, -1) : setFocus(btnIndex, 1), event.stopPropagation(), event.preventDefault();
+      }, handleArrows = function(key) {
+        var actions = getActions(), confirmButton = getConfirmButton(), denyButton = getDenyButton(), cancelButton = getCancelButton();
+        if (!(!actions || !confirmButton || !denyButton || !cancelButton)) {
+          var buttons = [confirmButton, denyButton, cancelButton];
+          if (!(document.activeElement instanceof HTMLElement && !buttons.includes(document.activeElement))) {
+            var sibling = arrowKeysNextButton.includes(key) ? "nextElementSibling" : "previousElementSibling", buttonToFocus = document.activeElement;
+            if (buttonToFocus) {
+              for (var i2 = 0; i2 < actions.children.length; i2++) {
+                if (buttonToFocus = buttonToFocus[sibling], !buttonToFocus)
+                  return;
+                if (buttonToFocus instanceof HTMLButtonElement && isVisible$1(buttonToFocus))
+                  break;
+              }
+              buttonToFocus instanceof HTMLButtonElement && buttonToFocus.focus();
             }
-          if (!validType)
-            return logStr("Unknown alert type: " + params.type), {
-              v: !1
-            };
-          var typesWithIcons = ["success", "error", "warning", "info"], $icon = void 0;
-          typesWithIcons.indexOf(params.type) !== -1 && ($icon = modal.querySelector(".sa-icon.sa-" + params.type), _hasClass$addClass$removeClass$escapeHtml$_show$show$_hide$hide.show($icon));
-          var $input = _getModal$getInput$setFocusStyle.getInput();
-          switch (params.type) {
-            case "success":
-              _hasClass$addClass$removeClass$escapeHtml$_show$show$_hide$hide.addClass($icon, "animate"), _hasClass$addClass$removeClass$escapeHtml$_show$show$_hide$hide.addClass($icon.querySelector(".sa-tip"), "animateSuccessTip"), _hasClass$addClass$removeClass$escapeHtml$_show$show$_hide$hide.addClass($icon.querySelector(".sa-long"), "animateSuccessLong");
-              break;
-            case "error":
-              _hasClass$addClass$removeClass$escapeHtml$_show$show$_hide$hide.addClass($icon, "animateErrorIcon"), _hasClass$addClass$removeClass$escapeHtml$_show$show$_hide$hide.addClass($icon.querySelector(".sa-x-mark"), "animateXMark");
-              break;
-            case "warning":
-              _hasClass$addClass$removeClass$escapeHtml$_show$show$_hide$hide.addClass($icon, "pulseWarning"), _hasClass$addClass$removeClass$escapeHtml$_show$show$_hide$hide.addClass($icon.querySelector(".sa-body"), "pulseWarningIns"), _hasClass$addClass$removeClass$escapeHtml$_show$show$_hide$hide.addClass($icon.querySelector(".sa-dot"), "pulseWarningIns");
-              break;
-            case "input":
-            case "prompt":
-              $input.setAttribute("type", params.inputType), $input.value = params.inputValue, $input.setAttribute("placeholder", params.inputPlaceholder), _hasClass$addClass$removeClass$escapeHtml$_show$show$_hide$hide.addClass(modal, "show-input"), setTimeout(function() {
-                $input.focus(), $input.addEventListener("keyup", swal.resetInputError);
-              }, 400);
-              break;
           }
-        }();
-        if (typeof _ret == "object")
-          return _ret.v;
-      }
-      if (params.imageUrl) {
-        var $customIcon = modal.querySelector(".sa-icon.sa-custom");
-        $customIcon.style.backgroundImage = "url(" + params.imageUrl + ")", _hasClass$addClass$removeClass$escapeHtml$_show$show$_hide$hide.show($customIcon);
-        var _imgWidth = 80, _imgHeight = 80;
-        if (params.imageSize) {
-          var dimensions = params.imageSize.toString().split("x"), imgWidth = dimensions[0], imgHeight = dimensions[1];
-          !imgWidth || !imgHeight ? logStr("Parameter imageSize expects value with format WIDTHxHEIGHT, got " + params.imageSize) : (_imgWidth = imgWidth, _imgHeight = imgHeight);
         }
-        $customIcon.setAttribute("style", $customIcon.getAttribute("style") + "width:" + _imgWidth + "px; height:" + _imgHeight + "px");
-      }
-      modal.setAttribute("data-has-cancel-button", params.showCancelButton), params.showCancelButton ? $cancelBtn.style.display = "inline-block" : _hasClass$addClass$removeClass$escapeHtml$_show$show$_hide$hide.hide($cancelBtn), modal.setAttribute("data-has-confirm-button", params.showConfirmButton), params.showConfirmButton ? $confirmBtn.style.display = "inline-block" : _hasClass$addClass$removeClass$escapeHtml$_show$show$_hide$hide.hide($confirmBtn), params.cancelButtonText && ($cancelBtn.innerHTML = _hasClass$addClass$removeClass$escapeHtml$_show$show$_hide$hide.escapeHtml(params.cancelButtonText)), params.confirmButtonText && ($confirmBtn.innerHTML = _hasClass$addClass$removeClass$escapeHtml$_show$show$_hide$hide.escapeHtml(params.confirmButtonText)), params.confirmButtonColor && ($confirmBtn.style.backgroundColor = params.confirmButtonColor, $confirmBtn.style.borderLeftColor = params.confirmLoadingButtonColor, $confirmBtn.style.borderRightColor = params.confirmLoadingButtonColor, _getModal$getInput$setFocusStyle.setFocusStyle($confirmBtn, params.confirmButtonColor)), modal.setAttribute("data-allow-outside-click", params.allowOutsideClick);
-      var hasDoneFunction = !!params.doneFunction;
-      modal.setAttribute("data-has-done-function", hasDoneFunction), params.animation ? typeof params.animation == "string" ? modal.setAttribute("data-animation", params.animation) : modal.setAttribute("data-animation", "pop") : modal.setAttribute("data-animation", "none"), modal.setAttribute("data-timer", params.timer);
-    };
-    exports.default = setParameters;
-    module.exports = exports.default;
-  }
-});
-
-// node_modules/sweetalert/lib/sweetalert.js
-var require_sweetalert = __commonJS({
-  "node_modules/sweetalert/lib/sweetalert.js"(exports, module) {
-    "use strict";
-    var _interopRequireWildcard = function(obj) {
-      return obj && obj.__esModule ? obj : { default: obj };
-    };
-    Object.defineProperty(exports, "__esModule", {
-      value: !0
-    });
-    var _hasClass$addClass$removeClass$escapeHtml$_show$show$_hide$hide$isDescendant$getTopMargin$fadeIn$fadeOut$fireClick$stopEventPropagation = require_handle_dom(), _extend$hexToRgb$isIE8$logStr$colorLuminance = require_utils(), _sweetAlertInitialize$getModal$getOverlay$getInput$setFocusStyle$openModal$resetInput$fixVerticalPosition = require_handle_swal_dom(), _handleButton$handleConfirm$handleCancel = require_handle_click(), _handleKeyDown = require_handle_key(), _handleKeyDown2 = _interopRequireWildcard(_handleKeyDown), _defaultParams = require_default_params(), _defaultParams2 = _interopRequireWildcard(_defaultParams), _setParameters = require_set_params(), _setParameters2 = _interopRequireWildcard(_setParameters), previousWindowKeyDown, lastFocusedButton, sweetAlert2, swal2;
-    exports.default = sweetAlert2 = swal2 = function() {
-      var customizations = arguments[0];
-      _hasClass$addClass$removeClass$escapeHtml$_show$show$_hide$hide$isDescendant$getTopMargin$fadeIn$fadeOut$fireClick$stopEventPropagation.addClass(document.body, "stop-scrolling"), _sweetAlertInitialize$getModal$getOverlay$getInput$setFocusStyle$openModal$resetInput$fixVerticalPosition.resetInput();
-      function argumentOrDefault(key) {
-        var args = customizations;
-        return args[key] === void 0 ? _defaultParams2.default[key] : args[key];
-      }
-      if (customizations === void 0)
-        return _extend$hexToRgb$isIE8$logStr$colorLuminance.logStr("SweetAlert expects at least 1 attribute!"), !1;
-      var params = _extend$hexToRgb$isIE8$logStr$colorLuminance.extend({}, _defaultParams2.default);
-      switch (typeof customizations) {
-        case "string":
-          params.title = customizations, params.text = arguments[1] || "", params.type = arguments[2] || "";
-          break;
-        case "object":
-          if (customizations.title === void 0)
-            return _extend$hexToRgb$isIE8$logStr$colorLuminance.logStr('Missing "title" argument!'), !1;
-          params.title = customizations.title;
-          for (var customName in _defaultParams2.default)
-            params[customName] = argumentOrDefault(customName);
-          params.confirmButtonText = params.showCancelButton ? "Confirm" : _defaultParams2.default.confirmButtonText, params.confirmButtonText = argumentOrDefault("confirmButtonText"), params.doneFunction = arguments[1] || null;
-          break;
-        default:
-          return _extend$hexToRgb$isIE8$logStr$colorLuminance.logStr('Unexpected type of argument! Expected "string" or "object", got ' + typeof customizations), !1;
-      }
-      _setParameters2.default(params), _sweetAlertInitialize$getModal$getOverlay$getInput$setFocusStyle$openModal$resetInput$fixVerticalPosition.fixVerticalPosition(), _sweetAlertInitialize$getModal$getOverlay$getInput$setFocusStyle$openModal$resetInput$fixVerticalPosition.openModal(arguments[1]);
-      for (var modal = _sweetAlertInitialize$getModal$getOverlay$getInput$setFocusStyle$openModal$resetInput$fixVerticalPosition.getModal(), $buttons = modal.querySelectorAll("button"), buttonEvents = ["onclick", "onmouseover", "onmouseout", "onmousedown", "onmouseup", "onfocus"], onButtonEvent = function(e2) {
-        return _handleButton$handleConfirm$handleCancel.handleButton(e2, params, modal);
-      }, btnIndex = 0; btnIndex < $buttons.length; btnIndex++)
-        for (var evtIndex = 0; evtIndex < buttonEvents.length; evtIndex++) {
-          var btnEvt = buttonEvents[evtIndex];
-          $buttons[btnIndex][btnEvt] = onButtonEvent;
+      }, handleEsc = function(event, innerParams, dismissWith) {
+        callIfFunction(innerParams.allowEscapeKey) && (event.preventDefault(), dismissWith(DismissReason.esc));
+      }, privateMethods = {
+        swalPromiseResolve: /* @__PURE__ */ new WeakMap(),
+        swalPromiseReject: /* @__PURE__ */ new WeakMap()
+      }, setAriaHidden = function() {
+        var bodyChildren = Array.from(document.body.children);
+        bodyChildren.forEach(function(el) {
+          el === getContainer() || el.contains(getContainer()) || (el.hasAttribute("aria-hidden") && el.setAttribute("data-previous-aria-hidden", el.getAttribute("aria-hidden") || ""), el.setAttribute("aria-hidden", "true"));
+        });
+      }, unsetAriaHidden = function() {
+        var bodyChildren = Array.from(document.body.children);
+        bodyChildren.forEach(function(el) {
+          el.hasAttribute("data-previous-aria-hidden") ? (el.setAttribute("aria-hidden", el.getAttribute("data-previous-aria-hidden") || ""), el.removeAttribute("data-previous-aria-hidden")) : el.removeAttribute("aria-hidden");
+        });
+      }, isSafariOrIOS = typeof window < "u" && !!window.GestureEvent, iOSfix = function() {
+        if (isSafariOrIOS && !hasClass(document.body, swalClasses.iosfix)) {
+          var offset = document.body.scrollTop;
+          document.body.style.top = "".concat(offset * -1, "px"), addClass(document.body, swalClasses.iosfix), lockBodyScroll();
         }
-      _sweetAlertInitialize$getModal$getOverlay$getInput$setFocusStyle$openModal$resetInput$fixVerticalPosition.getOverlay().onclick = onButtonEvent, previousWindowKeyDown = window.onkeydown;
-      var onKeyEvent = function(e2) {
-        return _handleKeyDown2.default(e2, params, modal);
+      }, lockBodyScroll = function() {
+        var container = getContainer();
+        if (container) {
+          var preventTouchMove;
+          container.ontouchstart = function(event) {
+            preventTouchMove = shouldPreventTouchMove(event);
+          }, container.ontouchmove = function(event) {
+            preventTouchMove && (event.preventDefault(), event.stopPropagation());
+          };
+        }
+      }, shouldPreventTouchMove = function(event) {
+        var target = event.target, container = getContainer(), htmlContainer = getHtmlContainer();
+        return !container || !htmlContainer || isStylus(event) || isZoom(event) ? !1 : target === container || !isScrollable(container) && target instanceof HTMLElement && target.tagName !== "INPUT" && // #1603
+        target.tagName !== "TEXTAREA" && // #2266
+        !(isScrollable(htmlContainer) && // #1944
+        htmlContainer.contains(target));
+      }, isStylus = function(event) {
+        return event.touches && event.touches.length && event.touches[0].touchType === "stylus";
+      }, isZoom = function(event) {
+        return event.touches && event.touches.length > 1;
+      }, undoIOSfix = function() {
+        if (hasClass(document.body, swalClasses.iosfix)) {
+          var offset = parseInt(document.body.style.top, 10);
+          removeClass(document.body, swalClasses.iosfix), document.body.style.top = "", document.body.scrollTop = offset * -1;
+        }
+      }, measureScrollbar = function() {
+        var scrollDiv = document.createElement("div");
+        scrollDiv.className = swalClasses["scrollbar-measure"], document.body.appendChild(scrollDiv);
+        var scrollbarWidth = scrollDiv.getBoundingClientRect().width - scrollDiv.clientWidth;
+        return document.body.removeChild(scrollDiv), scrollbarWidth;
+      }, previousBodyPadding = null, replaceScrollbarWithPadding = function(initialBodyOverflow) {
+        previousBodyPadding === null && (document.body.scrollHeight > window.innerHeight || initialBodyOverflow === "scroll") && (previousBodyPadding = parseInt(window.getComputedStyle(document.body).getPropertyValue("padding-right")), document.body.style.paddingRight = "".concat(previousBodyPadding + measureScrollbar(), "px"));
+      }, undoReplaceScrollbarWithPadding = function() {
+        previousBodyPadding !== null && (document.body.style.paddingRight = "".concat(previousBodyPadding, "px"), previousBodyPadding = null);
       };
-      window.onkeydown = onKeyEvent, window.onfocus = function() {
+      function removePopupAndResetState(instance, container, returnFocus, didClose) {
+        isToast() ? triggerDidCloseAndDispose(instance, didClose) : (restoreActiveElement(returnFocus).then(function() {
+          return triggerDidCloseAndDispose(instance, didClose);
+        }), removeKeydownHandler(globalState)), isSafariOrIOS ? (container.setAttribute("style", "display:none !important"), container.removeAttribute("class"), container.innerHTML = "") : container.remove(), isModal() && (undoReplaceScrollbarWithPadding(), undoIOSfix(), unsetAriaHidden()), removeBodyClasses();
+      }
+      function removeBodyClasses() {
+        removeClass([document.documentElement, document.body], [swalClasses.shown, swalClasses["height-auto"], swalClasses["no-backdrop"], swalClasses["toast-shown"]]);
+      }
+      function close(resolveValue) {
+        resolveValue = prepareResolveValue(resolveValue);
+        var swalPromiseResolve = privateMethods.swalPromiseResolve.get(this), didClose = triggerClosePopup(this);
+        this.isAwaitingPromise ? resolveValue.isDismissed || (handleAwaitingPromise(this), swalPromiseResolve(resolveValue)) : didClose && swalPromiseResolve(resolveValue);
+      }
+      var triggerClosePopup = function(instance) {
+        var popup = getPopup();
+        if (!popup)
+          return !1;
+        var innerParams = privateProps.innerParams.get(instance);
+        if (!innerParams || hasClass(popup, innerParams.hideClass.popup))
+          return !1;
+        removeClass(popup, innerParams.showClass.popup), addClass(popup, innerParams.hideClass.popup);
+        var backdrop = getContainer();
+        return removeClass(backdrop, innerParams.showClass.backdrop), addClass(backdrop, innerParams.hideClass.backdrop), handlePopupAnimation(instance, popup, innerParams), !0;
+      };
+      function rejectPromise(error2) {
+        var rejectPromise2 = privateMethods.swalPromiseReject.get(this);
+        handleAwaitingPromise(this), rejectPromise2 && rejectPromise2(error2);
+      }
+      var handleAwaitingPromise = function(instance) {
+        instance.isAwaitingPromise && (delete instance.isAwaitingPromise, privateProps.innerParams.get(instance) || instance._destroy());
+      }, prepareResolveValue = function(resolveValue) {
+        return typeof resolveValue > "u" ? {
+          isConfirmed: !1,
+          isDenied: !1,
+          isDismissed: !0
+        } : Object.assign({
+          isConfirmed: !1,
+          isDenied: !1,
+          isDismissed: !1
+        }, resolveValue);
+      }, handlePopupAnimation = function(instance, popup, innerParams) {
+        var container = getContainer(), animationIsSupported = animationEndEvent && hasCssAnimation(popup);
+        typeof innerParams.willClose == "function" && innerParams.willClose(popup), animationIsSupported ? animatePopup(instance, popup, container, innerParams.returnFocus, innerParams.didClose) : removePopupAndResetState(instance, container, innerParams.returnFocus, innerParams.didClose);
+      }, animatePopup = function(instance, popup, container, returnFocus, didClose) {
+        animationEndEvent && (globalState.swalCloseEventFinishedCallback = removePopupAndResetState.bind(null, instance, container, returnFocus, didClose), popup.addEventListener(animationEndEvent, function(e2) {
+          e2.target === popup && (globalState.swalCloseEventFinishedCallback(), delete globalState.swalCloseEventFinishedCallback);
+        }));
+      }, triggerDidCloseAndDispose = function(instance, didClose) {
         setTimeout(function() {
-          lastFocusedButton !== void 0 && (lastFocusedButton.focus(), lastFocusedButton = void 0);
-        }, 0);
-      }, swal2.enableButtons();
-    };
-    sweetAlert2.setDefaults = swal2.setDefaults = function(userParams) {
-      if (!userParams)
-        throw new Error("userParams is required");
-      if (typeof userParams != "object")
-        throw new Error("userParams has to be a object");
-      _extend$hexToRgb$isIE8$logStr$colorLuminance.extend(_defaultParams2.default, userParams);
-    };
-    sweetAlert2.close = swal2.close = function() {
-      var modal = _sweetAlertInitialize$getModal$getOverlay$getInput$setFocusStyle$openModal$resetInput$fixVerticalPosition.getModal();
-      _hasClass$addClass$removeClass$escapeHtml$_show$show$_hide$hide$isDescendant$getTopMargin$fadeIn$fadeOut$fireClick$stopEventPropagation.fadeOut(_sweetAlertInitialize$getModal$getOverlay$getInput$setFocusStyle$openModal$resetInput$fixVerticalPosition.getOverlay(), 5), _hasClass$addClass$removeClass$escapeHtml$_show$show$_hide$hide$isDescendant$getTopMargin$fadeIn$fadeOut$fireClick$stopEventPropagation.fadeOut(modal, 5), _hasClass$addClass$removeClass$escapeHtml$_show$show$_hide$hide$isDescendant$getTopMargin$fadeIn$fadeOut$fireClick$stopEventPropagation.removeClass(modal, "showSweetAlert"), _hasClass$addClass$removeClass$escapeHtml$_show$show$_hide$hide$isDescendant$getTopMargin$fadeIn$fadeOut$fireClick$stopEventPropagation.addClass(modal, "hideSweetAlert"), _hasClass$addClass$removeClass$escapeHtml$_show$show$_hide$hide$isDescendant$getTopMargin$fadeIn$fadeOut$fireClick$stopEventPropagation.removeClass(modal, "visible");
-      var $successIcon = modal.querySelector(".sa-icon.sa-success");
-      _hasClass$addClass$removeClass$escapeHtml$_show$show$_hide$hide$isDescendant$getTopMargin$fadeIn$fadeOut$fireClick$stopEventPropagation.removeClass($successIcon, "animate"), _hasClass$addClass$removeClass$escapeHtml$_show$show$_hide$hide$isDescendant$getTopMargin$fadeIn$fadeOut$fireClick$stopEventPropagation.removeClass($successIcon.querySelector(".sa-tip"), "animateSuccessTip"), _hasClass$addClass$removeClass$escapeHtml$_show$show$_hide$hide$isDescendant$getTopMargin$fadeIn$fadeOut$fireClick$stopEventPropagation.removeClass($successIcon.querySelector(".sa-long"), "animateSuccessLong");
-      var $errorIcon = modal.querySelector(".sa-icon.sa-error");
-      _hasClass$addClass$removeClass$escapeHtml$_show$show$_hide$hide$isDescendant$getTopMargin$fadeIn$fadeOut$fireClick$stopEventPropagation.removeClass($errorIcon, "animateErrorIcon"), _hasClass$addClass$removeClass$escapeHtml$_show$show$_hide$hide$isDescendant$getTopMargin$fadeIn$fadeOut$fireClick$stopEventPropagation.removeClass($errorIcon.querySelector(".sa-x-mark"), "animateXMark");
-      var $warningIcon = modal.querySelector(".sa-icon.sa-warning");
-      return _hasClass$addClass$removeClass$escapeHtml$_show$show$_hide$hide$isDescendant$getTopMargin$fadeIn$fadeOut$fireClick$stopEventPropagation.removeClass($warningIcon, "pulseWarning"), _hasClass$addClass$removeClass$escapeHtml$_show$show$_hide$hide$isDescendant$getTopMargin$fadeIn$fadeOut$fireClick$stopEventPropagation.removeClass($warningIcon.querySelector(".sa-body"), "pulseWarningIns"), _hasClass$addClass$removeClass$escapeHtml$_show$show$_hide$hide$isDescendant$getTopMargin$fadeIn$fadeOut$fireClick$stopEventPropagation.removeClass($warningIcon.querySelector(".sa-dot"), "pulseWarningIns"), setTimeout(function() {
-        var customClass = modal.getAttribute("data-custom-class");
-        _hasClass$addClass$removeClass$escapeHtml$_show$show$_hide$hide$isDescendant$getTopMargin$fadeIn$fadeOut$fireClick$stopEventPropagation.removeClass(modal, customClass);
-      }, 300), _hasClass$addClass$removeClass$escapeHtml$_show$show$_hide$hide$isDescendant$getTopMargin$fadeIn$fadeOut$fireClick$stopEventPropagation.removeClass(document.body, "stop-scrolling"), window.onkeydown = previousWindowKeyDown, window.previousActiveElement && window.previousActiveElement.focus(), lastFocusedButton = void 0, clearTimeout(modal.timeout), !0;
-    };
-    sweetAlert2.showInputError = swal2.showInputError = function(errorMessage) {
-      var modal = _sweetAlertInitialize$getModal$getOverlay$getInput$setFocusStyle$openModal$resetInput$fixVerticalPosition.getModal(), $errorIcon = modal.querySelector(".sa-input-error");
-      _hasClass$addClass$removeClass$escapeHtml$_show$show$_hide$hide$isDescendant$getTopMargin$fadeIn$fadeOut$fireClick$stopEventPropagation.addClass($errorIcon, "show");
-      var $errorContainer = modal.querySelector(".sa-error-container");
-      _hasClass$addClass$removeClass$escapeHtml$_show$show$_hide$hide$isDescendant$getTopMargin$fadeIn$fadeOut$fireClick$stopEventPropagation.addClass($errorContainer, "show"), $errorContainer.querySelector("p").innerHTML = errorMessage, setTimeout(function() {
-        sweetAlert2.enableButtons();
-      }, 1), modal.querySelector("input").focus();
-    };
-    sweetAlert2.resetInputError = swal2.resetInputError = function(event) {
-      if (event && event.keyCode === 13)
-        return !1;
-      var $modal = _sweetAlertInitialize$getModal$getOverlay$getInput$setFocusStyle$openModal$resetInput$fixVerticalPosition.getModal(), $errorIcon = $modal.querySelector(".sa-input-error");
-      _hasClass$addClass$removeClass$escapeHtml$_show$show$_hide$hide$isDescendant$getTopMargin$fadeIn$fadeOut$fireClick$stopEventPropagation.removeClass($errorIcon, "show");
-      var $errorContainer = $modal.querySelector(".sa-error-container");
-      _hasClass$addClass$removeClass$escapeHtml$_show$show$_hide$hide$isDescendant$getTopMargin$fadeIn$fadeOut$fireClick$stopEventPropagation.removeClass($errorContainer, "show");
-    };
-    sweetAlert2.disableButtons = swal2.disableButtons = function(event) {
-      var modal = _sweetAlertInitialize$getModal$getOverlay$getInput$setFocusStyle$openModal$resetInput$fixVerticalPosition.getModal(), $confirmButton = modal.querySelector("button.confirm"), $cancelButton = modal.querySelector("button.cancel");
-      $confirmButton.disabled = !0, $cancelButton.disabled = !0;
-    };
-    sweetAlert2.enableButtons = swal2.enableButtons = function(event) {
-      var modal = _sweetAlertInitialize$getModal$getOverlay$getInput$setFocusStyle$openModal$resetInput$fixVerticalPosition.getModal(), $confirmButton = modal.querySelector("button.confirm"), $cancelButton = modal.querySelector("button.cancel");
-      $confirmButton.disabled = !1, $cancelButton.disabled = !1;
-    };
-    typeof window < "u" ? window.sweetAlert = window.swal = sweetAlert2 : _extend$hexToRgb$isIE8$logStr$colorLuminance.logStr("SweetAlert is a frontend module!");
-    module.exports = exports.default;
-  }
-});
-
-// node_modules/lodash.pick/index.js
-var require_lodash = __commonJS({
-  "node_modules/lodash.pick/index.js"(exports, module) {
-    var INFINITY = 1 / 0, MAX_SAFE_INTEGER = 9007199254740991, argsTag = "[object Arguments]", funcTag = "[object Function]", genTag = "[object GeneratorFunction]", symbolTag = "[object Symbol]", freeGlobal = typeof global == "object" && global && global.Object === Object && global, freeSelf = typeof self == "object" && self && self.Object === Object && self, root = freeGlobal || freeSelf || Function("return this")();
-    function apply(func, thisArg, args) {
-      switch (args.length) {
-        case 0:
-          return func.call(thisArg);
-        case 1:
-          return func.call(thisArg, args[0]);
-        case 2:
-          return func.call(thisArg, args[0], args[1]);
-        case 3:
-          return func.call(thisArg, args[0], args[1], args[2]);
-      }
-      return func.apply(thisArg, args);
-    }
-    function arrayMap(array, iteratee) {
-      for (var index2 = -1, length = array ? array.length : 0, result = Array(length); ++index2 < length; )
-        result[index2] = iteratee(array[index2], index2, array);
-      return result;
-    }
-    function arrayPush(array, values) {
-      for (var index2 = -1, length = values.length, offset = array.length; ++index2 < length; )
-        array[offset + index2] = values[index2];
-      return array;
-    }
-    var objectProto = Object.prototype, hasOwnProperty = objectProto.hasOwnProperty, objectToString = objectProto.toString, Symbol2 = root.Symbol, propertyIsEnumerable = objectProto.propertyIsEnumerable, spreadableSymbol = Symbol2 ? Symbol2.isConcatSpreadable : void 0, nativeMax = Math.max;
-    function baseFlatten(array, depth, predicate, isStrict, result) {
-      var index2 = -1, length = array.length;
-      for (predicate || (predicate = isFlattenable), result || (result = []); ++index2 < length; ) {
-        var value = array[index2];
-        depth > 0 && predicate(value) ? depth > 1 ? baseFlatten(value, depth - 1, predicate, isStrict, result) : arrayPush(result, value) : isStrict || (result[result.length] = value);
-      }
-      return result;
-    }
-    function basePick(object, props) {
-      return object = Object(object), basePickBy(object, props, function(value, key) {
-        return key in object;
-      });
-    }
-    function basePickBy(object, props, predicate) {
-      for (var index2 = -1, length = props.length, result = {}; ++index2 < length; ) {
-        var key = props[index2], value = object[key];
-        predicate(value, key) && (result[key] = value);
-      }
-      return result;
-    }
-    function baseRest(func, start) {
-      return start = nativeMax(start === void 0 ? func.length - 1 : start, 0), function() {
-        for (var args = arguments, index2 = -1, length = nativeMax(args.length - start, 0), array = Array(length); ++index2 < length; )
-          array[index2] = args[start + index2];
-        index2 = -1;
-        for (var otherArgs = Array(start + 1); ++index2 < start; )
-          otherArgs[index2] = args[index2];
-        return otherArgs[start] = array, apply(func, this, otherArgs);
+          typeof didClose == "function" && didClose.bind(instance.params)(), instance._destroy && instance._destroy();
+        });
+      }, showLoading = function(buttonToReplace) {
+        var popup = getPopup();
+        if (popup || new Swal2(), popup = getPopup(), !!popup) {
+          var loader31 = getLoader();
+          isToast() ? hide(getIcon()) : replaceButton(popup, buttonToReplace), show(loader31), popup.setAttribute("data-loading", "true"), popup.setAttribute("aria-busy", "true"), popup.focus();
+        }
+      }, replaceButton = function(popup, buttonToReplace) {
+        var actions = getActions(), loader31 = getLoader();
+        !actions || !loader31 || (!buttonToReplace && isVisible$1(getConfirmButton()) && (buttonToReplace = getConfirmButton()), show(actions), buttonToReplace && (hide(buttonToReplace), loader31.setAttribute("data-button-to-replace", buttonToReplace.className), actions.insertBefore(loader31, buttonToReplace)), addClass([popup, actions], swalClasses.loading));
+      }, handleInputOptionsAndValue = function(instance, params) {
+        params.input === "select" || params.input === "radio" ? handleInputOptions(instance, params) : ["text", "email", "number", "tel", "textarea"].some(function(i2) {
+          return i2 === params.input;
+        }) && (hasToPromiseFn(params.inputValue) || isPromise(params.inputValue)) && (showLoading(getConfirmButton()), handleInputValue(instance, params));
+      }, getInputValue = function(instance, innerParams) {
+        var input = instance.getInput();
+        if (!input)
+          return null;
+        switch (innerParams.input) {
+          case "checkbox":
+            return getCheckboxValue(input);
+          case "radio":
+            return getRadioValue(input);
+          case "file":
+            return getFileValue(input);
+          default:
+            return innerParams.inputAutoTrim ? input.value.trim() : input.value;
+        }
+      }, getCheckboxValue = function(input) {
+        return input.checked ? 1 : 0;
+      }, getRadioValue = function(input) {
+        return input.checked ? input.value : null;
+      }, getFileValue = function(input) {
+        return input.files && input.files.length ? input.getAttribute("multiple") !== null ? input.files : input.files[0] : null;
+      }, handleInputOptions = function(instance, params) {
+        var popup = getPopup();
+        if (popup) {
+          var processInputOptions = function(inputOptions) {
+            params.input === "select" ? populateSelectOptions(popup, formatInputOptions(inputOptions), params) : params.input === "radio" && populateRadioOptions(popup, formatInputOptions(inputOptions), params);
+          };
+          hasToPromiseFn(params.inputOptions) || isPromise(params.inputOptions) ? (showLoading(getConfirmButton()), asPromise(params.inputOptions).then(function(inputOptions) {
+            instance.hideLoading(), processInputOptions(inputOptions);
+          })) : _typeof2(params.inputOptions) === "object" ? processInputOptions(params.inputOptions) : error("Unexpected type of inputOptions! Expected object, Map or Promise, got ".concat(_typeof2(params.inputOptions)));
+        }
+      }, handleInputValue = function(instance, params) {
+        var input = instance.getInput();
+        input && (hide(input), asPromise(params.inputValue).then(function(inputValue) {
+          input.value = params.input === "number" ? "".concat(parseFloat(inputValue) || 0) : "".concat(inputValue), show(input), input.focus(), instance.hideLoading();
+        }).catch(function(err) {
+          error("Error in inputValue promise: ".concat(err)), input.value = "", show(input), input.focus(), instance.hideLoading();
+        }));
       };
-    }
-    function isFlattenable(value) {
-      return isArray(value) || isArguments(value) || !!(spreadableSymbol && value && value[spreadableSymbol]);
-    }
-    function toKey(value) {
-      if (typeof value == "string" || isSymbol(value))
-        return value;
-      var result = value + "";
-      return result == "0" && 1 / value == -INFINITY ? "-0" : result;
-    }
-    function isArguments(value) {
-      return isArrayLikeObject(value) && hasOwnProperty.call(value, "callee") && (!propertyIsEnumerable.call(value, "callee") || objectToString.call(value) == argsTag);
-    }
-    var isArray = Array.isArray;
-    function isArrayLike(value) {
-      return value != null && isLength(value.length) && !isFunction(value);
-    }
-    function isArrayLikeObject(value) {
-      return isObjectLike(value) && isArrayLike(value);
-    }
-    function isFunction(value) {
-      var tag = isObject(value) ? objectToString.call(value) : "";
-      return tag == funcTag || tag == genTag;
-    }
-    function isLength(value) {
-      return typeof value == "number" && value > -1 && value % 1 == 0 && value <= MAX_SAFE_INTEGER;
-    }
-    function isObject(value) {
-      var type = typeof value;
-      return !!value && (type == "object" || type == "function");
-    }
-    function isObjectLike(value) {
-      return !!value && typeof value == "object";
-    }
-    function isSymbol(value) {
-      return typeof value == "symbol" || isObjectLike(value) && objectToString.call(value) == symbolTag;
-    }
-    var pick = baseRest(function(object, props) {
-      return object == null ? {} : basePick(object, arrayMap(baseFlatten(props, 1), toKey));
-    });
-    module.exports = pick;
-  }
-});
-
-// node_modules/mousetrap/mousetrap.js
-var require_mousetrap = __commonJS({
-  "node_modules/mousetrap/mousetrap.js"(exports, module) {
-    (function(window2, document2, undefined2) {
-      if (!window2)
-        return;
-      for (var _MAP = {
-        8: "backspace",
-        9: "tab",
-        13: "enter",
-        16: "shift",
-        17: "ctrl",
-        18: "alt",
-        20: "capslock",
-        27: "esc",
-        32: "space",
-        33: "pageup",
-        34: "pagedown",
-        35: "end",
-        36: "home",
-        37: "left",
-        38: "up",
-        39: "right",
-        40: "down",
-        45: "ins",
-        46: "del",
-        91: "meta",
-        93: "meta",
-        224: "meta"
-      }, _KEYCODE_MAP = {
-        106: "*",
-        107: "+",
-        109: "-",
-        110: ".",
-        111: "/",
-        186: ";",
-        187: "=",
-        188: ",",
-        189: "-",
-        190: ".",
-        191: "/",
-        192: "`",
-        219: "[",
-        220: "\\",
-        221: "]",
-        222: "'"
-      }, _SHIFT_MAP = {
-        "~": "`",
-        "!": "1",
-        "@": "2",
-        "#": "3",
-        $: "4",
-        "%": "5",
-        "^": "6",
-        "&": "7",
-        "*": "8",
-        "(": "9",
-        ")": "0",
-        _: "-",
-        "+": "=",
-        ":": ";",
-        '"': "'",
-        "<": ",",
-        ">": ".",
-        "?": "/",
-        "|": "\\"
-      }, _SPECIAL_ALIASES = {
-        option: "alt",
-        command: "meta",
-        return: "enter",
-        escape: "esc",
-        plus: "+",
-        mod: /Mac|iPod|iPhone|iPad/.test(navigator.platform) ? "meta" : "ctrl"
-      }, _REVERSE_MAP, i2 = 1; i2 < 20; ++i2)
-        _MAP[111 + i2] = "f" + i2;
-      for (i2 = 0; i2 <= 9; ++i2)
-        _MAP[i2 + 96] = i2.toString();
-      function _addEvent(object, type, callback) {
-        if (object.addEventListener) {
-          object.addEventListener(type, callback, !1);
+      function populateSelectOptions(popup, inputOptions, params) {
+        var select = getDirectChildByClass(popup, swalClasses.select);
+        if (select) {
+          var renderOption = function(parent, optionLabel, optionValue) {
+            var option = document.createElement("option");
+            option.value = optionValue, setInnerHtml(option, optionLabel), option.selected = isSelected(optionValue, params.inputValue), parent.appendChild(option);
+          };
+          inputOptions.forEach(function(inputOption) {
+            var optionValue = inputOption[0], optionLabel = inputOption[1];
+            if (Array.isArray(optionLabel)) {
+              var optgroup = document.createElement("optgroup");
+              optgroup.label = optionValue, optgroup.disabled = !1, select.appendChild(optgroup), optionLabel.forEach(function(o2) {
+                return renderOption(optgroup, o2[1], o2[0]);
+              });
+            } else
+              renderOption(select, optionLabel, optionValue);
+          }), select.focus();
+        }
+      }
+      function populateRadioOptions(popup, inputOptions, params) {
+        var radio = getDirectChildByClass(popup, swalClasses.radio);
+        if (radio) {
+          inputOptions.forEach(function(inputOption) {
+            var radioValue = inputOption[0], radioLabel = inputOption[1], radioInput = document.createElement("input"), radioLabelElement = document.createElement("label");
+            radioInput.type = "radio", radioInput.name = swalClasses.radio, radioInput.value = radioValue, isSelected(radioValue, params.inputValue) && (radioInput.checked = !0);
+            var label = document.createElement("span");
+            setInnerHtml(label, radioLabel), label.className = swalClasses.label, radioLabelElement.appendChild(radioInput), radioLabelElement.appendChild(label), radio.appendChild(radioLabelElement);
+          });
+          var radios = radio.querySelectorAll("input");
+          radios.length && radios[0].focus();
+        }
+      }
+      var formatInputOptions = function formatInputOptions2(inputOptions) {
+        var result = [];
+        return inputOptions instanceof Map ? inputOptions.forEach(function(value, key) {
+          var valueFormatted = value;
+          _typeof2(valueFormatted) === "object" && (valueFormatted = formatInputOptions2(valueFormatted)), result.push([key, valueFormatted]);
+        }) : Object.keys(inputOptions).forEach(function(key) {
+          var valueFormatted = inputOptions[key];
+          _typeof2(valueFormatted) === "object" && (valueFormatted = formatInputOptions2(valueFormatted)), result.push([key, valueFormatted]);
+        }), result;
+      }, isSelected = function(optionValue, inputValue) {
+        return !!inputValue && inputValue.toString() === optionValue.toString();
+      }, _this = void 0, handleConfirmButtonClick = function(instance) {
+        var innerParams = privateProps.innerParams.get(instance);
+        instance.disableButtons(), innerParams.input ? handleConfirmOrDenyWithInput(instance, "confirm") : confirm(instance, !0);
+      }, handleDenyButtonClick = function(instance) {
+        var innerParams = privateProps.innerParams.get(instance);
+        instance.disableButtons(), innerParams.returnInputValueOnDeny ? handleConfirmOrDenyWithInput(instance, "deny") : deny(instance, !1);
+      }, handleCancelButtonClick = function(instance, dismissWith) {
+        instance.disableButtons(), dismissWith(DismissReason.cancel);
+      }, handleConfirmOrDenyWithInput = function(instance, type) {
+        var innerParams = privateProps.innerParams.get(instance);
+        if (!innerParams.input) {
+          error('The "input" parameter is needed to be set when using returnInputValueOn'.concat(capitalizeFirstLetter(type)));
           return;
         }
-        object.attachEvent("on" + type, callback);
-      }
-      function _characterFromEvent(e2) {
-        if (e2.type == "keypress") {
-          var character = String.fromCharCode(e2.which);
-          return e2.shiftKey || (character = character.toLowerCase()), character;
+        var input = instance.getInput(), inputValue = getInputValue(instance, innerParams);
+        innerParams.inputValidator ? handleInputValidator(instance, inputValue, type) : input && !input.checkValidity() ? (instance.enableButtons(), instance.showValidationMessage(innerParams.validationMessage)) : type === "deny" ? deny(instance, inputValue) : confirm(instance, inputValue);
+      }, handleInputValidator = function(instance, inputValue, type) {
+        var innerParams = privateProps.innerParams.get(instance);
+        instance.disableInput();
+        var validationPromise = Promise.resolve().then(function() {
+          return asPromise(innerParams.inputValidator(inputValue, innerParams.validationMessage));
+        });
+        validationPromise.then(function(validationMessage) {
+          instance.enableButtons(), instance.enableInput(), validationMessage ? instance.showValidationMessage(validationMessage) : type === "deny" ? deny(instance, inputValue) : confirm(instance, inputValue);
+        });
+      }, deny = function(instance, value) {
+        var innerParams = privateProps.innerParams.get(instance || _this);
+        if (innerParams.showLoaderOnDeny && showLoading(getDenyButton()), innerParams.preDeny) {
+          instance.isAwaitingPromise = !0;
+          var preDenyPromise = Promise.resolve().then(function() {
+            return asPromise(innerParams.preDeny(value, innerParams.validationMessage));
+          });
+          preDenyPromise.then(function(preDenyValue) {
+            preDenyValue === !1 ? (instance.hideLoading(), handleAwaitingPromise(instance)) : instance.close({
+              isDenied: !0,
+              value: typeof preDenyValue > "u" ? value : preDenyValue
+            });
+          }).catch(function(error2) {
+            return rejectWith(instance || _this, error2);
+          });
+        } else
+          instance.close({
+            isDenied: !0,
+            value
+          });
+      }, succeedWith = function(instance, value) {
+        instance.close({
+          isConfirmed: !0,
+          value
+        });
+      }, rejectWith = function(instance, error2) {
+        instance.rejectPromise(error2);
+      }, confirm = function(instance, value) {
+        var innerParams = privateProps.innerParams.get(instance || _this);
+        if (innerParams.showLoaderOnConfirm && showLoading(), innerParams.preConfirm) {
+          instance.resetValidationMessage(), instance.isAwaitingPromise = !0;
+          var preConfirmPromise = Promise.resolve().then(function() {
+            return asPromise(innerParams.preConfirm(value, innerParams.validationMessage));
+          });
+          preConfirmPromise.then(function(preConfirmValue) {
+            isVisible$1(getValidationMessage()) || preConfirmValue === !1 ? (instance.hideLoading(), handleAwaitingPromise(instance)) : succeedWith(instance, typeof preConfirmValue > "u" ? value : preConfirmValue);
+          }).catch(function(error2) {
+            return rejectWith(instance || _this, error2);
+          });
+        } else
+          succeedWith(instance, value);
+      };
+      function hideLoading() {
+        var innerParams = privateProps.innerParams.get(this);
+        if (innerParams) {
+          var domCache = privateProps.domCache.get(this);
+          hide(domCache.loader), isToast() ? innerParams.icon && show(getIcon()) : showRelatedButton(domCache), removeClass([domCache.popup, domCache.actions], swalClasses.loading), domCache.popup.removeAttribute("aria-busy"), domCache.popup.removeAttribute("data-loading"), domCache.confirmButton.disabled = !1, domCache.denyButton.disabled = !1, domCache.cancelButton.disabled = !1;
         }
-        return _MAP[e2.which] ? _MAP[e2.which] : _KEYCODE_MAP[e2.which] ? _KEYCODE_MAP[e2.which] : String.fromCharCode(e2.which).toLowerCase();
       }
-      function _modifiersMatch(modifiers1, modifiers2) {
-        return modifiers1.sort().join(",") === modifiers2.sort().join(",");
+      var showRelatedButton = function(domCache) {
+        var buttonToReplace = domCache.popup.getElementsByClassName(domCache.loader.getAttribute("data-button-to-replace"));
+        buttonToReplace.length ? show(buttonToReplace[0], "inline-block") : allButtonsAreHidden() && hide(domCache.actions);
+      };
+      function getInput() {
+        var innerParams = privateProps.innerParams.get(this), domCache = privateProps.domCache.get(this);
+        return domCache ? getInput$1(domCache.popup, innerParams.input) : null;
       }
-      function _eventModifiers(e2) {
-        var modifiers = [];
-        return e2.shiftKey && modifiers.push("shift"), e2.altKey && modifiers.push("alt"), e2.ctrlKey && modifiers.push("ctrl"), e2.metaKey && modifiers.push("meta"), modifiers;
+      function setButtonsDisabled(instance, buttons, disabled) {
+        var domCache = privateProps.domCache.get(instance);
+        buttons.forEach(function(button) {
+          domCache[button].disabled = disabled;
+        });
       }
-      function _preventDefault(e2) {
-        if (e2.preventDefault) {
-          e2.preventDefault();
+      function setInputDisabled(input, disabled) {
+        var popup = getPopup();
+        if (!(!popup || !input))
+          if (input.type === "radio")
+            for (var radios = popup.querySelectorAll('[name="'.concat(swalClasses.radio, '"]')), i2 = 0; i2 < radios.length; i2++)
+              radios[i2].disabled = disabled;
+          else
+            input.disabled = disabled;
+      }
+      function enableButtons() {
+        setButtonsDisabled(this, ["confirmButton", "denyButton", "cancelButton"], !1);
+      }
+      function disableButtons() {
+        setButtonsDisabled(this, ["confirmButton", "denyButton", "cancelButton"], !0);
+      }
+      function enableInput() {
+        setInputDisabled(this.getInput(), !1);
+      }
+      function disableInput() {
+        setInputDisabled(this.getInput(), !0);
+      }
+      function showValidationMessage(error2) {
+        var domCache = privateProps.domCache.get(this), params = privateProps.innerParams.get(this);
+        setInnerHtml(domCache.validationMessage, error2), domCache.validationMessage.className = swalClasses["validation-message"], params.customClass && params.customClass.validationMessage && addClass(domCache.validationMessage, params.customClass.validationMessage), show(domCache.validationMessage);
+        var input = this.getInput();
+        input && (input.setAttribute("aria-invalid", "true"), input.setAttribute("aria-describedby", swalClasses["validation-message"]), focusInput(input), addClass(input, swalClasses.inputerror));
+      }
+      function resetValidationMessage() {
+        var domCache = privateProps.domCache.get(this);
+        domCache.validationMessage && hide(domCache.validationMessage);
+        var input = this.getInput();
+        input && (input.removeAttribute("aria-invalid"), input.removeAttribute("aria-describedby"), removeClass(input, swalClasses.inputerror));
+      }
+      var defaultParams = {
+        title: "",
+        titleText: "",
+        text: "",
+        html: "",
+        footer: "",
+        icon: void 0,
+        iconColor: void 0,
+        iconHtml: void 0,
+        template: void 0,
+        toast: !1,
+        animation: !0,
+        showClass: {
+          popup: "swal2-show",
+          backdrop: "swal2-backdrop-show",
+          icon: "swal2-icon-show"
+        },
+        hideClass: {
+          popup: "swal2-hide",
+          backdrop: "swal2-backdrop-hide",
+          icon: "swal2-icon-hide"
+        },
+        customClass: {},
+        target: "body",
+        color: void 0,
+        backdrop: !0,
+        heightAuto: !0,
+        allowOutsideClick: !0,
+        allowEscapeKey: !0,
+        allowEnterKey: !0,
+        stopKeydownPropagation: !0,
+        keydownListenerCapture: !1,
+        showConfirmButton: !0,
+        showDenyButton: !1,
+        showCancelButton: !1,
+        preConfirm: void 0,
+        preDeny: void 0,
+        confirmButtonText: "OK",
+        confirmButtonAriaLabel: "",
+        confirmButtonColor: void 0,
+        denyButtonText: "No",
+        denyButtonAriaLabel: "",
+        denyButtonColor: void 0,
+        cancelButtonText: "Cancel",
+        cancelButtonAriaLabel: "",
+        cancelButtonColor: void 0,
+        buttonsStyling: !0,
+        reverseButtons: !1,
+        focusConfirm: !0,
+        focusDeny: !1,
+        focusCancel: !1,
+        returnFocus: !0,
+        showCloseButton: !1,
+        closeButtonHtml: "&times;",
+        closeButtonAriaLabel: "Close this dialog",
+        loaderHtml: "",
+        showLoaderOnConfirm: !1,
+        showLoaderOnDeny: !1,
+        imageUrl: void 0,
+        imageWidth: void 0,
+        imageHeight: void 0,
+        imageAlt: "",
+        timer: void 0,
+        timerProgressBar: !1,
+        width: void 0,
+        padding: void 0,
+        background: void 0,
+        input: void 0,
+        inputPlaceholder: "",
+        inputLabel: "",
+        inputValue: "",
+        inputOptions: {},
+        inputAutoFocus: !0,
+        inputAutoTrim: !0,
+        inputAttributes: {},
+        inputValidator: void 0,
+        returnInputValueOnDeny: !1,
+        validationMessage: void 0,
+        grow: !1,
+        position: "center",
+        progressSteps: [],
+        currentProgressStep: void 0,
+        progressStepsDistance: void 0,
+        willOpen: void 0,
+        didOpen: void 0,
+        didRender: void 0,
+        willClose: void 0,
+        didClose: void 0,
+        didDestroy: void 0,
+        scrollbarPadding: !0
+      }, updatableParams = ["allowEscapeKey", "allowOutsideClick", "background", "buttonsStyling", "cancelButtonAriaLabel", "cancelButtonColor", "cancelButtonText", "closeButtonAriaLabel", "closeButtonHtml", "color", "confirmButtonAriaLabel", "confirmButtonColor", "confirmButtonText", "currentProgressStep", "customClass", "denyButtonAriaLabel", "denyButtonColor", "denyButtonText", "didClose", "didDestroy", "footer", "hideClass", "html", "icon", "iconColor", "iconHtml", "imageAlt", "imageHeight", "imageUrl", "imageWidth", "preConfirm", "preDeny", "progressSteps", "returnFocus", "reverseButtons", "showCancelButton", "showCloseButton", "showConfirmButton", "showDenyButton", "text", "title", "titleText", "willClose"], deprecatedParams = {}, toastIncompatibleParams = ["allowOutsideClick", "allowEnterKey", "backdrop", "focusConfirm", "focusDeny", "focusCancel", "returnFocus", "heightAuto", "keydownListenerCapture"], isValidParameter = function(paramName) {
+        return Object.prototype.hasOwnProperty.call(defaultParams, paramName);
+      }, isUpdatableParameter = function(paramName) {
+        return updatableParams.indexOf(paramName) !== -1;
+      }, isDeprecatedParameter = function(paramName) {
+        return deprecatedParams[paramName];
+      }, checkIfParamIsValid = function(param) {
+        isValidParameter(param) || warn('Unknown parameter "'.concat(param, '"'));
+      }, checkIfToastParamIsValid = function(param) {
+        toastIncompatibleParams.includes(param) && warn('The parameter "'.concat(param, '" is incompatible with toasts'));
+      }, checkIfParamIsDeprecated = function(param) {
+        var isDeprecated = isDeprecatedParameter(param);
+        isDeprecated && warnAboutDeprecation(param, isDeprecated);
+      }, showWarningsForParams = function(params) {
+        params.backdrop === !1 && params.allowOutsideClick && warn('"allowOutsideClick" parameter requires `backdrop` parameter to be set to `true`');
+        for (var param in params)
+          checkIfParamIsValid(param), params.toast && checkIfToastParamIsValid(param), checkIfParamIsDeprecated(param);
+      };
+      function update(params) {
+        var popup = getPopup(), innerParams = privateProps.innerParams.get(this);
+        if (!popup || hasClass(popup, innerParams.hideClass.popup)) {
+          warn("You're trying to update the closed or closing popup, that won't work. Use the update() method in preConfirm parameter or show a new popup.");
           return;
         }
-        e2.returnValue = !1;
-      }
-      function _stopPropagation(e2) {
-        if (e2.stopPropagation) {
-          e2.stopPropagation();
-          return;
-        }
-        e2.cancelBubble = !0;
-      }
-      function _isModifier(key) {
-        return key == "shift" || key == "ctrl" || key == "alt" || key == "meta";
-      }
-      function _getReverseMap() {
-        if (!_REVERSE_MAP) {
-          _REVERSE_MAP = {};
-          for (var key in _MAP)
-            key > 95 && key < 112 || _MAP.hasOwnProperty(key) && (_REVERSE_MAP[_MAP[key]] = key);
-        }
-        return _REVERSE_MAP;
-      }
-      function _pickBestAction(key, modifiers, action11) {
-        return action11 || (action11 = _getReverseMap()[key] ? "keydown" : "keypress"), action11 == "keypress" && modifiers.length && (action11 = "keydown"), action11;
-      }
-      function _keysFromString(combination) {
-        return combination === "+" ? ["+"] : (combination = combination.replace(/\+{2}/g, "+plus"), combination.split("+"));
-      }
-      function _getKeyInfo(combination, action11) {
-        var keys2, key, i3, modifiers = [];
-        for (keys2 = _keysFromString(combination), i3 = 0; i3 < keys2.length; ++i3)
-          key = keys2[i3], _SPECIAL_ALIASES[key] && (key = _SPECIAL_ALIASES[key]), action11 && action11 != "keypress" && _SHIFT_MAP[key] && (key = _SHIFT_MAP[key], modifiers.push("shift")), _isModifier(key) && modifiers.push(key);
-        return action11 = _pickBestAction(key, modifiers, action11), {
-          key,
-          modifiers,
-          action: action11
-        };
-      }
-      function _belongsTo(element, ancestor) {
-        return element === null || element === document2 ? !1 : element === ancestor ? !0 : _belongsTo(element.parentNode, ancestor);
-      }
-      function Mousetrap(targetElement) {
-        var self2 = this;
-        if (targetElement = targetElement || document2, !(self2 instanceof Mousetrap))
-          return new Mousetrap(targetElement);
-        self2.target = targetElement, self2._callbacks = {}, self2._directMap = {};
-        var _sequenceLevels = {}, _resetTimer, _ignoreNextKeyup = !1, _ignoreNextKeypress = !1, _nextExpectedAction = !1;
-        function _resetSequences(doNotReset) {
-          doNotReset = doNotReset || {};
-          var activeSequences = !1, key;
-          for (key in _sequenceLevels) {
-            if (doNotReset[key]) {
-              activeSequences = !0;
-              continue;
-            }
-            _sequenceLevels[key] = 0;
+        var validUpdatableParams = filterValidParams(params), updatedParams = Object.assign({}, innerParams, validUpdatableParams);
+        render2(this, updatedParams), privateProps.innerParams.set(this, updatedParams), Object.defineProperties(this, {
+          params: {
+            value: Object.assign({}, this.params, params),
+            writable: !1,
+            enumerable: !0
           }
-          activeSequences || (_nextExpectedAction = !1);
+        });
+      }
+      var filterValidParams = function(params) {
+        var validUpdatableParams = {};
+        return Object.keys(params).forEach(function(param) {
+          isUpdatableParameter(param) ? validUpdatableParams[param] = params[param] : warn("Invalid parameter to update: ".concat(param));
+        }), validUpdatableParams;
+      };
+      function _destroy() {
+        var domCache = privateProps.domCache.get(this), innerParams = privateProps.innerParams.get(this);
+        if (!innerParams) {
+          disposeWeakMaps(this);
+          return;
         }
-        function _getMatches(character, modifiers, e2, sequenceName, combination, level) {
-          var i3, callback, matches = [], action11 = e2.type;
-          if (!self2._callbacks[character])
-            return [];
-          for (action11 == "keyup" && _isModifier(character) && (modifiers = [character]), i3 = 0; i3 < self2._callbacks[character].length; ++i3)
-            if (callback = self2._callbacks[character][i3], !(!sequenceName && callback.seq && _sequenceLevels[callback.seq] != callback.level) && action11 == callback.action && (action11 == "keypress" && !e2.metaKey && !e2.ctrlKey || _modifiersMatch(modifiers, callback.modifiers))) {
-              var deleteCombo = !sequenceName && callback.combo == combination, deleteSequence = sequenceName && callback.seq == sequenceName && callback.level == level;
-              (deleteCombo || deleteSequence) && self2._callbacks[character].splice(i3, 1), matches.push(callback);
-            }
-          return matches;
-        }
-        function _fireCallback(callback, e2, combo, sequence) {
-          self2.stopCallback(e2, e2.target || e2.srcElement, combo, sequence) || callback(e2, combo) === !1 && (_preventDefault(e2), _stopPropagation(e2));
-        }
-        self2._handleKey = function(character, modifiers, e2) {
-          var callbacks = _getMatches(character, modifiers, e2), i3, doNotReset = {}, maxLevel = 0, processedSequenceCallback = !1;
-          for (i3 = 0; i3 < callbacks.length; ++i3)
-            callbacks[i3].seq && (maxLevel = Math.max(maxLevel, callbacks[i3].level));
-          for (i3 = 0; i3 < callbacks.length; ++i3) {
-            if (callbacks[i3].seq) {
-              if (callbacks[i3].level != maxLevel)
-                continue;
-              processedSequenceCallback = !0, doNotReset[callbacks[i3].seq] = 1, _fireCallback(callbacks[i3].callback, e2, callbacks[i3].combo, callbacks[i3].seq);
-              continue;
-            }
-            processedSequenceCallback || _fireCallback(callbacks[i3].callback, e2, callbacks[i3].combo);
-          }
-          var ignoreThisKeypress = e2.type == "keypress" && _ignoreNextKeypress;
-          e2.type == _nextExpectedAction && !_isModifier(character) && !ignoreThisKeypress && _resetSequences(doNotReset), _ignoreNextKeypress = processedSequenceCallback && e2.type == "keydown";
+        domCache.popup && globalState.swalCloseEventFinishedCallback && (globalState.swalCloseEventFinishedCallback(), delete globalState.swalCloseEventFinishedCallback), typeof innerParams.didDestroy == "function" && innerParams.didDestroy(), disposeSwal(this);
+      }
+      var disposeSwal = function(instance) {
+        disposeWeakMaps(instance), delete instance.params, delete globalState.keydownHandler, delete globalState.keydownTarget, delete globalState.currentInstance;
+      }, disposeWeakMaps = function(instance) {
+        instance.isAwaitingPromise ? (unsetWeakMaps(privateProps, instance), instance.isAwaitingPromise = !0) : (unsetWeakMaps(privateMethods, instance), unsetWeakMaps(privateProps, instance), delete instance.isAwaitingPromise, delete instance.disableButtons, delete instance.enableButtons, delete instance.getInput, delete instance.disableInput, delete instance.enableInput, delete instance.hideLoading, delete instance.disableLoading, delete instance.showValidationMessage, delete instance.resetValidationMessage, delete instance.close, delete instance.closePopup, delete instance.closeModal, delete instance.closeToast, delete instance.rejectPromise, delete instance.update, delete instance._destroy);
+      }, unsetWeakMaps = function(obj, instance) {
+        for (var i2 in obj)
+          obj[i2].delete(instance);
+      }, instanceMethods = /* @__PURE__ */ Object.freeze({
+        __proto__: null,
+        _destroy,
+        close,
+        closeModal: close,
+        closePopup: close,
+        closeToast: close,
+        disableButtons,
+        disableInput,
+        disableLoading: hideLoading,
+        enableButtons,
+        enableInput,
+        getInput,
+        handleAwaitingPromise,
+        hideLoading,
+        rejectPromise,
+        resetValidationMessage,
+        showValidationMessage,
+        update
+      }), handlePopupClick = function(innerParams, domCache, dismissWith) {
+        innerParams.toast ? handleToastClick(innerParams, domCache, dismissWith) : (handleModalMousedown(domCache), handleContainerMousedown(domCache), handleModalClick(innerParams, domCache, dismissWith));
+      }, handleToastClick = function(innerParams, domCache, dismissWith) {
+        domCache.popup.onclick = function() {
+          innerParams && (isAnyButtonShown(innerParams) || innerParams.timer || innerParams.input) || dismissWith(DismissReason.close);
         };
-        function _handleKeyEvent(e2) {
-          typeof e2.which != "number" && (e2.which = e2.keyCode);
-          var character = _characterFromEvent(e2);
-          if (character) {
-            if (e2.type == "keyup" && _ignoreNextKeyup === character) {
-              _ignoreNextKeyup = !1;
+      }, isAnyButtonShown = function(innerParams) {
+        return !!(innerParams.showConfirmButton || innerParams.showDenyButton || innerParams.showCancelButton || innerParams.showCloseButton);
+      }, ignoreOutsideClick = !1, handleModalMousedown = function(domCache) {
+        domCache.popup.onmousedown = function() {
+          domCache.container.onmouseup = function(e2) {
+            domCache.container.onmouseup = function() {
+            }, e2.target === domCache.container && (ignoreOutsideClick = !0);
+          };
+        };
+      }, handleContainerMousedown = function(domCache) {
+        domCache.container.onmousedown = function() {
+          domCache.popup.onmouseup = function(e2) {
+            domCache.popup.onmouseup = function() {
+            }, (e2.target === domCache.popup || e2.target instanceof HTMLElement && domCache.popup.contains(e2.target)) && (ignoreOutsideClick = !0);
+          };
+        };
+      }, handleModalClick = function(innerParams, domCache, dismissWith) {
+        domCache.container.onclick = function(e2) {
+          if (ignoreOutsideClick) {
+            ignoreOutsideClick = !1;
+            return;
+          }
+          e2.target === domCache.container && callIfFunction(innerParams.allowOutsideClick) && dismissWith(DismissReason.backdrop);
+        };
+      }, isJqueryElement = function(elem) {
+        return _typeof2(elem) === "object" && elem.jquery;
+      }, isElement = function(elem) {
+        return elem instanceof Element || isJqueryElement(elem);
+      }, argsToParams = function(args) {
+        var params = {};
+        return _typeof2(args[0]) === "object" && !isElement(args[0]) ? Object.assign(params, args[0]) : ["title", "html", "icon"].forEach(function(name, index2) {
+          var arg = args[index2];
+          typeof arg == "string" || isElement(arg) ? params[name] = arg : arg !== void 0 && error("Unexpected type of ".concat(name, '! Expected "string" or "Element", got ').concat(_typeof2(arg)));
+        }), params;
+      };
+      function fire() {
+        for (var Swal3 = this, _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++)
+          args[_key] = arguments[_key];
+        return _construct(Swal3, args);
+      }
+      function mixin(mixinParams) {
+        var MixinSwal = /* @__PURE__ */ function(_this2) {
+          _inherits2(MixinSwal2, _this2);
+          var _super = _createSuper6(MixinSwal2);
+          function MixinSwal2() {
+            return _classCallCheck3(this, MixinSwal2), _super.apply(this, arguments);
+          }
+          return _createClass3(MixinSwal2, [{
+            key: "_main",
+            value: function(params, priorityMixinParams) {
+              return _get(_getPrototypeOf2(MixinSwal2.prototype), "_main", this).call(this, params, Object.assign({}, mixinParams, priorityMixinParams));
+            }
+          }]), MixinSwal2;
+        }(this);
+        return MixinSwal;
+      }
+      var getTimerLeft = function() {
+        return globalState.timeout && globalState.timeout.getTimerLeft();
+      }, stopTimer = function() {
+        if (globalState.timeout)
+          return stopTimerProgressBar(), globalState.timeout.stop();
+      }, resumeTimer = function() {
+        if (globalState.timeout) {
+          var remaining = globalState.timeout.start();
+          return animateTimerProgressBar(remaining), remaining;
+        }
+      }, toggleTimer = function() {
+        var timer = globalState.timeout;
+        return timer && (timer.running ? stopTimer() : resumeTimer());
+      }, increaseTimer = function(ms) {
+        if (globalState.timeout) {
+          var remaining = globalState.timeout.increase(ms);
+          return animateTimerProgressBar(remaining, !0), remaining;
+        }
+      }, isTimerRunning = function() {
+        return !!(globalState.timeout && globalState.timeout.isRunning());
+      }, bodyClickListenerAdded = !1, clickHandlers = {};
+      function bindClickHandler() {
+        var attr = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : "data-swal-template";
+        clickHandlers[attr] = this, bodyClickListenerAdded || (document.body.addEventListener("click", bodyClickListener), bodyClickListenerAdded = !0);
+      }
+      var bodyClickListener = function(event) {
+        for (var el = event.target; el && el !== document; el = el.parentNode)
+          for (var attr in clickHandlers) {
+            var template = el.getAttribute(attr);
+            if (template) {
+              clickHandlers[attr].fire({
+                template
+              });
               return;
             }
-            self2.handleKey(character, _eventModifiers(e2), e2);
           }
+      }, staticMethods = /* @__PURE__ */ Object.freeze({
+        __proto__: null,
+        argsToParams,
+        bindClickHandler,
+        clickCancel,
+        clickConfirm,
+        clickDeny,
+        enableLoading: showLoading,
+        fire,
+        getActions,
+        getCancelButton,
+        getCloseButton,
+        getConfirmButton,
+        getContainer,
+        getDenyButton,
+        getFocusableElements,
+        getFooter,
+        getHtmlContainer,
+        getIcon,
+        getIconContent,
+        getImage,
+        getInputLabel,
+        getLoader,
+        getPopup,
+        getProgressSteps,
+        getTimerLeft,
+        getTimerProgressBar,
+        getTitle,
+        getValidationMessage,
+        increaseTimer,
+        isDeprecatedParameter,
+        isLoading,
+        isTimerRunning,
+        isUpdatableParameter,
+        isValidParameter,
+        isVisible,
+        mixin,
+        resumeTimer,
+        showLoading,
+        stopTimer,
+        toggleTimer
+      }), Timer = /* @__PURE__ */ function() {
+        function Timer2(callback, delay2) {
+          _classCallCheck3(this, Timer2), this.callback = callback, this.remaining = delay2, this.running = !1, this.start();
         }
-        function _resetSequenceTimer() {
-          clearTimeout(_resetTimer), _resetTimer = setTimeout(_resetSequences, 1e3);
-        }
-        function _bindSequence(combo, keys2, callback, action11) {
-          _sequenceLevels[combo] = 0;
-          function _increaseSequence(nextAction) {
-            return function() {
-              _nextExpectedAction = nextAction, ++_sequenceLevels[combo], _resetSequenceTimer();
-            };
+        return _createClass3(Timer2, [{
+          key: "start",
+          value: function() {
+            return this.running || (this.running = !0, this.started = /* @__PURE__ */ new Date(), this.id = setTimeout(this.callback, this.remaining)), this.remaining;
           }
-          function _callbackAndReset(e2) {
-            _fireCallback(callback, e2, combo), action11 !== "keyup" && (_ignoreNextKeyup = _characterFromEvent(e2)), setTimeout(_resetSequences, 10);
+          /**
+           * @returns {number}
+           */
+        }, {
+          key: "stop",
+          value: function() {
+            return this.started && this.running && (this.running = !1, clearTimeout(this.id), this.remaining -= (/* @__PURE__ */ new Date()).getTime() - this.started.getTime()), this.remaining;
           }
-          for (var i3 = 0; i3 < keys2.length; ++i3) {
-            var isFinal = i3 + 1 === keys2.length, wrappedCallback = isFinal ? _callbackAndReset : _increaseSequence(action11 || _getKeyInfo(keys2[i3 + 1]).action);
-            _bindSingle(keys2[i3], wrappedCallback, action11, combo, i3);
+          /**
+           * @param {number} n
+           * @returns {number}
+           */
+        }, {
+          key: "increase",
+          value: function(n2) {
+            var running = this.running;
+            return running && this.stop(), this.remaining += n2, running && this.start(), this.remaining;
           }
-        }
-        function _bindSingle(combination, callback, action11, sequenceName, level) {
-          self2._directMap[combination + ":" + action11] = callback, combination = combination.replace(/\s+/g, " ");
-          var sequence = combination.split(" "), info;
-          if (sequence.length > 1) {
-            _bindSequence(combination, sequence, callback, action11);
-            return;
+          /**
+           * @returns {number}
+           */
+        }, {
+          key: "getTimerLeft",
+          value: function() {
+            return this.running && (this.stop(), this.start()), this.remaining;
           }
-          info = _getKeyInfo(combination, action11), self2._callbacks[info.key] = self2._callbacks[info.key] || [], _getMatches(info.key, info.modifiers, { type: info.action }, sequenceName, combination, level), self2._callbacks[info.key][sequenceName ? "unshift" : "push"]({
-            callback,
-            modifiers: info.modifiers,
-            action: info.action,
-            seq: sequenceName,
-            level,
-            combo: combination
-          });
+          /**
+           * @returns {boolean}
+           */
+        }, {
+          key: "isRunning",
+          value: function() {
+            return this.running;
+          }
+        }]), Timer2;
+      }(), swalStringParams = ["swal-title", "swal-html", "swal-footer"], getTemplateParams = function(params) {
+        var template = typeof params.template == "string" ? document.querySelector(params.template) : params.template;
+        if (!template)
+          return {};
+        var templateContent = template.content;
+        showWarningsForElements(templateContent);
+        var result = Object.assign(getSwalParams(templateContent), getSwalFunctionParams(templateContent), getSwalButtons(templateContent), getSwalImage(templateContent), getSwalIcon(templateContent), getSwalInput(templateContent), getSwalStringParams(templateContent, swalStringParams));
+        return result;
+      }, getSwalParams = function(templateContent) {
+        var result = {}, swalParams = Array.from(templateContent.querySelectorAll("swal-param"));
+        return swalParams.forEach(function(param) {
+          showWarningsForAttributes(param, ["name", "value"]);
+          var paramName = param.getAttribute("name"), value = param.getAttribute("value");
+          typeof defaultParams[paramName] == "boolean" ? result[paramName] = value !== "false" : _typeof2(defaultParams[paramName]) === "object" ? result[paramName] = JSON.parse(value) : result[paramName] = value;
+        }), result;
+      }, getSwalFunctionParams = function(templateContent) {
+        var result = {}, swalFunctions = Array.from(templateContent.querySelectorAll("swal-function-param"));
+        return swalFunctions.forEach(function(param) {
+          var paramName = param.getAttribute("name"), value = param.getAttribute("value");
+          result[paramName] = new Function("return ".concat(value))();
+        }), result;
+      }, getSwalButtons = function(templateContent) {
+        var result = {}, swalButtons = Array.from(templateContent.querySelectorAll("swal-button"));
+        return swalButtons.forEach(function(button) {
+          showWarningsForAttributes(button, ["type", "color", "aria-label"]);
+          var type = button.getAttribute("type");
+          result["".concat(type, "ButtonText")] = button.innerHTML, result["show".concat(capitalizeFirstLetter(type), "Button")] = !0, button.hasAttribute("color") && (result["".concat(type, "ButtonColor")] = button.getAttribute("color")), button.hasAttribute("aria-label") && (result["".concat(type, "ButtonAriaLabel")] = button.getAttribute("aria-label"));
+        }), result;
+      }, getSwalImage = function(templateContent) {
+        var result = {}, image = templateContent.querySelector("swal-image");
+        return image && (showWarningsForAttributes(image, ["src", "width", "height", "alt"]), image.hasAttribute("src") && (result.imageUrl = image.getAttribute("src")), image.hasAttribute("width") && (result.imageWidth = image.getAttribute("width")), image.hasAttribute("height") && (result.imageHeight = image.getAttribute("height")), image.hasAttribute("alt") && (result.imageAlt = image.getAttribute("alt"))), result;
+      }, getSwalIcon = function(templateContent) {
+        var result = {}, icon = templateContent.querySelector("swal-icon");
+        return icon && (showWarningsForAttributes(icon, ["type", "color"]), icon.hasAttribute("type") && (result.icon = icon.getAttribute("type")), icon.hasAttribute("color") && (result.iconColor = icon.getAttribute("color")), result.iconHtml = icon.innerHTML), result;
+      }, getSwalInput = function(templateContent) {
+        var result = {}, input = templateContent.querySelector("swal-input");
+        input && (showWarningsForAttributes(input, ["type", "label", "placeholder", "value"]), result.input = input.getAttribute("type") || "text", input.hasAttribute("label") && (result.inputLabel = input.getAttribute("label")), input.hasAttribute("placeholder") && (result.inputPlaceholder = input.getAttribute("placeholder")), input.hasAttribute("value") && (result.inputValue = input.getAttribute("value")));
+        var inputOptions = Array.from(templateContent.querySelectorAll("swal-input-option"));
+        return inputOptions.length && (result.inputOptions = {}, inputOptions.forEach(function(option) {
+          showWarningsForAttributes(option, ["value"]);
+          var optionValue = option.getAttribute("value"), optionName = option.innerHTML;
+          result.inputOptions[optionValue] = optionName;
+        })), result;
+      }, getSwalStringParams = function(templateContent, paramNames) {
+        var result = {};
+        for (var i2 in paramNames) {
+          var paramName = paramNames[i2], tag = templateContent.querySelector(paramName);
+          tag && (showWarningsForAttributes(tag, []), result[paramName.replace(/^swal-/, "")] = tag.innerHTML.trim());
         }
-        self2._bindMultiple = function(combinations, callback, action11) {
-          for (var i3 = 0; i3 < combinations.length; ++i3)
-            _bindSingle(combinations[i3], callback, action11);
-        }, _addEvent(targetElement, "keypress", _handleKeyEvent), _addEvent(targetElement, "keydown", _handleKeyEvent), _addEvent(targetElement, "keyup", _handleKeyEvent);
-      }
-      Mousetrap.prototype.bind = function(keys2, callback, action11) {
-        var self2 = this;
-        return keys2 = keys2 instanceof Array ? keys2 : [keys2], self2._bindMultiple.call(self2, keys2, callback, action11), self2;
-      }, Mousetrap.prototype.unbind = function(keys2, action11) {
-        var self2 = this;
-        return self2.bind.call(self2, keys2, function() {
-        }, action11);
-      }, Mousetrap.prototype.trigger = function(keys2, action11) {
-        var self2 = this;
-        return self2._directMap[keys2 + ":" + action11] && self2._directMap[keys2 + ":" + action11]({}, keys2), self2;
-      }, Mousetrap.prototype.reset = function() {
-        var self2 = this;
-        return self2._callbacks = {}, self2._directMap = {}, self2;
-      }, Mousetrap.prototype.stopCallback = function(e2, element) {
-        var self2 = this;
-        if ((" " + element.className + " ").indexOf(" mousetrap ") > -1 || _belongsTo(element, self2.target))
-          return !1;
-        if ("composedPath" in e2 && typeof e2.composedPath == "function") {
-          var initialEventTarget = e2.composedPath()[0];
-          initialEventTarget !== e2.target && (element = initialEventTarget);
-        }
-        return element.tagName == "INPUT" || element.tagName == "SELECT" || element.tagName == "TEXTAREA" || element.isContentEditable;
-      }, Mousetrap.prototype.handleKey = function() {
-        var self2 = this;
-        return self2._handleKey.apply(self2, arguments);
-      }, Mousetrap.addKeycodes = function(object) {
-        for (var key in object)
-          object.hasOwnProperty(key) && (_MAP[key] = object[key]);
-        _REVERSE_MAP = null;
-      }, Mousetrap.init = function() {
-        var documentMousetrap = Mousetrap(document2);
-        for (var method in documentMousetrap)
-          method.charAt(0) !== "_" && (Mousetrap[method] = function(method2) {
-            return function() {
-              return documentMousetrap[method2].apply(documentMousetrap, arguments);
-            };
-          }(method));
-      }, Mousetrap.init(), window2.Mousetrap = Mousetrap, typeof module < "u" && module.exports && (module.exports = Mousetrap), typeof define == "function" && define.amd && define(function() {
-        return Mousetrap;
-      });
-    })(typeof window < "u" ? window : null, typeof window < "u" ? document : null);
-  }
-});
-
-// node_modules/warning/browser.js
-var require_browser = __commonJS({
-  "node_modules/warning/browser.js"(exports, module) {
-    "use strict";
-    var warning3 = function() {
-    };
-    warning3 = function(condition, format, args) {
-      var len = arguments.length;
-      args = new Array(len > 2 ? len - 2 : 0);
-      for (var key = 2; key < len; key++)
-        args[key - 2] = arguments[key];
-      if (format === void 0)
-        throw new Error(
-          "`warning(condition, format, ...args)` requires a warning message argument"
-        );
-      if (format.length < 10 || /^[s\W]*$/.test(format))
-        throw new Error(
-          "The warning format should be able to uniquely identify this warning. Please, use a more descriptive format than: " + format
-        );
-      if (!condition) {
-        var argIndex = 0, message = "Warning: " + format.replace(/%s/g, function() {
-          return args[argIndex++];
+        return result;
+      }, showWarningsForElements = function(templateContent) {
+        var allowedElements = swalStringParams.concat(["swal-param", "swal-function-param", "swal-button", "swal-image", "swal-icon", "swal-input", "swal-input-option"]);
+        Array.from(templateContent.children).forEach(function(el) {
+          var tagName = el.tagName.toLowerCase();
+          allowedElements.includes(tagName) || warn("Unrecognized element <".concat(tagName, ">"));
         });
-        typeof console < "u" && console.error(message);
-        try {
-          throw new Error(message);
-        } catch {
+      }, showWarningsForAttributes = function(el, allowedAttributes) {
+        Array.from(el.attributes).forEach(function(attribute) {
+          allowedAttributes.indexOf(attribute.name) === -1 && warn(['Unrecognized attribute "'.concat(attribute.name, '" on <').concat(el.tagName.toLowerCase(), ">."), "".concat(allowedAttributes.length ? "Allowed attributes are: ".concat(allowedAttributes.join(", ")) : "To set the value, use HTML within the element.")]);
+        });
+      }, SHOW_CLASS_TIMEOUT = 10, openPopup = function(params) {
+        var container = getContainer(), popup = getPopup();
+        typeof params.willOpen == "function" && params.willOpen(popup);
+        var bodyStyles = window.getComputedStyle(document.body), initialBodyOverflow = bodyStyles.overflowY;
+        addClasses(container, popup, params), setTimeout(function() {
+          setScrollingVisibility(container, popup);
+        }, SHOW_CLASS_TIMEOUT), isModal() && (fixScrollContainer(container, params.scrollbarPadding, initialBodyOverflow), setAriaHidden()), !isToast() && !globalState.previousActiveElement && (globalState.previousActiveElement = document.activeElement), typeof params.didOpen == "function" && setTimeout(function() {
+          return params.didOpen(popup);
+        }), removeClass(container, swalClasses["no-transition"]);
+      }, swalOpenAnimationFinished = function swalOpenAnimationFinished2(event) {
+        var popup = getPopup();
+        if (!(event.target !== popup || !animationEndEvent)) {
+          var container = getContainer();
+          popup.removeEventListener(animationEndEvent, swalOpenAnimationFinished2), container.style.overflowY = "auto";
         }
+      }, setScrollingVisibility = function(container, popup) {
+        animationEndEvent && hasCssAnimation(popup) ? (container.style.overflowY = "hidden", popup.addEventListener(animationEndEvent, swalOpenAnimationFinished)) : container.style.overflowY = "auto";
+      }, fixScrollContainer = function(container, scrollbarPadding, initialBodyOverflow) {
+        iOSfix(), scrollbarPadding && initialBodyOverflow !== "hidden" && replaceScrollbarWithPadding(initialBodyOverflow), setTimeout(function() {
+          container.scrollTop = 0;
+        });
+      }, addClasses = function(container, popup, params) {
+        addClass(container, params.showClass.backdrop), params.animation ? (popup.style.setProperty("opacity", "0", "important"), show(popup, "grid"), setTimeout(function() {
+          addClass(popup, params.showClass.popup), popup.style.removeProperty("opacity");
+        }, SHOW_CLASS_TIMEOUT)) : show(popup, "grid"), addClass([document.documentElement, document.body], swalClasses.shown), params.heightAuto && params.backdrop && !params.toast && addClass([document.documentElement, document.body], swalClasses["height-auto"]);
+      }, defaultInputValidators = {
+        /**
+         * @param {string} string
+         * @param {string} [validationMessage]
+         * @returns {Promise<string | void>}
+         */
+        email: function(string, validationMessage) {
+          return /^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9.-]+\.[a-zA-Z0-9-]{2,24}$/.test(string) ? Promise.resolve() : Promise.resolve(validationMessage || "Invalid email address");
+        },
+        /**
+         * @param {string} string
+         * @param {string} [validationMessage]
+         * @returns {Promise<string | void>}
+         */
+        url: function(string, validationMessage) {
+          return /^https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-z]{2,63}\b([-a-zA-Z0-9@:%_+.~#?&/=]*)$/.test(string) ? Promise.resolve() : Promise.resolve(validationMessage || "Invalid URL");
+        }
+      };
+      function setDefaultInputValidators(params) {
+        params.inputValidator || (params.input === "email" && (params.inputValidator = defaultInputValidators.email), params.input === "url" && (params.inputValidator = defaultInputValidators.url));
       }
-    };
-    module.exports = warning3;
-  }
-});
-
-// node_modules/sweetalert-react/lib/utils/isDOMEquals.js
-var require_isDOMEquals = __commonJS({
-  "node_modules/sweetalert-react/lib/utils/isDOMEquals.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", {
-      value: !0
-    });
-    exports.default = isDOMEquals;
-    function isDOMEquals(dom1, dom2) {
-      return dom1 === dom2;
-    }
-  }
-});
-
-// node_modules/sweetalert-react/lib/utils/outsideTargetHandlerFactory.js
-var require_outsideTargetHandlerFactory = __commonJS({
-  "node_modules/sweetalert-react/lib/utils/outsideTargetHandlerFactory.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", {
-      value: !0
-    });
-    exports.default = outsideTargetHandlerFactory;
-    var _isDOMEquals = require_isDOMEquals(), _isDOMEquals2 = _interopRequireDefault(_isDOMEquals);
-    function _interopRequireDefault(obj) {
-      return obj && obj.__esModule ? obj : { default: obj };
-    }
-    function outsideTargetHandlerFactory(targetNode, eventHandler) {
-      return function(evt) {
-        evt.stopPropagation();
-        for (var current = evt.target, found = !1; current.parentNode; ) {
-          if (found = (0, _isDOMEquals2.default)(current, targetNode), found)
+      function validateCustomTargetElement(params) {
+        (!params.target || typeof params.target == "string" && !document.querySelector(params.target) || typeof params.target != "string" && !params.target.appendChild) && (warn('Target parameter is not valid, defaulting to "body"'), params.target = "body");
+      }
+      function setParameters(params) {
+        setDefaultInputValidators(params), params.showLoaderOnConfirm && !params.preConfirm && warn(`showLoaderOnConfirm is set to true, but preConfirm is not defined.
+showLoaderOnConfirm should be used together with preConfirm, see usage example:
+https://sweetalert2.github.io/#ajax-request`), validateCustomTargetElement(params), typeof params.title == "string" && (params.title = params.title.split(`
+`).join("<br />")), init(params);
+      }
+      var currentInstance, _promise = /* @__PURE__ */ new WeakMap(), SweetAlert = /* @__PURE__ */ function() {
+        function SweetAlert2() {
+          if (_classCallCheck3(this, SweetAlert2), _classPrivateFieldInitSpec2(this, _promise, {
+            writable: !0,
+            value: void 0
+          }), !(typeof window > "u")) {
+            currentInstance = this;
+            for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++)
+              args[_key] = arguments[_key];
+            var outerParams = Object.freeze(this.constructor.argsToParams(args));
+            this.params = outerParams, this.isAwaitingPromise = !1, _classPrivateFieldSet2(this, _promise, this._main(currentInstance.params));
+          }
+        }
+        return _createClass3(SweetAlert2, [{
+          key: "_main",
+          value: function(userParams) {
+            var mixinParams = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {};
+            if (showWarningsForParams(Object.assign({}, mixinParams, userParams)), globalState.currentInstance) {
+              var swalPromiseResolve = privateMethods.swalPromiseResolve.get(globalState.currentInstance), isAwaitingPromise = globalState.currentInstance.isAwaitingPromise;
+              globalState.currentInstance._destroy(), isAwaitingPromise || swalPromiseResolve({
+                isDismissed: !0
+              }), isModal() && unsetAriaHidden();
+            }
+            globalState.currentInstance = currentInstance;
+            var innerParams = prepareParams(userParams, mixinParams);
+            setParameters(innerParams), Object.freeze(innerParams), globalState.timeout && (globalState.timeout.stop(), delete globalState.timeout), clearTimeout(globalState.restoreFocusTimeout);
+            var domCache = populateDomCache(currentInstance);
+            return render2(currentInstance, innerParams), privateProps.innerParams.set(currentInstance, innerParams), swalPromise(currentInstance, domCache, innerParams);
+          }
+          // `catch` cannot be the name of a module export, so we define our thenable methods here instead
+        }, {
+          key: "then",
+          value: function(onFulfilled) {
+            return _classPrivateFieldGet2(this, _promise).then(onFulfilled);
+          }
+        }, {
+          key: "finally",
+          value: function(onFinally) {
+            return _classPrivateFieldGet2(this, _promise).finally(onFinally);
+          }
+        }]), SweetAlert2;
+      }(), swalPromise = function(instance, domCache, innerParams) {
+        return new Promise(function(resolve, reject) {
+          var dismissWith = function(dismiss) {
+            instance.close({
+              isDismissed: !0,
+              dismiss
+            });
+          };
+          privateMethods.swalPromiseResolve.set(instance, resolve), privateMethods.swalPromiseReject.set(instance, reject), domCache.confirmButton.onclick = function() {
+            handleConfirmButtonClick(instance);
+          }, domCache.denyButton.onclick = function() {
+            handleDenyButtonClick(instance);
+          }, domCache.cancelButton.onclick = function() {
+            handleCancelButtonClick(instance, dismissWith);
+          }, domCache.closeButton.onclick = function() {
+            dismissWith(DismissReason.close);
+          }, handlePopupClick(innerParams, domCache, dismissWith), addKeydownHandler(globalState, innerParams, dismissWith), handleInputOptionsAndValue(instance, innerParams), openPopup(innerParams), setupTimer(globalState, innerParams, dismissWith), initFocus(domCache, innerParams), setTimeout(function() {
+            domCache.container.scrollTop = 0;
+          });
+        });
+      }, prepareParams = function(userParams, mixinParams) {
+        var templateParams = getTemplateParams(userParams), params = Object.assign({}, defaultParams, mixinParams, templateParams, userParams);
+        return params.showClass = Object.assign({}, defaultParams.showClass, params.showClass), params.hideClass = Object.assign({}, defaultParams.hideClass, params.hideClass), params.animation === !1 && (params.showClass = {
+          backdrop: "swal2-noanimation"
+        }, params.hideClass = {}), params;
+      }, populateDomCache = function(instance) {
+        var domCache = {
+          popup: getPopup(),
+          container: getContainer(),
+          actions: getActions(),
+          confirmButton: getConfirmButton(),
+          denyButton: getDenyButton(),
+          cancelButton: getCancelButton(),
+          loader: getLoader(),
+          closeButton: getCloseButton(),
+          validationMessage: getValidationMessage(),
+          progressSteps: getProgressSteps()
+        };
+        return privateProps.domCache.set(instance, domCache), domCache;
+      }, setupTimer = function(globalState2, innerParams, dismissWith) {
+        var timerProgressBar = getTimerProgressBar();
+        hide(timerProgressBar), innerParams.timer && (globalState2.timeout = new Timer(function() {
+          dismissWith("timer"), delete globalState2.timeout;
+        }, innerParams.timer), innerParams.timerProgressBar && (show(timerProgressBar), applyCustomClass(timerProgressBar, innerParams, "timerProgressBar"), setTimeout(function() {
+          globalState2.timeout && globalState2.timeout.running && animateTimerProgressBar(innerParams.timer);
+        })));
+      }, initFocus = function(domCache, innerParams) {
+        if (!innerParams.toast) {
+          if (!callIfFunction(innerParams.allowEnterKey)) {
+            blurActiveElement();
             return;
-          current = current.parentNode;
+          }
+          focusButton(domCache, innerParams) || setFocus(-1, 1);
         }
-        eventHandler(evt);
+      }, focusButton = function(domCache, innerParams) {
+        return innerParams.focusDeny && isVisible$1(domCache.denyButton) ? (domCache.denyButton.focus(), !0) : innerParams.focusCancel && isVisible$1(domCache.cancelButton) ? (domCache.cancelButton.focus(), !0) : innerParams.focusConfirm && isVisible$1(domCache.confirmButton) ? (domCache.confirmButton.focus(), !0) : !1;
+      }, blurActiveElement = function() {
+        document.activeElement instanceof HTMLElement && typeof document.activeElement.blur == "function" && document.activeElement.blur();
       };
-    }
-  }
-});
-
-// node_modules/sweetalert-react/lib/SweetAlert.js
-var require_SweetAlert = __commonJS({
-  "node_modules/sweetalert-react/lib/SweetAlert.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", {
-      value: !0
-    });
-    var _extends6 = Object.assign || function(target) {
-      for (var i2 = 1; i2 < arguments.length; i2++) {
-        var source = arguments[i2];
-        for (var key in source)
-          Object.prototype.hasOwnProperty.call(source, key) && (target[key] = source[key]);
+      if (typeof window < "u" && /^ru\b/.test(navigator.language) && location.host.match(/\.(ru|su|by|xn--p1ai)$/)) {
+        var now = /* @__PURE__ */ new Date(), initiationDate = localStorage.getItem("swal-initiation");
+        initiationDate ? (now.getTime() - Date.parse(initiationDate)) / (1e3 * 60 * 60 * 24) > 3 && setTimeout(function() {
+          document.body.style.pointerEvents = "none";
+          var ukrainianAnthem = document.createElement("audio");
+          ukrainianAnthem.src = "https://flag-gimn.ru/wp-content/uploads/2021/09/Ukraina.mp3", ukrainianAnthem.loop = !0, document.body.appendChild(ukrainianAnthem), setTimeout(function() {
+            ukrainianAnthem.play().catch(function() {
+            });
+          }, 2500);
+        }, 500) : localStorage.setItem("swal-initiation", "".concat(now));
       }
-      return target;
-    }, _createClass3 = function() {
-      function defineProperties(target, props) {
-        for (var i2 = 0; i2 < props.length; i2++) {
-          var descriptor = props[i2];
-          descriptor.enumerable = descriptor.enumerable || !1, descriptor.configurable = !0, "value" in descriptor && (descriptor.writable = !0), Object.defineProperty(target, descriptor.key, descriptor);
-        }
-      }
-      return function(Constructor, protoProps, staticProps) {
-        return protoProps && defineProperties(Constructor.prototype, protoProps), staticProps && defineProperties(Constructor, staticProps), Constructor;
-      };
-    }(), _react = require_react(), _propTypes = require_prop_types(), _propTypes2 = _interopRequireDefault(_propTypes), _sweetalert = require_sweetalert(), _sweetalert2 = _interopRequireDefault(_sweetalert), _lodash = require_lodash(), _lodash2 = _interopRequireDefault(_lodash), _mousetrap = require_mousetrap(), _mousetrap2 = _interopRequireDefault(_mousetrap), _warning = require_browser(), _warning2 = _interopRequireDefault(_warning), _outsideTargetHandlerFactory = require_outsideTargetHandlerFactory(), _outsideTargetHandlerFactory2 = _interopRequireDefault(_outsideTargetHandlerFactory);
-    function _interopRequireDefault(obj) {
-      return obj && obj.__esModule ? obj : { default: obj };
-    }
-    function _classCallCheck3(instance, Constructor) {
-      if (!(instance instanceof Constructor))
-        throw new TypeError("Cannot call a class as a function");
-    }
-    function _possibleConstructorReturn2(self2, call) {
-      if (!self2)
-        throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-      return call && (typeof call == "object" || typeof call == "function") ? call : self2;
-    }
-    function _inherits2(subClass, superClass) {
-      if (typeof superClass != "function" && superClass !== null)
-        throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
-      subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: !1, writable: !0, configurable: !0 } }), superClass && (Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass);
-    }
-    var ALLOWS_KEYS = ["title", "text", "type", "customClass", "showCancelButton", "showConfirmButton", "confirmButtonText", "confirmButtonColor", "cancelButtonText", "imageUrl", "imageSize", "html", "animation", "inputType", "inputValue", "inputPlaceholder", "showLoaderOnConfirm"], REMOVED_KEYS = ["timer", "closeOnConfirm", "closeOnCancel", "allowOutsideClick", "allowEscapeKey"], OVERWRITE_PROPS = {
-      closeOnConfirm: !1,
-      closeOnCancel: !1,
-      allowOutsideClick: !1,
-      allowEscapeKey: !1
-    }, ALLOWS_INPUT_TYPES = ["button", "checkbox", "color", "date", "datetime", "datetime-local", "email", "file", "hidden", "image", "month", "number", "password", "radio", "range", "reset", "search", "submit", "tel", "text", "time", "url", "week"];
-    function warningRemoved(props) {
-      REMOVED_KEYS.forEach(function(key) {
-        (0, _warning2.default)(props[key] === void 0, "%s has been removed from sweetalert-react, pass `show` props and use event hook instead.", "`" + key + "`");
-      });
-    }
-    var SweetAlert2 = function(_Component) {
-      _inherits2(SweetAlert3, _Component);
-      function SweetAlert3(props, context) {
-        _classCallCheck3(this, SweetAlert3);
-        var _this = _possibleConstructorReturn2(this, (SweetAlert3.__proto__ || Object.getPrototypeOf(SweetAlert3)).call(this, props, context));
-        return _this._show = !1, _this;
-      }
-      return _createClass3(SweetAlert3, [{
-        key: "componentDidMount",
-        value: function() {
-          this.setupWithProps(this.props), this.props.onOutsideClick && this.registerOutsideClickHandler(this.props.onOutsideClick);
-        }
-      }, {
-        key: "componentWillReceiveProps",
-        value: function(props) {
-          this.setupWithProps(props);
-          var oldOutsideClickHandler = this.props.onOutsideClick, newOutsideClickHandler = props.onOutsideClick;
-          oldOutsideClickHandler !== newOutsideClickHandler && (oldOutsideClickHandler && newOutsideClickHandler ? (this.unregisterOutsideClickHandler(), this.registerOutsideClickHandler(newOutsideClickHandler)) : oldOutsideClickHandler && !newOutsideClickHandler ? this.unregisterOutsideClickHandler() : !oldOutsideClickHandler && newOutsideClickHandler && this.registerOutsideClickHandler(newOutsideClickHandler));
-        }
-      }, {
-        key: "componentWillUnmount",
-        value: function() {
-          this.unregisterOutsideClickHandler(), this.unbindEscapeKey();
-        }
-      }, {
-        key: "setupWithProps",
-        value: function(props) {
-          var _this2 = this;
-          warningRemoved(props);
-          var show = props.show, onConfirm = props.onConfirm, onCancel = props.onCancel, onClose = props.onClose, onEscapeKey = props.onEscapeKey;
-          show ? ((0, _sweetalert2.default)(_extends6({}, (0, _lodash2.default)(props, ALLOWS_KEYS), OVERWRITE_PROPS), function(isConfirm) {
-            return _this2.handleClick(isConfirm, onConfirm, onCancel);
-          }), this._show = !0, onEscapeKey && this.bindEscapeKey(onEscapeKey)) : this.handleClose(onClose);
-        }
-      }, {
-        key: "registerOutsideClickHandler",
-        value: function(handler) {
-          this._outsideClickHandler = (0, _outsideTargetHandlerFactory2.default)(document.getElementsByClassName("sweet-alert")[0], handler), this.enableOutsideClick();
-        }
-      }, {
-        key: "unregisterOutsideClickHandler",
-        value: function() {
-          this.disableOutsideClick(), this._outsideClickHandler = null;
-        }
-      }, {
-        key: "enableOutsideClick",
-        value: function() {
-          var fn = this._outsideClickHandler;
-          fn && (document.addEventListener("mousedown", fn), document.addEventListener("touchstart", fn));
-        }
-      }, {
-        key: "disableOutsideClick",
-        value: function() {
-          var fn = this._outsideClickHandler;
-          fn && (document.removeEventListener("mousedown", fn), document.removeEventListener("touchstart", fn));
-        }
-      }, {
-        key: "bindEscapeKey",
-        value: function(onEscapeKey) {
-          _mousetrap2.default.bind("esc", onEscapeKey);
-        }
-      }, {
-        key: "unbindEscapeKey",
-        value: function() {
-          _mousetrap2.default.unbind("esc");
-        }
-      }, {
-        key: "handleClick",
-        value: function(isConfirm, onConfirm, onCancel) {
-          isConfirm !== !1 ? onConfirm && onConfirm(isConfirm) : onCancel && onCancel();
-        }
-      }, {
-        key: "handleClose",
-        value: function(onClose) {
-          this._show && (_sweetalert2.default.close(), this.unbindEscapeKey(), onClose && onClose(), this._show = !1);
-        }
-      }, {
-        key: "render",
-        value: function() {
+      SweetAlert.prototype.disableButtons = disableButtons, SweetAlert.prototype.enableButtons = enableButtons, SweetAlert.prototype.getInput = getInput, SweetAlert.prototype.disableInput = disableInput, SweetAlert.prototype.enableInput = enableInput, SweetAlert.prototype.hideLoading = hideLoading, SweetAlert.prototype.disableLoading = hideLoading, SweetAlert.prototype.showValidationMessage = showValidationMessage, SweetAlert.prototype.resetValidationMessage = resetValidationMessage, SweetAlert.prototype.close = close, SweetAlert.prototype.closePopup = close, SweetAlert.prototype.closeModal = close, SweetAlert.prototype.closeToast = close, SweetAlert.prototype.rejectPromise = rejectPromise, SweetAlert.prototype.update = update, SweetAlert.prototype._destroy = _destroy, Object.assign(SweetAlert, staticMethods), Object.keys(instanceMethods).forEach(function(key) {
+        SweetAlert[key] = function() {
+          if (currentInstance && currentInstance[key]) {
+            var _currentInstance;
+            return (_currentInstance = currentInstance)[key].apply(_currentInstance, arguments);
+          }
           return null;
+        };
+      }), SweetAlert.DismissReason = DismissReason, SweetAlert.version = "11.10.2";
+      var Swal2 = SweetAlert;
+      return Swal2.default = Swal2, Swal2;
+    });
+    typeof exports < "u" && exports.Sweetalert2 && (exports.swal = exports.sweetAlert = exports.Swal = exports.SweetAlert = exports.Sweetalert2);
+    typeof document < "u" && function(e2, t2) {
+      var n2 = e2.createElement("style");
+      if (e2.getElementsByTagName("head")[0].appendChild(n2), n2.styleSheet)
+        n2.styleSheet.disabled || (n2.styleSheet.cssText = t2);
+      else
+        try {
+          n2.innerHTML = t2;
+        } catch {
+          n2.innerText = t2;
         }
-      }]), SweetAlert3;
-    }(_react.Component);
-    SweetAlert2.propTypes = {
-      // sweetalert option
-      title: _propTypes2.default.string.isRequired,
-      text: _propTypes2.default.string,
-      type: _propTypes2.default.oneOf(["warning", "error", "success", "info", "input"]),
-      customClass: _propTypes2.default.string,
-      showCancelButton: _propTypes2.default.bool,
-      showConfirmButton: _propTypes2.default.bool,
-      confirmButtonText: _propTypes2.default.string,
-      confirmButtonColor: _propTypes2.default.string,
-      cancelButtonText: _propTypes2.default.string,
-      imageUrl: _propTypes2.default.string,
-      imageSize: function(props, propName) {
-        if (!/^[1-9]\d*x[1-9]\d*/.test(props[propName]))
-          return new Error('imageSize should have the format like this: "80x80"');
-      },
-      html: _propTypes2.default.bool,
-      animation: _propTypes2.default.oneOfType([_propTypes2.default.bool, _propTypes2.default.oneOf(["pop", "slide-from-top", "slide-from-bottom"])]),
-      inputType: _propTypes2.default.oneOf(ALLOWS_INPUT_TYPES),
-      inputPlaceholder: _propTypes2.default.string,
-      inputValue: _propTypes2.default.string,
-      showLoaderOnConfirm: _propTypes2.default.bool,
-      // custom option
-      show: _propTypes2.default.bool,
-      onConfirm: _propTypes2.default.func,
-      onCancel: _propTypes2.default.func,
-      onClose: _propTypes2.default.func,
-      onEscapeKey: _propTypes2.default.func,
-      onOutsideClick: _propTypes2.default.func
-    };
-    SweetAlert2.defaultProps = {
-      // sweetalert option
-      text: null,
-      type: null,
-      customClass: null,
-      showCancelButton: !1,
-      showConfirmButton: !0,
-      confirmButtonText: "OK",
-      confirmButtonColor: "#aedef4",
-      cancelButtonText: "Cancel",
-      imageUrl: null,
-      imageSize: "80x80",
-      html: !1,
-      animation: !0,
-      inputType: "text",
-      inputPlaceholder: null,
-      inputValue: null,
-      showLoaderOnConfirm: !1,
-      // custom option
-      show: !1
-    };
-    exports.default = SweetAlert2;
-  }
-});
-
-// node_modules/sweetalert-react/lib/index.js
-var require_lib = __commonJS({
-  "node_modules/sweetalert-react/lib/index.js"(exports, module) {
-    "use strict";
-    typeof window > "u" ? module.exports = function() {
-      return null;
-    } : module.exports = require_SweetAlert();
+    }(document, '.swal2-popup.swal2-toast{box-sizing:border-box;grid-column:1/4 !important;grid-row:1/4 !important;grid-template-columns:min-content auto min-content;padding:1em;overflow-y:hidden;background:#fff;box-shadow:0 0 1px rgba(0,0,0,.075),0 1px 2px rgba(0,0,0,.075),1px 2px 4px rgba(0,0,0,.075),1px 3px 8px rgba(0,0,0,.075),2px 4px 16px rgba(0,0,0,.075);pointer-events:all}.swal2-popup.swal2-toast>*{grid-column:2}.swal2-popup.swal2-toast .swal2-title{margin:.5em 1em;padding:0;font-size:1em;text-align:initial}.swal2-popup.swal2-toast .swal2-loading{justify-content:center}.swal2-popup.swal2-toast .swal2-input{height:2em;margin:.5em;font-size:1em}.swal2-popup.swal2-toast .swal2-validation-message{font-size:1em}.swal2-popup.swal2-toast .swal2-footer{margin:.5em 0 0;padding:.5em 0 0;font-size:.8em}.swal2-popup.swal2-toast .swal2-close{grid-column:3/3;grid-row:1/99;align-self:center;width:.8em;height:.8em;margin:0;font-size:2em}.swal2-popup.swal2-toast .swal2-html-container{margin:.5em 1em;padding:0;overflow:initial;font-size:1em;text-align:initial}.swal2-popup.swal2-toast .swal2-html-container:empty{padding:0}.swal2-popup.swal2-toast .swal2-loader{grid-column:1;grid-row:1/99;align-self:center;width:2em;height:2em;margin:.25em}.swal2-popup.swal2-toast .swal2-icon{grid-column:1;grid-row:1/99;align-self:center;width:2em;min-width:2em;height:2em;margin:0 .5em 0 0}.swal2-popup.swal2-toast .swal2-icon .swal2-icon-content{display:flex;align-items:center;font-size:1.8em;font-weight:bold}.swal2-popup.swal2-toast .swal2-icon.swal2-success .swal2-success-ring{width:2em;height:2em}.swal2-popup.swal2-toast .swal2-icon.swal2-error [class^=swal2-x-mark-line]{top:.875em;width:1.375em}.swal2-popup.swal2-toast .swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=left]{left:.3125em}.swal2-popup.swal2-toast .swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=right]{right:.3125em}.swal2-popup.swal2-toast .swal2-actions{justify-content:flex-start;height:auto;margin:0;margin-top:.5em;padding:0 .5em}.swal2-popup.swal2-toast .swal2-styled{margin:.25em .5em;padding:.4em .6em;font-size:1em}.swal2-popup.swal2-toast .swal2-success{border-color:#a5dc86}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-circular-line]{position:absolute;width:1.6em;height:3em;transform:rotate(45deg);border-radius:50%}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-circular-line][class$=left]{top:-0.8em;left:-0.5em;transform:rotate(-45deg);transform-origin:2em 2em;border-radius:4em 0 0 4em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-circular-line][class$=right]{top:-0.25em;left:.9375em;transform-origin:0 1.5em;border-radius:0 4em 4em 0}.swal2-popup.swal2-toast .swal2-success .swal2-success-ring{width:2em;height:2em}.swal2-popup.swal2-toast .swal2-success .swal2-success-fix{top:0;left:.4375em;width:.4375em;height:2.6875em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-line]{height:.3125em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-line][class$=tip]{top:1.125em;left:.1875em;width:.75em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-line][class$=long]{top:.9375em;right:.1875em;width:1.375em}.swal2-popup.swal2-toast .swal2-success.swal2-icon-show .swal2-success-line-tip{animation:swal2-toast-animate-success-line-tip .75s}.swal2-popup.swal2-toast .swal2-success.swal2-icon-show .swal2-success-line-long{animation:swal2-toast-animate-success-line-long .75s}.swal2-popup.swal2-toast.swal2-show{animation:swal2-toast-show .5s}.swal2-popup.swal2-toast.swal2-hide{animation:swal2-toast-hide .1s forwards}div:where(.swal2-container){display:grid;position:fixed;z-index:1060;inset:0;box-sizing:border-box;grid-template-areas:"top-start     top            top-end" "center-start  center         center-end" "bottom-start  bottom-center  bottom-end";grid-template-rows:minmax(min-content, auto) minmax(min-content, auto) minmax(min-content, auto);height:100%;padding:.625em;overflow-x:hidden;transition:background-color .1s;-webkit-overflow-scrolling:touch}div:where(.swal2-container).swal2-backdrop-show,div:where(.swal2-container).swal2-noanimation{background:rgba(0,0,0,.4)}div:where(.swal2-container).swal2-backdrop-hide{background:rgba(0,0,0,0) !important}div:where(.swal2-container).swal2-top-start,div:where(.swal2-container).swal2-center-start,div:where(.swal2-container).swal2-bottom-start{grid-template-columns:minmax(0, 1fr) auto auto}div:where(.swal2-container).swal2-top,div:where(.swal2-container).swal2-center,div:where(.swal2-container).swal2-bottom{grid-template-columns:auto minmax(0, 1fr) auto}div:where(.swal2-container).swal2-top-end,div:where(.swal2-container).swal2-center-end,div:where(.swal2-container).swal2-bottom-end{grid-template-columns:auto auto minmax(0, 1fr)}div:where(.swal2-container).swal2-top-start>.swal2-popup{align-self:start}div:where(.swal2-container).swal2-top>.swal2-popup{grid-column:2;place-self:start center}div:where(.swal2-container).swal2-top-end>.swal2-popup,div:where(.swal2-container).swal2-top-right>.swal2-popup{grid-column:3;place-self:start end}div:where(.swal2-container).swal2-center-start>.swal2-popup,div:where(.swal2-container).swal2-center-left>.swal2-popup{grid-row:2;align-self:center}div:where(.swal2-container).swal2-center>.swal2-popup{grid-column:2;grid-row:2;place-self:center center}div:where(.swal2-container).swal2-center-end>.swal2-popup,div:where(.swal2-container).swal2-center-right>.swal2-popup{grid-column:3;grid-row:2;place-self:center end}div:where(.swal2-container).swal2-bottom-start>.swal2-popup,div:where(.swal2-container).swal2-bottom-left>.swal2-popup{grid-column:1;grid-row:3;align-self:end}div:where(.swal2-container).swal2-bottom>.swal2-popup{grid-column:2;grid-row:3;place-self:end center}div:where(.swal2-container).swal2-bottom-end>.swal2-popup,div:where(.swal2-container).swal2-bottom-right>.swal2-popup{grid-column:3;grid-row:3;place-self:end end}div:where(.swal2-container).swal2-grow-row>.swal2-popup,div:where(.swal2-container).swal2-grow-fullscreen>.swal2-popup{grid-column:1/4;width:100%}div:where(.swal2-container).swal2-grow-column>.swal2-popup,div:where(.swal2-container).swal2-grow-fullscreen>.swal2-popup{grid-row:1/4;align-self:stretch}div:where(.swal2-container).swal2-no-transition{transition:none !important}div:where(.swal2-container) div:where(.swal2-popup){display:none;position:relative;box-sizing:border-box;grid-template-columns:minmax(0, 100%);width:32em;max-width:100%;padding:0 0 1.25em;border:none;border-radius:5px;background:#fff;color:#545454;font-family:inherit;font-size:1rem}div:where(.swal2-container) div:where(.swal2-popup):focus{outline:none}div:where(.swal2-container) div:where(.swal2-popup).swal2-loading{overflow-y:hidden}div:where(.swal2-container) h2:where(.swal2-title){position:relative;max-width:100%;margin:0;padding:.8em 1em 0;color:inherit;font-size:1.875em;font-weight:600;text-align:center;text-transform:none;word-wrap:break-word}div:where(.swal2-container) div:where(.swal2-actions){display:flex;z-index:1;box-sizing:border-box;flex-wrap:wrap;align-items:center;justify-content:center;width:auto;margin:1.25em auto 0;padding:0}div:where(.swal2-container) div:where(.swal2-actions):not(.swal2-loading) .swal2-styled[disabled]{opacity:.4}div:where(.swal2-container) div:where(.swal2-actions):not(.swal2-loading) .swal2-styled:hover{background-image:linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1))}div:where(.swal2-container) div:where(.swal2-actions):not(.swal2-loading) .swal2-styled:active{background-image:linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2))}div:where(.swal2-container) div:where(.swal2-loader){display:none;align-items:center;justify-content:center;width:2.2em;height:2.2em;margin:0 1.875em;animation:swal2-rotate-loading 1.5s linear 0s infinite normal;border-width:.25em;border-style:solid;border-radius:100%;border-color:#2778c4 rgba(0,0,0,0) #2778c4 rgba(0,0,0,0)}div:where(.swal2-container) button:where(.swal2-styled){margin:.3125em;padding:.625em 1.1em;transition:box-shadow .1s;box-shadow:0 0 0 3px rgba(0,0,0,0);font-weight:500}div:where(.swal2-container) button:where(.swal2-styled):not([disabled]){cursor:pointer}div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm{border:0;border-radius:.25em;background:initial;background-color:#7066e0;color:#fff;font-size:1em}div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm:focus{box-shadow:0 0 0 3px rgba(112,102,224,.5)}div:where(.swal2-container) button:where(.swal2-styled).swal2-deny{border:0;border-radius:.25em;background:initial;background-color:#dc3741;color:#fff;font-size:1em}div:where(.swal2-container) button:where(.swal2-styled).swal2-deny:focus{box-shadow:0 0 0 3px rgba(220,55,65,.5)}div:where(.swal2-container) button:where(.swal2-styled).swal2-cancel{border:0;border-radius:.25em;background:initial;background-color:#6e7881;color:#fff;font-size:1em}div:where(.swal2-container) button:where(.swal2-styled).swal2-cancel:focus{box-shadow:0 0 0 3px rgba(110,120,129,.5)}div:where(.swal2-container) button:where(.swal2-styled).swal2-default-outline:focus{box-shadow:0 0 0 3px rgba(100,150,200,.5)}div:where(.swal2-container) button:where(.swal2-styled):focus{outline:none}div:where(.swal2-container) button:where(.swal2-styled)::-moz-focus-inner{border:0}div:where(.swal2-container) div:where(.swal2-footer){margin:1em 0 0;padding:1em 1em 0;border-top:1px solid #eee;color:inherit;font-size:1em;text-align:center}div:where(.swal2-container) .swal2-timer-progress-bar-container{position:absolute;right:0;bottom:0;left:0;grid-column:auto !important;overflow:hidden;border-bottom-right-radius:5px;border-bottom-left-radius:5px}div:where(.swal2-container) div:where(.swal2-timer-progress-bar){width:100%;height:.25em;background:rgba(0,0,0,.2)}div:where(.swal2-container) img:where(.swal2-image){max-width:100%;margin:2em auto 1em}div:where(.swal2-container) button:where(.swal2-close){z-index:2;align-items:center;justify-content:center;width:1.2em;height:1.2em;margin-top:0;margin-right:0;margin-bottom:-1.2em;padding:0;overflow:hidden;transition:color .1s,box-shadow .1s;border:none;border-radius:5px;background:rgba(0,0,0,0);color:#ccc;font-family:monospace;font-size:2.5em;cursor:pointer;justify-self:end}div:where(.swal2-container) button:where(.swal2-close):hover{transform:none;background:rgba(0,0,0,0);color:#f27474}div:where(.swal2-container) button:where(.swal2-close):focus{outline:none;box-shadow:inset 0 0 0 3px rgba(100,150,200,.5)}div:where(.swal2-container) button:where(.swal2-close)::-moz-focus-inner{border:0}div:where(.swal2-container) .swal2-html-container{z-index:1;justify-content:center;margin:1em 1.6em .3em;padding:0;overflow:auto;color:inherit;font-size:1.125em;font-weight:normal;line-height:normal;text-align:center;word-wrap:break-word;word-break:break-word}div:where(.swal2-container) input:where(.swal2-input),div:where(.swal2-container) input:where(.swal2-file),div:where(.swal2-container) textarea:where(.swal2-textarea),div:where(.swal2-container) select:where(.swal2-select),div:where(.swal2-container) div:where(.swal2-radio),div:where(.swal2-container) label:where(.swal2-checkbox){margin:1em 2em 3px}div:where(.swal2-container) input:where(.swal2-input),div:where(.swal2-container) input:where(.swal2-file),div:where(.swal2-container) textarea:where(.swal2-textarea){box-sizing:border-box;width:auto;transition:border-color .1s,box-shadow .1s;border:1px solid #d9d9d9;border-radius:.1875em;background:rgba(0,0,0,0);box-shadow:inset 0 1px 1px rgba(0,0,0,.06),0 0 0 3px rgba(0,0,0,0);color:inherit;font-size:1.125em}div:where(.swal2-container) input:where(.swal2-input).swal2-inputerror,div:where(.swal2-container) input:where(.swal2-file).swal2-inputerror,div:where(.swal2-container) textarea:where(.swal2-textarea).swal2-inputerror{border-color:#f27474 !important;box-shadow:0 0 2px #f27474 !important}div:where(.swal2-container) input:where(.swal2-input):focus,div:where(.swal2-container) input:where(.swal2-file):focus,div:where(.swal2-container) textarea:where(.swal2-textarea):focus{border:1px solid #b4dbed;outline:none;box-shadow:inset 0 1px 1px rgba(0,0,0,.06),0 0 0 3px rgba(100,150,200,.5)}div:where(.swal2-container) input:where(.swal2-input)::placeholder,div:where(.swal2-container) input:where(.swal2-file)::placeholder,div:where(.swal2-container) textarea:where(.swal2-textarea)::placeholder{color:#ccc}div:where(.swal2-container) .swal2-range{margin:1em 2em 3px;background:#fff}div:where(.swal2-container) .swal2-range input{width:80%}div:where(.swal2-container) .swal2-range output{width:20%;color:inherit;font-weight:600;text-align:center}div:where(.swal2-container) .swal2-range input,div:where(.swal2-container) .swal2-range output{height:2.625em;padding:0;font-size:1.125em;line-height:2.625em}div:where(.swal2-container) .swal2-input{height:2.625em;padding:0 .75em}div:where(.swal2-container) .swal2-file{width:75%;margin-right:auto;margin-left:auto;background:rgba(0,0,0,0);font-size:1.125em}div:where(.swal2-container) .swal2-textarea{height:6.75em;padding:.75em}div:where(.swal2-container) .swal2-select{min-width:50%;max-width:100%;padding:.375em .625em;background:rgba(0,0,0,0);color:inherit;font-size:1.125em}div:where(.swal2-container) .swal2-radio,div:where(.swal2-container) .swal2-checkbox{align-items:center;justify-content:center;background:#fff;color:inherit}div:where(.swal2-container) .swal2-radio label,div:where(.swal2-container) .swal2-checkbox label{margin:0 .6em;font-size:1.125em}div:where(.swal2-container) .swal2-radio input,div:where(.swal2-container) .swal2-checkbox input{flex-shrink:0;margin:0 .4em}div:where(.swal2-container) label:where(.swal2-input-label){display:flex;justify-content:center;margin:1em auto 0}div:where(.swal2-container) div:where(.swal2-validation-message){align-items:center;justify-content:center;margin:1em 0 0;padding:.625em;overflow:hidden;background:#f0f0f0;color:#666;font-size:1em;font-weight:300}div:where(.swal2-container) div:where(.swal2-validation-message)::before{content:"!";display:inline-block;width:1.5em;min-width:1.5em;height:1.5em;margin:0 .625em;border-radius:50%;background-color:#f27474;color:#fff;font-weight:600;line-height:1.5em;text-align:center}div:where(.swal2-container) .swal2-progress-steps{flex-wrap:wrap;align-items:center;max-width:100%;margin:1.25em auto;padding:0;background:rgba(0,0,0,0);font-weight:600}div:where(.swal2-container) .swal2-progress-steps li{display:inline-block;position:relative}div:where(.swal2-container) .swal2-progress-steps .swal2-progress-step{z-index:20;flex-shrink:0;width:2em;height:2em;border-radius:2em;background:#2778c4;color:#fff;line-height:2em;text-align:center}div:where(.swal2-container) .swal2-progress-steps .swal2-progress-step.swal2-active-progress-step{background:#2778c4}div:where(.swal2-container) .swal2-progress-steps .swal2-progress-step.swal2-active-progress-step~.swal2-progress-step{background:#add8e6;color:#fff}div:where(.swal2-container) .swal2-progress-steps .swal2-progress-step.swal2-active-progress-step~.swal2-progress-step-line{background:#add8e6}div:where(.swal2-container) .swal2-progress-steps .swal2-progress-step-line{z-index:10;flex-shrink:0;width:2.5em;height:.4em;margin:0 -1px;background:#2778c4}div:where(.swal2-icon){position:relative;box-sizing:content-box;justify-content:center;width:5em;height:5em;margin:2.5em auto .6em;border:0.25em solid rgba(0,0,0,0);border-radius:50%;border-color:#000;font-family:inherit;line-height:5em;cursor:default;user-select:none}div:where(.swal2-icon) .swal2-icon-content{display:flex;align-items:center;font-size:3.75em}div:where(.swal2-icon).swal2-error{border-color:#f27474;color:#f27474}div:where(.swal2-icon).swal2-error .swal2-x-mark{position:relative;flex-grow:1}div:where(.swal2-icon).swal2-error [class^=swal2-x-mark-line]{display:block;position:absolute;top:2.3125em;width:2.9375em;height:.3125em;border-radius:.125em;background-color:#f27474}div:where(.swal2-icon).swal2-error [class^=swal2-x-mark-line][class$=left]{left:1.0625em;transform:rotate(45deg)}div:where(.swal2-icon).swal2-error [class^=swal2-x-mark-line][class$=right]{right:1em;transform:rotate(-45deg)}div:where(.swal2-icon).swal2-error.swal2-icon-show{animation:swal2-animate-error-icon .5s}div:where(.swal2-icon).swal2-error.swal2-icon-show .swal2-x-mark{animation:swal2-animate-error-x-mark .5s}div:where(.swal2-icon).swal2-warning{border-color:#facea8;color:#f8bb86}div:where(.swal2-icon).swal2-warning.swal2-icon-show{animation:swal2-animate-error-icon .5s}div:where(.swal2-icon).swal2-warning.swal2-icon-show .swal2-icon-content{animation:swal2-animate-i-mark .5s}div:where(.swal2-icon).swal2-info{border-color:#9de0f6;color:#3fc3ee}div:where(.swal2-icon).swal2-info.swal2-icon-show{animation:swal2-animate-error-icon .5s}div:where(.swal2-icon).swal2-info.swal2-icon-show .swal2-icon-content{animation:swal2-animate-i-mark .8s}div:where(.swal2-icon).swal2-question{border-color:#c9dae1;color:#87adbd}div:where(.swal2-icon).swal2-question.swal2-icon-show{animation:swal2-animate-error-icon .5s}div:where(.swal2-icon).swal2-question.swal2-icon-show .swal2-icon-content{animation:swal2-animate-question-mark .8s}div:where(.swal2-icon).swal2-success{border-color:#a5dc86;color:#a5dc86}div:where(.swal2-icon).swal2-success [class^=swal2-success-circular-line]{position:absolute;width:3.75em;height:7.5em;transform:rotate(45deg);border-radius:50%}div:where(.swal2-icon).swal2-success [class^=swal2-success-circular-line][class$=left]{top:-0.4375em;left:-2.0635em;transform:rotate(-45deg);transform-origin:3.75em 3.75em;border-radius:7.5em 0 0 7.5em}div:where(.swal2-icon).swal2-success [class^=swal2-success-circular-line][class$=right]{top:-0.6875em;left:1.875em;transform:rotate(-45deg);transform-origin:0 3.75em;border-radius:0 7.5em 7.5em 0}div:where(.swal2-icon).swal2-success .swal2-success-ring{position:absolute;z-index:2;top:-0.25em;left:-0.25em;box-sizing:content-box;width:100%;height:100%;border:.25em solid rgba(165,220,134,.3);border-radius:50%}div:where(.swal2-icon).swal2-success .swal2-success-fix{position:absolute;z-index:1;top:.5em;left:1.625em;width:.4375em;height:5.625em;transform:rotate(-45deg)}div:where(.swal2-icon).swal2-success [class^=swal2-success-line]{display:block;position:absolute;z-index:2;height:.3125em;border-radius:.125em;background-color:#a5dc86}div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=tip]{top:2.875em;left:.8125em;width:1.5625em;transform:rotate(45deg)}div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long]{top:2.375em;right:.5em;width:2.9375em;transform:rotate(-45deg)}div:where(.swal2-icon).swal2-success.swal2-icon-show .swal2-success-line-tip{animation:swal2-animate-success-line-tip .75s}div:where(.swal2-icon).swal2-success.swal2-icon-show .swal2-success-line-long{animation:swal2-animate-success-line-long .75s}div:where(.swal2-icon).swal2-success.swal2-icon-show .swal2-success-circular-line-right{animation:swal2-rotate-success-circular-line 4.25s ease-in}[class^=swal2]{-webkit-tap-highlight-color:rgba(0,0,0,0)}.swal2-show{animation:swal2-show .3s}.swal2-hide{animation:swal2-hide .15s forwards}.swal2-noanimation{transition:none}.swal2-scrollbar-measure{position:absolute;top:-9999px;width:50px;height:50px;overflow:scroll}.swal2-rtl .swal2-close{margin-right:initial;margin-left:0}.swal2-rtl .swal2-timer-progress-bar{right:0;left:auto}@keyframes swal2-toast-show{0%{transform:translateY(-0.625em) rotateZ(2deg)}33%{transform:translateY(0) rotateZ(-2deg)}66%{transform:translateY(0.3125em) rotateZ(2deg)}100%{transform:translateY(0) rotateZ(0deg)}}@keyframes swal2-toast-hide{100%{transform:rotateZ(1deg);opacity:0}}@keyframes swal2-toast-animate-success-line-tip{0%{top:.5625em;left:.0625em;width:0}54%{top:.125em;left:.125em;width:0}70%{top:.625em;left:-0.25em;width:1.625em}84%{top:1.0625em;left:.75em;width:.5em}100%{top:1.125em;left:.1875em;width:.75em}}@keyframes swal2-toast-animate-success-line-long{0%{top:1.625em;right:1.375em;width:0}65%{top:1.25em;right:.9375em;width:0}84%{top:.9375em;right:0;width:1.125em}100%{top:.9375em;right:.1875em;width:1.375em}}@keyframes swal2-show{0%{transform:scale(0.7)}45%{transform:scale(1.05)}80%{transform:scale(0.95)}100%{transform:scale(1)}}@keyframes swal2-hide{0%{transform:scale(1);opacity:1}100%{transform:scale(0.5);opacity:0}}@keyframes swal2-animate-success-line-tip{0%{top:1.1875em;left:.0625em;width:0}54%{top:1.0625em;left:.125em;width:0}70%{top:2.1875em;left:-0.375em;width:3.125em}84%{top:3em;left:1.3125em;width:1.0625em}100%{top:2.8125em;left:.8125em;width:1.5625em}}@keyframes swal2-animate-success-line-long{0%{top:3.375em;right:2.875em;width:0}65%{top:3.375em;right:2.875em;width:0}84%{top:2.1875em;right:0;width:3.4375em}100%{top:2.375em;right:.5em;width:2.9375em}}@keyframes swal2-rotate-success-circular-line{0%{transform:rotate(-45deg)}5%{transform:rotate(-45deg)}12%{transform:rotate(-405deg)}100%{transform:rotate(-405deg)}}@keyframes swal2-animate-error-x-mark{0%{margin-top:1.625em;transform:scale(0.4);opacity:0}50%{margin-top:1.625em;transform:scale(0.4);opacity:0}80%{margin-top:-0.375em;transform:scale(1.15)}100%{margin-top:0;transform:scale(1);opacity:1}}@keyframes swal2-animate-error-icon{0%{transform:rotateX(100deg);opacity:0}100%{transform:rotateX(0deg);opacity:1}}@keyframes swal2-rotate-loading{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}@keyframes swal2-animate-question-mark{0%{transform:rotateY(-360deg)}100%{transform:rotateY(0)}}@keyframes swal2-animate-i-mark{0%{transform:rotateZ(45deg);opacity:0}25%{transform:rotateZ(-25deg);opacity:.4}50%{transform:rotateZ(15deg);opacity:.8}75%{transform:rotateZ(-5deg);opacity:1}100%{transform:rotateX(0);opacity:1}}body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown){overflow:hidden}body.swal2-height-auto{height:auto !important}body.swal2-no-backdrop .swal2-container{background-color:rgba(0,0,0,0) !important;pointer-events:none}body.swal2-no-backdrop .swal2-container .swal2-popup{pointer-events:all}body.swal2-no-backdrop .swal2-container .swal2-modal{box-shadow:0 0 10px rgba(0,0,0,.4)}@media print{body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown){overflow-y:scroll !important}body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown)>[aria-hidden=true]{display:none}body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown) .swal2-container{position:static !important}}body.swal2-toast-shown .swal2-container{box-sizing:border-box;width:360px;max-width:100%;background-color:rgba(0,0,0,0);pointer-events:none}body.swal2-toast-shown .swal2-container.swal2-top{inset:0 auto auto 50%;transform:translateX(-50%)}body.swal2-toast-shown .swal2-container.swal2-top-end,body.swal2-toast-shown .swal2-container.swal2-top-right{inset:0 0 auto auto}body.swal2-toast-shown .swal2-container.swal2-top-start,body.swal2-toast-shown .swal2-container.swal2-top-left{inset:0 auto auto 0}body.swal2-toast-shown .swal2-container.swal2-center-start,body.swal2-toast-shown .swal2-container.swal2-center-left{inset:50% auto auto 0;transform:translateY(-50%)}body.swal2-toast-shown .swal2-container.swal2-center{inset:50% auto auto 50%;transform:translate(-50%, -50%)}body.swal2-toast-shown .swal2-container.swal2-center-end,body.swal2-toast-shown .swal2-container.swal2-center-right{inset:50% 0 auto auto;transform:translateY(-50%)}body.swal2-toast-shown .swal2-container.swal2-bottom-start,body.swal2-toast-shown .swal2-container.swal2-bottom-left{inset:auto auto 0 0}body.swal2-toast-shown .swal2-container.swal2-bottom{inset:auto auto 0 50%;transform:translateX(-50%)}body.swal2-toast-shown .swal2-container.swal2-bottom-end,body.swal2-toast-shown .swal2-container.swal2-bottom-right{inset:auto 0 0 auto}');
   }
 });
 
@@ -20407,7 +20448,7 @@ var reset_default = "/build/_assets/reset-C3NFZ242.css";
 var app_default = "/build/_assets/app-GLBZ6X4O.css";
 
 // app/styles/headersection.css
-var headersection_default = "/build/_assets/headersection-UMECBF4P.css";
+var headersection_default = "/build/_assets/headersection-M4A6MLVY.css";
 
 // app/styles/aboutUs.css
 var aboutUs_default = "/build/_assets/aboutUs-VS45IYSK.css";
@@ -20422,10 +20463,10 @@ var friendlypayment_default = "/build/_assets/friendlypayment-43JHHGIY.css";
 var auth_default = "/build/_assets/auth-NL75BHIU.css";
 
 // app/styles/product.css
-var product_default = "/build/_assets/product-TTPC77MP.css";
+var product_default = "/build/_assets/product-757SGZ7I.css";
 
 // app/styles/cart.css
-var cart_default = "/build/_assets/cart-X7TMQUQL.css";
+var cart_default = "/build/_assets/cart-7THQU3Y2.css";
 
 // app/styles/storestyle.css
 var storestyle_default = "/build/_assets/storestyle-JHHEV2UO.css";
@@ -20828,7 +20869,7 @@ var instagram_default = "/build/_assets/instagram-47ZQEBSY.png";
 var tiktok_default = "/build/_assets/tiktok-HUTT4RIY.png";
 
 // app/src/assets/images/line.png
-var line_default = "/build/_assets/line-XK73GVJ4.png";
+var line_default = "/build/_assets/line-I45MXSLV.png";
 
 // app/src/assets/logo/LogoWHTAG.png
 var LogoWHTAG_default = "/build/_assets/LogoWHTAG-L6DCCESO.png";
@@ -29487,8 +29528,8 @@ function sortIcons(icons) {
     if (lastIcon.name === icon.name && lastIcon.prefix === icon.prefix && lastIcon.provider === icon.provider)
       return;
     lastIcon = icon;
-    let provider = icon.provider, prefix = icon.prefix, name = icon.name, providerStorage = storage2[provider] || (storage2[provider] = /* @__PURE__ */ Object.create(null)), localStorage = providerStorage[prefix] || (providerStorage[prefix] = getStorage(provider, prefix)), list2;
-    name in localStorage.icons ? list2 = result.loaded : prefix === "" || localStorage.missing.has(name) ? list2 = result.missing : list2 = result.pending;
+    let provider = icon.provider, prefix = icon.prefix, name = icon.name, providerStorage = storage2[provider] || (storage2[provider] = /* @__PURE__ */ Object.create(null)), localStorage2 = providerStorage[prefix] || (providerStorage[prefix] = getStorage(provider, prefix)), list2;
+    name in localStorage2.icons ? list2 = result.loaded : prefix === "" || localStorage2.missing.has(name) ? list2 = result.missing : list2 = result.pending;
     let item = {
       provider,
       prefix,
@@ -31161,8 +31202,8 @@ _defineProperty2(H5AudioPlayer, "defaultProps", {
 });
 var es_default = H5AudioPlayer;
 
-// app/src/assets/beat.mp3
-var beat_default = "/build/_assets/beat-MNJRW2WK.mp3";
+// app/src/assets/DeejayGato@RadioeXplosion018.mp3
+var DeejayGato_RadioeXplosion018_default = "/build/_assets/DeejayGato@RadioeXplosion018-4PSYNDKA.mp3";
 
 // app/src/Pages/Audio.jsx
 var import_jsx_dev_runtime14 = __toESM(require_jsx_dev_runtime()), Player = () => {
@@ -31190,7 +31231,7 @@ var import_jsx_dev_runtime14 = __toESM(require_jsx_dev_runtime()), Player = () =
         background: "none"
       },
       autoPlay: !0,
-      src: beat_default,
+      src: DeejayGato_RadioeXplosion018_default,
       onPlay: (e2) => console.log("onPlay"),
       customIcons: {
         play: /* @__PURE__ */ (0, import_jsx_dev_runtime14.jsxDEV)(FiPlay, { className: "play" }, void 0, !1, {
@@ -33713,7 +33754,7 @@ __export(locale_products_handle_exports, {
   meta: () => meta10
 });
 var import_react60 = __toESM(require_react());
-var import_sweetalert_react = __toESM(require_lib());
+var import_sweetalert2 = __toESM(require_sweetalert2_all());
 
 // node_modules/react-icons/pi/index.esm.js
 function PiLockSimpleLight(props) {
@@ -34022,7 +34063,13 @@ function ProductForm({ product, selectedVariant, variants }) {
       {
         disabled: !selectedVariant || !selectedVariant.availableForSale,
         onClick: () => {
-          alert("Artigo adiconado com sucesso! Bom gosto");
+          import_sweetalert2.default.fire({
+            position: "center",
+            icon: "success",
+            title: "Adicionado ao carrinho",
+            showConfirmButton: !1,
+            timer: 1500
+          });
         },
         lines: selectedVariant ? [
           {
@@ -34051,7 +34098,7 @@ function ProductOptions({ option }) {
   return /* @__PURE__ */ (0, import_jsx_dev_runtime22.jsxDEV)("div", { className: "product-options", children: [
     /* @__PURE__ */ (0, import_jsx_dev_runtime22.jsxDEV)("h5", { className: "product-name", children: option.name }, void 0, !1, {
       fileName: "app/routes/($locale).products.$handle.jsx",
-      lineNumber: 286,
+      lineNumber: 292,
       columnNumber: 7
     }, this),
     /* @__PURE__ */ (0, import_jsx_dev_runtime22.jsxDEV)("div", { className: "product-options-grid", children: option.values.map(({ value, isAvailable, isActive, to }) => /* @__PURE__ */ (0, import_jsx_dev_runtime22.jsxDEV)(
@@ -34072,23 +34119,23 @@ function ProductOptions({ option }) {
       !1,
       {
         fileName: "app/routes/($locale).products.$handle.jsx",
-        lineNumber: 290,
+        lineNumber: 296,
         columnNumber: 13
       },
       this
     )) }, void 0, !1, {
       fileName: "app/routes/($locale).products.$handle.jsx",
-      lineNumber: 287,
+      lineNumber: 293,
       columnNumber: 7
     }, this),
     /* @__PURE__ */ (0, import_jsx_dev_runtime22.jsxDEV)("br", {}, void 0, !1, {
       fileName: "app/routes/($locale).products.$handle.jsx",
-      lineNumber: 307,
+      lineNumber: 313,
       columnNumber: 7
     }, this)
   ] }, option.name, !0, {
     fileName: "app/routes/($locale).products.$handle.jsx",
-    lineNumber: 285,
+    lineNumber: 291,
     columnNumber: 5
   }, this);
 }
@@ -34105,7 +34152,7 @@ function AddToCartButton({ analytics, children, disabled, lines, onClick }) {
       !1,
       {
         fileName: "app/routes/($locale).products.$handle.jsx",
-        lineNumber: 327,
+        lineNumber: 333,
         columnNumber: 11
       },
       this
@@ -34124,7 +34171,7 @@ function AddToCartButton({ analytics, children, disabled, lines, onClick }) {
       !1,
       {
         fileName: "app/routes/($locale).products.$handle.jsx",
-        lineNumber: 332,
+        lineNumber: 338,
         columnNumber: 11
       },
       this
@@ -34132,22 +34179,22 @@ function AddToCartButton({ analytics, children, disabled, lines, onClick }) {
     /* @__PURE__ */ (0, import_jsx_dev_runtime22.jsxDEV)("span", { className: "sec", children: [
       /* @__PURE__ */ (0, import_jsx_dev_runtime22.jsxDEV)(PiLockSimpleLight, {}, void 0, !1, {
         fileName: "app/routes/($locale).products.$handle.jsx",
-        lineNumber: 341,
+        lineNumber: 347,
         columnNumber: 33
       }, this),
       " Compra 100% segura"
     ] }, void 0, !0, {
       fileName: "app/routes/($locale).products.$handle.jsx",
-      lineNumber: 341,
+      lineNumber: 347,
       columnNumber: 11
     }, this)
   ] }, void 0, !0, {
     fileName: "app/routes/($locale).products.$handle.jsx",
-    lineNumber: 326,
+    lineNumber: 332,
     columnNumber: 7
   }, this) }, void 0, !1, {
     fileName: "app/routes/($locale).products.$handle.jsx",
-    lineNumber: 324,
+    lineNumber: 330,
     columnNumber: 5
   }, this);
 }
@@ -35512,21 +35559,14 @@ var import_jsx_dev_runtime29 = __toESM(require_jsx_dev_runtime()), HeaderSection
       {
         to: "/collections/sneakers",
         className: "btn-shop-content",
-        children: [
-          /* @__PURE__ */ (0, import_jsx_dev_runtime29.jsxDEV)("span", { children: "Seu sneaker ta aqui!" }, void 0, !1, {
-            fileName: "app/src/Pages/HeaderSection.jsx",
-            lineNumber: 54,
-            columnNumber: 37
-          }, this),
-          /* @__PURE__ */ (0, import_jsx_dev_runtime29.jsxDEV)("img", { src: cart_default2, alt: "Loja" }, void 0, !1, {
-            fileName: "app/src/Pages/HeaderSection.jsx",
-            lineNumber: 55,
-            columnNumber: 34
-          }, this)
-        ]
+        children: /* @__PURE__ */ (0, import_jsx_dev_runtime29.jsxDEV)("img", { src: cart_default2, alt: "Loja" }, void 0, !1, {
+          fileName: "app/src/Pages/HeaderSection.jsx",
+          lineNumber: 54,
+          columnNumber: 34
+        }, this)
       },
       void 0,
-      !0,
+      !1,
       {
         fileName: "app/src/Pages/HeaderSection.jsx",
         lineNumber: 51,
@@ -38029,7 +38069,7 @@ var LAYOUT_QUERY = `#graphql
 `;
 
 // server-assets-manifest:@remix-run/dev/assets-manifest
-var assets_manifest_default = { entry: { module: "/build/entry.client-O4OYHUEY.js", imports: ["/build/_shared/chunk-776LNBDF.js", "/build/_shared/chunk-IEDAELJY.js", "/build/_shared/chunk-RVKSUTQJ.js", "/build/_shared/chunk-UUYB5W4Y.js", "/build/_shared/chunk-UHAUI7PR.js", "/build/_shared/chunk-BVWHYGSQ.js", "/build/_shared/chunk-RQDE2SUP.js", "/build/_shared/chunk-LSHG36UU.js", "/build/_shared/chunk-PNG5AS42.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-XXH46HOO.js", imports: ["/build/_shared/chunk-ZKZXKLJB.js", "/build/_shared/chunk-M7WDGVH5.js", "/build/_shared/chunk-67KYSFN3.js", "/build/_shared/chunk-4CDVEXN3.js", "/build/_shared/chunk-YFFDCNCL.js", "/build/_shared/chunk-ZZGC4WHV.js", "/build/_shared/chunk-62SW7VL2.js", "/build/_shared/chunk-6LEAVXOB.js", "/build/_shared/chunk-YOSDW4RD.js"], hasAction: !1, hasLoader: !0, hasErrorBoundary: !0 }, "routes/($locale).$": { id: "routes/($locale).$", parentId: "root", path: ":locale?/*", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).$-HXWSPYPZ.js", imports: void 0, hasAction: !1, hasLoader: !0, hasErrorBoundary: !1 }, "routes/($locale).[sitemap.xml]": { id: "routes/($locale).[sitemap.xml]", parentId: "root", path: ":locale?/sitemap.xml", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).[sitemap.xml]-H6EIDNVM.js", imports: void 0, hasAction: !1, hasLoader: !0, hasErrorBoundary: !1 }, "routes/($locale)._index": { id: "routes/($locale)._index", parentId: "root", path: ":locale?", index: !0, caseSensitive: void 0, module: "/build/routes/($locale)._index-4A2CFMPD.js", imports: ["/build/_shared/chunk-KS6SS4BI.js", "/build/_shared/chunk-QMFXH6PE.js", "/build/_shared/chunk-2JTT6OUV.js"], hasAction: !1, hasLoader: !0, hasErrorBoundary: !1 }, "routes/($locale).account": { id: "routes/($locale).account", parentId: "root", path: ":locale?/account", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).account-6OPN2OLC.js", imports: void 0, hasAction: !1, hasLoader: !0, hasErrorBoundary: !1 }, "routes/($locale).account.$": { id: "routes/($locale).account.$", parentId: "routes/($locale).account", path: "*", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).account.$-IDA7PP7J.js", imports: void 0, hasAction: !1, hasLoader: !0, hasErrorBoundary: !1 }, "routes/($locale).account.addresses": { id: "routes/($locale).account.addresses", parentId: "routes/($locale).account", path: "addresses", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).account.addresses-R7N7N5SG.js", imports: void 0, hasAction: !0, hasLoader: !0, hasErrorBoundary: !1 }, "routes/($locale).account.orders.$id": { id: "routes/($locale).account.orders.$id", parentId: "routes/($locale).account", path: "orders/:id", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).account.orders.$id-CHGY3326.js", imports: ["/build/_shared/chunk-6LEAVXOB.js", "/build/_shared/chunk-YOSDW4RD.js"], hasAction: !1, hasLoader: !0, hasErrorBoundary: !1 }, "routes/($locale).account.orders._index": { id: "routes/($locale).account.orders._index", parentId: "routes/($locale).account", path: "orders", index: !0, caseSensitive: void 0, module: "/build/routes/($locale).account.orders._index-EYYAJF3B.js", imports: ["/build/_shared/chunk-6LEAVXOB.js", "/build/_shared/chunk-YOSDW4RD.js"], hasAction: !1, hasLoader: !0, hasErrorBoundary: !1 }, "routes/($locale).account.profile": { id: "routes/($locale).account.profile", parentId: "routes/($locale).account", path: "profile", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).account.profile-F44PW7ZI.js", imports: void 0, hasAction: !0, hasLoader: !0, hasErrorBoundary: !1 }, "routes/($locale).account_.activate.$id.$activationToken": { id: "routes/($locale).account_.activate.$id.$activationToken", parentId: "root", path: ":locale?/account/activate/:id/:activationToken", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).account_.activate.$id.$activationToken-Y5KV6JPP.js", imports: void 0, hasAction: !0, hasLoader: !0, hasErrorBoundary: !1 }, "routes/($locale).account_.login": { id: "routes/($locale).account_.login", parentId: "root", path: ":locale?/account/login", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).account_.login-WLMY5BX5.js", imports: ["/build/_shared/chunk-QMFXH6PE.js", "/build/_shared/chunk-2YAGQO5N.js"], hasAction: !0, hasLoader: !0, hasErrorBoundary: !1 }, "routes/($locale).account_.logout": { id: "routes/($locale).account_.logout", parentId: "root", path: ":locale?/account/logout", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).account_.logout-J2NHWJXC.js", imports: void 0, hasAction: !0, hasLoader: !0, hasErrorBoundary: !1 }, "routes/($locale).account_.recover": { id: "routes/($locale).account_.recover", parentId: "root", path: ":locale?/account/recover", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).account_.recover-KA73VHI3.js", imports: ["/build/_shared/chunk-2YAGQO5N.js"], hasAction: !0, hasLoader: !0, hasErrorBoundary: !1 }, "routes/($locale).account_.register": { id: "routes/($locale).account_.register", parentId: "root", path: ":locale?/account/register", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).account_.register-AUSCU5EZ.js", imports: ["/build/_shared/chunk-QMFXH6PE.js", "/build/_shared/chunk-2YAGQO5N.js"], hasAction: !0, hasLoader: !0, hasErrorBoundary: !1 }, "routes/($locale).account_.reset.$id.$resetToken": { id: "routes/($locale).account_.reset.$id.$resetToken", parentId: "root", path: ":locale?/account/reset/:id/:resetToken", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).account_.reset.$id.$resetToken-7RJEUKMX.js", imports: void 0, hasAction: !0, hasLoader: !1, hasErrorBoundary: !1 }, "routes/($locale).api.predictive-search": { id: "routes/($locale).api.predictive-search", parentId: "root", path: ":locale?/api/predictive-search", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).api.predictive-search-6SBFKV26.js", imports: void 0, hasAction: !0, hasLoader: !1, hasErrorBoundary: !1 }, "routes/($locale).blogs.$blogHandle.$articleHandle": { id: "routes/($locale).blogs.$blogHandle.$articleHandle", parentId: "root", path: ":locale?/blogs/:blogHandle/:articleHandle", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).blogs.$blogHandle.$articleHandle-VRYWZRIU.js", imports: void 0, hasAction: !1, hasLoader: !0, hasErrorBoundary: !1 }, "routes/($locale).blogs.$blogHandle._index": { id: "routes/($locale).blogs.$blogHandle._index", parentId: "root", path: ":locale?/blogs/:blogHandle", index: !0, caseSensitive: void 0, module: "/build/routes/($locale).blogs.$blogHandle._index-TD26ZL5Z.js", imports: void 0, hasAction: !1, hasLoader: !0, hasErrorBoundary: !1 }, "routes/($locale).blogs._index": { id: "routes/($locale).blogs._index", parentId: "root", path: ":locale?/blogs", index: !0, caseSensitive: void 0, module: "/build/routes/($locale).blogs._index-TQZAROHP.js", imports: void 0, hasAction: !1, hasLoader: !0, hasErrorBoundary: !1 }, "routes/($locale).cart": { id: "routes/($locale).cart", parentId: "root", path: ":locale?/cart", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).cart-I676B2W3.js", imports: void 0, hasAction: !0, hasLoader: !1, hasErrorBoundary: !1 }, "routes/($locale).cart.$lines": { id: "routes/($locale).cart.$lines", parentId: "routes/($locale).cart", path: ":lines", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).cart.$lines-EZBCI46M.js", imports: void 0, hasAction: !1, hasLoader: !0, hasErrorBoundary: !1 }, "routes/($locale).collections.$handle": { id: "routes/($locale).collections.$handle", parentId: "root", path: ":locale?/collections/:handle", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).collections.$handle-K2GRNSEO.js", imports: ["/build/_shared/chunk-KS6SS4BI.js", "/build/_shared/chunk-2YAGQO5N.js", "/build/_shared/chunk-2JTT6OUV.js"], hasAction: !1, hasLoader: !0, hasErrorBoundary: !1 }, "routes/($locale).collections._index": { id: "routes/($locale).collections._index", parentId: "root", path: ":locale?/collections", index: !0, caseSensitive: void 0, module: "/build/routes/($locale).collections._index-PCBUMOPY.js", imports: ["/build/_shared/chunk-2YAGQO5N.js"], hasAction: !1, hasLoader: !0, hasErrorBoundary: !1 }, "routes/($locale).discount.$code": { id: "routes/($locale).discount.$code", parentId: "root", path: ":locale?/discount/:code", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).discount.$code-YCTJBBXD.js", imports: void 0, hasAction: !1, hasLoader: !0, hasErrorBoundary: !1 }, "routes/($locale).pages.$handle": { id: "routes/($locale).pages.$handle", parentId: "root", path: ":locale?/pages/:handle", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).pages.$handle-WOWGA4LO.js", imports: void 0, hasAction: !1, hasLoader: !0, hasErrorBoundary: !1 }, "routes/($locale).policies.$handle": { id: "routes/($locale).policies.$handle", parentId: "root", path: ":locale?/policies/:handle", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).policies.$handle-DTO2ZGSL.js", imports: void 0, hasAction: !1, hasLoader: !0, hasErrorBoundary: !1 }, "routes/($locale).policies._index": { id: "routes/($locale).policies._index", parentId: "root", path: ":locale?/policies", index: !0, caseSensitive: void 0, module: "/build/routes/($locale).policies._index-HGCRJSBV.js", imports: void 0, hasAction: !1, hasLoader: !0, hasErrorBoundary: !1 }, "routes/($locale).products.$handle": { id: "routes/($locale).products.$handle", parentId: "root", path: ":locale?/products/:handle", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).products.$handle-B7MV3RZ5.js", imports: ["/build/_shared/chunk-2JTT6OUV.js"], hasAction: !1, hasLoader: !0, hasErrorBoundary: !1 }, "routes/($locale).search": { id: "routes/($locale).search", parentId: "root", path: ":locale?/search", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).search-B2VAB33Z.js", imports: void 0, hasAction: !1, hasLoader: !0, hasErrorBoundary: !1 }, "routes/[robots.txt]": { id: "routes/[robots.txt]", parentId: "root", path: "robots.txt", index: void 0, caseSensitive: void 0, module: "/build/routes/[robots.txt]-QXQTRBVC.js", imports: void 0, hasAction: !1, hasLoader: !0, hasErrorBoundary: !0 }, "virtual-routes/routes/debug-network": { id: "virtual-routes/routes/debug-network", parentId: "virtual-routes/virtual-root", path: "debug-network", index: void 0, caseSensitive: void 0, module: "/build/virtual-routes/routes/debug-network-ZI4RONSX.js", imports: void 0, hasAction: !1, hasLoader: !1, hasErrorBoundary: !1 }, "virtual-routes/routes/graphiql": { id: "virtual-routes/routes/graphiql", parentId: "virtual-routes/virtual-root", path: "graphiql", index: void 0, caseSensitive: void 0, module: "/build/virtual-routes/routes/graphiql-IUV5DDHT.js", imports: void 0, hasAction: !1, hasLoader: !0, hasErrorBoundary: !1 }, "virtual-routes/routes/index": { id: "virtual-routes/routes/index", parentId: "virtual-routes/virtual-root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/virtual-routes/routes/index-XLMXFQD4.js", imports: void 0, hasAction: !1, hasLoader: !0, hasErrorBoundary: !0 }, "virtual-routes/virtual-root": { id: "virtual-routes/virtual-root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/virtual-routes/virtual-root-4JCHG57C.js", imports: ["/build/_shared/chunk-Z7RIBLB2.js", "/build/_shared/chunk-6LEAVXOB.js", "/build/_shared/chunk-YOSDW4RD.js"], hasAction: !1, hasLoader: !1, hasErrorBoundary: !0 } }, version: "f0bbf934", hmr: { runtime: "/build/_shared/chunk-RQDE2SUP.js", timestamp: 1704750013384 }, url: "/build/manifest-F0BBF934.js" };
+var assets_manifest_default = { entry: { module: "/build/entry.client-O4OYHUEY.js", imports: ["/build/_shared/chunk-776LNBDF.js", "/build/_shared/chunk-IEDAELJY.js", "/build/_shared/chunk-RVKSUTQJ.js", "/build/_shared/chunk-UUYB5W4Y.js", "/build/_shared/chunk-UHAUI7PR.js", "/build/_shared/chunk-BVWHYGSQ.js", "/build/_shared/chunk-RQDE2SUP.js", "/build/_shared/chunk-LSHG36UU.js", "/build/_shared/chunk-PNG5AS42.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-DLG24YXF.js", imports: ["/build/_shared/chunk-MG2H3D7O.js", "/build/_shared/chunk-SOMPN672.js", "/build/_shared/chunk-67KYSFN3.js", "/build/_shared/chunk-4CDVEXN3.js", "/build/_shared/chunk-YFFDCNCL.js", "/build/_shared/chunk-ZZGC4WHV.js", "/build/_shared/chunk-62SW7VL2.js", "/build/_shared/chunk-6LEAVXOB.js", "/build/_shared/chunk-YOSDW4RD.js"], hasAction: !1, hasLoader: !0, hasErrorBoundary: !0 }, "routes/($locale).$": { id: "routes/($locale).$", parentId: "root", path: ":locale?/*", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).$-HXWSPYPZ.js", imports: void 0, hasAction: !1, hasLoader: !0, hasErrorBoundary: !1 }, "routes/($locale).[sitemap.xml]": { id: "routes/($locale).[sitemap.xml]", parentId: "root", path: ":locale?/sitemap.xml", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).[sitemap.xml]-H6EIDNVM.js", imports: void 0, hasAction: !1, hasLoader: !0, hasErrorBoundary: !1 }, "routes/($locale)._index": { id: "routes/($locale)._index", parentId: "root", path: ":locale?", index: !0, caseSensitive: void 0, module: "/build/routes/($locale)._index-3PGUEMCD.js", imports: ["/build/_shared/chunk-GIOWOKPE.js", "/build/_shared/chunk-QMFXH6PE.js", "/build/_shared/chunk-2JTT6OUV.js"], hasAction: !1, hasLoader: !0, hasErrorBoundary: !1 }, "routes/($locale).account": { id: "routes/($locale).account", parentId: "root", path: ":locale?/account", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).account-6OPN2OLC.js", imports: void 0, hasAction: !1, hasLoader: !0, hasErrorBoundary: !1 }, "routes/($locale).account.$": { id: "routes/($locale).account.$", parentId: "routes/($locale).account", path: "*", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).account.$-IDA7PP7J.js", imports: void 0, hasAction: !1, hasLoader: !0, hasErrorBoundary: !1 }, "routes/($locale).account.addresses": { id: "routes/($locale).account.addresses", parentId: "routes/($locale).account", path: "addresses", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).account.addresses-R7N7N5SG.js", imports: void 0, hasAction: !0, hasLoader: !0, hasErrorBoundary: !1 }, "routes/($locale).account.orders.$id": { id: "routes/($locale).account.orders.$id", parentId: "routes/($locale).account", path: "orders/:id", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).account.orders.$id-CHGY3326.js", imports: ["/build/_shared/chunk-6LEAVXOB.js", "/build/_shared/chunk-YOSDW4RD.js"], hasAction: !1, hasLoader: !0, hasErrorBoundary: !1 }, "routes/($locale).account.orders._index": { id: "routes/($locale).account.orders._index", parentId: "routes/($locale).account", path: "orders", index: !0, caseSensitive: void 0, module: "/build/routes/($locale).account.orders._index-EYYAJF3B.js", imports: ["/build/_shared/chunk-6LEAVXOB.js", "/build/_shared/chunk-YOSDW4RD.js"], hasAction: !1, hasLoader: !0, hasErrorBoundary: !1 }, "routes/($locale).account.profile": { id: "routes/($locale).account.profile", parentId: "routes/($locale).account", path: "profile", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).account.profile-F44PW7ZI.js", imports: void 0, hasAction: !0, hasLoader: !0, hasErrorBoundary: !1 }, "routes/($locale).account_.activate.$id.$activationToken": { id: "routes/($locale).account_.activate.$id.$activationToken", parentId: "root", path: ":locale?/account/activate/:id/:activationToken", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).account_.activate.$id.$activationToken-Y5KV6JPP.js", imports: void 0, hasAction: !0, hasLoader: !0, hasErrorBoundary: !1 }, "routes/($locale).account_.login": { id: "routes/($locale).account_.login", parentId: "root", path: ":locale?/account/login", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).account_.login-WLMY5BX5.js", imports: ["/build/_shared/chunk-QMFXH6PE.js", "/build/_shared/chunk-2YAGQO5N.js"], hasAction: !0, hasLoader: !0, hasErrorBoundary: !1 }, "routes/($locale).account_.logout": { id: "routes/($locale).account_.logout", parentId: "root", path: ":locale?/account/logout", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).account_.logout-J2NHWJXC.js", imports: void 0, hasAction: !0, hasLoader: !0, hasErrorBoundary: !1 }, "routes/($locale).account_.recover": { id: "routes/($locale).account_.recover", parentId: "root", path: ":locale?/account/recover", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).account_.recover-KA73VHI3.js", imports: ["/build/_shared/chunk-2YAGQO5N.js"], hasAction: !0, hasLoader: !0, hasErrorBoundary: !1 }, "routes/($locale).account_.register": { id: "routes/($locale).account_.register", parentId: "root", path: ":locale?/account/register", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).account_.register-AUSCU5EZ.js", imports: ["/build/_shared/chunk-QMFXH6PE.js", "/build/_shared/chunk-2YAGQO5N.js"], hasAction: !0, hasLoader: !0, hasErrorBoundary: !1 }, "routes/($locale).account_.reset.$id.$resetToken": { id: "routes/($locale).account_.reset.$id.$resetToken", parentId: "root", path: ":locale?/account/reset/:id/:resetToken", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).account_.reset.$id.$resetToken-7RJEUKMX.js", imports: void 0, hasAction: !0, hasLoader: !1, hasErrorBoundary: !1 }, "routes/($locale).api.predictive-search": { id: "routes/($locale).api.predictive-search", parentId: "root", path: ":locale?/api/predictive-search", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).api.predictive-search-6SBFKV26.js", imports: void 0, hasAction: !0, hasLoader: !1, hasErrorBoundary: !1 }, "routes/($locale).blogs.$blogHandle.$articleHandle": { id: "routes/($locale).blogs.$blogHandle.$articleHandle", parentId: "root", path: ":locale?/blogs/:blogHandle/:articleHandle", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).blogs.$blogHandle.$articleHandle-VRYWZRIU.js", imports: void 0, hasAction: !1, hasLoader: !0, hasErrorBoundary: !1 }, "routes/($locale).blogs.$blogHandle._index": { id: "routes/($locale).blogs.$blogHandle._index", parentId: "root", path: ":locale?/blogs/:blogHandle", index: !0, caseSensitive: void 0, module: "/build/routes/($locale).blogs.$blogHandle._index-TD26ZL5Z.js", imports: void 0, hasAction: !1, hasLoader: !0, hasErrorBoundary: !1 }, "routes/($locale).blogs._index": { id: "routes/($locale).blogs._index", parentId: "root", path: ":locale?/blogs", index: !0, caseSensitive: void 0, module: "/build/routes/($locale).blogs._index-TQZAROHP.js", imports: void 0, hasAction: !1, hasLoader: !0, hasErrorBoundary: !1 }, "routes/($locale).cart": { id: "routes/($locale).cart", parentId: "root", path: ":locale?/cart", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).cart-Q4LKPMZP.js", imports: void 0, hasAction: !0, hasLoader: !1, hasErrorBoundary: !1 }, "routes/($locale).cart.$lines": { id: "routes/($locale).cart.$lines", parentId: "routes/($locale).cart", path: ":lines", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).cart.$lines-EZBCI46M.js", imports: void 0, hasAction: !1, hasLoader: !0, hasErrorBoundary: !1 }, "routes/($locale).collections.$handle": { id: "routes/($locale).collections.$handle", parentId: "root", path: ":locale?/collections/:handle", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).collections.$handle-UAWQI3OE.js", imports: ["/build/_shared/chunk-GIOWOKPE.js", "/build/_shared/chunk-2YAGQO5N.js", "/build/_shared/chunk-2JTT6OUV.js"], hasAction: !1, hasLoader: !0, hasErrorBoundary: !1 }, "routes/($locale).collections._index": { id: "routes/($locale).collections._index", parentId: "root", path: ":locale?/collections", index: !0, caseSensitive: void 0, module: "/build/routes/($locale).collections._index-PCBUMOPY.js", imports: ["/build/_shared/chunk-2YAGQO5N.js"], hasAction: !1, hasLoader: !0, hasErrorBoundary: !1 }, "routes/($locale).discount.$code": { id: "routes/($locale).discount.$code", parentId: "root", path: ":locale?/discount/:code", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).discount.$code-YCTJBBXD.js", imports: void 0, hasAction: !1, hasLoader: !0, hasErrorBoundary: !1 }, "routes/($locale).pages.$handle": { id: "routes/($locale).pages.$handle", parentId: "root", path: ":locale?/pages/:handle", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).pages.$handle-WOWGA4LO.js", imports: void 0, hasAction: !1, hasLoader: !0, hasErrorBoundary: !1 }, "routes/($locale).policies.$handle": { id: "routes/($locale).policies.$handle", parentId: "root", path: ":locale?/policies/:handle", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).policies.$handle-DTO2ZGSL.js", imports: void 0, hasAction: !1, hasLoader: !0, hasErrorBoundary: !1 }, "routes/($locale).policies._index": { id: "routes/($locale).policies._index", parentId: "root", path: ":locale?/policies", index: !0, caseSensitive: void 0, module: "/build/routes/($locale).policies._index-HGCRJSBV.js", imports: void 0, hasAction: !1, hasLoader: !0, hasErrorBoundary: !1 }, "routes/($locale).products.$handle": { id: "routes/($locale).products.$handle", parentId: "root", path: ":locale?/products/:handle", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).products.$handle-7JKOP5AI.js", imports: ["/build/_shared/chunk-2JTT6OUV.js"], hasAction: !1, hasLoader: !0, hasErrorBoundary: !1 }, "routes/($locale).search": { id: "routes/($locale).search", parentId: "root", path: ":locale?/search", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).search-B2VAB33Z.js", imports: void 0, hasAction: !1, hasLoader: !0, hasErrorBoundary: !1 }, "routes/[robots.txt]": { id: "routes/[robots.txt]", parentId: "root", path: "robots.txt", index: void 0, caseSensitive: void 0, module: "/build/routes/[robots.txt]-QXQTRBVC.js", imports: void 0, hasAction: !1, hasLoader: !0, hasErrorBoundary: !0 }, "virtual-routes/routes/debug-network": { id: "virtual-routes/routes/debug-network", parentId: "virtual-routes/virtual-root", path: "debug-network", index: void 0, caseSensitive: void 0, module: "/build/virtual-routes/routes/debug-network-ZI4RONSX.js", imports: void 0, hasAction: !1, hasLoader: !1, hasErrorBoundary: !1 }, "virtual-routes/routes/graphiql": { id: "virtual-routes/routes/graphiql", parentId: "virtual-routes/virtual-root", path: "graphiql", index: void 0, caseSensitive: void 0, module: "/build/virtual-routes/routes/graphiql-IUV5DDHT.js", imports: void 0, hasAction: !1, hasLoader: !0, hasErrorBoundary: !1 }, "virtual-routes/routes/index": { id: "virtual-routes/routes/index", parentId: "virtual-routes/virtual-root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/virtual-routes/routes/index-XLMXFQD4.js", imports: void 0, hasAction: !1, hasLoader: !0, hasErrorBoundary: !0 }, "virtual-routes/virtual-root": { id: "virtual-routes/virtual-root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/virtual-routes/virtual-root-4JCHG57C.js", imports: ["/build/_shared/chunk-Z7RIBLB2.js", "/build/_shared/chunk-6LEAVXOB.js", "/build/_shared/chunk-YOSDW4RD.js"], hasAction: !1, hasLoader: !1, hasErrorBoundary: !0 } }, version: "05f9092c", hmr: { runtime: "/build/_shared/chunk-RQDE2SUP.js", timestamp: 1704816204822 }, url: "/build/manifest-05F9092C.js" };
 
 // server-entry-module:@remix-run/dev/server-build
 var mode = "development", assetsBuildDirectory = "dist/client/build", future = {}, publicPath = "/build/", entry = { module: entry_server_exports }, routes = {
@@ -38612,21 +38652,10 @@ react/cjs/react-jsx-dev-runtime.development.js:
    * LICENSE file in the root directory of this source tree.
    *)
 
-react-is/cjs/react-is.development.js:
-  (** @license React v16.13.1
-   * react-is.development.js
-   *
-   * Copyright (c) Facebook, Inc. and its affiliates.
-   *
-   * This source code is licensed under the MIT license found in the
-   * LICENSE file in the root directory of this source tree.
-   *)
-
-object-assign/index.js:
-  (*
-  object-assign
-  (c) Sindre Sorhus
-  @license MIT
+sweetalert2/dist/sweetalert2.all.js:
+  (*!
+  * sweetalert2 v11.10.2
+  * Released under the MIT License.
   *)
 
 @remix-run/react/dist/esm/_virtual/_rollupPluginBabelHelpers.js:

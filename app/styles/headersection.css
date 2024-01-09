@@ -93,7 +93,7 @@
     border: 1px solid #FFF;
     margin-left: 10px;
     margin-top: -3px;
-    padding: 3px;
+    padding: 7px;
    
     display: flex;
     align-items: center;
@@ -118,3 +118,5 @@
     color: #FFF;
     font-family: 'Kanit-Light';
 }
+
+.btn-shop-content{}
