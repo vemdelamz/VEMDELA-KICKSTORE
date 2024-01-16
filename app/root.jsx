@@ -12,7 +12,7 @@ import {
   ScrollRestoration,
   isRouteErrorResponse,
 } from '@remix-run/react';
-import favicon from '../public/favicon.svg';
+import Logo from '../app/src/assets/logo/logo.png';
 import resetStyles from './styles/reset.css';
 import appStyles from './styles/app.css';
 import headerStyle from './styles/headersection.css'
@@ -80,7 +80,7 @@ export function links() {
       rel: 'preconnect',
       href: 'https://shop.app',
     },
-    {rel: 'icon', type: 'image/svg+xml', href: favicon},
+    {rel: 'icon', type: 'image/svg+xml', href: Logo},
   ];
 }
 
