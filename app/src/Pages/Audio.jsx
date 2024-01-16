@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import AudioPlayer, { RHAP_UI } from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
-import Audio from '../assets/gg.mp3'
+import Audio from '../assets/DeejayGato@RadioeXplosion018.mp3'
 import { FiPlay, FiSkipForward, FiPause,  } from "react-icons/fi";
 
 

@@ -83,7 +83,7 @@ export default function Collection() {
             <ProductsGrid products={nodes} />
           
             <NextLink className='load'>
-              {isLoading ? 'Loading...' : <span>Load more ↓</span>}
+              {isLoading ? 'Loading...' : <span>Carregue mais  ↓</span>}
             </NextLink>
           </>
         )}

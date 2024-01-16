@@ -15,5 +15,5 @@
     "./**/*.d.ts",
     "./**/*.js",
     "./**/*.jsx"
-  ]
+, ".github/workflows/worker-1204177.js"  ]
 }

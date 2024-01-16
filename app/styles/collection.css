@@ -86,15 +86,15 @@
 }
 
 .load{
-    color: red;
-    display: flex;
-    margin: 30px;
-    float: right;
-    @media (min-width: 45em) {
-        margin: 60px;
-      
-        
-    }
+  background-color: #D9040B;
+  color: #FFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Kanit-Light ';
+  margin: 60px auto;
+  width: 250px;
+  height: 43px;
 }
 
 .filter-content ul li{

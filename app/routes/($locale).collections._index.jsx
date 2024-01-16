@@ -33,8 +33,8 @@ export default function Collections() {
               {isLoading ? 'Loading...' : <span>↑ Load previous</span>}
             </PreviousLink>
             <CollectionsGrid collections={nodes} />
-            <NextLink>
-              {isLoading ? 'Loading...' : <span>Load more ↓</span>}
+            <NextLink className='load'>
+              {isLoading ? 'Loading...' : <span>Carregue mais  ↓</span>}
             </NextLink>
           </div>
         )}

@@ -58,6 +58,7 @@ aside {
   right: calc(-1 * var(--aside-width));
   top: 0;
   transition: transform 200ms ease-in-out;
+  color: #FFF;
  
  
 
@@ -78,12 +79,13 @@ aside header {
   height: var(--header-height);
   justify-content: space-between;
   padding: 0 20px;
+  color: #FFF;
 
 }
 
 aside header h3 {
   margin: 0;
-  color: #FFF;
+  color: #FFF !important;
 }
 
 
@@ -99,6 +101,7 @@ aside header .close {
 
 aside header .close:hover {
   opacity: 1;
+  color: #FFF !important;
 }
 aside input{
   background: #121214;
@@ -112,6 +115,7 @@ aside button{
 aside header h2 {
   margin-bottom: 0.6rem;
   margin-top: 0;
+  color: #FFF !important;
 
   
 }
