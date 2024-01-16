@@ -12,7 +12,7 @@ import {
   ScrollRestoration,
   isRouteErrorResponse,
 } from '@remix-run/react';
-import Logo from '../app/src/assets/logo/logo.png';
+import Logo from '../app/src/assets/logo/LOGO/PNG/resposive.png';
 import resetStyles from './styles/reset.css';
 import appStyles from './styles/app.css';
 import headerStyle from './styles/headersection.css'
